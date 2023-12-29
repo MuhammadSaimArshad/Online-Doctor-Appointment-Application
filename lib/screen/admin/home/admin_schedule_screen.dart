@@ -1,0 +1,165 @@
+import 'package:doc_bookr/screen/admin/schedule/admin_canceled_schedule.dart';
+import 'package:doc_bookr/screen/admin/schedule/admin_complete_schedule.dart';
+import 'package:doc_bookr/screen/admin/schedule/admin_upcoming_schedule.dart';
+
+import 'package:flutter/material.dart';
+
+class AdminScheduleScreen extends StatefulWidget {
+  @override
+  State<AdminScheduleScreen> createState() => _AdminScheduleScreenState();
+}
+
+class _AdminScheduleScreenState extends State<AdminScheduleScreen> {
+  int _buttonIndex = 0;
+  final _scheduleWidgets = [
+    AdminUpcomingSchedule(),
+    AdminCompleteSchedule(),
+    AdminCanceledSchedule(),
+  ];
+  var height, width;
+  @override
+  Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.only(top: 20),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: width * 0.05,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
+                  Text(
+                    "Schedule",
+                    style: TextStyle(
+                        fontSize: width * 0.05, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: height * 0.05,
+              ),
+              Container(
+                padding: EdgeInsets.all(15),
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Color(0xFFF4F6FA),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          _buttonIndex = 0;
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        decoration: BoxDecoration(
+                          color: _buttonIndex == 0
+                              ? Color(0xff0EBE7F)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          "Upcoming",
+                          style: TextStyle(
+                            fontSize: width * 0.03,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 0
+                                ? Colors.white
+                                : Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          _buttonIndex = 1;
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        decoration: BoxDecoration(
+                          color: _buttonIndex == 1
+                              ? Color(0xff0EBE7F)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          "Completed",
+                          style: TextStyle(
+                            fontSize: width * 0.03,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 1
+                                ? Colors.white
+                                : Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          _buttonIndex = 2;
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        decoration: BoxDecoration(
+                          color: _buttonIndex == 2
+                              ? Color(0xff0EBE7F)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          "Canceled",
+                          style: TextStyle(
+                            fontSize: width * 0.03,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 2
+                                ? Colors.white
+                                : Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: height * 0.06,
+              ),
+              _scheduleWidgets[_buttonIndex],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
