@@ -36,6 +36,31 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: 
+  email_validator: 
+  firebase_messaging: ^14.7.4
+  get: 
+  firebase_core: 
+  cloud_firestore: 
+  firebase_storage: 
+  image_picker: 
+  uuid: 
+  shared_preferences:
+  flutter_webrtc:
+  http:
+  get_time_ago: 
+  awesome_notifications:
+  firebase_auth: 
+  url_launcher: 
+  flutter_local_notifications:
+  firebase_analytics:
+  fluttertoast:
+  flutter_rating_bar:
+  date_picker_timeline: 
+  intl:
+  cron: 
+  flutter_spinkit:
+  cached_network_image: ^3.2.3
+  emoji_picker_flutter: ^1.5.1
 
 dev_dependencies:
   flutter_test:

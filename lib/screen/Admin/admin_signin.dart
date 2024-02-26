@@ -1,0 +1,157 @@
+import 'package:doc_bookr/screen/Admin/Admin_home_navbar.dart';
+import 'package:flutter/material.dart';
+
+class AdminSignIn extends StatefulWidget {
+  const AdminSignIn({super.key});
+
+  @override
+  State<AdminSignIn> createState() => _AdminSignInState();
+}
+
+class _AdminSignInState extends State<AdminSignIn> {
+  var height, width;
+  @override
+  Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          height: height,
+          width: width,
+          color: Colors.white,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: height * 0.35,
+                  width: width,
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: height * 0.35,
+                        width: width,
+                        decoration: BoxDecoration(
+                            color: Color(0xff0EBE7F),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(width * 0.05),
+                                bottomRight: Radius.circular(width * 0.05))),
+                      ),
+                      Container(
+                        height: height * 0.3,
+                        width: width,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 59, 219, 163),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(width * 0.05),
+                                bottomRight: Radius.circular(width * 0.05))),
+                      ),
+                      Container(
+                        height: height * 0.25,
+                        width: width,
+                        decoration: BoxDecoration(
+                            color: Color(0xff0EBE7F),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(width * 0.05),
+                                bottomRight: Radius.circular(width * 0.05))),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.05,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("Full Name"),
+                      prefixIcon: Icon(Icons.person_outline),
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your full name';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("E Mail"),
+                      prefixIcon: Icon(Icons.person_outline),
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your full name';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text("Password"),
+                      prefixIcon: Icon(Icons.person_outline),
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your full name';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.03,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Admin_Home_Navbar_Screen(),
+                        ));
+                  },
+                  child: Container(
+                    height: height * 0.07,
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(width * 0.02),
+                      color: Color(0xff0EBE7F),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "SignIn",
+                        style: TextStyle(
+                            fontSize: width * 0.04,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

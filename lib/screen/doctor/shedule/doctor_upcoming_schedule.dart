@@ -1,17 +1,13 @@
-// ignore_for_file: override_on_non_overriding_member
-
 import 'package:flutter/material.dart';
 
-class AdminCompleteSchedule extends StatefulWidget {
-  const AdminCompleteSchedule({super.key});
+class DoctorUpcomingSchedule extends StatefulWidget {
+  const DoctorUpcomingSchedule({Key? key}) : super(key: key);
 
   @override
-  State<AdminCompleteSchedule> createState() => _AdminCompleteScheduleState();
+  State<DoctorUpcomingSchedule> createState() => _DoctorUpcomingScheduleState();
 }
 
-class _AdminCompleteScheduleState extends State<AdminCompleteSchedule> {
-  double fullrating = 0;
-
+class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -50,7 +46,7 @@ class _AdminCompleteScheduleState extends State<AdminCompleteSchedule> {
                     "Muahmmad saim",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  subtitle: const Text("03001212123",
+                  subtitle: const Text("03001213123",
                       style: TextStyle(fontWeight: FontWeight.w400)),
                   trailing: CircleAvatar(
                     radius: width * 0.08,
@@ -82,15 +78,40 @@ class _AdminCompleteScheduleState extends State<AdminCompleteSchedule> {
                     ),
                     CircleAvatar(
                       radius: width * 0.015,
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Colors.green,
                     ),
                     SizedBox(
                       width: width * 0.02,
                     ),
-                    const Text("Completed",
+                    const Text("Pending",
                         style: TextStyle(fontWeight: FontWeight.bold)),
                   ],
                 ),
+                SizedBox(
+                  height: height * 0.015,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: height * 0.066,
+                      width: width * 0.35,
+                      decoration: BoxDecoration(
+                        color: Color(0xff0EBE7F),
+                        borderRadius: BorderRadius.circular(width * 0.02),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Accept",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
           ),

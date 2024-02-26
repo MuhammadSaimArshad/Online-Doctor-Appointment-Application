@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AdminAddreport extends StatefulWidget {
-  const AdminAddreport({super.key});
+class DoctorAddReportScreen extends StatefulWidget {
+  const DoctorAddReportScreen({super.key});
 
   @override
-  State<AdminAddreport> createState() => _AdminAddreportState();
+  State<DoctorAddReportScreen> createState() => _DoctorAddReportScreenState();
 }
 
-class _AdminAddreportState extends State<AdminAddreport> {
+class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
   var height, width;
   @override
   Widget build(BuildContext context) {

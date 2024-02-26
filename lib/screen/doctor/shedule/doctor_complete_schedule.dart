@@ -1,13 +1,17 @@
+// ignore_for_file: override_on_non_overriding_member
+
 import 'package:flutter/material.dart';
 
-class AdminCanceledSchedule extends StatefulWidget {
-  const AdminCanceledSchedule({super.key});
+class DoctorCompleteSchedule extends StatefulWidget {
+  const DoctorCompleteSchedule({super.key});
 
   @override
-  State<AdminCanceledSchedule> createState() => _AdminCanceledScheduleState();
+  State<DoctorCompleteSchedule> createState() => _DoctorCompleteScheduleState();
 }
 
-class _AdminCanceledScheduleState extends State<AdminCanceledSchedule> {
+class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
+  double fullrating = 0;
+
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,7 @@ class _AdminCanceledScheduleState extends State<AdminCanceledSchedule> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: const Text("03001212123",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.w400)),
                   trailing: CircleAvatar(
                     radius: width * 0.08,
                   ),
@@ -78,12 +82,12 @@ class _AdminCanceledScheduleState extends State<AdminCanceledSchedule> {
                     ),
                     CircleAvatar(
                       radius: width * 0.015,
-                      backgroundColor: Colors.green,
+                      backgroundColor: Colors.blue,
                     ),
                     SizedBox(
                       width: width * 0.02,
                     ),
-                    const Text("Cancel",
+                    const Text("Completed",
                         style: TextStyle(fontWeight: FontWeight.bold)),
                   ],
                 ),

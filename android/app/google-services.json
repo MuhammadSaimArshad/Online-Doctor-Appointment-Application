@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687326086004",
+    "project_id": "time-to-thrive",
+    "storage_bucket": "time-to-thrive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687326086004:android:aced9630c45210c1a9a221",
+        "android_client_info": {
+          "package_name": "com.example.doc_bookr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPMaq-V-e4CIgmwGmpohM-gIYhzGztfb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

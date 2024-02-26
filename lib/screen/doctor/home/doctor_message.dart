@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AdminMessageScreen extends StatefulWidget {
-  const AdminMessageScreen({super.key});
+class DoctorMessageScreen extends StatefulWidget {
+  const DoctorMessageScreen({super.key});
 
   @override
-  State<AdminMessageScreen> createState() => _AdminMessageScreenState();
+  State<DoctorMessageScreen> createState() => _DoctorMessageScreenState();
 }
 
-class _AdminMessageScreenState extends State<AdminMessageScreen> {
+class _DoctorMessageScreenState extends State<DoctorMessageScreen> {
   var height, width;
   @override
   Widget build(BuildContext context) {

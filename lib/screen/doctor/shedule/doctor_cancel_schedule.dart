@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AdminUpcomingSchedule extends StatefulWidget {
-  const AdminUpcomingSchedule({Key? key}) : super(key: key);
+class DoctorCancelSchedule extends StatefulWidget {
+  const DoctorCancelSchedule({super.key});
 
   @override
-  State<AdminUpcomingSchedule> createState() => _AdminUpcomingScheduleState();
+  State<DoctorCancelSchedule> createState() => _DoctorCancelScheduleState();
 }
 
-class _AdminUpcomingScheduleState extends State<AdminUpcomingSchedule> {
+class _DoctorCancelScheduleState extends State<DoctorCancelSchedule> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -46,8 +46,8 @@ class _AdminUpcomingScheduleState extends State<AdminUpcomingSchedule> {
                     "Muahmmad saim",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  subtitle: const Text("03001213123",
-                      style: TextStyle(fontWeight: FontWeight.w400)),
+                  subtitle: const Text("03001212123",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   trailing: CircleAvatar(
                     radius: width * 0.08,
                   ),
@@ -83,35 +83,10 @@ class _AdminUpcomingScheduleState extends State<AdminUpcomingSchedule> {
                     SizedBox(
                       width: width * 0.02,
                     ),
-                    const Text("Pending",
+                    const Text("Cancel",
                         style: TextStyle(fontWeight: FontWeight.bold)),
                   ],
                 ),
-                SizedBox(
-                  height: height * 0.015,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: height * 0.066,
-                      width: width * 0.35,
-                      decoration: BoxDecoration(
-                        color: Color(0xff0EBE7F),
-                        borderRadius: BorderRadius.circular(width * 0.02),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Accept",
-                          style: TextStyle(
-                              fontSize: width * 0.04,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           ),

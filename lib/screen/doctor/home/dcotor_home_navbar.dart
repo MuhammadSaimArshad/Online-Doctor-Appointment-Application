@@ -1,27 +1,26 @@
-import 'package:doc_bookr/screen/admin/home/admin_add_report.dart';
-import 'package:doc_bookr/screen/admin/home/admin_home_screen.dart';
-import 'package:doc_bookr/screen/admin/home/admin_message_screen.dart';
-import 'package:doc_bookr/screen/admin/home/admin_schedule_screen.dart';
-import 'package:doc_bookr/screen/admin/home/admin_setting_screen.dart';
-
+import 'package:doc_bookr/screen/doctor/home/doctor_add_report.dart';
+import 'package:doc_bookr/screen/doctor/home/doctor_home.dart';
+import 'package:doc_bookr/screen/doctor/home/doctor_message.dart';
+import 'package:doc_bookr/screen/doctor/home/doctor_schedule.dart';
+import 'package:doc_bookr/screen/doctor/home/doctor_setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AdminHomeNavbar extends StatefulWidget {
-  const AdminHomeNavbar({Key? key}) : super(key: key);
+class DoctorHomeNavbar extends StatefulWidget {
+  const DoctorHomeNavbar({Key? key}) : super(key: key);
 
   @override
-  State<AdminHomeNavbar> createState() => _AdminHomeNavbarState();
+  State<DoctorHomeNavbar> createState() => _DoctorHomeNavbarState();
 }
 
-class _AdminHomeNavbarState extends State<AdminHomeNavbar> {
+class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
   int _selectedIndex = 0;
   final _screen = [
-    AdminHomeScreen(),
-    AdminMessageScreen(),
-    AdminScheduleScreen(),
-    AdminAddreport(),
-    AdminSettingScreen(),
+    DoctorHomeScreen(),
+    DoctorMessageScreen(),
+    DoctorScheduleScreen(),
+    DoctorAddReportScreen(),
+    DoctorSettingScreen()
   ];
 
   @override

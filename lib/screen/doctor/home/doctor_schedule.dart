@@ -1,20 +1,19 @@
-import 'package:doc_bookr/screen/admin/schedule/admin_canceled_schedule.dart';
-import 'package:doc_bookr/screen/admin/schedule/admin_complete_schedule.dart';
-import 'package:doc_bookr/screen/admin/schedule/admin_upcoming_schedule.dart';
-
+import 'package:doc_bookr/screen/doctor/shedule/doctor_cancel_schedule.dart';
+import 'package:doc_bookr/screen/doctor/shedule/doctor_complete_schedule.dart';
+import 'package:doc_bookr/screen/doctor/shedule/doctor_upcoming_schedule.dart';
 import 'package:flutter/material.dart';
 
-class AdminScheduleScreen extends StatefulWidget {
+class DoctorScheduleScreen extends StatefulWidget {
   @override
-  State<AdminScheduleScreen> createState() => _AdminScheduleScreenState();
+  State<DoctorScheduleScreen> createState() => _DoctorScheduleScreenState();
 }
 
-class _AdminScheduleScreenState extends State<AdminScheduleScreen> {
+class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
   int _buttonIndex = 0;
   final _scheduleWidgets = [
-    AdminUpcomingSchedule(),
-    AdminCompleteSchedule(),
-    AdminCanceledSchedule(),
+    DoctorUpcomingSchedule(),
+    DoctorCancelSchedule(),
+    DoctorCompleteSchedule(),
   ];
   var height, width;
   @override

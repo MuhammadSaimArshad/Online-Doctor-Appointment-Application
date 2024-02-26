@@ -190,7 +190,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                     borderRadius: BorderRadius.circular(width * 0.03)),
                 child: Center(
                   child: Text(
-                    "Up Date ",
+                    "UpDate ",
                     style: TextStyle(
                         fontSize: width * 0.05,
                         color: Colors.white,

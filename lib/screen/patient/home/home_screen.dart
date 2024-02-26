@@ -1,4 +1,5 @@
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
+import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -215,6 +216,75 @@ class _Home_ScreenState extends State<Home_Screen> {
                         ),
                       ),
                     ),
+                  ],
+                ),
+                SizedBox(
+                  height: height * 0.03,
+                ),
+                Container(
+                  height: height * 0.21,
+                  width: width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: height * 0.2,
+                        width: width * 0.9,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(width * 0.05),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: width * 0.01,
+                                spreadRadius: 4,
+                              ),
+                            ]),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.03,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CategoryOfDoctor(),
+                            ));
+                      },
+                      child: Container(
+                        height: height * 0.07,
+                        width: width * 0.9,
+                        decoration: BoxDecoration(
+                            color: Color(0xff0EBE7F),
+                            borderRadius: BorderRadius.circular(width * 0.02)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add_box_outlined,
+                              size: width * 0.06,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              " Appointment",
+                              style: TextStyle(
+                                  fontSize: width * 0.045,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(

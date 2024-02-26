@@ -1,27 +1,19 @@
-import 'package:doc_bookr/screen/patient/home/add_report_screen.dart';
-import 'package:doc_bookr/screen/patient/home/home_screen.dart';
-import 'package:doc_bookr/screen/patient/home/message_screen.dart';
-import 'package:doc_bookr/screen/patient/home/schedule_screen.dart';
-import 'package:doc_bookr/screen/patient/home/setting.dart';
+import 'package:doc_bookr/screen/Admin/Admin_add_delete.dart';
+import 'package:doc_bookr/screen/Admin/admin_home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Home_Navbar_Screen extends StatefulWidget {
-  const Home_Navbar_Screen({Key? key}) : super(key: key);
+class Admin_Home_Navbar_Screen extends StatefulWidget {
+  const Admin_Home_Navbar_Screen({Key? key}) : super(key: key);
 
   @override
-  State<Home_Navbar_Screen> createState() => _Home_Navbar_ScreenState();
+  State<Admin_Home_Navbar_Screen> createState() =>
+      _Admin_Home_Navbar_ScreenState();
 }
 
-class _Home_Navbar_ScreenState extends State<Home_Navbar_Screen> {
+class _Admin_Home_Navbar_ScreenState extends State<Admin_Home_Navbar_Screen> {
   int _selectedIndex = 0;
-  final _screen = [
-    Home_Screen(),
-    Message_Screen(),
-    ScheduleScreen(),
-    Addreport(),
-    Setting_Screen(),
-  ];
+  final _screen = [AdminHomeScreen(), AdminAddDelete()];
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -52,21 +44,21 @@ class _Home_Navbar_ScreenState extends State<Home_Navbar_Screen> {
                 label: "Home",
               ),
               BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.chat_bubble_fill),
-                label: "Messages",
+                icon: Icon(CupertinoIcons.add),
+                label: "Add Delete",
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month),
-                label: "Schedule",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.file_copy_outlined),
-                label: "Add Report",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined),
-                label: "Profile",
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.calendar_month),
+              //   label: "Schedule",
+              // ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.file_copy_outlined),
+              //   label: "Add Report",
+              // ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.account_circle_outlined),
+              //   label: "Profile",
+              // ),
             ],
           ),
         ),

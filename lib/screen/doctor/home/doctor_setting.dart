@@ -1,19 +1,18 @@
-import 'package:doc_bookr/screen/admin/admin_profile.dart';
-import 'package:doc_bookr/screen/admin/home/admin_home_screen.dart';
-import 'package:doc_bookr/screen/admin/mypatient_screen.dart';
-
+import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
+import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
+import 'package:doc_bookr/screen/doctor/mypatient_screen.dart';
 import 'package:doc_bookr/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AdminSettingScreen extends StatefulWidget {
-  const AdminSettingScreen({super.key});
+class DoctorSettingScreen extends StatefulWidget {
+  const DoctorSettingScreen({super.key});
 
   @override
-  State<AdminSettingScreen> createState() => _AdminSettingScreenState();
+  State<DoctorSettingScreen> createState() => _DoctorSettingScreenState();
 }
 
-class _AdminSettingScreenState extends State<AdminSettingScreen> {
+class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -133,7 +132,7 @@ class _AdminSettingScreenState extends State<AdminSettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AdminProfileScreen(),
+                        builder: (context) => DoctorProfileScreen(),
                       ));
                 },
                 leading: Container(
@@ -160,7 +159,7 @@ class _AdminSettingScreenState extends State<AdminSettingScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AdminProfileScreen(),
+                            builder: (context) => DoctorProfileScreen(),
                           ));
                     },
                     child: Icon(
@@ -249,7 +248,7 @@ class _AdminSettingScreenState extends State<AdminSettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AdminHomeScreen(),
+                        builder: (context) => DoctorHomeNavbar(),
                       ));
                 },
                 leading: Container(
@@ -276,7 +275,7 @@ class _AdminSettingScreenState extends State<AdminSettingScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AdminHomeScreen(),
+                          builder: (context) => DoctorHomeNavbar(),
                         ));
                   },
                   child: Icon(

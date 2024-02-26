@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AdminProfileScreen extends StatefulWidget {
-  const AdminProfileScreen({super.key});
+class DoctorProfileScreen extends StatefulWidget {
+  const DoctorProfileScreen({super.key});
 
   @override
-  State<AdminProfileScreen> createState() => _AdminProfileScreenState();
+  State<DoctorProfileScreen> createState() => _DoctorProfileScreenState();
 }
 
-class _AdminProfileScreenState extends State<AdminProfileScreen> {
+class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -190,7 +190,7 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                     borderRadius: BorderRadius.circular(width * 0.03)),
                 child: Center(
                   child: Text(
-                    "Up Date ",
+                    "UpDate ",
                     style: TextStyle(
                         fontSize: width * 0.05,
                         color: Colors.white,
