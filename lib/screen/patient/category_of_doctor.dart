@@ -1,3 +1,4 @@
+import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryOfDoctor extends StatefulWidget {
@@ -68,12 +69,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Pediatrician",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Pediatrician",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -92,12 +102,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Psychiatrist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Psychiatrist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -125,12 +144,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Cardiologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Cardiologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -149,12 +177,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Dermatologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Dermatologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -182,12 +219,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Endocrinologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Endocrinologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -206,12 +252,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Gynecologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Gynecologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -239,12 +294,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Neurologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Neurologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -263,12 +327,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Radiologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Radiologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -296,12 +369,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Gastroenterologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Gastroenterologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -320,12 +402,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Nephrologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Nephrologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -353,12 +444,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Oncologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Oncologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -377,12 +477,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Ophthalmologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Ophthalmologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -410,12 +519,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Otolaryngologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Otolaryngologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -434,12 +552,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                       ],
                     ),
                     child: Center(
-                      child: Text(
-                        "Pulmonologist",
-                        style: TextStyle(
-                            fontSize: width * 0.04,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MYdoctor(),
+                              ));
+                        },
+                        child: Text(
+                          "Pulmonologist",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),

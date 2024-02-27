@@ -65,7 +65,7 @@ class LoginController extends GetxController {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.red,
               textColor: Colors.white,
               fontSize: 16.0);
         }
@@ -100,7 +100,7 @@ class LoginController extends GetxController {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
     }
@@ -117,10 +117,10 @@ class LoginController extends GetxController {
       if (user != null) {
         Fluttertoast.showToast(
             msg: "Login Succesfull",
-            toastLength: Toast.LENGTH_SHORT,
+            toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 1,
-            backgroundColor: Colors.blue,
+            backgroundColor: Color(0xff0EBE7F),
             textColor: Colors.white,
             fontSize: 16.0);
         String id = user.uid;

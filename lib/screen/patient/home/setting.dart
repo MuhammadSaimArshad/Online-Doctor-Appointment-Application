@@ -114,7 +114,14 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: height * 0.2,
                 width: width * 0.9,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xff0EBE4f),
+                        Color(0xff0EBE7F),
+                      ],
+                    ),
                     borderRadius: BorderRadius.circular(width * 0.05),
                     boxShadow: [
                       BoxShadow(

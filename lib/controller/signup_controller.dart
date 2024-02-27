@@ -168,7 +168,7 @@ class SignupController extends GetxController {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
-          backgroundColor: Colors.blue,
+          backgroundColor: Color(0xff0EBE7F),
           textColor: Colors.white,
           fontSize: 16.0,
         );

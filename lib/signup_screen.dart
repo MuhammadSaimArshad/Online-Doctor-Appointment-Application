@@ -298,12 +298,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               if (obj.index == 0)
                 SizedBox(
-                  height: height * 0.01,
+                  height: height * 0.007,
                 ),
               if (obj.index == 0)
                 Container(
-                  width: width,
+                  height: height * 0.06,
+                  width: width * 0.7,
                   child: DropdownButton<String>(
+                    alignment: Alignment.center,
                     value: obj.dropdown,
                     items: list.map((String value) {
                       return DropdownMenuItem<String>(

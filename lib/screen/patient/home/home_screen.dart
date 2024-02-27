@@ -224,16 +224,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: height * 0.21,
                   width: width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                  ),
                   child: Column(
                     children: [
                       Container(
                         height: height * 0.2,
                         width: width * 0.9,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            gradient: const LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xff0EBE4f),
+                                Color(0xff0EBE7F),
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(width * 0.05),
                             boxShadow: [
                               BoxShadow(
@@ -242,6 +246,46 @@ class _HomeScreenState extends State<HomeScreen> {
                                 spreadRadius: 4,
                               ),
                             ]),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Consult doctor online ",
+                              style: TextStyle(
+                                  fontSize: width * 0.045,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Get",
+                              style: TextStyle(
+                                  fontSize: width * 0.03,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "20%",
+                              style: TextStyle(
+                                  fontSize: width * 0.065,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Discount",
+                              style: TextStyle(
+                                  fontSize: width * 0.03,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "for another Family Member",
+                              style: TextStyle(
+                                  fontSize: width * 0.035,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
