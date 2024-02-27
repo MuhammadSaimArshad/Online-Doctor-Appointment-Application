@@ -81,7 +81,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color(0xff0EBE7F),
+      backgroundColor: const Color(0xff0EBE7F),
       body: Stack(
         children: [
           Column(
@@ -118,7 +118,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
                   decoration: BoxDecoration(
                     border:
                         Border.all(color: Colors.white, width: width * 0.005),
-                    color: Color(0xff0EBE7F),
+                    color: const Color(0xff0EBE7F),
                     borderRadius: BorderRadius.circular(width * 0.03),
                   ),
                   child: Center(

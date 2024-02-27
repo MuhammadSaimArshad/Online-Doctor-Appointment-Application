@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Icon(
                                 Icons.email,
-                                color: Color(0xff0EBE7F),
+                                color: const Color(0xff0EBE7F),
                                 size: width * 0.07,
                               ),
                             ),
@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     InkWell(
                       onTap: () {},
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
@@ -184,14 +184,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: const BoxDecoration(
                                 color: Color(0xFFF0EEFA),
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
                                 Icons.chat,
-                                color: Color(0xff0EBE7F),
+                                color: const Color(0xff0EBE7F),
                                 size: width * 0.07,
                               ),
                             ),
@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: height * 0.03,
                 ),
-                Container(
+                SizedBox(
                   height: height * 0.21,
                   width: width,
                   child: Column(
@@ -301,14 +301,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CategoryOfDoctor(),
+                              builder: (context) => const CategoryOfDoctor(),
                             ));
                       },
                       child: Container(
                         height: height * 0.07,
                         width: width * 0.9,
                         decoration: BoxDecoration(
-                            color: Color(0xff0EBE7F),
+                            color: const Color(0xff0EBE7F),
                             borderRadius: BorderRadius.circular(width * 0.02)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

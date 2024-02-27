@@ -16,11 +16,11 @@ class HomeNavbarScreen extends StatefulWidget {
 class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
   int _selectedIndex = 0;
   final _screen = [
-    HomeScreen(),
-    MessageScreen(),
+    const HomeScreen(),
+    const MessageScreen(),
     ScheduleScreen(),
-    Addreport(),
-    SettingScreen(),
+    const Addreport(),
+    const SettingScreen(),
   ];
   var height, width;
   @override

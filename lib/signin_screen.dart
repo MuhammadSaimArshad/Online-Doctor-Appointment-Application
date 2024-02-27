@@ -46,7 +46,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AdminSignIn(),
+                              builder: (context) => const AdminSignIn(),
                             ));
                       },
                       child: Text(
@@ -108,15 +108,15 @@ class _SigninScreenState extends State<SigninScreen> {
                                 border: Border.all(
                                     width: width * 0.005,
                                     color: obj.index == 0
-                                        ? Color(0xff0EBE7F)
+                                        ? const Color(0xff0EBE7F)
                                         : Colors.grey)),
                             child: Column(
                               children: [
                                 Image(
                                     height: height * 0.11,
-                                    image:
-                                        AssetImage("images/doctor_logo.png")),
-                                Text("Doctor")
+                                    image: const AssetImage(
+                                        "images/doctor_logo.png")),
+                                const Text("Doctor")
                               ],
                             )),
                       ),
@@ -134,15 +134,15 @@ class _SigninScreenState extends State<SigninScreen> {
                                 border: Border.all(
                                     width: width * 0.005,
                                     color: obj.index == 1
-                                        ? Color(0xff0EBE7F)
+                                        ? const Color(0xff0EBE7F)
                                         : Colors.grey)),
                             child: Column(
                               children: [
                                 Image(
                                     height: height * 0.11,
-                                    image:
-                                        AssetImage("images/patient_logo.png")),
-                                Text("Patient")
+                                    image: const AssetImage(
+                                        "images/patient_logo.png")),
+                                const Text("Patient")
                               ],
                             )),
                       ),
@@ -155,7 +155,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     padding: const EdgeInsets.all(12),
                     child: TextFormField(
                       controller: obj.email,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Email Address"),
                         prefixIcon: Icon(Icons.email),
@@ -181,9 +181,9 @@ class _SigninScreenState extends State<SigninScreen> {
                       obscureText: obj.passToggle ? true : false,
                       controller: obj.password,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        label: Text("Enter Password"),
-                        prefixIcon: Icon(Icons.lock),
+                        border: const OutlineInputBorder(),
+                        label: const Text("Enter Password"),
+                        prefixIcon: const Icon(Icons.lock),
                         suffixIcon: InkWell(
                           onTap: () {
                             if (obj.passToggle == true) {
@@ -230,7 +230,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       width: width * 0.9,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(width * 0.02),
-                        color: Color(0xff0EBE7F),
+                        color: const Color(0xff0EBE7F),
                       ),
                       child: Center(
                         child: Text(
@@ -254,7 +254,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         style: TextStyle(
                             fontSize: width * 0.045,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xff0EBE7F)),
+                            color: const Color(0xff0EBE7F)),
                       ),
                     ],
                   ),

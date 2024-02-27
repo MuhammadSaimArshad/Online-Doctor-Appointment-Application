@@ -99,14 +99,15 @@ class _SignupScreenState extends State<SignupScreen> {
                             border: Border.all(
                                 width: width * 0.005,
                                 color: obj.index == 0
-                                    ? Color(0xff0EBE7F)
+                                    ? const Color(0xff0EBE7F)
                                     : Colors.grey)),
                         child: Column(
                           children: [
                             Image(
                                 height: height * 0.11,
-                                image: AssetImage("images/doctor_logo.png")),
-                            Text("Doctor")
+                                image:
+                                    const AssetImage("images/doctor_logo.png")),
+                            const Text("Doctor")
                           ],
                         )),
                   ),
@@ -123,14 +124,15 @@ class _SignupScreenState extends State<SignupScreen> {
                             border: Border.all(
                                 width: width * 0.005,
                                 color: obj.index == 1
-                                    ? Color(0xff0EBE7F)
+                                    ? const Color(0xff0EBE7F)
                                     : Colors.grey)),
                         child: Column(
                           children: [
                             Image(
                                 height: height * 0.11,
-                                image: AssetImage("images/patient_logo.png")),
-                            Text("Patient")
+                                image: const AssetImage(
+                                    "images/patient_logo.png")),
+                            const Text("Patient")
                           ],
                         )),
                   ),
@@ -163,7 +165,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 padding: const EdgeInsets.all(12),
                 child: TextFormField(
                   controller: obj.phonenumber,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     label: Text("Phone Number"),
                     prefixIcon: Icon(Icons.phone),
@@ -185,7 +187,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
                     controller: obj.address,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Address"),
                       prefixIcon: Icon(Icons.phone),
@@ -206,7 +208,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
                     controller: obj.bio,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Bio"),
                       prefixIcon: Icon(Icons.phone),
@@ -228,7 +230,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
                     controller: obj.fee,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Fee"),
                     ),
@@ -262,7 +264,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: obj.about,
                     minLines: 1,
                     maxLines: 3,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("About"),
                     ),
@@ -280,10 +282,10 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               if (obj.index == 0)
                 Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: TextFormField(
                     controller: obj.specilest,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Experience"),
                       prefixIcon: Icon(Icons.phone),
@@ -301,7 +303,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   height: height * 0.007,
                 ),
               if (obj.index == 0)
-                Container(
+                SizedBox(
                   height: height * 0.06,
                   width: width * 0.7,
                   child: DropdownButton<String>(
@@ -325,7 +327,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 padding: const EdgeInsets.all(12),
                 child: TextFormField(
                   controller: obj.email,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     label: Text("Email Address"),
                     prefixIcon: Icon(Icons.email),
@@ -351,9 +353,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   obscureText: obj.passToggle ? true : false,
                   controller: obj.password,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text("Enter Password"),
-                    prefixIcon: Icon(Icons.lock),
+                    border: const OutlineInputBorder(),
+                    label: const Text("Enter Password"),
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: InkWell(
                       onTap: () {
                         if (obj.passToggle == true) {
@@ -364,8 +366,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         obj.update();
                       },
                       child: obj.passToggle
-                          ? Icon(CupertinoIcons.eye_slash_fill)
-                          : Icon(CupertinoIcons.eye_fill),
+                          ? const Icon(CupertinoIcons.eye_slash_fill)
+                          : const Icon(CupertinoIcons.eye_fill),
                     ),
                   ),
                   obscuringCharacter: "*",

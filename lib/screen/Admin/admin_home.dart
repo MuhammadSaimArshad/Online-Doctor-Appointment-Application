@@ -41,15 +41,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                         children: [
                           ListTile(
                             title: const Text(
-                              "Dr.MUhammad Saim Arshad",
+                              "MUhammad Saim Arshad",
                               style: TextStyle(color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              "Find the Patient",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
                             ),
                             trailing: SizedBox(
                                 height: height * 0.12,
@@ -59,51 +52,6 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                         ],
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MYdoctor(),
-                              ));
-                        },
-                        child: Container(
-                          height: height * 0.06,
-                          width: width * 0.85,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(width * 0.02),
-                              color: Colors.grey[200],
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: width * 0.01,
-                                  spreadRadius: width * 0.01,
-                                ),
-                              ]),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: width * 0.03,
-                              ),
-                              Icon(Icons.search),
-                              SizedBox(
-                                width: width * 0.03,
-                              ),
-                              Text(
-                                "Search.....",
-                                style: TextStyle(fontSize: width * 0.04),
-                              ),
-                              SizedBox(
-                                width: width * 0.46,
-                              ),
-                              Icon(Icons.cancel_outlined)
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -174,7 +122,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "Total Schedule",
+                            "Total Doctor",
                             style: TextStyle(
                                 fontSize: width * 0.04,
                                 fontWeight: FontWeight.bold),
@@ -189,95 +137,160 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                 height: height * 0.03,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    width: width * 0.06,
-                  ),
-                  Text(
-                    "All Patient",
-                    style: TextStyle(
-                        fontSize: width * 0.05, fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              SizedBox(
-                height: height * 0.25,
-                width: width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AppointmentScreen(),
-                            ));
-                      },
-                      child: Container(
-                        height: height * 0.23,
-                        width: width * 0.4,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.03,
-                              spreadRadius: width * 0.015,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: height * 0.02,
-                            ),
-                            SizedBox(
-                                height: height * 0.1,
-                                width: width * 0.15,
-                                child: CircleAvatar()),
-                            Text("Muhammad Saim"),
-                            Text("Email"),
-                            Text("03031213123"),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: height * 0.23,
-                      width: width * 0.4,
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: height * 0.15,
+                      width: width * 0.3,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black12,
-                            blurRadius: width * 0.03,
-                            spreadRadius: width * 0.015,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
                           ),
                         ],
                       ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          SizedBox(
-                            height: height * 0.02,
+                          Text(
+                            "10",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(
-                              height: height * 0.1,
-                              width: width * 0.15,
-                              child: CircleAvatar()),
-                          Text("Muhammad Saim"),
-                          Text("Email"),
-                          Text("03031213123"),
+                          Text(
+                            "Total Schedule",
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.bold),
+                          )
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: height * 0.15,
+                      width: width * 0.3,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "10",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Complete Schedule",
+                            style: TextStyle(
+                                fontSize: width * 0.03,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.03,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: height * 0.15,
+                      width: width * 0.3,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "10",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Cancel Schedule",
+                            style: TextStyle(
+                                fontSize: width * 0.03,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: height * 0.15,
+                      width: width * 0.3,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "10",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Total Doctor",
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.03,
               ),
             ],
           ),

@@ -16,11 +16,11 @@ class DoctorHomeNavbar extends StatefulWidget {
 class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
   int _selectedIndex = 0;
   final _screen = [
-    DoctorHomeScreen(),
-    DoctorMessageScreen(),
+    const DoctorHomeScreen(),
+    const DoctorMessageScreen(),
     DoctorScheduleScreen(),
-    DoctorAddReportScreen(),
-    DoctorSettingScreen()
+    const DoctorAddReportScreen(),
+    const DoctorSettingScreen()
   ];
 
   @override
@@ -44,7 +44,7 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
                 _selectedIndex = index;
               });
             },
-            items: [
+            items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled),
                 label: "Home",

@@ -106,7 +106,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     child: Center(
                         child: Text(
                       _currentPage == 2 ? "Create Account" : "Next",
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     )),
                   ),
                 )),
@@ -133,11 +133,12 @@ class _IntroScreenState extends State<IntroScreen> {
                     decoration: BoxDecoration(
                         color: Colors.transparent,
                         border: Border.all(
-                            color: Color(0xff0EBE7F), width: width * 0.005)),
+                            color: const Color(0xff0EBE7F),
+                            width: width * 0.005)),
                     child: Center(
                         child: Text(
                       _currentPage == 2 ? "Sign in" : "Skip",
-                      style: TextStyle(color: Color(0xff0EBE7F)),
+                      style: const TextStyle(color: Color(0xff0EBE7F)),
                     )),
                   ),
                 )),
@@ -164,7 +165,7 @@ class _IntroScreenState extends State<IntroScreen> {
       width: isActive ? 15.0 : 10.0,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: isActive ? Color(0xff0EBE7F) : Colors.grey,
+        color: isActive ? const Color(0xff0EBE7F) : Colors.grey,
       ),
     );
   }
@@ -194,7 +195,7 @@ class IntroPage extends StatelessWidget {
         const SizedBox(height: 20.0),
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
           ),
@@ -202,7 +203,7 @@ class IntroPage extends StatelessWidget {
         const SizedBox(height: 10.0),
         Text(
           description,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.grey,
             fontSize: 16.0,
           ),
