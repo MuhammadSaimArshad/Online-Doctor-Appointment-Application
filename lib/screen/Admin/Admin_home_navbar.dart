@@ -3,15 +3,14 @@ import 'package:doc_bookr/screen/Admin/admin_home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Admin_Home_Navbar_Screen extends StatefulWidget {
-  const Admin_Home_Navbar_Screen({Key? key}) : super(key: key);
+class AdminHomeNavbarScreen extends StatefulWidget {
+  const AdminHomeNavbarScreen({Key? key}) : super(key: key);
 
   @override
-  State<Admin_Home_Navbar_Screen> createState() =>
-      _Admin_Home_Navbar_ScreenState();
+  State<AdminHomeNavbarScreen> createState() => _AdminHomeNavbarScreenState();
 }
 
-class _Admin_Home_Navbar_ScreenState extends State<Admin_Home_Navbar_Screen> {
+class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
   int _selectedIndex = 0;
   final _screen = [AdminHomeScreen(), AdminAddDelete()];
   var height, width;

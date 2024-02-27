@@ -350,7 +350,7 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Signup_Screen(),
+                      builder: (context) => SignupScreen(),
                     ),
                     (route) => true,
                   );

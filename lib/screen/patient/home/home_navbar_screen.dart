@@ -6,21 +6,21 @@ import 'package:doc_bookr/screen/patient/home/setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Home_Navbar_Screen extends StatefulWidget {
-  const Home_Navbar_Screen({Key? key}) : super(key: key);
+class HomeNavbarScreen extends StatefulWidget {
+  const HomeNavbarScreen({Key? key}) : super(key: key);
 
   @override
-  State<Home_Navbar_Screen> createState() => _Home_Navbar_ScreenState();
+  State<HomeNavbarScreen> createState() => _HomeNavbarScreenState();
 }
 
-class _Home_Navbar_ScreenState extends State<Home_Navbar_Screen> {
+class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
   int _selectedIndex = 0;
   final _screen = [
-    Home_Screen(),
-    Message_Screen(),
+    HomeScreen(),
+    MessageScreen(),
     ScheduleScreen(),
     Addreport(),
-    Setting_Screen(),
+    SettingScreen(),
   ];
   var height, width;
   @override

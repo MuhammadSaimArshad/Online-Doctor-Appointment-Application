@@ -91,7 +91,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Signup_Screen(),
+                            builder: (context) => const SignupScreen(),
                           ));
                     } else {
                       moveToNextPage();
@@ -121,7 +121,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Signin_screen(),
+                            builder: (context) => const SigninScreen(),
                           ));
                     } else {
                       moveToNextPage();

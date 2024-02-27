@@ -3,14 +3,14 @@ import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:flutter/material.dart';
 
-class Home_Screen extends StatefulWidget {
-  const Home_Screen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Home_Screen> createState() => _Home_ScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _Home_ScreenState extends State<Home_Screen> {
+class _HomeScreenState extends State<HomeScreen> {
   var height, width;
   @override
   Widget build(BuildContext context) {

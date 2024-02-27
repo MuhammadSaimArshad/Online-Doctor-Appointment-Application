@@ -176,7 +176,7 @@ class SignupController extends GetxController {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => Signin_screen(),
+              builder: (context) => SigninScreen(),
             ));
       } catch (e) {
         print("eror${e.toString()}");
@@ -246,7 +246,7 @@ class SignupController extends GetxController {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => Signin_screen(),
+            builder: (context) => SigninScreen(),
           ));
     } catch (e) {
       print("eror${e.toString()}");

@@ -2,20 +2,21 @@ import 'package:doc_bookr/controller/login_controller.dart';
 import 'package:doc_bookr/screen/Admin/admin_signin.dart';
 import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
+import 'package:doc_bookr/signup_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Signin_screen extends StatefulWidget {
-  const Signin_screen({super.key});
+class SigninScreen extends StatefulWidget {
+  const SigninScreen({super.key});
 
   @override
-  State<Signin_screen> createState() => _Signin_screenState();
+  State<SigninScreen> createState() => _SigninScreenState();
 }
 
-class _Signin_screenState extends State<Signin_screen> {
+class _SigninScreenState extends State<SigninScreen> {
   var height, width;
   @override
   void initState() {
@@ -275,12 +276,21 @@ class _Signin_screenState extends State<Signin_screen> {
                       SizedBox(
                         width: width * 0.05,
                       ),
-                      Text(
-                        "Create Account",
-                        style: TextStyle(
-                            fontSize: width * 0.05,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff0EBE7F)),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignupScreen(),
+                              ));
+                        },
+                        child: Text(
+                          "Create Account",
+                          style: TextStyle(
+                              fontSize: width * 0.05,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff0EBE7F)),
+                        ),
                       ),
                     ],
                   )

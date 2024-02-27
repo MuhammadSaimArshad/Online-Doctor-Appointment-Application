@@ -123,7 +123,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Admin_Home_Navbar_Screen(),
+                          builder: (context) => AdminHomeNavbarScreen(),
                         ));
                   },
                   child: Container(

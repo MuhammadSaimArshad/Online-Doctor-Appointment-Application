@@ -8,14 +8,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Signup_Screen extends StatefulWidget {
-  const Signup_Screen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<Signup_Screen> createState() => _Signup_ScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _Signup_ScreenState extends State<Signup_Screen> {
+class _SignupScreenState extends State<SignupScreen> {
   var height, width;
   List<String> list = [
     "Select Category",
@@ -564,7 +564,7 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Signin_screen(),
+                            builder: (context) => SigninScreen(),
                           ));
                     },
                     child: Text(

@@ -5,14 +5,14 @@ import 'package:doc_bookr/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Setting_Screen extends StatefulWidget {
-  const Setting_Screen({super.key});
+class SettingScreen extends StatefulWidget {
+  const SettingScreen({super.key});
 
   @override
-  State<Setting_Screen> createState() => _Setting_ScreenState();
+  State<SettingScreen> createState() => _SettingScreenState();
 }
 
-class _Setting_ScreenState extends State<Setting_Screen> {
+class _SettingScreenState extends State<SettingScreen> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -248,7 +248,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Home_Screen(),
+                        builder: (context) => HomeScreen(),
                       ));
                 },
                 leading: Container(
@@ -275,7 +275,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Home_Screen(),
+                          builder: (context) => HomeScreen(),
                         ));
                   },
                   child: Icon(
@@ -350,7 +350,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Signup_Screen(),
+                      builder: (context) => SignupScreen(),
                     ),
                     (route) => true,
                   );

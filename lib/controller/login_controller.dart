@@ -139,7 +139,7 @@ class LoginController extends GetxController {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Home_Navbar_Screen(),
+                builder: (context) => const HomeNavbarScreen(),
               ));
           // SharedPreferences prefs = await SharedPreferences.getInstance();
           // StaticData.cleardata(context).then((value) {
