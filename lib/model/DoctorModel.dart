@@ -28,6 +28,7 @@ class DoctorModel {
   List<String>? patientList;
   double fee;
   String category;
+
   DoctorModel({
     required this.id,
     required this.name,

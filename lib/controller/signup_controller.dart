@@ -26,6 +26,7 @@ class SignupController extends GetxController {
   TextEditingController address = TextEditingController();
   TextEditingController bio = TextEditingController();
   TextEditingController fee = TextEditingController();
+
   String? startTime;
   String? endTime;
   bool passToggle = true;

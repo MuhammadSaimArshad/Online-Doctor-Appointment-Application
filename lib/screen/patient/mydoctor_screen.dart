@@ -1,8 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class MYdoctor extends StatefulWidget {
-  const MYdoctor({super.key});
+  String? category = "";
+
+  MYdoctor({super.key, this.category});
 
   @override
   State<MYdoctor> createState() => _MYdoctorState();
@@ -96,112 +102,164 @@ class _MYdoctorState extends State<MYdoctor> {
               SizedBox(
                 height: height * 0.05,
               ),
-              Container(
-                height: height * 0.25,
-                width: width * 0.95,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(width * 0.05),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: width * 0.02,
-                      spreadRadius: width * 0.01,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    ListTile(
-                      title: const Text(
-                        "Dr.Muahmmad saim",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: const Text("About",
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      trailing: CircleAvatar(
-                        radius: width * 0.08,
-                      ),
-                    ),
-                    const Divider(),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: width * 0.03,
-                        ),
-                        Text("Specialist",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: width * 0.01,
-                        ),
-                        Text("Child",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: width * 0.01,
-                        ),
-                        Text("Experinse",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: width * 0.01,
-                        ),
-                        Text(" 1 year",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: width * 0.01,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: width * 0.05,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: width * 0.05,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: width * 0.05,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: width * 0.05,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: width * 0.05,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.015,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: height * 0.066,
-                          width: width * 0.35,
-                          decoration: BoxDecoration(
-                            color: Color(0xff0EBE7F),
-                            borderRadius: BorderRadius.circular(width * 0.02),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Book Now",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              Expanded(
+                  child: StreamBuilder(
+                      stream: FirebaseFirestore.instance
+                          .collection('doctor')
+                          .where("category", isEqualTo: widget.category)
+                          .snapshots(),
+                      builder: (BuildContext context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(child: CircularProgressIndicator());
+                        }
+
+                        if (snapshot.hasError) {
+                          print("Error: /${snapshot.error}");
+                          return Text('Error: /${snapshot.error}');
+                        }
+
+                        DoctorModel? doctor;
+                        if (snapshot.data!.docs.length != 0)
+                          print(
+                              'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+
+                        return snapshot.data!.docs.length == 0 &&
+                                snapshot.data!.docs.isEmpty
+                            ? Center(
+                                child:
+                                    CustomWidget.largeText('Data not found !'),
+                              )
+                            : ListView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  doctor = DoctorModel.fromMap(
+                                      snapshot.data!.docs[index].data()
+                                          as Map<String, dynamic>);
+                                  return Container(
+                                    height: height * 0.25,
+                                    width: width * 0.95,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(width * 0.05),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black12,
+                                          blurRadius: width * 0.02,
+                                          spreadRadius: width * 0.01,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: height * 0.01,
+                                        ),
+                                        ListTile(
+                                          title: Text(
+                                            "Dr.${doctor!.name}",
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          subtitle: Text(doctor!.bio,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold)),
+                                          trailing: CircleAvatar(
+                                            radius: width * 0.08,
+                                            backgroundImage:
+                                                NetworkImage(doctor!.image),
+                                          ),
+                                        ),
+                                        const Divider(),
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              width: width * 0.03,
+                                            ),
+                                            const Text("Specialist",
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                            Text(doctor!.category,
+                                                style: const TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                            const Text("Experinse",
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                            Text("Year.${doctor!.specialty}",
+                                                style: const TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            SizedBox(
+                                              width: width * 0.01,
+                                            ),
+                                            RatingBar.builder(
+                                              initialRating: doctor!
+                                                  .ratingperson!
+                                                  .toDouble(),
+                                              itemSize: 17,
+                                              minRating: 1,
+                                              direction: Axis.horizontal,
+                                              allowHalfRating: true,
+                                              itemCount: 5,
+                                              itemPadding: EdgeInsets.symmetric(
+                                                  horizontal: 4.0),
+                                              itemBuilder: (context, _) => Icon(
+                                                Icons.star,
+                                                color: const Color(0xff0EBE7F),
+                                              ),
+                                              onRatingUpdate: (value) {},
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.015,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              height: height * 0.066,
+                                              width: width * 0.35,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xff0EBE7F),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        width * 0.02),
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  "Book Now",
+                                                  style: TextStyle(
+                                                      fontSize: width * 0.04,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                      })),
             ],
           ),
         ),

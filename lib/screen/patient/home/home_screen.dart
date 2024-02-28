@@ -309,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const CategoryOfDoctor(),
+                              builder: (context) => CategoryOfDoctor(),
                             ));
                       },
                       child: Container(
@@ -390,7 +390,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemCount: snapshot.data!.docs.length,
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2),
+                                        crossAxisCount: 2,
+                                        mainAxisSpacing: 1,
+                                        crossAxisSpacing: 0),
                                 itemBuilder: (context, index) {
                                   doctor = DoctorModel.fromMap(
                                       snapshot.data!.docs[index].data()
@@ -432,7 +434,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 backgroundImage:
                                                     NetworkImage(doctor!.image),
                                               )),
-                                          Text(doctor!.name),
+                                          Text("Dr.${doctor!.name}"),
                                           Text(doctor!.category),
                                           RatingBar.builder(
                                             initialRating: doctor!.ratingperson!
@@ -446,7 +448,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 horizontal: 4.0),
                                             itemBuilder: (context, _) => Icon(
                                               Icons.star,
-                                              color: Colors.amber,
+                                              color: const Color(0xff0EBE7F),
                                             ),
                                             onRatingUpdate: (value) {},
                                           )
