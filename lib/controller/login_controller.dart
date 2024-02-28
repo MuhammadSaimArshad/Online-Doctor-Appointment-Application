@@ -5,6 +5,7 @@ import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/model/patientModel.dart';
 import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
+import 'package:doc_bookr/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -35,30 +36,30 @@ class LoginController extends GetxController {
       User user = myuser.user!;
       if (user != null) {
         String id = user.uid;
-        // StaticData.doctor = id;
+        StaticData.doctor = id;
 
         DocumentSnapshot snapshot =
             await firebase.collection("doctor").doc(id).get();
         if (snapshot.exists) {
           DoctorModel model =
               DoctorModel.fromMap(snapshot.data() as Map<String, dynamic>);
-          // StaticData.doctorModel = model;
-          // StaticData.doctor = model.id;
+          StaticData.doctorModel = model;
+          StaticData.doctor = model.id;
           update();
-          // firebase
-          //     .collection("doctor")
-          //     .doc(id)
-          //     .update({"token": StaticData.token});
+          firebase
+              .collection("doctor")
+              .doc(id)
+              .update({"token": StaticData.token});
           Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => const DoctorHomeNavbar(),
               ));
-          // SharedPreferences prefs = await SharedPreferences.getInstance();
-          // StaticData.cleardata(context).then((value) {
-          //   prefs.setString("doctor", StaticData.doctor);
-          //   clearForm();
-          // });
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          StaticData.cleardata(context).then((value) {
+            prefs.setString("doctor", StaticData.doctor);
+            clearForm();
+          });
         } else {
           Fluttertoast.showToast(
               msg: "User Not Found !",
@@ -130,22 +131,22 @@ class LoginController extends GetxController {
         if (snapshot.exists) {
           PatientModel model =
               PatientModel.fromMap(snapshot.data() as Map<String, dynamic>);
-          // StaticData.patientmodel = model;
+          StaticData.patientmodel = model;
           update();
-          // firebase
-          //     .collection("patient")
-          //     .doc(id)
-          //     .update({"token": StaticData.token});
+          firebase
+              .collection("patient")
+              .doc(id)
+              .update({"token": StaticData.token});
           Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => const HomeNavbarScreen(),
               ));
-          // SharedPreferences prefs = await SharedPreferences.getInstance();
-          // StaticData.cleardata(context).then((value) {
-          //   prefs.setString("patient", id);
-          //   clearForm();
-          // });
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          StaticData.cleardata(context).then((value) {
+            prefs.setString("patient", id);
+            clearForm();
+          });
         }
       } else {
         update();

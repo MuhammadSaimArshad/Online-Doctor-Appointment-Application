@@ -1,6 +1,14 @@
 import 'dart:async';
+import 'package:doc_bookr/model/DoctorModel.dart';
+import 'package:doc_bookr/model/patientModel.dart';
 import 'package:doc_bookr/onborading_screen1.dart';
+import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
+import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
+import 'package:doc_bookr/staticdata.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+// import 'package:doctor_appointment_app/screens/massage/notification_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
   const MyCustomSplashScreen({super.key});
@@ -31,8 +39,8 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
 
   @override
   void initState() {
-    super.initState();
-
+    getDataFromSF();
+    getToken();
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
@@ -66,7 +74,230 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
         ),
       );
     });
+
+    super.initState();
+    // FirebaseMessaging.instance.getInitialMessage().then(
+    //   (message) {
+    //     if (message != null) {
+    //       print(message);
+    //     }
+    //   },
+    // );
+    // FirebaseMessaging.onMessage.listen(
+    //   (message) {
+    //     print("123231${message.data}");
+    //     if (message.notification != null) {
+    //       // LocalNotificationService.createAndDisplayChatNotification(message);
+    //     }
+    //   },
+    // );
+    // FirebaseMessaging.onMessageOpenedApp.listen(
+    //   (message) {
+    //     print('app open on click');
+    //     print(message.notification!.body);
+    //     print(message.notification!.title);
+    //     print(message.data);
+
+    //     if (message.notification != null) {}
+    //   },
+    // );
   }
+
+  getToken() {
+    // messaging = FirebaseMessaging.instance;
+    // messaging.getToken().then((value) {
+    //   if (value != null) {
+    //     StaticData.token = value;
+    //   }
+
+    //   print(value);
+    // });
+  }
+
+  Future<bool?> getDataFromSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? v = prefs.getString("patient");
+    String? v1 = prefs.getString("doctor");
+    print("v:$v");
+    print("v1:$v1");
+    getToken();
+    StaticData.patient = v ?? "";
+    StaticData.doctor = v1 ?? "";
+    if (v != null && v != "") {
+      try {
+        await fetchpatientByUUID(v, context);
+        return true;
+      } catch (e) {
+        print("error");
+      }
+    }
+    if (v1 != null && v1 != "") {
+      try {
+        await fetchdoctorByUUID(v1, context);
+        return true;
+      } catch (e) {
+        print("error");
+      }
+    } else {
+      Future.delayed(const Duration(milliseconds: 2000), () {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const IntroScreen(),
+          ),
+          (route) => true,
+        );
+      });
+      return false;
+    }
+
+    return null;
+  }
+
+  bool isLoggedIn = false;
+  Future<void> fetchdoctorByUUID(String uuid, context) async {
+    DoctorModel? users;
+    print("get data");
+    try {
+      var snapshot =
+          await StaticData.firebase.collection("doctor").doc(uuid).get();
+      if (snapshot.exists) {
+        print("get data");
+        users = DoctorModel.fromMap(snapshot.data()!);
+        isLoggedIn = true;
+        StaticData.doctor = users.id;
+        StaticData.doctorModel = users;
+
+        StaticData.updatetokken(
+            StaticData.token, users.id.toString(), "doctor");
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const DoctorHomeNavbar(),
+            ),
+            (route) => true,
+          );
+        });
+
+        print("Current user: $users");
+      } else {
+        print('Document with UUID $uuid does not exist.');
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const IntroScreen(),
+            ),
+            (route) => true,
+          );
+        });
+      }
+    } catch (e) {
+      Future.delayed(const Duration(milliseconds: 1000), () {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const IntroScreen(),
+          ),
+          (route) => true,
+        );
+      });
+
+      print('Error fetching user data: $e');
+    }
+  }
+
+  Future<void> fetchpatientByUUID(String uuid, context) async {
+    PatientModel? users;
+    try {
+      var snapshot =
+          await StaticData.firebase.collection("patient").doc(uuid).get();
+      if (snapshot.exists) {
+        users = PatientModel.fromMap(snapshot.data()!);
+        isLoggedIn = true;
+        StaticData.patient = users.id;
+        StaticData.patientmodel = users;
+
+        StaticData.updatetokken(
+            StaticData.token, users.id.toString(), "patient");
+        Future.delayed(const Duration(milliseconds: 2000), () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeNavbarScreen(),
+            ),
+            (route) => true,
+          );
+        });
+
+        print("Current user: $users");
+      } else {
+        print('Document with UUID $uuid does not exist.');
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const IntroScreen(),
+            ),
+            (route) => true,
+          );
+        });
+      }
+    } catch (e) {
+      Future.delayed(const Duration(milliseconds: 1000), () {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const IntroScreen(),
+          ),
+          (route) => true,
+        );
+      });
+
+      print('Error fetching user data: $e');
+    }
+  }
+
+  late FirebaseMessaging messaging;
+
+  // void initState() {
+  //   super.initState();
+
+  //   _controller =
+  //       AnimationController(vsync: this, duration: const Duration(seconds: 3));
+
+  //   animation1 = Tween<double>(begin: 40, end: 20).animate(CurvedAnimation(
+  //       parent: _controller!, curve: Curves.fastLinearToSlowEaseIn))
+  //     ..addListener(() {
+  //       setState(() {
+  //         _textOpacity = 1.0;
+  //       });
+  //     });
+
+  //   _controller!.forward();
+
+  //   Timer(const Duration(seconds: 2), () {
+  //     setState(() {
+  //       _fontSize = 1.06;
+  //     });
+  //   });
+
+  //   Timer(const Duration(seconds: 2), () {
+  //     setState(() {
+  //       _containerOpacity = 1;
+  //     });
+  //   });
+
+  //   Timer(const Duration(seconds: 4), () {
+  //     Navigator.pushReplacement(
+  //       context,
+  //       PageTransition(
+  //         const IntroScreen(),
+  //       ),
+  //     );
+  //   });
+  // }
 
   @override
   void dispose() {

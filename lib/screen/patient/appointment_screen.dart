@@ -1,16 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/screen/patient/book_appointment.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentScreen extends StatefulWidget {
-  // final DoctorModel model;
-  // const AppointmentScreen({
-  //   Key? key,
-  //   required this.model,
-  // }) : super(key: key);
+  final DoctorModel model;
+  const AppointmentScreen({
+    Key? key,
+    required this.model,
+  }) : super(key: key);
   @override
   State<AppointmentScreen> createState() => _AppointmentScreenState();
 }
@@ -57,12 +58,13 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ),
                   CircleAvatar(
                     radius: width * 0.07,
+                    backgroundImage: NetworkImage(widget.model.image),
                   ),
                   SizedBox(
                     height: height * 0.01,
                   ),
                   Text(
-                    "fiejfidjfi",
+                    "${widget.model.name}",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
@@ -73,7 +75,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     height: height * 0.01,
                   ),
                   Text(
-                    "fiejfidjfi",
+                    "${widget.model.category}",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
@@ -118,7 +120,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     height: height * 0.01,
                   ),
                   Text(
-                    "fjefjeio",
+                    "${widget.model.bio}",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: width * 0.03,
                       color: Colors.black54,
@@ -162,12 +165,14 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                       ),
                     ),
                     title: const Text(
-                      "fhefhjifh",
+                      "Location",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    subtitle: const Text("address of the medical center,"),
+                    subtitle: Text(
+                      "${widget.model.address}",
+                    ),
                   ),
                 ],
               ),
@@ -197,7 +202,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ),
                 ),
                 Text(
-                  "1234",
+                  "${"${widget.model.fee}"}",
                   style: TextStyle(
                     color: Colors.black54,
                     fontWeight: FontWeight.bold,

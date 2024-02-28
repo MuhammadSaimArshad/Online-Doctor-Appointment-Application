@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
+import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -42,8 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ListTile(
-                              title: const Text(
-                                "MUhammad Saim Arshad",
+                              title: Text(
+                                StaticData.patientmodel!.name,
                                 style: TextStyle(color: Colors.white),
                               ),
                               subtitle: Text(
@@ -56,7 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               trailing: SizedBox(
                                   height: height * 0.12,
                                   width: width * 0.15,
-                                  child: CircleAvatar()),
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "${StaticData.patientmodel!.image}"),
+                                  )),
                             )
                           ],
                         ),
@@ -352,96 +360,103 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: height * 0.25,
                   width: width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AppointmentScreen(),
-                              ));
-                        },
-                        child: Container(
-                          height: height * 0.23,
-                          width: width * 0.4,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: width * 0.03,
-                                spreadRadius: width * 0.015,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: height * 0.02,
-                              ),
-                              SizedBox(
-                                  height: height * 0.1,
-                                  width: width * 0.15,
-                                  child: CircleAvatar()),
-                              Text("Dr.Muhammad Saim"),
-                              Text("Child"),
-                              const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.star),
-                                  Icon(Icons.star),
-                                  Icon(Icons.star),
-                                  Icon(Icons.star),
-                                  Icon(Icons.star),
-                                ],
+                  child: StreamBuilder(
+                      stream: FirebaseFirestore.instance
+                          .collection('doctor')
+                          .snapshots(),
+                      builder: (BuildContext context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(child: CircularProgressIndicator());
+                        }
+
+                        if (snapshot.hasError) {
+                          print("Error: /${snapshot.error}");
+                          return Text('Error: /${snapshot.error}');
+                        }
+
+                        DoctorModel? doctor;
+                        if (snapshot.data!.docs.length != 0)
+                          print(
+                              'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+
+                        return snapshot.data!.docs.length == 0 &&
+                                snapshot.data!.docs.isEmpty
+                            ? Center(
+                                child:
+                                    CustomWidget.largeText('Data not found !'),
                               )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: height * 0.23,
-                        width: width * 0.4,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.03,
-                              spreadRadius: width * 0.015,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: height * 0.02,
-                            ),
-                            SizedBox(
-                                height: height * 0.1,
-                                width: width * 0.15,
-                                child: CircleAvatar()),
-                            Text("Dr.Muhammad Saim"),
-                            Text("Child"),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.star),
-                                Icon(Icons.star),
-                                Icon(Icons.star),
-                                Icon(Icons.star),
-                                Icon(Icons.star),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                            : GridView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2),
+                                itemBuilder: (context, index) {
+                                  doctor = DoctorModel.fromMap(
+                                      snapshot.data!.docs[index].data()
+                                          as Map<String, dynamic>);
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                AppointmentScreen(
+                                              model: doctor!,
+                                            ),
+                                          ));
+                                    },
+                                    child: Container(
+                                      height: height * 0.23,
+                                      width: width * 0.4,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            blurRadius: width * 0.03,
+                                            spreadRadius: width * 0.015,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                            height: height * 0.02,
+                                          ),
+                                          SizedBox(
+                                              height: height * 0.1,
+                                              width: width * 0.15,
+                                              child: CircleAvatar(
+                                                backgroundImage:
+                                                    NetworkImage(doctor!.image),
+                                              )),
+                                          Text(doctor!.name),
+                                          Text(doctor!.category),
+                                          RatingBar.builder(
+                                            initialRating: doctor!.ratingperson!
+                                                .toDouble(),
+                                            itemSize: 25,
+                                            minRating: 1,
+                                            direction: Axis.horizontal,
+                                            allowHalfRating: true,
+                                            itemCount: 5,
+                                            itemPadding: EdgeInsets.symmetric(
+                                                horizontal: 4.0),
+                                            itemBuilder: (context, _) => Icon(
+                                              Icons.star,
+                                              color: Colors.amber,
+                                            ),
+                                            onRatingUpdate: (value) {},
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                      }),
                 ),
               ],
             ),

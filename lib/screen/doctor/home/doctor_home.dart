@@ -211,11 +211,11 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AppointmentScreen(),
-                            ));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) => AppointmentScreen(),
+                        //     ));
                       },
                       child: Container(
                         height: height * 0.23,
