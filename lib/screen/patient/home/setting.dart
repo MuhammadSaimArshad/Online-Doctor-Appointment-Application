@@ -2,6 +2,7 @@ import 'package:doc_bookr/screen/patient/home/home_screen.dart';
 import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/signup_screen.dart';
+import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +37,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       alignment: Alignment.center,
                       child: CircleAvatar(
                         radius: width * 0.15,
+                        backgroundImage:
+                            NetworkImage(StaticData.patientmodel!.image),
                       ),
                     ),
                     Padding(
@@ -99,7 +102,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          "Muhammad saim",
+                          "${StaticData.patientmodel!.name}",
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold),

@@ -175,7 +175,7 @@ class StaticData {
 
   static openWhatsAppChat() async {
     try {
-      String url = "https://wa.me/+923013931947?text=Hello";
+      String url = "https://wa.me/+923059895650?text=Hello";
 
       await launch(url);
     } catch (e) {
@@ -185,7 +185,7 @@ class StaticData {
 
   static openEmailChat() async {
     try {
-      String url = 'mailto:asim.llms@gmail.com';
+      String url = 'mailto:saimarshad075@gmail.com';
 
       await launch(url);
     } catch (e) {

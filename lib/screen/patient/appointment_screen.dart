@@ -64,7 +64,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     height: height * 0.01,
                   ),
                   Text(
-                    "${widget.model.name}",
+                    "Dr.${widget.model.name}",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
@@ -219,8 +219,9 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => bookappointment(),
-                    ));
+                        builder: (context) => Calender(
+                              model: widget.model,
+                            )));
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/DoctorModel.dart';
+import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -232,23 +233,35 @@ class _MYdoctorState extends State<MYdoctor> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Container(
-                                              height: height * 0.066,
-                                              width: width * 0.35,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xff0EBE7F),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        width * 0.02),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  "Book Now",
-                                                  style: TextStyle(
-                                                      fontSize: width * 0.04,
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          AppointmentScreen(
+                                                        model: doctor!,
+                                                      ),
+                                                    ));
+                                              },
+                                              child: Container(
+                                                height: height * 0.066,
+                                                width: width * 0.35,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xff0EBE7F),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          width * 0.02),
+                                                ),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Book Now",
+                                                    style: TextStyle(
+                                                        fontSize: width * 0.04,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
                                                 ),
                                               ),
                                             )

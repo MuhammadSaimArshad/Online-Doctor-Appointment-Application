@@ -125,7 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        StaticData.openEmailChat();
+                      },
                       child: Container(
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(
@@ -174,7 +176,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        StaticData.openWhatsAppChat();
+                      },
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
@@ -359,7 +363,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(
                   height: height * 0.25,
-                  width: width,
+                  width: width * 0.8,
                   child: StreamBuilder(
                       stream: FirebaseFirestore.instance
                           .collection('doctor')
@@ -410,7 +414,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: Container(
                                       height: height * 0.23,
-                                      width: width * 0.4,
+                                      width: width * 0.2,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),
