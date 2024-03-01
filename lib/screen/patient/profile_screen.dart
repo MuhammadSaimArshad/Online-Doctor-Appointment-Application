@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:doc_bookr/controller/Patientprofilecontroller.dart';
+import 'package:doc_bookr/model/patientModel.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +11,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Profilescreen extends StatefulWidget {
-  const Profilescreen({super.key});
+  const Profilescreen({super.key, required PatientModel model});
 
   @override
   State<Profilescreen> createState() => _ProfilescreenState();
@@ -47,12 +48,6 @@ class _ProfilescreenState extends State<Profilescreen> {
                   color: Colors.white,
                   child: Stack(
                     children: [
-                      // Align(
-                      //   alignment: Alignment.center,
-                      //   child: CircleAvatar(
-                      //     radius: width * 0.15,
-                      //   ),
-                      // ),
                       Align(
                         alignment: Alignment.center,
                         child: obj.hpickedFile != null

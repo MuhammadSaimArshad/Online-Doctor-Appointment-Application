@@ -12,7 +12,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
   int _buttonIndex = 0;
   final _scheduleWidgets = [
     DoctorUpcomingSchedule(),
-    DoctorCancelSchedule(),
+    DoctorCanceledSchedule(),
     DoctorCompleteSchedule(),
   ];
   var height, width;
@@ -110,7 +110,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          "Completed",
+                          "Canceled",
                           style: TextStyle(
                             fontSize: width * 0.03,
                             fontWeight: FontWeight.w500,
@@ -137,7 +137,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          "Canceled",
+                          "Completed",
                           style: TextStyle(
                             fontSize: width * 0.03,
                             fontWeight: FontWeight.w500,
