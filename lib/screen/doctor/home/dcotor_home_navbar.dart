@@ -17,7 +17,7 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
   int _selectedIndex = 0;
   final _screen = [
     const DoctorHomeScreen(),
-    const DoctorMessageScreen(),
+    const DoctorMessagesScreen(),
     DoctorScheduleScreen(),
     const DoctorAddReportScreen(),
     const DoctorSettingScreen()

@@ -213,6 +213,7 @@ class _CalenderState extends State<Calender> {
                     AppointmentModel model = AppointmentModel(
                         bio: widget.model.bio,
                         id: id,
+                        image: StaticData.patientmodel!.image,
                         patientid: StaticData.patientmodel!.id,
                         doctorid: widget.model.id,
                         doctername: widget.model.name,

@@ -18,7 +18,7 @@ class DoctorProfileController extends GetxController {
   TextEditingController bio = TextEditingController();
   TextEditingController about = TextEditingController();
   TextEditingController password = TextEditingController();
-  String dropdown = "Select Category";
+  // String dropdown = "Select Category";
   String patientimage = '';
   TextEditingController patientname = TextEditingController();
   TextEditingController patientemail = TextEditingController();
@@ -54,6 +54,7 @@ class DoctorProfileController extends GetxController {
     startTime = StaticData.doctorModel!.starttime;
     endTime = StaticData.doctorModel!.endtime;
     fee.text = StaticData.doctorModel!.fee.toString();
+    dropdown = StaticData.doctorModel!.category;
     maxAppointmentDuration = StaticData.doctorModel!.maxAppointmentDuration;
     update();
   }
@@ -101,6 +102,7 @@ class DoctorProfileController extends GetxController {
             "address": address.text,
             "specialty": specilest.text,
             "bio": bio.text,
+            "category": dropdown,
             "fee": double.tryParse(fee.text) ?? 0.0,
             "about": about.text,
             "starttime": startTime,
@@ -136,6 +138,7 @@ class DoctorProfileController extends GetxController {
           "address": address.text,
           "specialty": specilest.text,
           "bio": bio.text,
+          "category": dropdown,
           "about": about.text,
           "starttime": startTime,
           "fee": double.tryParse(fee.text) ?? 0.0,
@@ -230,5 +233,10 @@ class DoctorProfileController extends GetxController {
     }
   }
 
-  void dropdownupdate(String s) {}
+  String dropdown = "Select Category";
+
+  void dropdownupdate(String s) {
+    dropdown = s;
+    update();
+  }
 }

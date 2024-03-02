@@ -17,7 +17,7 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
   int _selectedIndex = 0;
   final _screen = [
     const HomeScreen(),
-    const MessageScreen(),
+    MessagesScreen(),
     ScheduleScreen(),
     const Addreport(),
     const SettingScreen(),

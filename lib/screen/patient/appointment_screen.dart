@@ -1,10 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/DoctorModel.dart';
+import 'package:doc_bookr/model/appointmentmodel.dart';
+import 'package:doc_bookr/model/patientModel.dart';
+import 'package:doc_bookr/screen/doctor/message/chatscreen.dart';
 import 'package:doc_bookr/screen/patient/book_appointment.dart';
+import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_time_ago/get_time_ago.dart';
 
 class AppointmentScreen extends StatefulWidget {
   final DoctorModel model;
@@ -85,18 +92,75 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   SizedBox(
                     height: height * 0.01,
                   ),
-                  Container(
-                    height: height * 0.05,
-                    width: width * 0.3,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        CupertinoIcons.chat_bubble_text_fill,
-                        color: const Color(0xff0EBE7F),
-                        size: width * 0.06,
+                  InkWell(
+                    onTap: () async {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChatScreen(
+                                image: widget.model.image,
+                                name: widget.model.name,
+                                id: widget.model.id,
+                                current: StaticData.patientmodel!.id,
+                                currentimage: StaticData.patientmodel!.image,
+                                tokken: widget.model.token,
+                                currentname: StaticData.patientmodel!.name),
+                          ));
+                      try {
+                        DocumentSnapshot doctorSnapshot = await StaticData
+                            .firebase
+                            .collection("doctor")
+                            .doc(widget.model.id)
+                            .get();
+                        DoctorModel model = DoctorModel.fromMap(
+                            doctorSnapshot.data() as Map<String, dynamic>);
+                        if (!model.patientList!.contains(
+                          StaticData.patientmodel!.id,
+                        )) {
+                          StaticData.firebase
+                              .collection("doctor")
+                              .doc(widget.model.id)
+                              .update({
+                            "patientList": FieldValue.arrayUnion(
+                                [StaticData.patientmodel!.id])
+                          });
+                        } else {
+                          print("id presnt");
+                        }
+
+                        /////////
+                        DocumentSnapshot snapshot = await StaticData.firebase
+                            .collection("patient")
+                            .doc(StaticData.patientmodel!.id)
+                            .get();
+                        PatientModel model1 = PatientModel.fromMap(
+                            snapshot.data() as Map<String, dynamic>);
+                        if (!model1.doctorList!.contains(widget.model.id)) {
+                          StaticData.firebase
+                              .collection("patient")
+                              .doc(StaticData.patientmodel!.id)
+                              .update({
+                            "doctorList":
+                                FieldValue.arrayUnion([widget.model.id])
+                          });
+                        } else {
+                          print("id presnt");
+                        }
+                      } catch (e) {}
+                    },
+                    child: Container(
+                      height: height * 0.05,
+                      width: width * 0.3,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          CupertinoIcons.chat_bubble_text_fill,
+                          color: const Color(0xff0EBE7F),
+                          size: width * 0.06,
+                        ),
                       ),
                     ),
                   )
@@ -141,6 +205,109 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                       ),
                     ],
                   ),
+                  SizedBox(
+                      height: 160,
+                      child: StreamBuilder(
+                          stream: StaticData.firebase
+                              .collection('appointment')
+                              .where("doctorid", isEqualTo: widget.model.id)
+                              .snapshots(),
+                          builder: (BuildContext context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+
+                            if (snapshot.hasError) {
+                              print("Error: /${snapshot.error}");
+                              return Text('Error: /${snapshot.error}');
+                            }
+
+                            AppointmentModel? appointmentModel;
+                            if (snapshot.data!.docs.length != 0)
+                              print(
+                                  'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                            return snapshot.data!.docs.length == 0 &&
+                                    snapshot.data!.docs.isEmpty
+                                ? Center(
+                                    child: CustomWidget.largeText(
+                                        'Data not found !'),
+                                  )
+                                : ListView.builder(
+                                    itemCount: snapshot.data!.docs.length,
+                                    scrollDirection: Axis.horizontal,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      appointmentModel =
+                                          AppointmentModel.fromMap(snapshot
+                                              .data!.docs[index]
+                                              .data());
+                                      return Container(
+                                        width: width * 0.7,
+                                        margin: EdgeInsets.all(10),
+                                        padding:
+                                            EdgeInsets.symmetric(vertical: 5),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black12,
+                                              blurRadius: 4,
+                                              spreadRadius: 2,
+                                            ),
+                                          ],
+                                        ),
+                                        child: SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              1.4,
+                                          child: Column(
+                                            children: [
+                                              ListTile(
+                                                leading: CircleAvatar(
+                                                  radius: 30,
+                                                  backgroundImage: NetworkImage(
+                                                      "${widget.model.image}"),
+                                                ),
+                                                title: Text(
+                                                  "${appointmentModel!.doctername}",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                subtitle: Text(GetTimeAgo.parse(
+                                                        microsecondsSinceEpochToDateTime(
+                                                            appointmentModel!
+                                                                .createdtime))
+                                                    .toString()),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 10),
+                                                child: Text(
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  "${appointmentModel!.bio}",
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 13,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                          })),
                   SizedBox(
                     height: height * 0.15,
                   ),

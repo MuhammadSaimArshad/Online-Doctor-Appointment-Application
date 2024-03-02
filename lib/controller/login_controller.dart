@@ -57,7 +57,7 @@ class LoginController extends GetxController {
               ));
           SharedPreferences prefs = await SharedPreferences.getInstance();
           StaticData.cleardata(context).then((value) {
-            prefs.setString("doctor", StaticData.doctor);
+            prefs.setString("doctor", id);
             clearForm();
           });
         } else {

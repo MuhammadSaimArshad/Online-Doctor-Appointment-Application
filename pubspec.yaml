@@ -41,6 +41,7 @@ dependencies:
   get: 
   firebase_core: 
   cloud_firestore: 
+  custom_clippers: 
   firebase_storage: 
   image_picker: 
   uuid: 

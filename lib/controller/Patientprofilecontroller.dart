@@ -56,6 +56,15 @@ class ProfileController extends GetxController {
         }).then((value) {
           StaticData.updatepatientprofile().then((value) {
             initalizedata();
+            Fluttertoast.showToast(
+              msg: "Profile update sucessfully",
+              backgroundColor: Color(0xff0EBE7F),
+              textColor: Colors.white,
+              gravity: ToastGravity.BOTTOM,
+              fontSize: 17,
+              timeInSecForIosWeb: 1,
+              toastLength: Toast.LENGTH_LONG,
+            );
           });
         });
       });
@@ -73,6 +82,15 @@ class ProfileController extends GetxController {
       }).then((value) {
         StaticData.updatepatientprofile().then((value) {
           initalizedata();
+          Fluttertoast.showToast(
+            msg: "Profile update sucessfully",
+            backgroundColor: Color(0xff0EBE7F),
+            textColor: Colors.white,
+            gravity: ToastGravity.BOTTOM,
+            fontSize: 17,
+            timeInSecForIosWeb: 1,
+            toastLength: Toast.LENGTH_LONG,
+          );
         });
       });
     }

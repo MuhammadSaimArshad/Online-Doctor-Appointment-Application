@@ -163,7 +163,14 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                   height: height * 0.2,
                   width: width * 0.9,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color(0xff0EBE4f),
+                          Color(0xff0EBE7F),
+                        ],
+                      ),
                       borderRadius: BorderRadius.circular(width * 0.05),
                       boxShadow: [
                         BoxShadow(
@@ -222,12 +229,12 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     controller: obj.address,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      label: Text("Address"),
+                      label: Text("Location"),
                       prefixIcon: Icon(Icons.phone),
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please Enter Your Address';
+                        return 'Please Enter Your Location';
                       }
                       return null;
                     },
@@ -501,44 +508,43 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     child: CustomWidget.largeText(
                         "   Select Max Appointment Duration:",
                         height: 0.5)),
-                if (obj.index == 0)
-                  SizedBox(
-                    height: height * 0.11,
-                    width: width,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GridView.builder(
-                        itemCount: obj.time.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 18.0,
-                            mainAxisSpacing: 18.0,
-                            childAspectRatio: 3),
-                        itemBuilder: (context, i) {
-                          return InkWell(
-                            onTap: () {
-                              obj.updateduration(i);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
+                SizedBox(
+                  height: height * 0.11,
+                  width: width,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                      itemCount: obj.time.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 18.0,
+                          mainAxisSpacing: 18.0,
+                          childAspectRatio: 3),
+                      itemBuilder: (context, i) {
+                        return InkWell(
+                          onTap: () {
+                            obj.updateduration(i);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: obj.duration == i
+                                    ? Apptheme.primary
+                                    : Colors.grey[300],
+                                borderRadius: BorderRadius.circular(21)),
+                            child: Center(
+                                child: Text(
+                              "${obj.time[i]} Minute",
+                              style: TextStyle(
                                   color: obj.duration == i
-                                      ? Apptheme.primary
-                                      : Colors.grey[300],
-                                  borderRadius: BorderRadius.circular(21)),
-                              child: Center(
-                                  child: Text(
-                                "${obj.time[i]} Minute",
-                                style: TextStyle(
-                                    color: obj.duration == i
-                                        ? Colors.white
-                                        : Apptheme.primary),
-                              )),
-                            ),
-                          );
-                        },
-                      ),
+                                      ? Colors.white
+                                      : Apptheme.primary),
+                            )),
+                          ),
+                        );
+                      },
                     ),
                   ),
+                ),
                 SizedBox(
                   height: height * 0.01,
                 ),

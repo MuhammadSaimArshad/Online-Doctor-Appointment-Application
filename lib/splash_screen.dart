@@ -66,14 +66,14 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
       });
     });
 
-    Timer(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-        context,
-        PageTransition(
-          const IntroScreen(),
-        ),
-      );
-    });
+    // Timer(const Duration(seconds: 4), () {
+    //   Navigator.pushReplacement(
+    //     context,
+    //     PageTransition(
+    //       const IntroScreen(),
+    //     ),
+    //   );
+    // });
 
     super.initState();
     // FirebaseMessaging.instance.getInitialMessage().then(
@@ -130,8 +130,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
       } catch (e) {
         print("error");
       }
-    }
-    if (v1 != null && v1 != "") {
+    } else if (v1 != null && v1 != "") {
       try {
         await fetchdoctorByUUID(v1, context);
         return true;

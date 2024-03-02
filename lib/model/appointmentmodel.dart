@@ -13,6 +13,7 @@ class AppointmentModel {
   int status;
   String bio;
   double? rating;
+  String image;
   AppointmentModel({
     required this.id,
     required this.patientid,
@@ -25,6 +26,7 @@ class AppointmentModel {
     required this.status,
     required this.bio,
     this.rating,
+    required this.image,
   });
 
   AppointmentModel copyWith({
@@ -39,6 +41,7 @@ class AppointmentModel {
     int? status,
     String? bio,
     double? rating,
+    String? image,
   }) {
     return AppointmentModel(
       id: id ?? this.id,
@@ -52,6 +55,7 @@ class AppointmentModel {
       status: status ?? this.status,
       bio: bio ?? this.bio,
       rating: rating ?? this.rating,
+      image: image ?? this.image,
     );
   }
 
@@ -68,6 +72,7 @@ class AppointmentModel {
       'status': status,
       'bio': bio,
       'rating': rating,
+      'image': image,
     };
   }
 
@@ -84,6 +89,7 @@ class AppointmentModel {
       status: map['status'] as int,
       bio: map['bio'] as String,
       rating: map['rating'] != null ? map['rating'] as double : null,
+      image: map['image'] as String,
     );
   }
 
@@ -94,7 +100,7 @@ class AppointmentModel {
 
   @override
   String toString() {
-    return 'AppointmentModel(id: $id, patientid: $patientid, doctorid: $doctorid, doctername: $doctername, patientname: $patientname, slotsid: $slotsid, time: $time, createdtime: $createdtime, status: $status, bio: $bio, rating: $rating)';
+    return 'AppointmentModel(id: $id, patientid: $patientid, doctorid: $doctorid, doctername: $doctername, patientname: $patientname, slotsid: $slotsid, time: $time, createdtime: $createdtime, status: $status, bio: $bio, rating: $rating, image: $image)';
   }
 
   @override
@@ -111,7 +117,8 @@ class AppointmentModel {
         other.createdtime == createdtime &&
         other.status == status &&
         other.bio == bio &&
-        other.rating == rating;
+        other.rating == rating &&
+        other.image == image;
   }
 
   @override
@@ -126,6 +133,7 @@ class AppointmentModel {
         createdtime.hashCode ^
         status.hashCode ^
         bio.hashCode ^
-        rating.hashCode;
+        rating.hashCode ^
+        image.hashCode;
   }
 }

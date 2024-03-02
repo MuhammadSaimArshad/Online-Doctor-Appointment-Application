@@ -166,11 +166,12 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 trailing: InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => Profilescreen(),
-                      //   ));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Profilescreen(model: StaticData.patientmodel!
+                          ,),
+                        ));
                     },
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,

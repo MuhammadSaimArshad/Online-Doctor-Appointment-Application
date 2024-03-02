@@ -2,6 +2,7 @@
 
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/appointmentmodel.dart';
+import 'package:doc_bookr/model/patientModel.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
 
@@ -84,6 +85,8 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                       subtitle: Text("${model!.bio}"),
                                       trailing: CircleAvatar(
                                         radius: width * 0.04,
+                                        backgroundImage:
+                                            NetworkImage("${model!.image}"),
                                       ),
                                     ),
                                     Padding(
