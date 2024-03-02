@@ -44,13 +44,13 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
               child: Text(
                 "Messages",
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: width * 0.06,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             SizedBox(
-              height: 20,
+              height: height * 0.03,
             ),
             obj.patientList.length == 0
                 ? SizedBox(
@@ -136,7 +136,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                         "${obj.patientList[index].name}",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: width * 0.04,
                                           color: Colors.black54,
                                         ),
                                       ),
@@ -145,14 +145,14 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: width * 0.05,
                                           color: Colors.black54,
                                         ),
                                       ),
                                       trailing: Text(
                                         "12:30 pm",
                                         style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: width * 0.03,
                                           color: Colors.black54,
                                         ),
                                       ),
@@ -197,7 +197,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                               "${obj.patientList[index].name}",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 18,
+                                                fontSize: width * 0.03,
                                                 overflow: TextOverflow.ellipsis,
                                                 color: Colors.black54,
                                               ),
@@ -208,7 +208,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                             child: Text(
                                               "${MyDateUtil.getMessageTime(context: context, time: message!.sent!)}",
                                               style: TextStyle(
-                                                fontSize: 15,
+                                                fontSize: width * 0.04,
                                                 overflow: TextOverflow.ellipsis,
                                                 color: Colors.black54,
                                               ),
@@ -227,7 +227,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                fontSize: 16,
+                                                fontSize: width * 0.04,
                                                 color: Colors.black54,
                                               ),
                                             ),
@@ -239,14 +239,14 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                               child: CircleAvatar(
                                                 backgroundColor:
                                                     Apptheme.primary,
+                                                radius: 15,
                                                 child: Text(
                                                   unread.length < 99
                                                       ? "${unread.length}"
                                                       : "99+",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: Colors.white),
                                                 ),
-                                                radius: 15,
                                               ),
                                             )
                                         ],

@@ -59,7 +59,7 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                   child: GridView.builder(
                 itemCount: list.length,
 
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 3,
                     crossAxisSpacing: 5,
                     crossAxisCount: 2),

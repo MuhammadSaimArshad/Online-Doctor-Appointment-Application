@@ -75,18 +75,18 @@ class _ChatScreenState extends State<ChatScreen> {
       }, builder: (obj) {
         return Scaffold(
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60),
+              preferredSize: const Size.fromHeight(60),
               child: AppBar(
                 leading: InkWell(
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back_ios_new,
                     color: Colors.white,
                   ),
                 ),
-                backgroundColor: Color(0xFF7165D6),
+                backgroundColor: const Color(0xff0EBE7F),
                 leadingWidth: 30,
                 title: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
@@ -102,8 +102,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       SizedBox(
                         width: width * 0.4,
                         child: Text(
-                          "${widget.name}",
-                          style: TextStyle(
+                          widget.name,
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
@@ -136,12 +136,12 @@ class _ChatScreenState extends State<ChatScreen> {
                 // ],
               ),
             ),
-            body: Container(
+            body: SizedBox(
               height: height,
               width: width,
               child: Column(children: [
                 Expanded(
-                  child: Container(
+                  child: SizedBox(
                     height: height,
                     width: width,
                     child: StreamBuilder(
@@ -179,7 +179,8 @@ class _ChatScreenState extends State<ChatScreen> {
                               return Center(
                                 child: Text("HEELOW THERE! 👋",
                                     style: TextStyle(
-                                        fontSize: 20, color: Colors.black)),
+                                        fontSize: width * 0.03,
+                                        color: Colors.black)),
                               );
                             }
                         }
@@ -193,8 +194,8 @@ class _ChatScreenState extends State<ChatScreen> {
                     height: height * .35,
                     child: EmojiPicker(
                       textEditingController: obj.textController,
-                      config: Config(
-                        bgColor: const Color.fromARGB(255, 234, 248, 255),
+                      config: const Config(
+                        bgColor: Color.fromARGB(255, 234, 248, 255),
                         columns: 8,
                         emojiSizeMax: 32 * (1.0),
                       ),
@@ -272,14 +273,9 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           Container(
             height: height * 0.065,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.3, 0.7],
-                colors: [Color(0xffF4866E), Color(0xffEFBF3F)],
-              ),
+              color: Color(0xff0EBE7F),
             ),
             child: ClipOval(
               child: Material(
@@ -300,9 +296,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     }
                   },
                   child: SizedBox(
-                    width: 56,
-                    height: 56,
-                    child: Icon(
+                    width: width * 0.1,
+                    height: height * 0.08,
+                    child: const Icon(
                       Icons.send,
                       color: Colors.white,
                     ),

@@ -30,7 +30,7 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                 .snapshots(),
             builder: (BuildContext context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
 
               if (snapshot.hasError) {
@@ -55,15 +55,16 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 5),
+                            padding:
+                                EdgeInsets.symmetric(vertical: width * 0.02),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black12,
-                                  blurRadius: 4,
-                                  spreadRadius: 2,
+                                  blurRadius: width * 0.01,
+                                  spreadRadius: width * 0.03,
                                 ),
                               ],
                             ),
@@ -73,22 +74,24 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                 children: [
                                   ListTile(
                                     title: Text(
-                                      "${model!.patientname}",
+                                      model!.patientname,
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: width * 0.04),
                                     ),
-                                    subtitle: Text("${model!.bio}"),
+                                    subtitle: Text(model!.bio),
                                     trailing: CircleAvatar(
-                                      radius: 25,
+                                      radius: width * 0.04,
+                                      backgroundImage:
+                                          NetworkImage("${model!.image}"),
                                     ),
                                   ),
                                   Padding(
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 15),
                                     child: Divider(
-                                      thickness: 1,
-                                      height: 20,
+                                      thickness: width * 0.01,
+                                      height: height * 0.03,
                                     ),
                                   ),
                                   Row(
@@ -99,18 +102,18 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
                                         children: [
-                                          Icon(
+                                          const Icon(
                                             Icons.calendar_month,
                                             color: Colors.black54,
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                            width: width * 0.03,
                                           ),
                                           Text(
                                             "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
                                             style: TextStyle(
-                                              color: Colors.black54,
-                                            ),
+                                                color: Colors.black54,
+                                                fontSize: width * 0.03),
                                           ),
                                         ],
                                       ),
@@ -121,13 +124,15 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                           Icon(
                                             Icons.access_time_filled,
                                             color: Colors.black54,
+                                            size: width * 0.03,
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                            width: width * 0.02,
                                           ),
                                           Text(
-                                            "${model!.time}",
+                                            model!.time,
                                             style: TextStyle(
+                                              fontSize: width * 0.02,
                                               color: Colors.black54,
                                             ),
                                           ),
@@ -137,25 +142,23 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                         children: [
                                           Container(
                                             padding: EdgeInsets.all(5),
-                                            decoration: BoxDecoration(
-                                                color: Colors.green,
+                                            decoration: const BoxDecoration(
+                                                color: Color(0xff0EBE7F),
                                                 shape: BoxShape.circle),
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                            width: width * 0.02,
                                           ),
                                           Text(
                                             "Completed",
                                             style: TextStyle(
+                                              fontSize: width * 0.04,
                                               color: Colors.black54,
                                             ),
                                           ),
                                         ],
                                       ),
                                     ],
-                                  ),
-                                  SizedBox(
-                                    height: 15,
                                   ),
                                 ],
                               ),

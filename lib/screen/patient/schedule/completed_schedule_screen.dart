@@ -68,8 +68,8 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black12,
-                                  blurRadius: 4,
-                                  spreadRadius: 2,
+                                  blurRadius: width * 0.01,
+                                  spreadRadius: width * 0.01,
                                 ),
                               ],
                             ),
@@ -81,8 +81,8 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                     title: Text(
                                       "Dr.${model!.doctername}",
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: width * 0.04),
                                     ),
                                     subtitle: Text("${model!.bio}"),
                                     trailing: CircleAvatar(
@@ -94,7 +94,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                   Row(
                                     children: [
                                       SizedBox(
-                                        width: 20,
+                                        width: width * 0.03,
                                       ),
                                       InkWell(
                                         onTap: model!.rating == null
@@ -122,7 +122,8 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                   Navigator.pop(
                                                                       context);
                                                                 },
-                                                                child: Text(
+                                                                child:
+                                                                    const Text(
                                                                   "No",
                                                                   style: TextStyle(
                                                                       color: Colors
@@ -176,13 +177,15 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                       .spaceBetween,
                                                               children: [
                                                                 SizedBox(
-                                                                  width: 20,
+                                                                  width: width *
+                                                                      0.03,
                                                                 ),
                                                                 Text(
                                                                   "Dotcor Rating",
                                                                   style: TextStyle(
                                                                       fontSize:
-                                                                          15,
+                                                                          width *
+                                                                              0.03,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold),
@@ -194,7 +197,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                               context)
                                                                           .pop();
                                                                     },
-                                                                    child: Icon(
+                                                                    child: const Icon(
                                                                         Icons
                                                                             .cancel_outlined)),
                                                               ],
@@ -217,7 +220,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                       itemSize: 30,
                                                                       itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                                                                       updateOnDrag: true,
-                                                                      itemBuilder: (context, index) => Icon(
+                                                                      itemBuilder: (context, index) => const Icon(
                                                                             Icons.star,
                                                                             color:
                                                                                 Color(0xFF7165D6),
@@ -232,13 +235,16 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                         });
                                                                       }),
                                                                   SizedBox(
-                                                                    height: 5,
+                                                                    height:
+                                                                        height *
+                                                                            0.02,
                                                                   ),
                                                                   Text(
                                                                     "Rating : $fullrating",
                                                                     style: TextStyle(
                                                                         fontSize:
-                                                                            15,
+                                                                            width *
+                                                                                0.03,
                                                                         fontWeight:
                                                                             FontWeight.bold),
                                                                   ),
@@ -257,7 +263,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                         child: Text(
                                           "Rating : ${model!.rating ?? 0}",
                                           style: TextStyle(
-                                              fontSize: 15,
+                                              fontSize: width * 0.04,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
@@ -267,7 +273,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 15),
                                     child: Divider(
-                                      thickness: 1,
+                                      thickness: width * 0.01,
                                       height: 20,
                                     ),
                                   ),
@@ -279,18 +285,18 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
                                         children: [
-                                          Icon(
+                                          const Icon(
                                             Icons.calendar_month,
                                             color: Colors.black54,
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                            width: width * 0.02,
                                           ),
                                           Text(
                                             "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
                                             style: TextStyle(
-                                              color: Colors.black54,
-                                            ),
+                                                color: Colors.black54,
+                                                fontSize: width * 0.01),
                                           ),
                                         ],
                                       ),
@@ -298,18 +304,18 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
                                         children: [
-                                          Icon(
+                                          const Icon(
                                             Icons.access_time_filled,
                                             color: Colors.black54,
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                            width: width * 0.01,
                                           ),
                                           Text(
                                             "${model!.time}",
                                             style: TextStyle(
-                                              color: Colors.black54,
-                                            ),
+                                                color: Colors.black54,
+                                                fontSize: width * 0.02),
                                           ),
                                         ],
                                       ),
@@ -317,25 +323,22 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                         children: [
                                           Container(
                                             padding: EdgeInsets.all(5),
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                                 color: Colors.green,
                                                 shape: BoxShape.circle),
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                            width: width * 0.02,
                                           ),
                                           Text(
                                             "Completed",
                                             style: TextStyle(
-                                              color: Colors.black54,
-                                            ),
+                                                color: Colors.black54,
+                                                fontSize: width * 0.04),
                                           ),
                                         ],
                                       ),
                                     ],
-                                  ),
-                                  SizedBox(
-                                    height: 15,
                                   ),
                                 ],
                               ),

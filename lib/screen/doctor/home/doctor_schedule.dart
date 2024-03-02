@@ -132,7 +132,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                             EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 2
-                              ? Color(0xff0EBE7F)
+                              ? const Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),

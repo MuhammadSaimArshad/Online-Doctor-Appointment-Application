@@ -105,7 +105,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.calendar_month,
                                               color: Colors.black54,
                                             ),
@@ -115,8 +115,8 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                             Text(
                                               "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
                                               style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
+                                                  color: Colors.black54,
+                                                  fontSize: width * 0.02),
                                             ),
                                           ],
                                         ),
@@ -124,18 +124,18 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.access_time_filled,
                                               color: Colors.black54,
                                             ),
                                             SizedBox(
-                                              width: 5,
+                                              width: width * 0.02,
                                             ),
                                             Text(
                                               "${model!.time}",
                                               style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
+                                                  color: Colors.black54,
+                                                  fontSize: width * 0.03),
                                             ),
                                           ],
                                         ),
@@ -143,25 +143,22 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(5),
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                   color: Colors.red,
                                                   shape: BoxShape.circle),
                                             ),
                                             SizedBox(
-                                              width: 5,
+                                              width: width * 0.02,
                                             ),
                                             Text(
                                               "Canceled",
                                               style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
+                                                  color: Colors.black54,
+                                                  fontSize: width * 0.04),
                                             ),
                                           ],
                                         ),
                                       ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
                                     ),
                                   ],
                                 ),

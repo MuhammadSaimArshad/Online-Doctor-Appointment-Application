@@ -309,7 +309,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                         )
                       : GridView.builder(
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2, childAspectRatio: 1.2),
                           itemCount:
                               StaticData.doctorModel!.patientList?.length,
@@ -325,7 +325,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                               builder: (BuildContext context, snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
-                                  return Center(
+                                  return const Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 }
@@ -359,7 +359,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                         },
                                         child: Container(
                                           margin: EdgeInsets.all(8),
-                                          padding: EdgeInsets.symmetric(
+                                          padding: const EdgeInsets.symmetric(
                                               vertical: 10),
                                           decoration: BoxDecoration(
                                             color: Colors.white,
@@ -368,8 +368,8 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Colors.black12,
-                                                blurRadius: 4,
-                                                spreadRadius: 2,
+                                                blurRadius: width * 0.01,
+                                                spreadRadius: width * 0.01,
                                               ),
                                             ],
                                           ),
@@ -380,10 +380,10 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                               CircleAvatar(
                                                 radius: 35,
                                                 backgroundImage: NetworkImage(
-                                                    "${patientModel.image}"),
+                                                    patientModel.image),
                                               ),
                                               Text(
-                                                "${patientModel.name}",
+                                                patientModel.name,
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: width * 0.04,
@@ -391,7 +391,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                                 ),
                                               ),
                                               Text(
-                                                "${patientModel.phonenumber}",
+                                                patientModel.phonenumber,
                                                 style: const TextStyle(
                                                   color: Colors.black45,
                                                 ),

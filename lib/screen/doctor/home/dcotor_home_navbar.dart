@@ -24,12 +24,15 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
   ];
 
   @override
+  var height, width;
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: _screen[_selectedIndex],
-        bottomNavigationBar: Container(
+        bottomNavigationBar: SizedBox(
           height: 80,
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
@@ -37,7 +40,7 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
             selectedItemColor: Color(0xff0EBE7F),
             unselectedItemColor: Colors.black26,
             selectedLabelStyle:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.03),
             currentIndex: _selectedIndex,
             onTap: (index) {
               setState(() {

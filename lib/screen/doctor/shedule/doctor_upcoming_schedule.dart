@@ -21,7 +21,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
         height: height * 0.65,
         width: width,
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: height * 0.01),
             child: StreamBuilder(
                 stream: StaticData.firebase
                     .collection('appointment')
@@ -30,7 +30,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                     .snapshots(),
                 builder: (BuildContext context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   }
 
                   if (snapshot.hasError) {
@@ -39,9 +39,10 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                   }
 
                   AppointmentModel? model;
-                  if (snapshot.data!.docs.length != 0)
+                  if (snapshot.data!.docs.length != 0) {
                     print(
                         'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                  }
                   return snapshot.data!.docs.length == 0 &&
                           snapshot.data!.docs.isEmpty
                       ? Center(
@@ -55,15 +56,16 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
-                                padding: EdgeInsets.symmetric(vertical: 5),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: height * 0.01),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.black12,
-                                      blurRadius: 4,
-                                      spreadRadius: 2,
+                                      blurRadius: width * 0.01,
+                                      spreadRadius: width * 0.01,
                                     ),
                                   ],
                                 ),
@@ -73,22 +75,25 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                     children: [
                                       ListTile(
                                         title: Text(
-                                          "${model!.patientname}",
+                                          model!.patientname,
                                           style: TextStyle(
+                                            fontSize: width * 0.04,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        subtitle: Text("${model!.bio}"),
+                                        subtitle: Text(model!.bio),
                                         trailing: CircleAvatar(
-                                          radius: 25,
+                                          radius: width * 0.04,
+                                          backgroundImage:
+                                              NetworkImage("${model!.image}"),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
-                                            horizontal: 15),
+                                            horizontal: height * 0.01),
                                         child: Divider(
-                                          thickness: 1,
-                                          height: 20,
+                                          thickness: width * 0.01,
+                                          height: height * 0.01,
                                         ),
                                       ),
                                       Row(
@@ -99,16 +104,18 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Icon(
+                                              const Icon(
                                                 Icons.calendar_month,
                                                 color: Colors.black54,
                                               ),
                                               SizedBox(
-                                                width: 5,
+                                                width: width * 0.01,
                                               ),
                                               Text(
-                                                "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
-                                                style: TextStyle(
+                                                StaticData
+                                                    .formatMicrosecondsSinceEpoch(
+                                                        model!.createdtime),
+                                                style: const TextStyle(
                                                   color: Colors.black54,
                                                 ),
                                               ),
@@ -118,16 +125,16 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Icon(
+                                              const Icon(
                                                 Icons.access_time_filled,
                                                 color: Colors.black54,
                                               ),
                                               SizedBox(
-                                                width: 5,
+                                                width: width * 0.02,
                                               ),
                                               Text(
                                                 "${model!.time}",
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   color: Colors.black54,
                                                 ),
                                               ),
@@ -137,16 +144,17 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                             children: [
                                               Container(
                                                 padding: EdgeInsets.all(5),
-                                                decoration: BoxDecoration(
+                                                decoration: const BoxDecoration(
                                                     color: Colors.green,
                                                     shape: BoxShape.circle),
                                               ),
                                               SizedBox(
-                                                width: 5,
+                                                width: width * 0.02,
                                               ),
                                               Text(
                                                 "Pending",
                                                 style: TextStyle(
+                                                  fontSize: width * 0.04,
                                                   color: Colors.black54,
                                                 ),
                                               ),
@@ -155,7 +163,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                         ],
                                       ),
                                       SizedBox(
-                                        height: 15,
+                                        height: height * 0.01,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -189,7 +197,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                             child: Container(
                                               width: 150,
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: 12),
+                                                  vertical: height * 0.01),
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFF4F6FA),
                                                 borderRadius:
@@ -200,7 +208,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                   "Cancel",
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 16,
+                                                    fontSize: height * 0.04,
                                                     color: Colors.black,
                                                   ),
                                                 ),
@@ -228,9 +236,9 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                             child: Container(
                                               width: 150,
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: 12),
+                                                  vertical: height * 0.04),
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF7165D6),
+                                                color: Color(0xff0EBE7F),
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                               ),
@@ -239,7 +247,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                   "Accept",
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 16,
+                                                    fontSize: width * 0.04,
                                                     color: Colors.white,
                                                   ),
                                                 ),

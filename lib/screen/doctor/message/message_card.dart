@@ -51,14 +51,14 @@ class _MessageCardState extends State<MessageCard> {
         child: ClipPath(
           clipper: UpperNipMessageClipper(MessageType.receive),
           child: Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
               color: Color(0xFFE1E1E2),
             ),
             child: Text(
               widget.message.msg!,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: width * 0.04,
                 color: Colors.black,
               ),
             ),
@@ -77,13 +77,13 @@ class _MessageCardState extends State<MessageCard> {
           clipper: LowerNipMessageClipper(MessageType.send),
           child: Container(
             padding: EdgeInsets.only(left: 20, top: 10, bottom: 25, right: 20),
-            decoration: BoxDecoration(
-              color: Color(0xFF7165D6),
+            decoration: const BoxDecoration(
+              color: Color(0xff0EBE7F),
             ),
             child: Text(
               widget.message.msg!,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: width * 0.04,
                 color: Colors.white,
               ),
             ),
@@ -148,7 +148,7 @@ class _MessageCardState extends State<MessageCard> {
                 indent: width * .04,
               ),
               OptionItem(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.remove_red_eye,
                     color: Colors.black,
                   ),
@@ -156,7 +156,7 @@ class _MessageCardState extends State<MessageCard> {
                       'Sent At: ${MyDateUtil.getMessageTime(context: context, time: widget.message.sent!)}',
                   onTap: () {}),
               OptionItem(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.remove_red_eye,
                     color: Colors.black,
                   ),
@@ -198,7 +198,9 @@ class OptionItem extends StatelessWidget {
             Flexible(
                 child: Text('    $name',
                     style: TextStyle(
-                        fontSize: 15, color: Colors.black, letterSpacing: 0.5)))
+                        fontSize: width * 0.04,
+                        color: Colors.black,
+                        letterSpacing: 0.5)))
           ]),
         ));
   }

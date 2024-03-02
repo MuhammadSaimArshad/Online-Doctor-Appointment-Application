@@ -457,7 +457,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                                 obj.startTime != null
                                     ? obj.startTime.toString()
                                     : "Start Time",
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
@@ -515,11 +515,12 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: GridView.builder(
                       itemCount: obj.time.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 18.0,
-                          mainAxisSpacing: 18.0,
-                          childAspectRatio: 3),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 18.0,
+                              mainAxisSpacing: 18.0,
+                              childAspectRatio: 3),
                       itemBuilder: (context, i) {
                         return InkWell(
                           onTap: () {

@@ -80,8 +80,8 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                         subtitle: Text("${model!.bio}"),
                                         trailing: CircleAvatar(
                                           radius: 25,
-                                          // backgroundImage: NetworkImage(
-                                          //     StaticData.doctorModel!.image),
+                                          backgroundImage: NetworkImage(
+                                              StaticData.doctorModel!.image),
                                         ),
                                       ),
                                       const Padding(

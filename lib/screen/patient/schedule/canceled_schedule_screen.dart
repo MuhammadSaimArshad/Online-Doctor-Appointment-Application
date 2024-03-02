@@ -61,8 +61,8 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black12,
-                                    blurRadius: 4,
-                                    spreadRadius: 2,
+                                    blurRadius: width * 0.02,
+                                    spreadRadius: width * 0.02,
                                   ),
                                 ],
                               ),
@@ -74,22 +74,22 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                       title: Text(
                                         "Dr.${model!.doctername}",
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.04),
                                       ),
                                       subtitle: Text("${model!.bio}"),
                                       trailing: CircleAvatar(
-                                        radius: 25,
-                                        // backgroundImage: NetworkImage(
-                                        //     StaticData.doctorModel!.image),
+                                        radius: width * 0.05,
+                                        backgroundImage: NetworkImage(
+                                            StaticData.doctorModel!.image),
                                       ),
                                     ),
                                     Padding(
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 15),
                                       child: Divider(
-                                        thickness: 1,
-                                        height: 20,
+                                        thickness: width * 0.01,
+                                        height: height * 0.02,
                                       ),
                                     ),
                                     Row(
@@ -100,18 +100,18 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.calendar_month,
                                               color: Colors.black54,
                                             ),
                                             SizedBox(
-                                              width: 5,
+                                              width: width * 0.01,
                                             ),
                                             Text(
                                               "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
                                               style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
+                                                  color: Colors.black54,
+                                                  fontSize: width * 0.03),
                                             ),
                                           ],
                                         ),
@@ -119,18 +119,18 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.access_time_filled,
                                               color: Colors.black54,
                                             ),
                                             SizedBox(
-                                              width: 5,
+                                              width: width * 0.02,
                                             ),
                                             Text(
                                               "${model!.time}",
                                               style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
+                                                  color: Colors.black54,
+                                                  fontSize: width * 0.03),
                                             ),
                                           ],
                                         ),
@@ -138,25 +138,22 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                           children: [
                                             Container(
                                               padding: EdgeInsets.all(5),
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                   color: Colors.red,
                                                   shape: BoxShape.circle),
                                             ),
                                             SizedBox(
-                                              width: 5,
+                                              width: width * 0.01,
                                             ),
                                             Text(
                                               "Canceled",
                                               style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
+                                                  color: Colors.black54,
+                                                  fontSize: width * 0.04),
                                             ),
                                           ],
                                         ),
                                       ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
                                     ),
                                   ],
                                 ),

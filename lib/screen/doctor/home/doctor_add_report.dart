@@ -88,11 +88,11 @@ class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
                             backgroundColor: Colors.grey[300],
                             child: Icon(
                               Icons.add_a_photo,
-                              color: Color(0xff0EBE7F),
+                              color: const Color(0xff0EBE7F),
                               size: width * 0.05,
                             ),
                           ),
-                          title: Text("Camera"),
+                          title: const Text("Camera"),
                           onTap: () {
                             Navigator.pop(context);
                           },

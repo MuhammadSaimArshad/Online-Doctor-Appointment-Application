@@ -43,13 +43,13 @@ class _MessagesScreenState extends State<MessagesScreen> {
                 child: Text(
                   "Messages",
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: height * 0.06,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: height * 0.02,
               ),
               ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
@@ -123,7 +123,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                     "${obj.doctorlist[index].name}",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: width * 0.03,
                                       color: Colors.black54,
                                     ),
                                   ),
@@ -132,7 +132,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: width * 0.03,
                                       color: Colors.black54,
                                     ),
                                   ),
@@ -175,7 +175,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             overflow: TextOverflow.ellipsis,
-                                            fontSize: 18,
+                                            fontSize: width * 0.04,
                                             color: Colors.black54,
                                           ),
                                         ),
@@ -185,7 +185,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                         child: Text(
                                           "${MyDateUtil.getMessageTime(context: context, time: message!.sent!)}",
                                           style: TextStyle(
-                                            fontSize: 15,
+                                            fontSize: width * 0.03,
                                             overflow: TextOverflow.ellipsis,
                                             color: Colors.black54,
                                           ),
@@ -204,7 +204,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: width * 0.03,
                                             color: Colors.black54,
                                           ),
                                         ),
@@ -215,14 +215,14 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                               const EdgeInsets.only(right: 25),
                                           child: CircleAvatar(
                                             backgroundColor: Apptheme.primary,
+                                            radius: 15,
                                             child: Text(
                                               unread.length < 99
                                                   ? "${unread.length}"
                                                   : "99+",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: Colors.white),
                                             ),
-                                            radius: 15,
                                           ),
                                         )
                                     ],

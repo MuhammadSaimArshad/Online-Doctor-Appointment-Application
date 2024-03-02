@@ -143,7 +143,7 @@ class _CalenderState extends State<Calender> {
                               builder: (BuildContext context, snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
-                                  return Center(
+                                  return const Center(
                                       child: CircularProgressIndicator());
                                 }
 
@@ -248,7 +248,7 @@ class _CalenderState extends State<Calender> {
 
                     Fluttertoast.showToast(
                       msg: "Appointment request send sucessfuly !",
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color(0xff0EBE7F),
                       textColor: Colors.white,
                       gravity: ToastGravity.BOTTOM,
                       fontSize: 17,

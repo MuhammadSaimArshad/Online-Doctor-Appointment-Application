@@ -121,9 +121,10 @@ class _MYdoctorState extends State<MYdoctor> {
                         }
 
                         DoctorModel? doctor;
-                        if (snapshot.data!.docs.length != 0)
+                        if (snapshot.data!.docs.length != 0) {
                           print(
                               'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                        }
 
                         return snapshot.data!.docs.length == 0 &&
                                 snapshot.data!.docs.isEmpty

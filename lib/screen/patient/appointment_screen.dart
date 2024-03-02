@@ -30,9 +30,9 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
           children: [
             Container(
               height: height * 0.3,
@@ -82,7 +82,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     height: height * 0.01,
                   ),
                   Text(
-                    "${widget.model.category}",
+                    widget.model.category,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
@@ -206,7 +206,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     ],
                   ),
                   SizedBox(
-                      height: 160,
+                      height: height * 0.2,
                       child: StreamBuilder(
                           stream: StaticData.firebase
                               .collection('appointment')
@@ -215,7 +215,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                           builder: (BuildContext context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return Center(child: CircularProgressIndicator());
+                              return const Center(
+                                  child: CircularProgressIndicator());
                             }
 
                             if (snapshot.hasError) {
@@ -224,9 +225,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             }
 
                             AppointmentModel? appointmentModel;
-                            if (snapshot.data!.docs.length != 0)
+                            if (snapshot.data!.docs.length != 0) {
                               print(
                                   'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                            }
                             return snapshot.data!.docs.length == 0 &&
                                     snapshot.data!.docs.isEmpty
                                 ? Center(
@@ -245,8 +247,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                       return Container(
                                         width: width * 0.7,
                                         margin: EdgeInsets.all(10),
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 5),
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: height * 0.01),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius:
@@ -254,16 +256,13 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                           boxShadow: [
                                             BoxShadow(
                                               color: Colors.black12,
-                                              blurRadius: 4,
-                                              spreadRadius: 2,
+                                              blurRadius: width * 0.2,
+                                              spreadRadius: width * 0.02,
                                             ),
                                           ],
                                         ),
                                         child: SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              1.4,
+                                          width: width * 0.14,
                                           child: Column(
                                             children: [
                                               ListTile(
@@ -275,6 +274,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                                 title: Text(
                                                   "${appointmentModel!.doctername}",
                                                   style: TextStyle(
+                                                    fontSize: width * 0.03,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -285,11 +285,11 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                                     .toString()),
                                               ),
                                               SizedBox(
-                                                height: 5,
+                                                height: height * 0.01,
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.symmetric(
-                                                    horizontal: 10),
+                                                    horizontal: height * 0.02),
                                                 child: Text(
                                                   maxLines: 2,
                                                   overflow:
@@ -297,7 +297,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                                   "${appointmentModel!.bio}",
                                                   style: TextStyle(
                                                     color: Colors.black,
-                                                    fontSize: 13,
+                                                    fontSize: width * 0.03,
                                                   ),
                                                 ),
                                               ),
@@ -309,7 +309,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                   );
                           })),
                   SizedBox(
-                    height: height * 0.15,
+                    height: height * 0.015,
                   ),
                   Text(
                     "Location",
@@ -346,70 +346,70 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(15),
-        height: height * 0.17,
-        decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4,
-            spreadRadius: 2,
-          ),
-        ]),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Consultation Price",
-                  style: TextStyle(
-                    color: Colors.black45,
-                  ),
-                ),
-                Text(
-                  "${"${widget.model.fee}"}",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.bold,
-                    fontSize: width * 0.04,
-                  ),
-                ),
-              ],
+        bottomNavigationBar: Container(
+          padding: const EdgeInsets.all(15),
+          height: height * 0.17,
+          decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 4,
+              spreadRadius: 2,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Calender(
-                              model: widget.model,
-                            )));
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                decoration: BoxDecoration(
-                  color: const Color(0xff0EBE7F),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Text(
-                    "Book Appointment",
+          ]),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Consultation Price",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: width * 0.045,
-                      fontWeight: FontWeight.w500,
+                      color: Colors.black45,
+                    ),
+                  ),
+                  Text(
+                    "${"${widget.model.fee}"}",
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
+                      fontSize: width * 0.04,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Calender(
+                                model: widget.model,
+                              )));
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xff0EBE7F),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Book Appointment",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: width * 0.045,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

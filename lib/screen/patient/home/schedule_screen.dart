@@ -61,7 +61,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 padding: EdgeInsets.all(15),
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF4F6FA),
+                  color: const Color(0xFFF4F6FA),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
