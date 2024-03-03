@@ -32,7 +32,7 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
         backgroundColor: Colors.white,
         body: _screen[_selectedIndex],
         bottomNavigationBar: Container(
-          height: height * 0.4,
+          height: height * 0.08,
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,

@@ -208,7 +208,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                   "Cancel",
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: height * 0.04,
+                                                    fontSize: height * 0.03,
                                                     color: Colors.black,
                                                   ),
                                                 ),
@@ -234,9 +234,10 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                               });
                                             },
                                             child: Container(
-                                              width: 150,
+                                              height: height * 0.07,
+                                              width: width * 0.4,
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: height * 0.04),
+                                                  vertical: height * 0.005),
                                               decoration: BoxDecoration(
                                                 color: Color(0xff0EBE7F),
                                                 borderRadius:

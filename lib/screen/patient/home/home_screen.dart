@@ -6,7 +6,6 @@ import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -428,9 +427,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       child: Column(
                                         children: [
-                                          SizedBox(
-                                            height: height * 0.02,
-                                          ),
+                                          // SizedBox(
+                                          //   height: height * 0.01,
+                                          // ),
                                           SizedBox(
                                               height: height * 0.1,
                                               width: width * 0.15,
@@ -440,22 +439,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                               )),
                                           Text("Dr.${doctor!.name}"),
                                           Text(doctor!.category),
-                                          RatingBar.builder(
-                                            initialRating: doctor!.ratingperson!
-                                                .toDouble(),
-                                            itemSize: 25,
-                                            minRating: 1,
-                                            direction: Axis.horizontal,
-                                            allowHalfRating: true,
-                                            itemCount: 5,
-                                            itemPadding: EdgeInsets.symmetric(
-                                                horizontal: 4.0),
-                                            itemBuilder: (context, _) => Icon(
-                                              Icons.star,
-                                              color: const Color(0xff0EBE7F),
-                                            ),
-                                            onRatingUpdate: (value) {},
-                                          )
+                                          Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.amber,
+                                              ),
+                                              Text(
+                                                "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
+                                                style: TextStyle(
+                                                  color: Colors.black45,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+
+                                          // RatingBar.builder(
+                                          //   initialRating: doctor!.ratingperson!
+                                          //       .toDouble(),
+                                          //   itemSize: 25,
+                                          //   minRating: 1,
+                                          //   direction: Axis.horizontal,
+                                          //   allowHalfRating: true,
+                                          //   itemCount: 5,
+                                          //   itemPadding: EdgeInsets.symmetric(
+                                          //       horizontal: 4.0),
+                                          //   itemBuilder: (context, _) => Icon(
+                                          //     Icons.star,
+                                          //     color: const Color(0xff0EBE7F),
+                                          //   ),
+                                          //   onRatingUpdate: (value) {},
+                                          // )
                                         ],
                                       ),
                                     ),

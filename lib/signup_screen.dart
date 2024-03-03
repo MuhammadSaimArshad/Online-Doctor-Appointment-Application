@@ -1,7 +1,6 @@
-import 'package:doc_bookr/controller/login_controller.dart';
 import 'package:doc_bookr/controller/signup_controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
+
 import 'package:doc_bookr/signin_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
@@ -300,24 +299,39 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               if (obj.index == 0)
                 SizedBox(
-                  height: height * 0.007,
+                  height: height * 0.004,
                 ),
               if (obj.index == 0)
-                SizedBox(
-                  height: height * 0.06,
-                  width: width * 0.7,
-                  child: DropdownButton<String>(
-                    alignment: Alignment.center,
-                    value: obj.dropdown,
-                    items: list.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value, // Assigning unique values from the list
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      obj.dropdownupdate(value!);
-                    },
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Container(
+                    height: height * 0.073,
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                        // color: Colors.amber,
+                        border: Border.all(
+                            color: Colors.black, width: width * 0.002),
+                        borderRadius: BorderRadius.circular(width * 0.01)),
+                    child: DropdownButton<String>(
+                      alignment: Alignment.center,
+                      value: obj.dropdown,
+                      items: list.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value, // Assigning unique values from the list
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        obj.dropdownupdate(value!);
+                      },
+                      underline: Container(),
+                      icon: Icon(Icons.arrow_drop_down),
+                      isExpanded: true,
+                      elevation: 2,
+                      style: TextStyle(
+                          fontSize: width * 0.04, color: Colors.black),
+                      dropdownColor: Colors.white,
+                    ),
                   ),
                 ),
               SizedBox(
@@ -474,6 +488,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ],
                 ),
+              SizedBox(
+                height: height * 0.01,
+              ),
               if (obj.index == 0)
                 Align(
                     alignment: Alignment.centerLeft,
@@ -518,7 +535,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     )),
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.001,
               ),
               InkWell(
                 onTap: () {
@@ -531,27 +548,30 @@ class _SignupScreenState extends State<SignupScreen> {
                   //       builder: (context) => Home_Navbar_Screen(),
                   //     ));
                 },
-                child: Container(
-                  height: height * 0.07,
-                  width: width * 0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(width * 0.02),
-                    color: Color(0xff0EBE7F),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(
-                          fontSize: width * 0.04,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Container(
+                    height: height * 0.07,
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(width * 0.02),
+                      color: Color(0xff0EBE7F),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            fontSize: width * 0.04,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: height * 0.01,
-              ),
+              // SizedBox(
+              //   height: height * 0.0001,
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

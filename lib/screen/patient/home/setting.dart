@@ -1,7 +1,8 @@
 import 'package:doc_bookr/screen/patient/home/home_screen.dart';
 import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
-import 'package:doc_bookr/signup_screen.dart';
+import 'package:doc_bookr/signin_screen.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Align(
                       alignment: Alignment.center,
                       child: CircleAvatar(
-                        radius: width * 0.15,
+                        radius: width * 0.16,
                         backgroundImage:
                             NetworkImage(StaticData.patientmodel!.image),
                       ),
@@ -362,7 +363,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignupScreen(),
+                      builder: (context) => SigninScreen(),
                     ),
                     (route) => true,
                   );

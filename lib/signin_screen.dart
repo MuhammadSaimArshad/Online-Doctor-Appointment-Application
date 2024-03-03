@@ -1,7 +1,6 @@
 import 'package:doc_bookr/controller/login_controller.dart';
 import 'package:doc_bookr/screen/Admin/admin_signin.dart';
-import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
-import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
+
 import 'package:doc_bookr/signup_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';

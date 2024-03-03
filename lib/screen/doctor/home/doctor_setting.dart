@@ -1,8 +1,8 @@
-import 'package:doc_bookr/onborading_screen1.dart';
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
 import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/doctor/mypatient_screen.dart';
-import 'package:doc_bookr/signup_screen.dart';
+import 'package:doc_bookr/signin_screen.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -361,7 +361,7 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => IntroScreen(),
+                      builder: (context) => SigninScreen(),
                     ),
                     (route) => true,
                   );

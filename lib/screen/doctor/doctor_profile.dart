@@ -80,7 +80,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                                 // radius: 75,
                               )
                             : CircleAvatar(
-                                radius: 75,
+                                radius: width * 0.15,
                                 backgroundImage:
                                     NetworkImage(obj.image.toString()),
                               ),
@@ -334,11 +334,16 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                 SizedBox(
                   height: height * 0.01,
                 ),
-                SizedBox(
-                  height: height * 0.06,
-                  width: width * 0.7,
+                Container(
+                  height: height * 0.073,
+                  width: width * 0.94,
+                  decoration: BoxDecoration(
+                      // color: Colors.amber,
+                      border:
+                          Border.all(color: Colors.black, width: width * 0.002),
+                      borderRadius: BorderRadius.circular(width * 0.01)),
                   child: DropdownButton<String>(
-                    alignment: Alignment.center,
+                    alignment: Alignment.centerLeft,
                     value: obj.dropdown,
                     items: list.map((String value) {
                       return DropdownMenuItem<String>(
@@ -349,6 +354,13 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     onChanged: (value) {
                       obj.dropdownupdate(value!);
                     },
+                    underline: Container(),
+                    icon: Icon(Icons.arrow_drop_down),
+                    isExpanded: true,
+                    elevation: 2,
+                    style:
+                        TextStyle(color: Colors.black, fontSize: width * 0.04),
+                    dropdownColor: Colors.white,
                   ),
                 ),
                 SizedBox(
@@ -426,12 +438,13 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     alignment: Alignment.centerLeft,
                     child: CustomWidget.largeText("   Select Available Time:",
                         height: 0.5)),
+                // SizedBox(height: height*0.01,)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      height: height * 0.08,
-                      width: width * 0.3,
+                      height: height * 0.07,
+                      width: width * 0.4,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
@@ -465,8 +478,8 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.08,
-                      width: width * 0.3,
+                      height: height * 0.07,
+                      width: width * 0.4,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
@@ -569,6 +582,9 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                       ),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
                 )
               ],
             ),

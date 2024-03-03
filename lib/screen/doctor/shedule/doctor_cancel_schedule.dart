@@ -2,7 +2,7 @@
 
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/appointmentmodel.dart';
-import 'package:doc_bookr/model/patientModel.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
 
@@ -58,20 +58,22 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 5),
+                              height: height * 0.2,
+                              width: width * 0.9,
+                              padding:
+                                  EdgeInsets.symmetric(vertical: height * 0.01),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black12,
-                                    blurRadius: width * 0.02,
-                                    spreadRadius: width * 0.02,
+                                    blurRadius: height * 0.001,
+                                    spreadRadius: height * 0.001,
                                   ),
                                 ],
                               ),
                               child: SizedBox(
-                                width: MediaQuery.of(context).size.width,
                                 child: Column(
                                   children: [
                                     ListTile(
@@ -93,7 +95,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                       padding: EdgeInsets.symmetric(
                                           horizontal: height * 0.01),
                                       child: Divider(
-                                        thickness: width * 0.01,
+                                        thickness: width * 0.001,
                                         height: 20,
                                       ),
                                     ),

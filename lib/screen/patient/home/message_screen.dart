@@ -41,9 +41,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  "Messages",
+                  "Chat",
                   style: TextStyle(
-                    fontSize: height * 0.06,
+                    fontSize: height * 0.04,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

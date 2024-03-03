@@ -1,5 +1,3 @@
-import 'package:doc_bookr/screen/patient/appointment_screen.dart';
-import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
 import 'package:flutter/material.dart';
 
 class AdminHomeScreen extends StatefulWidget {

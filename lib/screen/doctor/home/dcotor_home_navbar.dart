@@ -22,9 +22,8 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
     const DoctorAddReportScreen(),
     const DoctorSettingScreen()
   ];
-
-  @override
   var height, width;
+  @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
