@@ -1,16 +1,17 @@
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/appointmentmodel.dart';
+import 'package:doc_bookr/screen/doctor/home/doctor_add_report.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
 
-class DoctorCompleteSchedule extends StatefulWidget {
-  const DoctorCompleteSchedule({super.key});
+class DoctorConfirmSchedule extends StatefulWidget {
+  const DoctorConfirmSchedule({super.key});
 
   @override
-  State<DoctorCompleteSchedule> createState() => _DoctorCompleteScheduleState();
+  State<DoctorConfirmSchedule> createState() => _DoctorConfirmScheduleState();
 }
 
-class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
+class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
   var height, width;
 
   @override
@@ -26,7 +27,7 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
             stream: StaticData.firebase
                 .collection('appointment')
                 .where("doctorid", isEqualTo: StaticData.doctorModel!.id)
-                .where("status", isEqualTo: 3)
+                .where("status", isEqualTo: 2)
                 .snapshots(),
             builder: (BuildContext context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -150,7 +151,7 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                             width: width * 0.02,
                                           ),
                                           Text(
-                                            "Completed",
+                                            "Confirmed",
                                             style: TextStyle(
                                               fontSize: width * 0.04,
                                               color: Colors.black54,
@@ -158,6 +159,107 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                           ),
                                         ],
                                       ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          model = AppointmentModel.fromMap(
+                                              snapshot.data!.docs[index]
+                                                  .data());
+                                          StaticData.firebase
+                                              .collection("appointment")
+                                              .doc(model!.id)
+                                              .update({"status": 0});
+                                          StaticData.getpatienttokken(
+                                                  model!.patientid)
+                                              .then((value) {
+                                            StaticData.sendNotifcation(
+                                                "Appointment cencal",
+                                                "${model!.doctername} cencal your appointment at ${model!.time}",
+                                                value);
+                                          });
+                                          StaticData.firebase
+                                              .collection("slots")
+                                              .doc(model!.doctorid)
+                                              .collection("slots")
+                                              .doc(model!.slotsid)
+                                              .update({"isAvailable": true});
+                                        },
+                                        child: Container(
+                                          width: 150,
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: height * 0.01),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFF4F6FA),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              "Cancel",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: height * 0.03,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      if (model!.receiptimage == null)
+                                        InkWell(
+                                          onTap: () {
+                                            model = AppointmentModel.fromMap(
+                                                snapshot.data!.docs[index]
+                                                    .data());
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DoctorAddReportScreen(
+                                                    model: model!,
+                                                  ),
+                                                ));
+
+                                            // StaticData.firebase
+                                            //     .collection("appointment")
+                                            //     .doc(model!.id)
+                                            //     .update({"status": 2});
+                                            // StaticData.getpatienttokken(
+                                            //         model!.patientid)
+                                            //     .then((value) {
+                                            //   StaticData.sendNotifcation(
+                                            //       "Appointment",
+                                            //       "${model!.doctername} accept your appointment at ${model!.time}",
+                                            //       value);
+                                            // });
+                                          },
+                                          child: Container(
+                                            height: height * 0.07,
+                                            width: width * 0.4,
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: height * 0.005),
+                                            decoration: BoxDecoration(
+                                              color: Color(0xff0EBE7F),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                "Upload File",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: width * 0.04,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                     ],
                                   ),
                                 ],

@@ -1,5 +1,6 @@
 import 'package:doc_bookr/screen/doctor/shedule/doctor_cancel_schedule.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_complete_schedule.dart';
+import 'package:doc_bookr/screen/doctor/shedule/doctor_confirm_schedule.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_upcoming_schedule.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,10 @@ class DoctorScheduleScreen extends StatefulWidget {
 class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
   int _buttonIndex = 0;
   final _scheduleWidgets = [
-    DoctorUpcomingSchedule(),
-    DoctorCanceledSchedule(),
-    DoctorCompleteSchedule(),
+    const DoctorUpcomingSchedule(),
+    const DoctorCanceledSchedule(),
+    const DoctorConfirmSchedule(),
+    const DoctorCompleteSchedule(),
   ];
   var height, width;
   @override
@@ -70,33 +72,6 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                     InkWell(
                       onTap: () {
                         setState(() {
-                          _buttonIndex = 0;
-                        });
-                      },
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-                        decoration: BoxDecoration(
-                          color: _buttonIndex == 0
-                              ? Color(0xff0EBE7F)
-                              : Colors.transparent,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Text(
-                          "Upcoming",
-                          style: TextStyle(
-                            fontSize: width * 0.03,
-                            fontWeight: FontWeight.w500,
-                            color: _buttonIndex == 0
-                                ? Colors.white
-                                : Colors.black38,
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
                           _buttonIndex = 1;
                         });
                       },
@@ -105,8 +80,8 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                             EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 1
-                              ? Color(0xff0EBE7F)
-                              : Colors.transparent,
+                              ? Colors.red.withOpacity(0.5)
+                              : Colors.red.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
@@ -124,6 +99,33 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                     InkWell(
                       onTap: () {
                         setState(() {
+                          _buttonIndex = 0;
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        decoration: BoxDecoration(
+                          color: _buttonIndex == 0
+                              ? Color(0xff0EBE7F)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          "Pending",
+                          style: TextStyle(
+                            fontSize: width * 0.03,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 0
+                                ? Colors.white
+                                : Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
                           _buttonIndex = 2;
                         });
                       },
@@ -132,6 +134,33 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                             EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 2
+                              ? Color(0xff0EBE7F)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          "Confirmed",
+                          style: TextStyle(
+                            fontSize: width * 0.03,
+                            fontWeight: FontWeight.w500,
+                            color: _buttonIndex == 2
+                                ? Colors.white
+                                : Colors.black38,
+                          ),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          _buttonIndex = 3;
+                        });
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        decoration: BoxDecoration(
+                          color: _buttonIndex == 3
                               ? const Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
@@ -141,7 +170,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                           style: TextStyle(
                             fontSize: width * 0.03,
                             fontWeight: FontWeight.w500,
-                            color: _buttonIndex == 2
+                            color: _buttonIndex == 3
                                 ? Colors.white
                                 : Colors.black38,
                           ),

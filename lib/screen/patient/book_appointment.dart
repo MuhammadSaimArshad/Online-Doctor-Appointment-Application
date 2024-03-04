@@ -211,6 +211,7 @@ class _CalenderState extends State<Calender> {
                     var uuid = const Uuid();
                     var id = uuid.v4();
                     AppointmentModel model = AppointmentModel(
+                        phonenumber: StaticData.patientmodel!.phonenumber,
                         bio: widget.model.bio,
                         id: id,
                         image: StaticData.patientmodel!.image,

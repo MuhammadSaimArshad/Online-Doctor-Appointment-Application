@@ -92,7 +92,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                         padding: EdgeInsets.symmetric(
                                             horizontal: height * 0.01),
                                         child: Divider(
-                                          thickness: width * 0.001,
+                                          thickness: width * 0.01,
                                           height: height * 0.01,
                                         ),
                                       ),

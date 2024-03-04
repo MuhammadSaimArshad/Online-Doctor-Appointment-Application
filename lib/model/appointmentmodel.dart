@@ -14,6 +14,8 @@ class AppointmentModel {
   String bio;
   double? rating;
   String image;
+  String? receiptimage;
+  String phonenumber;
   AppointmentModel({
     required this.id,
     required this.patientid,
@@ -27,6 +29,8 @@ class AppointmentModel {
     required this.bio,
     this.rating,
     required this.image,
+    this.receiptimage,
+    required this.phonenumber,
   });
 
   AppointmentModel copyWith({
@@ -42,6 +46,8 @@ class AppointmentModel {
     String? bio,
     double? rating,
     String? image,
+    String? receiptimage,
+    String? phonenumber,
   }) {
     return AppointmentModel(
       id: id ?? this.id,
@@ -56,6 +62,8 @@ class AppointmentModel {
       bio: bio ?? this.bio,
       rating: rating ?? this.rating,
       image: image ?? this.image,
+      receiptimage: receiptimage ?? this.receiptimage,
+      phonenumber: phonenumber ?? this.phonenumber,
     );
   }
 
@@ -73,6 +81,8 @@ class AppointmentModel {
       'bio': bio,
       'rating': rating,
       'image': image,
+      'receiptimage': receiptimage,
+      'phonenumber': phonenumber,
     };
   }
 
@@ -90,6 +100,9 @@ class AppointmentModel {
       bio: map['bio'] as String,
       rating: map['rating'] != null ? map['rating'] as double : null,
       image: map['image'] as String,
+      receiptimage:
+          map['receiptimage'] != null ? map['receiptimage'] as String : null,
+      phonenumber: map['phonenumber'] as String,
     );
   }
 
@@ -100,7 +113,7 @@ class AppointmentModel {
 
   @override
   String toString() {
-    return 'AppointmentModel(id: $id, patientid: $patientid, doctorid: $doctorid, doctername: $doctername, patientname: $patientname, slotsid: $slotsid, time: $time, createdtime: $createdtime, status: $status, bio: $bio, rating: $rating, image: $image)';
+    return 'AppointmentModel(id: $id, patientid: $patientid, doctorid: $doctorid, doctername: $doctername, patientname: $patientname, slotsid: $slotsid, time: $time, createdtime: $createdtime, status: $status, bio: $bio, rating: $rating, image: $image, receiptimage: $receiptimage, phonenumber: $phonenumber)';
   }
 
   @override
@@ -118,7 +131,9 @@ class AppointmentModel {
         other.status == status &&
         other.bio == bio &&
         other.rating == rating &&
-        other.image == image;
+        other.image == image &&
+        other.receiptimage == receiptimage &&
+        other.phonenumber == phonenumber;
   }
 
   @override
@@ -134,6 +149,8 @@ class AppointmentModel {
         status.hashCode ^
         bio.hashCode ^
         rating.hashCode ^
-        image.hashCode;
+        image.hashCode ^
+        receiptimage.hashCode ^
+        phonenumber.hashCode;
   }
 }

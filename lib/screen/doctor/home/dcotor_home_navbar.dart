@@ -1,7 +1,7 @@
 import 'package:doc_bookr/screen/doctor/home/doctor_add_report.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_message.dart';
-import 'package:doc_bookr/screen/doctor/home/doctor_schedule.dart';
+import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,6 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
     const DoctorHomeScreen(),
     const DoctorMessagesScreen(),
     DoctorScheduleScreen(),
-    const DoctorAddReportScreen(),
     const DoctorSettingScreen()
   ];
   var height, width;
@@ -58,10 +57,6 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.calendar_month),
                 label: "Schedule",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.file_copy_outlined),
-                label: "Add Report",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle_outlined),
