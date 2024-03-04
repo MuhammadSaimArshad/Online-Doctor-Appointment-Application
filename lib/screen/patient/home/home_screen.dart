@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: height * 0.27,
+                height: height * 0.26,
                 width: width,
                 child: Stack(
                   children: [
