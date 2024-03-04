@@ -221,7 +221,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                                 MaterialPageRoute(
                                                   builder: (context) =>
                                                       DoctorAddReportScreen(
-                                                    model: model!,
+                                                    model: model,
                                                   ),
                                                 ));
 

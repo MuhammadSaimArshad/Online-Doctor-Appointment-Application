@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class DoctorAddReportScreen extends StatefulWidget {
-  final AppointmentModel model;
+  final AppointmentModel? model;
   const DoctorAddReportScreen({super.key, required this.model});
 
   @override
