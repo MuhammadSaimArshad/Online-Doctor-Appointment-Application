@@ -85,14 +85,14 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                         trailing: CircleAvatar(
                                           radius: width * 0.04,
                                           backgroundImage:
-                                              NetworkImage("${model!.image}"),
+                                              NetworkImage(model!.image),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: height * 0.01),
                                         child: Divider(
-                                          thickness: width * 0.01,
+                                          thickness: width * 0.001,
                                           height: height * 0.01,
                                         ),
                                       ),

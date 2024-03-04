@@ -3,7 +3,7 @@ import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
-import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
+import 'package:doc_bookr/screen/patient/doctor_screen.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
 
@@ -20,13 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: height,
-          width: width,
-          color: Colors.white,
-          child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: SafeArea(
+        child: Scaffold(
+          body: Container(
+            height: height,
+            width: width,
+            color: Colors.white,
             child: Column(
               children: [
                 SizedBox(
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MYdoctor(),
+                                  builder: (context) => Doctorlist(),
                                 ));
                           },
                           child: Container(
@@ -447,12 +447,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                               Icon(
                                                 Icons.star,
                                                 color: Colors.amber,
+                                                size: width * 0.04,
                                               ),
                                               Text(
                                                 "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
                                                 style: TextStyle(
-                                                  color: Colors.black45,
-                                                ),
+                                                    color: Colors.black45,
+                                                    fontSize: width * 0.03),
                                               ),
                                             ],
                                           ),

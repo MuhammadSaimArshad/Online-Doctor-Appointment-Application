@@ -32,14 +32,15 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
         backgroundColor: Colors.white,
         body: _screen[_selectedIndex],
         bottomNavigationBar: Container(
-          height: height * 0.08,
+          height: height * 0.1,
+          width: width,
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Color(0xff0EBE7F),
             unselectedItemColor: Colors.black26,
             selectedLabelStyle:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.04),
+                TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.03),
             currentIndex: _selectedIndex,
             onTap: (index) {
               setState(() {

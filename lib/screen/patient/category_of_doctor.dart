@@ -1,4 +1,4 @@
-import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
+import 'package:doc_bookr/screen/patient/doctor_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryOfDoctor extends StatefulWidget {
@@ -89,7 +89,7 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => MYdoctor(
+                                    builder: (context) => Doctorlist(
                                       category: "${list[index]}",
                                     ),
                                   ));

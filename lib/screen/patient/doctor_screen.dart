@@ -4,18 +4,17 @@ import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class MYdoctor extends StatefulWidget {
+class Doctorlist extends StatefulWidget {
   String? category = "";
 
-  MYdoctor({super.key, this.category});
+  Doctorlist({super.key, this.category});
 
   @override
-  State<MYdoctor> createState() => _MYdoctorState();
+  State<Doctorlist> createState() => _DoctorlistState();
 }
 
-class _MYdoctorState extends State<MYdoctor> {
+class _DoctorlistState extends State<Doctorlist> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -63,7 +62,7 @@ class _MYdoctorState extends State<MYdoctor> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MYdoctor(),
+                        builder: (context) => Doctorlist(),
                       ));
                 },
                 child: Container(
@@ -208,23 +207,24 @@ class _MYdoctorState extends State<MYdoctor> {
                                             SizedBox(
                                               width: width * 0.01,
                                             ),
-                                            RatingBar.builder(
-                                              initialRating: doctor!
-                                                  .ratingperson!
-                                                  .toDouble(),
-                                              itemSize: 17,
-                                              minRating: 1,
-                                              direction: Axis.horizontal,
-                                              allowHalfRating: true,
-                                              itemCount: 5,
-                                              itemPadding: EdgeInsets.symmetric(
-                                                  horizontal: 4.0),
-                                              itemBuilder: (context, _) => Icon(
-                                                Icons.star,
-                                                color: const Color(0xff0EBE7F),
-                                              ),
-                                              onRatingUpdate: (value) {},
-                                            )
+                                            Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.star,
+                                                  color: Colors.amber,
+                                                  size: width * 0.04,
+                                                ),
+                                                Text(
+                                                  "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
+                                                  style: TextStyle(
+                                                      color: Colors.black45,
+                                                      fontSize: width * 0.03),
+                                                ),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                         SizedBox(

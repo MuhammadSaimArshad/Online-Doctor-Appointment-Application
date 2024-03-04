@@ -1,5 +1,6 @@
 import 'package:doc_bookr/screen/patient/home/home_screen.dart';
-import 'package:doc_bookr/screen/patient/mydoctor_screen.dart';
+import 'package:doc_bookr/screen/patient/mydoctor.dart';
+
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/signin_screen.dart';
 
@@ -188,7 +189,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MYdoctor(),
+                        builder: (context) => MyDoctor(),
                       ));
                 },
                 leading: Container(
@@ -215,7 +216,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MYdoctor(),
+                          builder: (context) => MyDoctor(),
                         ));
                   },
                   child: Icon(
