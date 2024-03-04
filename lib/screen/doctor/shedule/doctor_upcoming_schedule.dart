@@ -229,9 +229,10 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                   .then((value) {
                                                 StaticData.sendNotifcation(
                                                     "Appointment",
-                                                    "${model!.doctername} accept your appointment at ${model!.time}",
+                                                    "${model!.doctername} Confirm your appointment at ${model!.time}",
                                                     value);
                                               });
+                                              Navigator.pop(context);
                                             },
                                             child: Container(
                                               height: height * 0.07,

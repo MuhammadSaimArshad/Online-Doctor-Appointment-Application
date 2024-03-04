@@ -1,4 +1,3 @@
-import 'package:doc_bookr/screen/doctor/home/doctor_add_report.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_message.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';

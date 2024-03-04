@@ -9,11 +9,12 @@ class DoctorSchedule extends GetxController {
   static DoctorSchedule get to => Get.find();
   XFile? hpickedFile;
   String? link;
-  pickImage(ImageSource source) async {
+  pickImage(ImageSource source, context) async {
     var pickedImage = await ImagePicker().pickImage(source: source);
     update();
     if (pickedImage != null) {
       hpickedFile = pickedImage;
+      Navigator.pop(context);
       update();
     }
     print("xfileimage$hpickedFile");
@@ -22,7 +23,11 @@ class DoctorSchedule extends GetxController {
 
   Future<String> uploadImage(String id) async {
     try {
-      Reference ref = FirebaseStorage.instance.ref().child("doctor").child(id);
+      Reference ref = FirebaseStorage.instance
+          .ref()
+          .child("/doctor")
+          .child("/recepit")
+          .child(id);
 
       UploadTask uploadTask;
       if (kIsWeb) {

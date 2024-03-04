@@ -23,6 +23,8 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
     Get.put(DoctorHomeController());
     StaticData.updatedoctorprofile();
     DoctorHomeController.to.getSchedule();
+    DoctorHomeController.to.getPatient();
+
     super.initState();
   }
 
@@ -107,16 +109,16 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                   width: width * 0.03,
                                 ),
                                 Icon(Icons.search),
-                                SizedBox(
-                                  width: width * 0.03,
-                                ),
-                                Text(
-                                  "Search.....",
-                                  style: TextStyle(fontSize: width * 0.04),
-                                ),
-                                SizedBox(
-                                  width: width * 0.46,
-                                ),
+                                Expanded(
+                                    child: TextFormField(
+                                  controller: obj.search,
+                                  onChanged: (value) {
+                                    obj.updateQure(value);
+                                  },
+                                  decoration: InputDecoration(
+                                      hintText: "Search.....",
+                                      border: InputBorder.none),
+                                )),
                                 Icon(Icons.cancel_outlined)
                               ],
                             ),
@@ -129,81 +131,82 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                 SizedBox(
                   height: height * 0.03,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "${StaticData.doctorModel!.patientList?.length}",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Total Patient",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "${obj.schedule}",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Total Schedule",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
+                if (obj.qury == "")
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          height: height * 0.15,
+                          width: width * 0.3,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: width * 0.01,
+                                spreadRadius: width * 0.01,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                "${StaticData.doctorModel!.patientList?.length}",
+                                style: TextStyle(
+                                    fontSize: width * 0.05,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Total Patient",
+                                style: TextStyle(
+                                    fontSize: width * 0.04,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          height: height * 0.15,
+                          width: width * 0.3,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: width * 0.01,
+                                spreadRadius: width * 0.01,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                "${obj.schedule}",
+                                style: TextStyle(
+                                    fontSize: width * 0.05,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Total Schedule",
+                                style: TextStyle(
+                                    fontSize: width * 0.04,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 SizedBox(
                   height: height * 0.03,
                 ),
@@ -299,112 +302,150 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                 //     ],
                 //   ),
                 // ),
-                Expanded(
-                  child: StaticData.doctorModel!.patientList?.length == 0
-                      ? SizedBox(
-                          height: height * 0.4,
-                          child: Center(
-                            child: CustomWidget.largeText('No Patient !'),
-                          ),
-                        )
-                      : GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 1.2),
-                          itemCount:
-                              StaticData.doctorModel!.patientList?.length,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return StreamBuilder(
-                              stream: StaticData.firebase
-                                  .collection('patient')
-                                  .doc(StaticData
-                                      .doctorModel!.patientList?[index])
-                                  .snapshots(),
-                              builder: (BuildContext context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(),
+
+                obj.qury == ""
+                    ? Expanded(
+                        child: obj.list.length == 0
+                            ? SizedBox(
+                                height: height * 0.4,
+                                child: Center(
+                                  child: CustomWidget.largeText('No Patient !'),
+                                ),
+                              )
+                            : GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        childAspectRatio: 1.2),
+                                itemCount: obj.list.length,
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Profilescreen(
+                                                model: obj.list[index]),
+                                          ));
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.all(8),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 10),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            blurRadius: width * 0.01,
+                                            spreadRadius: width * 0.01,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 35,
+                                            backgroundImage: NetworkImage(
+                                                obj.list[index].image),
+                                          ),
+                                          Text(
+                                            obj.list[index].name,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: width * 0.04,
+                                              color: Colors.black54,
+                                            ),
+                                          ),
+                                          Text(
+                                            obj.list[index].phonenumber,
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   );
-                                }
-
-                                if (snapshot.hasError) {
-                                  print("Error: /${snapshot.error}");
-                                  return Text('Error: /${snapshot.error}');
-                                }
-
-                                PatientModel? patientModel =
-                                    PatientModel.fromMap(snapshot.data!.data()
-                                        as Map<String, dynamic>);
-
-                                return !snapshot.data!.exists
-                                    ? Center(
-                                        child: CustomWidget.largeText(
-                                            'Data not found !'),
-                                      )
-                                    : InkWell(
-                                        onTap: () {
-                                          patientModel = PatientModel.fromMap(
-                                              snapshot.data!.data()
-                                                  as Map<String, dynamic>);
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Profilescreen(
-                                                        model: patientModel!),
-                                              ));
-                                        },
-                                        child: Container(
-                                          margin: EdgeInsets.all(8),
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 10),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black12,
-                                                blurRadius: width * 0.01,
-                                                spreadRadius: width * 0.01,
-                                              ),
-                                            ],
+                                },
+                              ),
+                      )
+                    : Expanded(
+                        child: obj.fuilterlist.length == 0
+                            ? SizedBox(
+                                height: height * 0.4,
+                                child: Center(
+                                  child: CustomWidget.largeText('No Patient !'),
+                                ),
+                              )
+                            : GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        childAspectRatio: 1.2),
+                                itemCount: obj.fuilterlist.length,
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Profilescreen(
+                                                model: obj.fuilterlist[index]),
+                                          ));
+                                    },
+                                    child: Container(
+                                      margin: EdgeInsets.all(8),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 10),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            blurRadius: width * 0.01,
+                                            spreadRadius: width * 0.01,
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              CircleAvatar(
-                                                radius: 35,
-                                                backgroundImage: NetworkImage(
-                                                    patientModel.image),
-                                              ),
-                                              Text(
-                                                patientModel.name,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: width * 0.04,
-                                                  color: Colors.black54,
-                                                ),
-                                              ),
-                                              Text(
-                                                patientModel.phonenumber,
-                                                style: const TextStyle(
-                                                  color: Colors.black45,
-                                                ),
-                                              ),
-                                            ],
+                                        ],
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 35,
+                                            backgroundImage: NetworkImage(
+                                                obj.fuilterlist[index].image),
                                           ),
-                                        ),
-                                      );
-                              },
-                            );
-                          },
-                        ),
-                ),
+                                          Text(
+                                            obj.fuilterlist[index].name,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: width * 0.04,
+                                              color: Colors.black54,
+                                            ),
+                                          ),
+                                          Text(
+                                            obj.fuilterlist[index].phonenumber,
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                      ),
               ],
             ),
           ),
