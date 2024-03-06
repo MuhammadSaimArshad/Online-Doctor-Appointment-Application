@@ -74,17 +74,22 @@ class _AdminSignInState extends State<AdminSignIn> {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    // controller: obj.email,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      label: Text("E Mail"),
-                      prefixIcon: Icon(Icons.person_outline),
+                      label: Text("Email Address"),
+                      prefixIcon: Icon(Icons.email),
                     ),
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your full name';
-                      }
-                      return null;
-                    },
+                    // validator: (String? value) {
+                    //   if (value!.isEmpty) {
+                    //     return 'Please enter your E-mail';
+                    //   } else if (EmailValidator.validate(obj.email.text) ==
+                    //       false) {
+                    //     return 'Please Enter Correct E-mail';
+                    //   }
+                    //   return null;
+                    // },
+                    keyboardType: TextInputType.emailAddress,
                   ),
                 ),
                 SizedBox(
