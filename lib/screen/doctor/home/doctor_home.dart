@@ -1,6 +1,5 @@
 import 'package:doc_bookr/controller/doctorhomescreencontroller.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/model/patientModel.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/staticdata.dart';
@@ -81,47 +80,40 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
-                        child: InkWell(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => MYdoctor(),
-                            //     ));
-                          },
-                          child: Container(
-                            height: height * 0.06,
-                            width: width * 0.85,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.circular(width * 0.02),
-                                color: Colors.grey[200],
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black12,
-                                    blurRadius: width * 0.01,
-                                    spreadRadius: width * 0.01,
-                                  ),
-                                ]),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: width * 0.03,
+                        child: Container(
+                          height: height * 0.06,
+                          width: width * 0.85,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(width * 0.02),
+                              color: Colors.grey[200],
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: width * 0.01,
+                                  spreadRadius: width * 0.01,
                                 ),
-                                Icon(Icons.search),
-                                Expanded(
-                                    child: TextFormField(
-                                  controller: obj.search,
-                                  onChanged: (value) {
-                                    obj.updateQure(value);
-                                  },
-                                  decoration: InputDecoration(
-                                      hintText: "Search.....",
-                                      border: InputBorder.none),
-                                )),
-                                Icon(Icons.cancel_outlined)
-                              ],
-                            ),
+                              ]),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: width * 0.03,
+                              ),
+                              const Icon(Icons.search),
+                              Expanded(
+                                  child: TextFormField(
+                                controller: obj.search,
+                                onChanged: (value) {
+                                  obj.updateQure(value);
+                                },
+                                decoration: const InputDecoration(
+                                    hintText: "Search.....",
+                                    border: InputBorder.none),
+                              )),
+                              const Icon(Icons.cancel_outlined),
+                              SizedBox(
+                                width: width * 0.03,
+                              ),
+                            ],
                           ),
                         ),
                       )
@@ -225,84 +217,6 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                 SizedBox(
                   height: height * 0.02,
                 ),
-
-                //  SizedBox(
-                //   height: height * 0.25,
-                //   width: width,
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //     children: [
-                //       InkWell(
-                //         onTap: () {
-                //           // Navigator.push(
-                //           //     context,
-                //           //     MaterialPageRoute(
-                //           //       builder: (context) => AppointmentScreen(),
-                //           //     ));
-                //         },
-                //         child: Container(
-                //           height: height * 0.23,
-                //           width: width * 0.4,
-                //           decoration: BoxDecoration(
-                //             color: Colors.white,
-                //             borderRadius: BorderRadius.circular(10),
-                //             boxShadow: [
-                //               BoxShadow(
-                //                 color: Colors.black12,
-                //                 blurRadius: width * 0.03,
-                //                 spreadRadius: width * 0.015,
-                //               ),
-                //             ],
-                //           ),
-                //           child: Column(
-                //             children: [
-                //               SizedBox(
-                //                 height: height * 0.02,
-                //               ),
-                //               SizedBox(
-                //                   height: height * 0.1,
-                //                   width: width * 0.15,
-                //                   child: CircleAvatar()),
-                //               Text("Muhammad Saim"),
-                //               Text("Email"),
-                //               Text("03031213123"),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //       Container(
-                //         height: height * 0.23,
-                //         width: width * 0.4,
-                //         decoration: BoxDecoration(
-                //           color: Colors.white,
-                //           borderRadius: BorderRadius.circular(10),
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.black12,
-                //               blurRadius: width * 0.03,
-                //               spreadRadius: width * 0.015,
-                //             ),
-                //           ],
-                //         ),
-                //         child: Column(
-                //           children: [
-                //             SizedBox(
-                //               height: height * 0.02,
-                //             ),
-                //             SizedBox(
-                //                 height: height * 0.1,
-                //                 width: width * 0.15,
-                //                 child: CircleAvatar()),
-                //             Text("Muhammad Saim"),
-                //             Text("Email"),
-                //             Text("03031213123"),
-                //           ],
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-
                 obj.qury == ""
                     ? Expanded(
                         child: obj.list.length == 0

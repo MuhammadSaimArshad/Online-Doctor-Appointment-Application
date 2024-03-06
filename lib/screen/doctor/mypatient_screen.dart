@@ -1,5 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:doc_bookr/controller/doctorhomescreencontroller.dart';
+import 'package:doc_bookr/customwidgets.dart';
+
+import 'package:doc_bookr/staticdata.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MYPATIENT extends StatefulWidget {
   const MYPATIENT({super.key});
@@ -11,55 +16,57 @@ class MYPATIENT extends StatefulWidget {
 class _MYPATIENTState extends State<MYPATIENT> {
   var height, width;
   @override
+  void initState() {
+    Get.put(DoctorHomeController());
+    StaticData.updatedoctorprofile();
+    DoctorHomeController.to.getSchedule();
+    DoctorHomeController.to.getPatient();
+
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          height: height,
-          width: width,
-          child: Column(
-            children: [
-              SizedBox(
-                height: height * 0.03,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: width * 0.05,
+    return GetBuilder<DoctorHomeController>(builder: (obj) {
+      return SafeArea(
+        child: Scaffold(
+          body: SizedBox(
+            height: height,
+            width: width,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: height * 0.03,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.02,
                     ),
-                  ),
-                  SizedBox(
-                    width: width * 0.03,
-                  ),
-                  Text(
-                    "Find Patient",
-                    style: TextStyle(
-                        fontSize: width * 0.05, fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: height * 0.04,
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MYPATIENT(),
-                      ));
-                },
-                child: Container(
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: width * 0.05,
+                      ),
+                    ),
+                    SizedBox(
+                      width: width * 0.03,
+                    ),
+                    Text(
+                      "Find Patient",
+                      style: TextStyle(
+                          fontSize: width * 0.05, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: height * 0.04,
+                ),
+                Container(
                   height: height * 0.06,
                   width: width * 0.85,
                   decoration: BoxDecoration(
@@ -77,103 +84,164 @@ class _MYPATIENTState extends State<MYPATIENT> {
                       SizedBox(
                         width: width * 0.03,
                       ),
-                      Icon(Icons.search),
+                      const Icon(Icons.search),
+                      Expanded(
+                          child: TextFormField(
+                        controller: obj.search,
+                        onChanged: (value) {
+                          obj.updateQure(value);
+                        },
+                        decoration: const InputDecoration(
+                            hintText: "Search.....", border: InputBorder.none),
+                      )),
+                      const Icon(Icons.cancel_outlined),
                       SizedBox(
                         width: width * 0.03,
                       ),
-                      Text(
-                        "Search.....",
-                        style: TextStyle(fontSize: width * 0.04),
-                      ),
-                      SizedBox(
-                        width: width * 0.46,
-                      ),
-                      Icon(Icons.cancel_outlined)
                     ],
                   ),
                 ),
-              ),
-              SizedBox(
-                height: height * 0.05,
-              ),
-              Container(
-                height: height * 0.25,
-                width: width * 0.95,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(width * 0.05),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: width * 0.02,
-                      spreadRadius: width * 0.01,
-                    ),
-                  ],
+                SizedBox(
+                  height: height * 0.05,
                 ),
-                child: Column(
+                Row(
                   children: [
                     SizedBox(
-                      height: height * 0.01,
+                      width: width * 0.06,
                     ),
-                    ListTile(
-                      title: const Text(
-                        "Muahmmad saim",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: const Text("03030112123",
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      trailing: CircleAvatar(
-                        radius: width * 0.08,
-                      ),
-                    ),
-                    const Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text("EMail",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: width * 0.02,
-                        ),
-                        const Text("saim@gmail.com",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: width * 0.02,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.015,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: height * 0.066,
-                          width: width * 0.35,
-                          decoration: BoxDecoration(
-                            color: Color(0xff0EBE7F),
-                            borderRadius: BorderRadius.circular(width * 0.02),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Accept",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        )
-                      ],
+                    Text(
+                      "All Patient",
+                      style: TextStyle(
+                          fontSize: width * 0.05, fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                obj.qury == ""
+                    ? Expanded(
+                        child: obj.list.length == 0
+                            ? SizedBox(
+                                height: height * 0.4,
+                                child: Center(
+                                  child: CustomWidget.largeText('No Patient !'),
+                                ),
+                              )
+                            : StreamBuilder<Object>(
+                                stream: null,
+                                builder: (context, snapshot) {
+                                  return ListView.builder(
+                                    itemCount: obj.list.length,
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        height: height * 0.2,
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 8.0, horizontal: 16.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black12,
+                                              blurRadius: width * 0.01,
+                                              spreadRadius: width * 0.01,
+                                            ),
+                                          ],
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 35,
+                                              backgroundImage: NetworkImage(
+                                                  obj.list[index].image),
+                                            ),
+                                            Text(
+                                              obj.list[index].name,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: width * 0.04,
+                                                color: Colors.black54,
+                                              ),
+                                            ),
+                                            Text(
+                                              obj.list[index].phonenumber,
+                                              style: const TextStyle(
+                                                color: Colors.black45,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }),
+                      )
+                    : Expanded(
+                        child: obj.fuilterlist.length == 0
+                            ? SizedBox(
+                                height: height * 0.4,
+                                child: Center(
+                                  child: CustomWidget.largeText('No Patient !'),
+                                ),
+                              )
+                            : ListView.builder(
+                                itemCount: obj.list.length,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    height: height * 0.2,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black12,
+                                          blurRadius: width * 0.01,
+                                          spreadRadius: width * 0.01,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 35,
+                                          backgroundImage: NetworkImage(
+                                              obj.list[index].image),
+                                        ),
+                                        Text(
+                                          obj.list[index].name,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.04,
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                        Text(
+                                          obj.list[index].phonenumber,
+                                          style: const TextStyle(
+                                            color: Colors.black45,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                      ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

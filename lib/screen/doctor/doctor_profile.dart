@@ -584,7 +584,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.02,
+                  height: height * 0.1,
                 )
               ],
             ),

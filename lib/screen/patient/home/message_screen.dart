@@ -52,7 +52,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                 height: height * 0.02,
               ),
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: obj.doctorlist.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -87,9 +87,10 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                 message1.fromId != StaticData.patientmodel!.id)
                             .toList();
 
-                        if (snapshot.data!.docs.length != 0)
+                        if (snapshot.data!.docs.length != 0) {
                           print(
                               'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                        }
                         return snapshot.data!.docs.length == 0 &&
                                 snapshot.data!.docs.isEmpty &&
                                 message == null
@@ -117,10 +118,10 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                   leading: CircleAvatar(
                                     radius: 30,
                                     backgroundImage: NetworkImage(
-                                        "${obj.doctorlist[index].image}"),
+                                        obj.doctorlist[index].image),
                                   ),
                                   title: Text(
-                                    "${obj.doctorlist[index].name}",
+                                    obj.doctorlist[index].name,
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: width * 0.03,
@@ -171,7 +172,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                       SizedBox(
                                         width: width * 0.45,
                                         child: Text(
-                                          "${obj.doctorlist[index].name}",
+                                          obj.doctorlist[index].name,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             overflow: TextOverflow.ellipsis,
@@ -183,7 +184,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                       SizedBox(
                                         width: width * 0.2,
                                         child: Text(
-                                          "${MyDateUtil.getMessageTime(context: context, time: message!.sent!)}",
+                                          MyDateUtil.getMessageTime(
+                                              context: context,
+                                              time: message!.sent!),
                                           style: TextStyle(
                                             fontSize: width * 0.03,
                                             overflow: TextOverflow.ellipsis,

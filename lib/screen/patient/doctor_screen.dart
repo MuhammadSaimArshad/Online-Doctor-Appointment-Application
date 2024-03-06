@@ -10,6 +10,8 @@ class Doctorlist extends StatefulWidget {
 
   Doctorlist({super.key, this.category});
 
+  get name => null;
+
   @override
   State<Doctorlist> createState() => _DoctorlistState();
 }
