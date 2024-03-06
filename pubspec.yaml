@@ -62,6 +62,7 @@ dependencies:
   flutter_spinkit:
   cached_network_image: ^3.2.3
   emoji_picker_flutter: ^1.5.1
+  flutter_switch: 
 
 dev_dependencies:
   flutter_test:

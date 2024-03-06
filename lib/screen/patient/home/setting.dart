@@ -1,5 +1,6 @@
 import 'package:doc_bookr/screen/patient/home/home_screen.dart';
 import 'package:doc_bookr/screen/patient/mydoctor.dart';
+import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/signin_screen.dart';
@@ -141,11 +142,13 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
               ListTile(
                 onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => Profilescreen(),
-                  //     ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Profilescreen(
+                          model: StaticData.patientmodel!,
+                        ),
+                      ));
                 },
                 leading: Container(
                   padding: EdgeInsets.all(10),
@@ -229,7 +232,13 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: height * 0.01,
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationScreen(),
+                      ));
+                },
                 leading: Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -249,9 +258,18 @@ class _SettingScreenState extends State<SettingScreen> {
                     fontSize: width * 0.05,
                   ),
                 ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: width * 0.05,
+                trailing: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NotificationScreen(),
+                        ));
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: width * 0.05,
+                  ),
                 ),
               ),
               SizedBox(
