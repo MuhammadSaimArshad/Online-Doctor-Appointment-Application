@@ -27,7 +27,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
       height: height * 0.65,
       width: width,
       child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: StreamBuilder(
             stream: StaticData.firebase
                 .collection('appointment')
@@ -36,7 +36,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                 .snapshots(),
             builder: (BuildContext context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
 
               if (snapshot.hasError) {
@@ -45,9 +45,10 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
               }
 
               AppointmentModel? model;
-              if (snapshot.data!.docs.length != 0)
+              if (snapshot.data!.docs.length != 0) {
                 print(
                     'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+              }
               return snapshot.data!.docs.length == 0 &&
                       snapshot.data!.docs.isEmpty
                   ? Center(
@@ -61,20 +62,20 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 5),
+                            padding: const EdgeInsets.symmetric(vertical: 5),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black12,
-                                  blurRadius: width * 0.01,
-                                  spreadRadius: width * 0.01,
+                                  blurRadius: width * 0.02,
+                                  spreadRadius: width * 0.001,
                                 ),
                               ],
                             ),
                             child: SizedBox(
-                              width: MediaQuery.of(context).size.width,
+                              height: height * 0.2,
                               child: Column(
                                 children: [
                                   ListTile(
@@ -84,7 +85,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                           fontWeight: FontWeight.bold,
                                           fontSize: width * 0.04),
                                     ),
-                                    subtitle: Text("${model!.bio}"),
+                                    subtitle: Text(model!.bio),
                                     trailing: CircleAvatar(
                                       radius: 25,
                                       backgroundImage:
@@ -208,7 +209,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             10)), //this right here
-                                                            content: Container(
+                                                            content: SizedBox(
                                                               height: 60,
                                                               child: Column(
                                                                 children: [
@@ -270,11 +271,10 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                     ],
                                   ),
                                   Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 15),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Divider(
-                                      thickness: width * 0.01,
-                                      height: 20,
+                                      thickness: width * 0.002,
+                                      height: height * 0.01,
                                     ),
                                   ),
                                   Row(
@@ -293,7 +293,9 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                             width: width * 0.02,
                                           ),
                                           Text(
-                                            "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
+                                            StaticData
+                                                .formatMicrosecondsSinceEpoch(
+                                                    model!.createdtime),
                                             style: TextStyle(
                                                 color: Colors.black54,
                                                 fontSize: width * 0.01),
@@ -322,7 +324,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                       Row(
                                         children: [
                                           Container(
-                                            padding: EdgeInsets.all(5),
+                                            padding: const EdgeInsets.all(5),
                                             decoration: const BoxDecoration(
                                                 color: Colors.green,
                                                 shape: BoxShape.circle),

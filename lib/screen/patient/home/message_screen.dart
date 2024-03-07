@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MessagesScreen extends StatefulWidget {
+  const MessagesScreen({super.key});
+
   @override
   State<MessagesScreen> createState() => _MessagesScreenState();
 }
@@ -38,15 +40,31 @@ class _MessagesScreenState extends State<MessagesScreen> {
               SizedBox(
                 height: height * 0.03,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  "Chat",
-                  style: TextStyle(
-                    fontSize: height * 0.04,
-                    fontWeight: FontWeight.bold,
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.02,
                   ),
-                ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: width * 0.05,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
+                  Text(
+                    "Chat",
+                    style: TextStyle(
+                      fontSize: height * 0.04,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: height * 0.02,
@@ -67,7 +85,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       builder: (BuildContext context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return Center(child: CircularProgressIndicator());
+                          return const Center(
+                              child: CircularProgressIndicator());
                         }
 
                         if (snapshot.hasError) {
@@ -218,7 +237,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                               const EdgeInsets.only(right: 25),
                                           child: CircleAvatar(
                                             backgroundColor: Apptheme.primary,
-                                            radius: 15,
+                                            radius: width * 0.08,
                                             child: Text(
                                               unread.length < 99
                                                   ? "${unread.length}"

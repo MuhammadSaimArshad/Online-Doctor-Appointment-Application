@@ -20,7 +20,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
       height: height * 0.65,
       width: width,
       child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: StreamBuilder(
               stream: StaticData.firebase
                   .collection('appointment')
@@ -29,7 +29,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                   .snapshots(),
               builder: (BuildContext context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 if (snapshot.hasError) {
@@ -54,7 +54,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 5),
+                              padding: const EdgeInsets.symmetric(vertical: 5),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
@@ -62,12 +62,12 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                   BoxShadow(
                                     color: Colors.black12,
                                     blurRadius: width * 0.02,
-                                    spreadRadius: width * 0.02,
+                                    spreadRadius: width * 0.001,
                                   ),
                                 ],
                               ),
                               child: SizedBox(
-                                width: MediaQuery.of(context).size.width,
+                                height: height * 0.2,
                                 child: Column(
                                   children: [
                                     ListTile(
@@ -77,7 +77,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                             fontWeight: FontWeight.bold,
                                             fontSize: width * 0.04),
                                       ),
-                                      subtitle: Text("${model!.bio}"),
+                                      subtitle: Text(model!.bio),
                                       trailing: CircleAvatar(
                                         radius: width * 0.05,
                                         backgroundImage:
@@ -85,11 +85,10 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                       ),
                                     ),
                                     Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 15),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Divider(
-                                        thickness: width * 0.01,
-                                        height: height * 0.02,
+                                        thickness: width * 0.002,
+                                        height: height * 0.01,
                                       ),
                                     ),
                                     Row(
@@ -108,7 +107,9 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                               width: width * 0.01,
                                             ),
                                             Text(
-                                              "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
+                                              StaticData
+                                                  .formatMicrosecondsSinceEpoch(
+                                                      model!.createdtime),
                                               style: TextStyle(
                                                   color: Colors.black54,
                                                   fontSize: width * 0.03),
@@ -127,7 +128,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                               width: width * 0.02,
                                             ),
                                             Text(
-                                              "${model!.time}",
+                                              model!.time,
                                               style: TextStyle(
                                                   color: Colors.black54,
                                                   fontSize: width * 0.03),
@@ -137,7 +138,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                         Row(
                                           children: [
                                             Container(
-                                              padding: EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(5),
                                               decoration: const BoxDecoration(
                                                   color: Colors.red,
                                                   shape: BoxShape.circle),

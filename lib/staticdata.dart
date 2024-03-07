@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/model/patientModel.dart';
-import 'package:doc_bookr/onborading_screen1.dart';
+
 import 'package:doc_bookr/signin_screen.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';

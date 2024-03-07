@@ -1,16 +1,23 @@
+// ignore_for_file: override_on_non_overriding_member
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/model/appointmentmodel.dart';
+import 'package:doc_bookr/staticdata.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class Ratingscreen extends StatefulWidget {
-  const Ratingscreen({super.key});
+class RatingScreen extends StatefulWidget {
+  const RatingScreen({super.key});
 
   @override
-  State<Ratingscreen> createState() => _RatingscreenState();
+  State<RatingScreen> createState() => _RatingScreenState();
 }
 
-class _RatingscreenState extends State<Ratingscreen> {
+class _RatingScreenState extends State<RatingScreen> {
   double fullrating = 0;
-  double halfrating = 0;
+
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -18,88 +25,358 @@ class _RatingscreenState extends State<Ratingscreen> {
     width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          height: height * 0.09,
-          width: width * 0.07,
-          color: Colors.white,
+        body: SizedBox(
+          height: height,
+          width: width,
           child: Column(
             children: [
-              //fullrating
               SizedBox(
-                height: height * 0.03,
+                height: height * 0.02,
               ),
-              Text(
-                "Full Rating",
-                style: TextStyle(
-                    fontSize: width * 0.04, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: height * 0.03,
-              ),
-              RatingBar.builder(
-                  initialRating: 0,
-                  minRating: 1,
-                  unratedColor: Colors.grey,
-                  itemCount: 5,
-                  itemSize: 30,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                  updateOnDrag: true,
-                  itemBuilder: (context, index) => Icon(
-                        Icons.star,
-                        color: Color(0xff0EBE7F),
-                        size: width * 0.03,
-                      ),
-                  onRatingUpdate: (ratingvalue) {
-                    setState(() {
-                      fullrating = ratingvalue;
-                    });
-                  }),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              Text(
-                "Rating : $fullrating",
-                style: TextStyle(
-                    fontSize: width * 0.03, fontWeight: FontWeight.bold),
-              ),
-              // halfrating
-              SizedBox(
-                height: height * 0.01,
-              ),
-              Text(
-                "Half & Full Rating",
-                style: TextStyle(
-                    fontSize: width * 0.03, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: width * 0.04,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
+                  Text(
+                    "Rating And Feedback",
+                    style: TextStyle(
+                      fontSize: width * 0.04,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
-                height: height * 0.03,
-              ),
-              RatingBar.builder(
-                  initialRating: 0,
-                  allowHalfRating: true,
-                  minRating: 1,
-                  unratedColor: Colors.grey,
-                  itemCount: 5,
-                  itemSize: 30,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                  updateOnDrag: true,
-                  itemBuilder: (context, index) => Icon(
-                        Icons.star,
-                        size: width * 0.03,
-                        color: Color(0xff0EBE7F),
-                      ),
-                  onRatingUpdate: (ratingvalue) {
-                    setState(() {
-                      halfrating = ratingvalue;
-                    });
-                  }),
-              SizedBox(
-                height: height * 0.03,
-              ),
-              Text(
-                "Rating : $halfrating",
-                style: TextStyle(
-                    fontSize: width * 0.03, fontWeight: FontWeight.bold),
+                child: StreamBuilder(
+                  stream: StaticData.firebase
+                      .collection('appointment')
+                      .where("patientid",
+                          isEqualTo: StaticData.patientmodel!.id)
+                      .where("status", isEqualTo: 2)
+                      .snapshots(),
+                  builder: (BuildContext context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    if (snapshot.hasError) {
+                      print("Error: /${snapshot.error}");
+                      return Text('Error: /${snapshot.error}');
+                    }
+
+                    AppointmentModel? model;
+                    if (snapshot.data!.docs.length != 0) {
+                      print(
+                          'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                    }
+                    return snapshot.data!.docs.length == 0 &&
+                            snapshot.data!.docs.isEmpty
+                        ? Center(
+                            child: CustomWidget.largeText('Data not found !'),
+                          )
+                        : ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              model = AppointmentModel.fromMap(
+                                  snapshot.data!.docs[index].data());
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black12,
+                                        blurRadius: width * 0.02,
+                                        spreadRadius: width * 0.001,
+                                      ),
+                                    ],
+                                  ),
+                                  child: SizedBox(
+                                    height: height * 0.2,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Text(
+                                            "Dr.${model!.doctername}",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.04),
+                                          ),
+                                          subtitle: Text(model!.bio),
+                                          trailing: CircleAvatar(
+                                            radius: 25,
+                                            backgroundImage:
+                                                NetworkImage(model!.image),
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              width: width * 0.03,
+                                            ),
+                                            InkWell(
+                                              onTap: model!.rating == null
+                                                  ? () {
+                                                      model = AppointmentModel
+                                                          .fromMap(snapshot
+                                                              .data!.docs[index]
+                                                              .data());
+                                                      fullrating = 0;
+                                                      showDialog(
+                                                          barrierDismissible:
+                                                              false,
+                                                          context: context,
+                                                          builder: (BuildContext
+                                                              context) {
+                                                            return StatefulBuilder(
+                                                                builder:
+                                                                    (context,
+                                                                        set) {
+                                                              return SizedBox(
+                                                                height: 10,
+                                                                child:
+                                                                    AlertDialog(
+                                                                  actions: [
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.pop(
+                                                                            context);
+                                                                      },
+                                                                      child:
+                                                                          const Text(
+                                                                        "No",
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                Colors.red),
+                                                                      ),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      width: width *
+                                                                          0.05,
+                                                                    ),
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        StaticData
+                                                                            .firebase
+                                                                            .collection(
+                                                                                "appointment")
+                                                                            .doc(model!
+                                                                                .id)
+                                                                            .update({
+                                                                          "rating":
+                                                                              fullrating
+                                                                        });
+                                                                        StaticData
+                                                                            .firebase
+                                                                            .collection("doctor")
+                                                                            .doc(model!.doctorid)
+                                                                            .update({
+                                                                          "totalrating":
+                                                                              FieldValue.increment(fullrating),
+                                                                          "ratingperson":
+                                                                              FieldValue.increment(1),
+                                                                        });
+                                                                        Navigator.pop(
+                                                                            context);
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        "Yes",
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                Apptheme.primary),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                  title: Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: width *
+                                                                            0.03,
+                                                                      ),
+                                                                      Text(
+                                                                        "Dotcor Rating",
+                                                                        style: TextStyle(
+                                                                            fontSize: width *
+                                                                                0.03,
+                                                                            fontWeight:
+                                                                                FontWeight.bold),
+                                                                      ),
+                                                                      TextButton(
+                                                                          onPressed:
+                                                                              () {
+                                                                            Navigator.of(context).pop();
+                                                                          },
+                                                                          child:
+                                                                              const Icon(Icons.cancel_outlined)),
+                                                                    ],
+                                                                  ),
+
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10)), //this right here
+                                                                  content:
+                                                                      SizedBox(
+                                                                    height: 60,
+                                                                    child:
+                                                                        Column(
+                                                                      children: [
+                                                                        RatingBar.builder(
+                                                                            initialRating: 0,
+                                                                            minRating: 1,
+                                                                            unratedColor: Colors.grey,
+                                                                            itemCount: 5,
+                                                                            itemSize: 30,
+                                                                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                                                                            updateOnDrag: true,
+                                                                            itemBuilder: (context, index) => const Icon(
+                                                                                  Icons.star,
+                                                                                  color: Color(0xFF7165D6),
+                                                                                ),
+                                                                            onRatingUpdate: (ratingvalue) {
+                                                                              set(() {
+                                                                                setState(() {
+                                                                                  fullrating = ratingvalue;
+                                                                                });
+                                                                              });
+                                                                            }),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              height * 0.02,
+                                                                        ),
+                                                                        Text(
+                                                                          "Rating : $fullrating",
+                                                                          style: TextStyle(
+                                                                              fontSize: width * 0.03,
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            });
+                                                          });
+                                                    }
+                                                  : () {
+                                                      print(
+                                                          " model!.rating${model!.rating}");
+                                                    },
+                                              child: Text(
+                                                "Rating : ${model!.rating ?? 0}",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.04,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Divider(
+                                            thickness: width * 0.002,
+                                            height: height * 0.01,
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                const Icon(
+                                                  Icons.calendar_month,
+                                                  color: Colors.black54,
+                                                ),
+                                                SizedBox(
+                                                  width: width * 0.02,
+                                                ),
+                                                Text(
+                                                  StaticData
+                                                      .formatMicrosecondsSinceEpoch(
+                                                          model!.createdtime),
+                                                  style: TextStyle(
+                                                      color: Colors.black54,
+                                                      fontSize: width * 0.01),
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                const Icon(
+                                                  Icons.access_time_filled,
+                                                  color: Colors.black54,
+                                                ),
+                                                SizedBox(
+                                                  width: width * 0.01,
+                                                ),
+                                                Text(
+                                                  "${model!.time}",
+                                                  style: TextStyle(
+                                                      color: Colors.black54,
+                                                      fontSize: width * 0.02),
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Container(
+                                                  padding:
+                                                      const EdgeInsets.all(5),
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                          color: Colors.green,
+                                                          shape:
+                                                              BoxShape.circle),
+                                                ),
+                                                SizedBox(
+                                                  width: width * 0.02,
+                                                ),
+                                                Text(
+                                                  "Completed",
+                                                  style: TextStyle(
+                                                      color: Colors.black54,
+                                                      fontSize: width * 0.04),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            });
+                  },
+                ),
               ),
             ],
           ),

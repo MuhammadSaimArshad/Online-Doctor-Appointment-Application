@@ -52,7 +52,7 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                     },
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      size: width * 0.03,
+                      size: width * 0.04,
                     ),
                   ),
                   SizedBox(
@@ -105,12 +105,12 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => Doctorlist(
-                                      category: "${list[index]}",
+                                      category: list[index],
                                     ),
                                   ));
                             },
                             child: Text(
-                              "${list[index]}",
+                              list[index],
                               style: TextStyle(
                                   fontSize: width * 0.04,
                                   color: Colors.white,

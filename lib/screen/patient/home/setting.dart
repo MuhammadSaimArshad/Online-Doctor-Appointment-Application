@@ -3,6 +3,7 @@ import 'package:doc_bookr/screen/patient/mydoctor.dart';
 import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
+import 'package:doc_bookr/screen/patient/rating.dart';
 import 'package:doc_bookr/signin_screen.dart';
 
 import 'package:doc_bookr/staticdata.dart';
@@ -68,7 +69,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                         size: width * 0.05,
                                       ),
                                     ),
-                                    title: Text("Camera"),
+                                    title: const Text("Camera"),
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
@@ -83,7 +84,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                         size: width * 0.05,
                                       ),
                                     ),
-                                    title: Text("Gallery"),
+                                    title: const Text("Gallery"),
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
@@ -105,7 +106,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          "${StaticData.patientmodel!.name}",
+                          StaticData.patientmodel!.name,
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold),
@@ -196,7 +197,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.green[200],
                     shape: BoxShape.circle,
@@ -320,7 +321,13 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: height * 0.01,
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RatingScreen(),
+                      ));
+                },
                 leading: Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -328,21 +335,30 @@ class _SettingScreenState extends State<SettingScreen> {
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    Icons.privacy_tip_outlined,
+                    Icons.feedback_outlined,
                     color: Colors.indigo,
                     size: width * 0.05,
                   ),
                 ),
                 title: Text(
-                  "Privacy",
+                  "FeedBack",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: width * 0.05,
                   ),
                 ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: width * 0.05,
+                trailing: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RatingScreen(),
+                        ));
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: width * 0.05,
+                  ),
                 ),
               ),
               SizedBox(

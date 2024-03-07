@@ -4,6 +4,8 @@ import 'package:doc_bookr/screen/patient/schedule/upcoming_schedule_screen.dart'
 import 'package:flutter/material.dart';
 
 class ScheduleScreen extends StatefulWidget {
+  const ScheduleScreen({super.key});
+
   @override
   State<ScheduleScreen> createState() => _ScheduleScreenState();
 }
@@ -11,10 +13,11 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   int _buttonIndex = 0;
   final _scheduleWidgets = [
-    UpcomingSchedule(),
-    CompletedSchedule(),
-    CanceledSchedule(),
+    const UpcomingSchedule(),
+    const CompletedSchedule(),
+    const CanceledSchedule(),
   ];
+
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -132,8 +135,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                             EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 2
-                              ? Color(0xff0EBE7F)
-                              : Colors.transparent,
+                              ? Colors.red
+                              : Colors.red.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(

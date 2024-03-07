@@ -372,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: width * 0.06,
                       ),
                       Text(
-                        "Select Doctor",
+                        "All Doctor",
                         style: TextStyle(
                             fontSize: width * 0.05,
                             fontWeight: FontWeight.bold),
@@ -427,14 +427,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                           as Map<String, dynamic>);
                                   return InkWell(
                                     onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                AppointmentScreen(
-                                              model: doctor!,
-                                            ),
-                                          ));
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) =>
+                                      //           AppointmentScreen(
+                                      //         model: doctor!,
+                                      //       ),
+                                      //     ));
                                     },
                                     child: Container(
                                       margin: EdgeInsets.all(14),
@@ -465,6 +465,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                               )),
                                           Text("Dr.${doctor!.name}"),
                                           Text(doctor!.category),
+                                          Text(
+                                              "Experince.${doctor!.specialty}"),
                                           Row(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:

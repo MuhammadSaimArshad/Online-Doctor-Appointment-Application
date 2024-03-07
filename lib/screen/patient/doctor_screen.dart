@@ -24,7 +24,7 @@ class _DoctorlistState extends State<Doctorlist> {
     width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        body: SizedBox(
           height: height,
           width: width,
           child: Column(
@@ -43,7 +43,7 @@ class _DoctorlistState extends State<Doctorlist> {
                     },
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      size: width * 0.05,
+                      size: width * 0.04,
                     ),
                   ),
                   SizedBox(
@@ -85,7 +85,7 @@ class _DoctorlistState extends State<Doctorlist> {
                       SizedBox(
                         width: width * 0.03,
                       ),
-                      Icon(Icons.search),
+                      const Icon(Icons.search),
                       SizedBox(
                         width: width * 0.03,
                       ),
@@ -96,7 +96,7 @@ class _DoctorlistState extends State<Doctorlist> {
                       SizedBox(
                         width: width * 0.46,
                       ),
-                      Icon(Icons.cancel_outlined)
+                      const Icon(Icons.cancel_outlined)
                     ],
                   ),
                 ),
@@ -113,7 +113,8 @@ class _DoctorlistState extends State<Doctorlist> {
                       builder: (BuildContext context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return Center(child: CircularProgressIndicator());
+                          return const Center(
+                              child: CircularProgressIndicator());
                         }
 
                         if (snapshot.hasError) {

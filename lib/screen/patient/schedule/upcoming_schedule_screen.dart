@@ -20,7 +20,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
         height: height * 0.65,
         width: width,
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: StreamBuilder(
                 stream: StaticData.firebase
                     .collection('appointment')
@@ -29,7 +29,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                     .snapshots(),
                 builder: (BuildContext context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   }
 
                   if (snapshot.hasError) {
@@ -38,9 +38,10 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                   }
 
                   AppointmentModel? model;
-                  if (snapshot.data!.docs.length != 0)
+                  if (snapshot.data!.docs.length != 0) {
                     print(
                         'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                  }
                   return snapshot.data!.docs.length == 0 &&
                           snapshot.data!.docs.isEmpty
                       ? Center(
@@ -54,7 +55,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
-                                padding: EdgeInsets.symmetric(vertical: 5),
+                                padding: EdgeInsets.symmetric(vertical: 3),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
@@ -62,12 +63,12 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                     BoxShadow(
                                       color: Colors.black12,
                                       blurRadius: width * 0.02,
-                                      spreadRadius: 2,
+                                      spreadRadius: width * 0.001,
                                     ),
                                   ],
                                 ),
                                 child: SizedBox(
-                                  width: MediaQuery.of(context).size.width,
+                                  height: height * 0.26,
                                   child: Column(
                                     children: [
                                       ListTile(
@@ -77,19 +78,18 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        subtitle: Text("${model!.bio}"),
+                                        subtitle: Text(model!.bio),
                                         trailing: CircleAvatar(
                                           radius: 25,
                                           backgroundImage:
                                               NetworkImage(model!.image),
                                         ),
                                       ),
-                                      const Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 15),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Divider(
-                                          thickness: 1,
-                                          height: 20,
+                                          thickness: width * 0.002,
+                                          height: height * 0.01,
                                         ),
                                       ),
                                       Row(
@@ -108,7 +108,9 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                                 width: width * 0.03,
                                               ),
                                               Text(
-                                                "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
+                                                StaticData
+                                                    .formatMicrosecondsSinceEpoch(
+                                                        model!.createdtime),
                                                 style: const TextStyle(
                                                   color: Colors.black54,
                                                 ),
@@ -127,7 +129,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                                 width: width * 0.03,
                                               ),
                                               Text(
-                                                "${model!.time}",
+                                                model!.time,
                                                 style: const TextStyle(
                                                   color: Colors.black54,
                                                 ),
