@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Get.put(PatientHomeController());
     StaticData.updatepatientprofile();
 
-    PatientHomeController.to.getdoctor();
+    // PatientHomeController.to.getdoctor();
 
     super.initState();
   }
@@ -177,8 +177,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: width * 0.01,
                               ),
                               const Text(
-                                "Contact to Clinic",
-                                style: TextStyle(color: Colors.black),
+                                "Contact to Admin",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ],
                           ),
@@ -230,8 +233,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: width * 0.01,
                               ),
                               const Text(
-                                "Contact to Clinic",
-                                style: TextStyle(color: Colors.black54),
+                                "Contact to Admin",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ],
                           ),
@@ -431,8 +437,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ));
                                     },
                                     child: Container(
-                                      height: height * 0.23,
-                                      width: width * 0.2,
+                                      margin: EdgeInsets.all(14),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 9),
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),

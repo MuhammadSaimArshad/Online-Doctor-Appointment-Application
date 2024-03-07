@@ -87,8 +87,8 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                     subtitle: Text("${model!.bio}"),
                                     trailing: CircleAvatar(
                                       radius: 25,
-                                      backgroundImage: NetworkImage(
-                                          StaticData.doctorModel!.image),
+                                      backgroundImage:
+                                          NetworkImage(model!.image),
                                     ),
                                   ),
                                   Row(

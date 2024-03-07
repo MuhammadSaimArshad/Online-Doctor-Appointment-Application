@@ -80,8 +80,8 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                       subtitle: Text("${model!.bio}"),
                                       trailing: CircleAvatar(
                                         radius: width * 0.05,
-                                        backgroundImage: NetworkImage(
-                                            StaticData.doctorModel!.image),
+                                        backgroundImage:
+                                            NetworkImage(model!.image),
                                       ),
                                     ),
                                     Padding(

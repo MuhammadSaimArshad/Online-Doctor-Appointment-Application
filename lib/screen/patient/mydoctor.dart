@@ -22,7 +22,7 @@ class _MyDoctorState extends State<MyDoctor> {
     width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        body: SizedBox(
           height: height,
           width: width,
           child: Column(

@@ -43,6 +43,21 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
               ),
               Row(
                 children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: width * 0.03,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
                   Text(
                     "Our Specialized Doctor Are Below",
                     style: TextStyle(

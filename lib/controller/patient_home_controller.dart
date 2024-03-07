@@ -40,29 +40,16 @@ class PatientHomeController extends GetxController {
     }
   }
 
-  Future getdoctor() async {
-    list = [];
-    for (var e in StaticData.patientmodel!.doctorList!) {
-      DocumentSnapshot documentSnapshot =
-          await StaticData.firebase.collection('doctor').doc(e).get();
-      DoctorModel? doctorModel =
-          DoctorModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
-      list.add(doctorModel as Doctorlist);
-      update();
-    }
-    update();
-  }
-
-  int schedule = 0;
-  Future<int> getSchedule() async {
-    QuerySnapshot snapshot = await StaticData.firebase
-        .collection("slots")
-        .doc(StaticData.doctorModel!.id.toString())
-        .collection("slots")
-        .where("isAvailable", isEqualTo: true)
-        .get();
-    schedule = snapshot.docs.length;
-    update();
-    return schedule;
-  }
+  // Future getdoctor() async {
+  //   list = [];
+  //   for (var e in StaticData.patientmodel!.doctorList!) {
+  //     DocumentSnapshot documentSnapshot =
+  //         await StaticData.firebase.collection('doctor').doc(e).get();
+  //     DoctorModel? doctorModel =
+  //         DoctorModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
+  //     list.add();
+  //     update();
+  //   }
+  //   update();
+  // }
 }

@@ -188,12 +188,12 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: obj.address,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      label: Text("Address"),
+                      label: Text("Location"),
                       prefixIcon: Icon(Icons.phone),
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please Enter Your Address';
+                        return 'Please Enter Your Location';
                       }
                       return null;
                     },
@@ -286,7 +286,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: obj.specilest,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      label: Text("Experience"),
+                      label: Text("Experience In Year"),
                       prefixIcon: Icon(Icons.phone),
                     ),
                     validator: (String? value) {
