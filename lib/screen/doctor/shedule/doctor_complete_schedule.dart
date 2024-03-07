@@ -63,8 +63,8 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black12,
-                                  blurRadius: width * 0.01,
-                                  spreadRadius: width * 0.03,
+                                  blurRadius: width * 0.02,
+                                  spreadRadius: width * 0.001,
                                 ),
                               ],
                             ),
@@ -87,11 +87,10 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                     ),
                                   ),
                                   Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 15),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Divider(
-                                      thickness: width * 0.01,
-                                      height: height * 0.03,
+                                      thickness: width * 0.002,
+                                      height: height * 0.01,
                                     ),
                                   ),
                                   Row(

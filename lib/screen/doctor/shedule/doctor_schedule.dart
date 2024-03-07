@@ -5,6 +5,8 @@ import 'package:doc_bookr/screen/doctor/shedule/doctor_upcoming_schedule.dart';
 import 'package:flutter/material.dart';
 
 class DoctorScheduleScreen extends StatefulWidget {
+  const DoctorScheduleScreen({super.key});
+
   @override
   State<DoctorScheduleScreen> createState() => _DoctorScheduleScreenState();
 }
@@ -67,7 +69,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
                       onTap: () {
@@ -76,22 +78,24 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        height: height * 0.04,
+                        width: width * 0.2,
                         decoration: BoxDecoration(
                           color: _buttonIndex == 1
-                              ? Colors.red.withOpacity(0.5)
+                              ? Colors.red
                               : Colors.red.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
-                          "Canceled",
-                          style: TextStyle(
-                            fontSize: width * 0.03,
-                            fontWeight: FontWeight.w500,
-                            color: _buttonIndex == 1
-                                ? Colors.white
-                                : Colors.black38,
+                        child: Center(
+                          child: Text(
+                            "Canceled",
+                            style: TextStyle(
+                              fontSize: width * 0.03,
+                              fontWeight: FontWeight.w500,
+                              color: _buttonIndex == 1
+                                  ? Colors.white
+                                  : Colors.black38,
+                            ),
                           ),
                         ),
                       ),
@@ -103,22 +107,24 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        height: height * 0.04,
+                        width: width * 0.2,
                         decoration: BoxDecoration(
                           color: _buttonIndex == 0
                               ? Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
-                          "Pending",
-                          style: TextStyle(
-                            fontSize: width * 0.03,
-                            fontWeight: FontWeight.w500,
-                            color: _buttonIndex == 0
-                                ? Colors.white
-                                : Colors.black38,
+                        child: Center(
+                          child: Text(
+                            "Pending",
+                            style: TextStyle(
+                              fontSize: width * 0.03,
+                              fontWeight: FontWeight.w500,
+                              color: _buttonIndex == 0
+                                  ? Colors.white
+                                  : Colors.black38,
+                            ),
                           ),
                         ),
                       ),
@@ -130,22 +136,24 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        height: height * 0.04,
+                        width: width * 0.2,
                         decoration: BoxDecoration(
                           color: _buttonIndex == 2
                               ? Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
-                          "Confirmed",
-                          style: TextStyle(
-                            fontSize: width * 0.03,
-                            fontWeight: FontWeight.w500,
-                            color: _buttonIndex == 2
-                                ? Colors.white
-                                : Colors.black38,
+                        child: Center(
+                          child: Text(
+                            "Confirmed",
+                            style: TextStyle(
+                              fontSize: width * 0.03,
+                              fontWeight: FontWeight.w500,
+                              color: _buttonIndex == 2
+                                  ? Colors.white
+                                  : Colors.black38,
+                            ),
                           ),
                         ),
                       ),
@@ -157,22 +165,24 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        height: height * 0.04,
+                        width: width * 0.2,
                         decoration: BoxDecoration(
                           color: _buttonIndex == 3
                               ? const Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
-                          "Completed",
-                          style: TextStyle(
-                            fontSize: width * 0.03,
-                            fontWeight: FontWeight.w500,
-                            color: _buttonIndex == 3
-                                ? Colors.white
-                                : Colors.black38,
+                        child: Center(
+                          child: Text(
+                            "Completed",
+                            style: TextStyle(
+                              fontSize: width * 0.03,
+                              fontWeight: FontWeight.w500,
+                              color: _buttonIndex == 3
+                                  ? Colors.white
+                                  : Colors.black38,
+                            ),
                           ),
                         ),
                       ),

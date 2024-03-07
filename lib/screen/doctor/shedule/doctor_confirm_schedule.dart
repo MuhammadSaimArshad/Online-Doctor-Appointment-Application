@@ -64,13 +64,13 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black12,
-                                  blurRadius: width * 0.01,
-                                  spreadRadius: width * 0.03,
+                                  blurRadius: width * 0.02,
+                                  spreadRadius: width * 0.001,
                                 ),
                               ],
                             ),
                             child: SizedBox(
-                              width: MediaQuery.of(context).size.width,
+                              height: height * 0.25,
                               child: Column(
                                 children: [
                                   ListTile(
@@ -88,11 +88,10 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                     ),
                                   ),
                                   Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 15),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Divider(
-                                      thickness: width * 0.01,
-                                      height: height * 0.03,
+                                      thickness: width * 0.002,
+                                      height: height * 0.01,
                                     ),
                                   ),
                                   Row(
@@ -161,6 +160,9 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                       ),
                                     ],
                                   ),
+                                  SizedBox(
+                                    height: height * 0.02,
+                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -190,9 +192,8 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                               .update({"isAvailable": true});
                                         },
                                         child: Container(
-                                          width: 150,
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: height * 0.01),
+                                          height: height * 0.06,
+                                          width: width * 0.35,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFF4F6FA),
                                             borderRadius:
@@ -239,10 +240,8 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                             // });
                                           },
                                           child: Container(
-                                            height: height * 0.07,
-                                            width: width * 0.4,
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: height * 0.005),
+                                            height: height * 0.06,
+                                            width: width * 0.35,
                                             decoration: BoxDecoration(
                                               color: Color(0xff0EBE7F),
                                               borderRadius:

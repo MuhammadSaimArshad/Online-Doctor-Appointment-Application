@@ -64,13 +64,13 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.black12,
-                                      blurRadius: width * 0.01,
-                                      spreadRadius: width * 0.01,
+                                      blurRadius: width * 0.02,
+                                      spreadRadius: width * 0.001,
                                     ),
                                   ],
                                 ),
                                 child: SizedBox(
-                                  width: MediaQuery.of(context).size.width,
+                                  height: height * 0.24,
                                   child: Column(
                                     children: [
                                       ListTile(
@@ -89,10 +89,9 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: height * 0.01),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Divider(
-                                          thickness: width * 0.01,
+                                          thickness: width * 0.002,
                                           height: height * 0.01,
                                         ),
                                       ),
@@ -195,9 +194,8 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                       {"isAvailable": true});
                                             },
                                             child: Container(
-                                              width: 150,
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: height * 0.01),
+                                              height: height * 0.06,
+                                              width: width * 0.35,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFF4F6FA),
                                                 borderRadius:
@@ -235,10 +233,8 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                               Navigator.pop(context);
                                             },
                                             child: Container(
-                                              height: height * 0.07,
-                                              width: width * 0.4,
-                                              padding: EdgeInsets.symmetric(
-                                                  vertical: height * 0.005),
+                                              height: height * 0.06,
+                                              width: width * 0.35,
                                               decoration: BoxDecoration(
                                                 color: Color(0xff0EBE7F),
                                                 borderRadius:

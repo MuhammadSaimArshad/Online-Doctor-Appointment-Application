@@ -68,8 +68,8 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black12,
-                                    blurRadius: height * 0.001,
-                                    spreadRadius: height * 0.001,
+                                    blurRadius: width * 0.02,
+                                    spreadRadius: width * 0.001,
                                   ),
                                 ],
                               ),
@@ -92,11 +92,10 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: height * 0.01),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Divider(
-                                        thickness: width * 0.001,
-                                        height: 20,
+                                        thickness: width * 0.002,
+                                        height: height * 0.01,
                                       ),
                                     ),
                                     Row(
