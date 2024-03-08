@@ -1,8 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
-
 import 'package:doc_bookr/screen/patient/doctor_screen.dart';
-import 'package:doc_bookr/staticdata.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -47,7 +44,7 @@ class PatientHomeController extends GetxController {
   //         await StaticData.firebase.collection('doctor').doc(e).get();
   //     DoctorModel? doctorModel =
   //         DoctorModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
-  //     list.add();
+  //     list.add(doctorModel);
   //     update();
   //   }
   //   update();

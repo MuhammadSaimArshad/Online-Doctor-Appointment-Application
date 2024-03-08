@@ -87,10 +87,10 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                     ),
                                     subtitle: Text(model!.bio),
                                     trailing: CircleAvatar(
-                                      radius: 25,
-                                      backgroundImage:
-                                          NetworkImage(model!.image),
-                                    ),
+                                        radius: 25,
+                                        backgroundImage: NetworkImage(
+                                          model!.image,
+                                        )),
                                   ),
                                   Row(
                                     children: [
@@ -224,7 +224,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                                                       itemBuilder: (context, index) => const Icon(
                                                                             Icons.star,
                                                                             color:
-                                                                                Color(0xFF7165D6),
+                                                                                Color(0xff0EBE7F),
                                                                           ),
                                                                       onRatingUpdate: (ratingvalue) {
                                                                         set(() {

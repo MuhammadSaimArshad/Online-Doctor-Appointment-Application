@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 class ChatSample extends StatelessWidget {
   var height, width;
+
+  ChatSample({super.key});
   @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;

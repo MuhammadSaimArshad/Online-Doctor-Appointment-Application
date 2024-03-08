@@ -137,7 +137,7 @@ class _MYPATIENTState extends State<MYPATIENT> {
                                     physics: NeverScrollableScrollPhysics(),
                                     itemBuilder: (context, index) {
                                       return Container(
-                                        height: height * 0.2,
+                                        height: height * 0.1,
                                         margin: const EdgeInsets.symmetric(
                                             vertical: 8.0, horizontal: 16.0),
                                         decoration: BoxDecoration(
@@ -153,28 +153,30 @@ class _MYPATIENTState extends State<MYPATIENT> {
                                           ],
                                         ),
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            CircleAvatar(
-                                              radius: 35,
-                                              backgroundImage: NetworkImage(
-                                                  obj.list[index].image),
+                                            SizedBox(
+                                              height: height * 0.01,
                                             ),
-                                            Text(
-                                              obj.list[index].name,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: width * 0.04,
-                                                color: Colors.black54,
-                                              ),
-                                            ),
-                                            Text(
-                                              obj.list[index].phonenumber,
-                                              style: const TextStyle(
-                                                color: Colors.black45,
-                                              ),
-                                            ),
+                                            ListTile(
+                                                leading: CircleAvatar(
+                                                  radius: 35,
+                                                  backgroundImage: NetworkImage(
+                                                      obj.list[index].image),
+                                                ),
+                                                title: Text(
+                                                  obj.list[index].name,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: width * 0.04,
+                                                    color: Colors.black54,
+                                                  ),
+                                                ),
+                                                subtitle: Text(
+                                                  obj.list[index].phonenumber,
+                                                  style: const TextStyle(
+                                                    color: Colors.black45,
+                                                  ),
+                                                )),
                                           ],
                                         ),
                                       );
@@ -196,7 +198,7 @@ class _MYPATIENTState extends State<MYPATIENT> {
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
                                   return Container(
-                                    height: height * 0.2,
+                                    height: height * 0.1,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(10),
@@ -209,26 +211,29 @@ class _MYPATIENTState extends State<MYPATIENT> {
                                       ],
                                     ),
                                     child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        CircleAvatar(
-                                          radius: 35,
-                                          backgroundImage: NetworkImage(
-                                              obj.list[index].image),
+                                        SizedBox(
+                                          height: height * 0.01,
                                         ),
-                                        Text(
-                                          obj.list[index].name,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: width * 0.04,
-                                            color: Colors.black54,
+                                        ListTile(
+                                          leading: CircleAvatar(
+                                            radius: 35,
+                                            backgroundImage: NetworkImage(
+                                                obj.list[index].image),
                                           ),
-                                        ),
-                                        Text(
-                                          obj.list[index].phonenumber,
-                                          style: const TextStyle(
-                                            color: Colors.black45,
+                                          title: Text(
+                                            obj.list[index].name,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: width * 0.04,
+                                              color: Colors.black54,
+                                            ),
+                                          ),
+                                          subtitle: Text(
+                                            obj.list[index].phonenumber,
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
                                           ),
                                         ),
                                       ],

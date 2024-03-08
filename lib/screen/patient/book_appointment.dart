@@ -264,7 +264,7 @@ class _CalenderState extends State<Calender> {
                         msg: "Appointment request send sucessfuly !",
                         backgroundColor: const Color(0xff0EBE7F),
                         textColor: Colors.white,
-                        gravity: ToastGravity.BOTTOM,
+                        gravity: ToastGravity.CENTER,
                         fontSize: 17,
                         timeInSecForIosWeb: 1,
                         toastLength: Toast.LENGTH_LONG,
