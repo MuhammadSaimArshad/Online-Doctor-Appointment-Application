@@ -110,50 +110,48 @@ class _MyDoctorState extends State<MyDoctor> {
                   height: height * 0.05,
                 ),
                 Expanded(
-                  child: SizedBox(
-                    width: width,
-                    height: height * 0.7,
-                    child: StreamBuilder(
-                        stream: FirebaseFirestore.instance
-                            .collection('doctor')
-                            .snapshots(),
-                        builder: (BuildContext context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          }
+                  child: StreamBuilder(
+                      stream: FirebaseFirestore.instance
+                          .collection('doctor')
+                          .snapshots(),
+                      builder: (BuildContext context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
 
-                          if (snapshot.hasError) {
-                            print("Error: /${snapshot.error}");
-                            return Text('Error: /${snapshot.error}');
-                          }
+                        if (snapshot.hasError) {
+                          print("Error: /${snapshot.error}");
+                          return Text('Error: /${snapshot.error}');
+                        }
 
-                          DoctorModel? doctor;
-                          if (snapshot.data!.docs.length != 0) {
-                            print(
-                                'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
-                          }
+                        DoctorModel? doctor;
+                        if (snapshot.data!.docs.length != 0) {
+                          print(
+                              'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                        }
 
-                          return snapshot.data!.docs.length == 0 &&
-                                  snapshot.data!.docs.isEmpty
-                              ? Center(
-                                  child: CustomWidget.largeText(
-                                      'Data not found !'),
-                                )
-                              : ListView.builder(
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    doctor = DoctorModel.fromMap(
-                                        snapshot.data!.docs[index].data()
-                                            as Map<String, dynamic>);
-                                    if (obj.search.text.isNotEmpty) {
-                                      if (doctor!.name
-                                          .toString()
-                                          .toLowerCase()
-                                          .contains(
-                                              obj.search.text.toString())) {
-                                        return Container(
+                        return snapshot.data!.docs.length == 0 &&
+                                snapshot.data!.docs.isEmpty
+                            ? Center(
+                                child:
+                                    CustomWidget.largeText('Data not found !'),
+                              )
+                            : ListView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  doctor = DoctorModel.fromMap(
+                                      snapshot.data!.docs[index].data()
+                                          as Map<String, dynamic>);
+                                  if (obj.search.text.isNotEmpty) {
+                                    if (doctor!.name
+                                        .toString()
+                                        .toLowerCase()
+                                        .contains(obj.search.text.toString())) {
+                                      return Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
                                           height: height * 0.25,
                                           width: width * 0.95,
                                           decoration: BoxDecoration(
@@ -300,14 +298,17 @@ class _MyDoctorState extends State<MyDoctor> {
                                               )
                                             ],
                                           ),
-                                        );
-                                      } else {
-                                        return Container(
-                                          color: Colors.white,
-                                        );
-                                      }
+                                        ),
+                                      );
                                     } else {
                                       return Container(
+                                        color: Colors.white,
+                                      );
+                                    }
+                                  } else {
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
                                         height: height * 0.25,
                                         width: width * 0.95,
                                         decoration: BoxDecoration(
@@ -448,12 +449,12 @@ class _MyDoctorState extends State<MyDoctor> {
                                             )
                                           ],
                                         ),
-                                      );
-                                    }
-                                  },
-                                );
-                        }),
-                  ),
+                                      ),
+                                    );
+                                  }
+                                },
+                              );
+                      }),
                 ),
               ],
             ),

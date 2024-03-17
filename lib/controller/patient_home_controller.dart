@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/model/DoctorModel.dart';
 import 'package:doc_bookr/screen/patient/doctor_screen.dart';
+import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,8 +17,8 @@ class PatientHomeController extends GetxController {
     update();
   }
 
-  List<Doctorlist> list = [];
-  List<Doctorlist> fuilterlist = [];
+  List<DoctorModel> list = [];
+  List<DoctorModel> fuilterlist = [];
 //   fuilterdata(String q){
 // fuilter = [];
 
@@ -37,16 +40,16 @@ class PatientHomeController extends GetxController {
     }
   }
 
-  // Future getdoctor() async {
-  //   list = [];
-  //   for (var e in StaticData.patientmodel!.doctorList!) {
-  //     DocumentSnapshot documentSnapshot =
-  //         await StaticData.firebase.collection('doctor').doc(e).get();
-  //     DoctorModel? doctorModel =
-  //         DoctorModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
-  //     list.add(doctorModel);
-  //     update();
-  //   }
-  //   update();
-  // }
+  Future getdoctor() async {
+    list = [];
+    for (var e in StaticData.patientmodel!.doctorList!) {
+      DocumentSnapshot documentSnapshot =
+          await StaticData.firebase.collection('doctor').doc(e).get();
+      DoctorModel doctorModel =
+          DoctorModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
+      list.add(doctorModel);
+      update();
+    }
+    update();
+  }
 }

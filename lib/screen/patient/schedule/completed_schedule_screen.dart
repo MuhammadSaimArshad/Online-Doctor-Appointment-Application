@@ -1,12 +1,10 @@
 // ignore_for_file: override_on_non_overriding_member
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/appointmentmodel.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CompletedSchedule extends StatefulWidget {
   const CompletedSchedule({super.key});
@@ -97,176 +95,11 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                       SizedBox(
                                         width: width * 0.03,
                                       ),
-                                      InkWell(
-                                        onTap: model!.rating == null
-                                            ? () {
-                                                model =
-                                                    AppointmentModel.fromMap(
-                                                        snapshot
-                                                            .data!.docs[index]
-                                                            .data());
-                                                fullrating = 0;
-                                                showDialog(
-                                                    barrierDismissible: false,
-                                                    context: context,
-                                                    builder:
-                                                        (BuildContext context) {
-                                                      return StatefulBuilder(
-                                                          builder:
-                                                              (context, set) {
-                                                        return SizedBox(
-                                                          height: 10,
-                                                          child: AlertDialog(
-                                                            actions: [
-                                                              InkWell(
-                                                                onTap: () {
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                },
-                                                                child:
-                                                                    const Text(
-                                                                  "No",
-                                                                  style: TextStyle(
-                                                                      color: Colors
-                                                                          .red),
-                                                                ),
-                                                              ),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.05,
-                                                              ),
-                                                              InkWell(
-                                                                onTap: () {
-                                                                  StaticData
-                                                                      .firebase
-                                                                      .collection(
-                                                                          "appointment")
-                                                                      .doc(model!
-                                                                          .id)
-                                                                      .update({
-                                                                    "rating":
-                                                                        fullrating
-                                                                  });
-                                                                  StaticData
-                                                                      .firebase
-                                                                      .collection(
-                                                                          "doctor")
-                                                                      .doc(model!
-                                                                          .doctorid)
-                                                                      .update({
-                                                                    "totalrating":
-                                                                        FieldValue.increment(
-                                                                            fullrating),
-                                                                    "ratingperson":
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                  });
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                },
-                                                                child: Text(
-                                                                  "Yes",
-                                                                  style: TextStyle(
-                                                                      color: Apptheme
-                                                                          .primary),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                            title: Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: width *
-                                                                      0.03,
-                                                                ),
-                                                                Text(
-                                                                  "Dotcor Rating",
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          width *
-                                                                              0.03,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold),
-                                                                ),
-                                                                TextButton(
-                                                                    onPressed:
-                                                                        () {
-                                                                      Navigator.of(
-                                                                              context)
-                                                                          .pop();
-                                                                    },
-                                                                    child: const Icon(
-                                                                        Icons
-                                                                            .cancel_outlined)),
-                                                              ],
-                                                            ),
-
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            10)), //this right here
-                                                            content: SizedBox(
-                                                              height: 60,
-                                                              child: Column(
-                                                                children: [
-                                                                  RatingBar.builder(
-                                                                      initialRating: 0,
-                                                                      minRating: 1,
-                                                                      unratedColor: Colors.grey,
-                                                                      itemCount: 5,
-                                                                      itemSize: 30,
-                                                                      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                                                                      updateOnDrag: true,
-                                                                      itemBuilder: (context, index) => const Icon(
-                                                                            Icons.star,
-                                                                            color:
-                                                                                Color(0xff0EBE7F),
-                                                                          ),
-                                                                      onRatingUpdate: (ratingvalue) {
-                                                                        set(() {
-                                                                          setState(
-                                                                              () {
-                                                                            fullrating =
-                                                                                ratingvalue;
-                                                                          });
-                                                                        });
-                                                                      }),
-                                                                  SizedBox(
-                                                                    height:
-                                                                        height *
-                                                                            0.02,
-                                                                  ),
-                                                                  Text(
-                                                                    "Rating : $fullrating",
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            width *
-                                                                                0.03,
-                                                                        fontWeight:
-                                                                            FontWeight.bold),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      });
-                                                    });
-                                              }
-                                            : () {
-                                                print(
-                                                    " model!.rating${model!.rating}");
-                                              },
-                                        child: Text(
-                                          "Rating : ${model!.rating ?? 0}",
-                                          style: TextStyle(
-                                              fontSize: width * 0.04,
-                                              fontWeight: FontWeight.bold),
-                                        ),
+                                      Text(
+                                        "Rating : ${model!.rating ?? 0}",
+                                        style: TextStyle(
+                                            fontSize: width * 0.04,
+                                            fontWeight: FontWeight.bold),
                                       ),
                                     ],
                                   ),

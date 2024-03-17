@@ -1,15 +1,16 @@
 import 'package:doc_bookr/screen/Admin/Admin_home_navbar.dart';
-import 'package:doc_bookr/screen/Admin/admin_signup.dart';
+import 'package:doc_bookr/screen/Admin/admin_signin.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
-class AdminSignIn extends StatefulWidget {
-  const AdminSignIn({super.key});
+class AdminSignup extends StatefulWidget {
+  const AdminSignup({super.key});
 
   @override
-  State<AdminSignIn> createState() => _AdminSignInState();
+  State<AdminSignup> createState() => _AdminSignupState();
 }
 
-class _AdminSignInState extends State<AdminSignIn> {
+class _AdminSignupState extends State<AdminSignup> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -72,14 +73,45 @@ class _AdminSignInState extends State<AdminSignIn> {
                 SizedBox(
                   height: height * 0.3,
                 ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    // controller: obj.name,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text(" Name"),
+                      prefixIcon: Icon(Icons.person_outline),
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter Your  Name';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
                     // controller: obj.email,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text("Email Address"),
-                      prefixIcon: Icon(Icons.email),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.white, width: width * 0.01)),
+                      label: Text(
+                        "Email Address",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.white,
+                      ),
                     ),
                     // validator: (String? value) {
                     //   if (value!.isEmpty) {
@@ -160,7 +192,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                     ),
                     child: Center(
                       child: Text(
-                        "SignIn",
+                        "SignUp",
                         style: TextStyle(
                             fontSize: width * 0.04,
                             fontWeight: FontWeight.bold,
@@ -173,39 +205,35 @@ class _AdminSignInState extends State<AdminSignIn> {
                   height: height * 0.01,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: width * 0.05,
-                    ),
                     Text(
-                      "Don't have any account?",
+                      "Already have account ?",
                       style: TextStyle(
+                        fontSize: width * 0.04,
+                        fontWeight: FontWeight.w500,
                         color: Colors.white,
-                        fontSize: width * 0.045,
-                        fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(
-                      width: width * 0.05,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const AdminSignup(),
+                              builder: (context) => AdminSignIn(),
                             ));
                       },
                       child: Text(
-                        "Create Account",
+                        "Sign In",
                         style: TextStyle(
-                            fontSize: width * 0.05,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                          fontSize: width * 0.04,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

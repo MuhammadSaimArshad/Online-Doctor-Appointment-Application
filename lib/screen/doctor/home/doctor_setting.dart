@@ -103,7 +103,7 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          "Dr.${StaticData.doctorModel!.name}",
+                          StaticData.doctorModel!.name,
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold),

@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/controller/patient_home_controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
 
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 
@@ -24,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     Get.put(PatientHomeController());
     StaticData.updatepatientprofile();
+    PatientHomeController.to.getdoctor();
     super.initState();
   }
 
@@ -380,196 +379,179 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: height * 0.02,
                   ),
-                SizedBox(
-                  width: width,
-                  height: height * 0.7,
-                  child: StreamBuilder(
-                      stream: FirebaseFirestore.instance
-                          .collection('doctor')
-                          .snapshots(),
-                      builder: (BuildContext context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return Center(child: CircularProgressIndicator());
-                        }
-
-                        if (snapshot.hasError) {
-                          print("Error: /${snapshot.error}");
-                          return Text('Error: /${snapshot.error}');
-                        }
-
-                        DoctorModel? doctor;
-                        if (snapshot.data!.docs.length != 0) {
-                          print(
-                              'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
-                        }
-
-                        return snapshot.data!.docs.length == 0 &&
-                                snapshot.data!.docs.isEmpty
-                            ? Center(
-                                child:
-                                    CustomWidget.largeText('Data not found !'),
+                obj.qury == ""
+                    ? SizedBox(
+                        width: width,
+                        height: height * 0.7,
+                        child: obj.list.length == 0
+                            ? SizedBox(
+                                height: height * 0.4,
+                                child: Center(
+                                  child: CustomWidget.largeText('No Doctor !'),
+                                ),
                               )
                             : GridView.builder(
-                                itemCount: snapshot.data!.docs.length,
-                                physics: const NeverScrollableScrollPhysics(),
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
-                                        mainAxisSpacing: 1,
-                                        crossAxisSpacing: 0),
+                                        childAspectRatio: 1.2),
+                                itemCount: obj.list.length,
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
-                                  doctor = DoctorModel.fromMap(
-                                      snapshot.data!.docs[index].data()
-                                          as Map<String, dynamic>);
-                                  if (obj.search.text.isNotEmpty) {
-                                    if (doctor!.name
-                                        .toString()
-                                        .toLowerCase()
-                                        .contains(
-                                            obj.search.text.toLowerCase())) {
-                                      return InkWell(
-                                        onTap: () {
-                                          // Navigator.push(
-                                          //     context,
-                                          //     MaterialPageRoute(
-                                          //       builder: (context) =>
-                                          //           AppointmentScreen(
-                                          //         model: doctor!,
-                                          //       ),
-                                          //     ));
-                                        },
-                                        child: Container(
-                                          margin: EdgeInsets.all(14),
-                                          padding:
-                                              EdgeInsets.symmetric(vertical: 9),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black12,
-                                                blurRadius: width * 0.03,
-                                                spreadRadius: width * 0.015,
-                                              ),
-                                            ],
+                                  return InkWell(
+                                    onTap: () {
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) => Profilescreen(
+                                      //           model: obj.list[index]),
+                                      //     ));
+                                    },
+                                    child: Container(
+                                      height: height * 0.37,
+                                      margin: EdgeInsets.all(8),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 6),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            blurRadius: width * 0.01,
+                                            spreadRadius: width * 0.01,
                                           ),
-                                          child: Column(
-                                            children: [
-                                              // SizedBox(
-                                              //   height: height * 0.01,
-                                              // ),
-                                              SizedBox(
-                                                  height: height * 0.1,
-                                                  width: width * 0.15,
-                                                  child: CircleAvatar(
-                                                    backgroundImage:
-                                                        NetworkImage(
-                                                            doctor!.image),
-                                                  )),
-                                              Text("Dr.${doctor!.name}"),
-                                              Text(doctor!.category),
-                                              Text(
-                                                  "Experince.${doctor!.specialty}"),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.amber,
-                                                    size: width * 0.04,
-                                                  ),
-                                                  Text(
-                                                    "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
-                                                    style: TextStyle(
-                                                        color: Colors.black45,
-                                                        fontSize: width * 0.03),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    } else {
-                                      return Container(
-                                        color: Colors.red,
-                                      );
-                                    }
-                                  } else {
-                                    return InkWell(
-                                      onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //       builder: (context) =>
-                                        //           AppointmentScreen(
-                                        //         model: doctor!,
-                                        //       ),
-                                        //     ));
-                                      },
-                                      child: Container(
-                                        margin: EdgeInsets.all(14),
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 9),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black12,
-                                              blurRadius: width * 0.03,
-                                              spreadRadius: width * 0.015,
-                                            ),
-                                          ],
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            // SizedBox(
-                                            //   height: height * 0.01,
-                                            // ),
-                                            SizedBox(
-                                                height: height * 0.1,
-                                                width: width * 0.15,
-                                                child: CircleAvatar(
-                                                  backgroundImage: NetworkImage(
-                                                      doctor!.image),
-                                                )),
-                                            Text("Dr.${doctor!.name}"),
-                                            Text(doctor!.category),
-                                            Text(
-                                                "Experince.${doctor!.specialty}"),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.star,
-                                                  color: Colors.amber,
-                                                  size: width * 0.04,
-                                                ),
-                                                Text(
-                                                  "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
-                                                  style: TextStyle(
-                                                      color: Colors.black45,
-                                                      fontSize: width * 0.03),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                                        ],
                                       ),
-                                    );
-                                  }
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 35,
+                                            backgroundImage: NetworkImage(
+                                                obj.list[index].image),
+                                          ),
+                                          Text(
+                                            "Dr.${obj.list[index].name}",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: width * 0.04,
+                                              color: Colors.black54,
+                                            ),
+                                          ),
+                                          Text(
+                                            obj.list[index].category,
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Experince.${obj.list[index].specialty}",
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                          Text(
+                                            "${(obj.list[index].totalrating / obj.list[index].ratingperson).isNaN ? "0" : (obj.list[index].totalrating / obj.list[index].ratingperson)}",
+                                            style: TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
                                 },
-                              );
-                      }),
-                ),
+                              ),
+                      )
+                    : SizedBox(
+                        width: width,
+                        height: height * 0.7,
+                        child: obj.fuilterlist.length == 0
+                            ? SizedBox(
+                                height: height * 0.4,
+                                child: Center(
+                                  child: CustomWidget.largeText('No Doctor !'),
+                                ),
+                              )
+                            : GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        childAspectRatio: 1.2),
+                                itemCount: obj.fuilterlist.length,
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) => Profilescreen(
+                                      //           model: obj.fuilterlist[index]),
+                                      //     ));
+                                    },
+                                    child: Container(
+                                      height: height * 0.37,
+                                      margin: EdgeInsets.all(8),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 6),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            blurRadius: width * 0.01,
+                                            spreadRadius: width * 0.01,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 35,
+                                            backgroundImage: NetworkImage(
+                                                obj.fuilterlist[index].image),
+                                          ),
+                                          Text(
+                                            "Dr.${obj.fuilterlist[index].name}",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: width * 0.04,
+                                              color: Colors.black54,
+                                            ),
+                                          ),
+                                          Text(
+                                            obj.fuilterlist[index].category,
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Experince.${obj.fuilterlist[index].specialty}",
+                                            style: const TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                          Text(
+                                            "${(obj.fuilterlist[index].totalrating / obj.fuilterlist[index].ratingperson).isNaN ? "0" : (obj.fuilterlist[index].totalrating / obj.fuilterlist[index].ratingperson)}",
+                                            style: TextStyle(
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                      ),
               ],
             ),
           ),

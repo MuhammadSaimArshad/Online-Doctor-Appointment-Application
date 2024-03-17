@@ -3,7 +3,7 @@ import 'package:doc_bookr/screen/patient/mydoctor.dart';
 import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
-import 'package:doc_bookr/screen/patient/rating.dart';
+import 'package:doc_bookr/screen/patient/feedback.dart';
 import 'package:doc_bookr/signin_screen.dart';
 
 import 'package:doc_bookr/staticdata.dart';
@@ -276,50 +276,50 @@ class _SettingScreenState extends State<SettingScreen> {
               SizedBox(
                 height: height * 0.01,
               ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
-                      ));
-                },
-                leading: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.red[200],
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.home,
-                    color: Colors.redAccent,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "Home",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
+              // ListTile(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => HomeScreen(),
+              //         ));
+              //   },
+              //   leading: Container(
+              //     padding: EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.red[200],
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.home,
+              //       color: Colors.redAccent,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "Home",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: InkWell(
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => HomeScreen(),
+              //           ));
+              //     },
+              //     child: Icon(
+              //       Icons.arrow_forward_ios_rounded,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
               ListTile(
                 onTap: () {
                   Navigator.push(

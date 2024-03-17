@@ -193,8 +193,8 @@ class _SigninScreenState extends State<SigninScreen> {
                             obj.update();
                           },
                           child: obj.passToggle
-                              ? Icon(CupertinoIcons.eye_slash_fill)
-                              : Icon(CupertinoIcons.eye_fill),
+                              ? const Icon(CupertinoIcons.eye_slash_fill)
+                              : const Icon(CupertinoIcons.eye_fill),
                         ),
                       ),
                       obscuringCharacter: "*",
@@ -288,7 +288,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xff0EBE7F)),
+                              color: const Color(0xff0EBE7F)),
                         ),
                       ),
                     ],
