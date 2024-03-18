@@ -1,7 +1,10 @@
-import 'package:doc_bookr/screen/Admin/Admin_home_navbar.dart';
+import 'package:doc_bookr/controller/admin_signup_controller.dart';
+
 import 'package:doc_bookr/screen/Admin/admin_signin.dart';
-import 'package:email_validator/email_validator.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class AdminSignup extends StatefulWidget {
   const AdminSignup({super.key});
@@ -12,12 +15,19 @@ class AdminSignup extends StatefulWidget {
 
 class _AdminSignupState extends State<AdminSignup> {
   var height, width;
+
   @override
+  void initState() {
+    Get.put(AdminSignupController());
+    // TODO: implement initState
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
+    return GetBuilder<AdminSignupController>(builder: (obj) {
+      return Scaffold(
         body: SingleChildScrollView(
           child: Container(
             height: height,
@@ -79,11 +89,21 @@ class _AdminSignupState extends State<AdminSignup> {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
-                    // controller: obj.name,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text(" Name"),
-                      prefixIcon: Icon(Icons.person_outline),
+                    controller: obj.name,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.white, width: width * 0.01)),
+                      label: Text(
+                        " Name",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person_outline,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
@@ -99,29 +119,22 @@ class _AdminSignupState extends State<AdminSignup> {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
-                    // controller: obj.email,
+                    controller: obj.email,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
                               color: Colors.white, width: width * 0.01)),
                       label: Text(
                         "Email Address",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
                       ),
                       prefixIcon: Icon(
                         Icons.email,
                         color: Colors.white,
+                        size: width * 0.05,
                       ),
                     ),
-                    // validator: (String? value) {
-                    //   if (value!.isEmpty) {
-                    //     return 'Please enter your E-mail';
-                    //   } else if (EmailValidator.validate(obj.email.text) ==
-                    //       false) {
-                    //     return 'Please Enter Correct E-mail';
-                    //   }
-                    //   return null;
-                    // },
                     keyboardType: TextInputType.emailAddress,
                   ),
                 ),
@@ -131,25 +144,19 @@ class _AdminSignupState extends State<AdminSignup> {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
-                    // obscureText: obj.passToggle ? true : false,
-                    // controller: obj.password,
+                    controller: obj.password,
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
-                      label: const Text("Enter Password"),
-                      prefixIcon: const Icon(Icons.lock),
-                      // suffixIcon: InkWell(
-                      //   onTap: () {
-                      //     if (obj.passToggle == true) {
-                      //       obj.passToggle = false;
-                      //     } else {
-                      //       obj.passToggle = true;
-                      //     }
-                      //     obj.update();
-                      //   },
-                      //   child: obj.passToggle
-                      //       ? Icon(CupertinoIcons.eye_slash_fill)
-                      //       : Icon(CupertinoIcons.eye_fill),
-                      // ),
+                      label: Text(
+                        "Enter Password",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
                     ),
                     obscuringCharacter: "*",
                     validator: (String? value) {
@@ -175,11 +182,7 @@ class _AdminSignupState extends State<AdminSignup> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AdminHomeNavbarScreen(),
-                        ));
+                    obj.sinup(context);
                   },
                   child: Container(
                     height: height * 0.07,
@@ -238,7 +241,7 @@ class _AdminSignupState extends State<AdminSignup> {
             ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

@@ -39,6 +39,7 @@ class DoctorHomeController extends GetxController {
   }
 
   Future getPatient() async {
+    print("object");
     list = [];
     for (var e in StaticData.doctorModel!.patientList!) {
       DocumentSnapshot documentSnapshot =

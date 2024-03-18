@@ -52,12 +52,14 @@ class _RatingScreenState extends State<RatingScreen> {
                     width: width * 0.03,
                   ),
                   Text(
-                    "Rating And Feedback",
+                    "Rating ",
                     style: TextStyle(
-                      fontSize: width * 0.04,
-                    ),
+                        fontSize: width * 0.04, fontWeight: FontWeight.bold),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: height * 0.04,
               ),
               SizedBox(
                 width: width,

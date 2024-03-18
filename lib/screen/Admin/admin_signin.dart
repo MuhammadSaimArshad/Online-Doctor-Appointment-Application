@@ -76,20 +76,20 @@ class _AdminSignInState extends State<AdminSignIn> {
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
                     // controller: obj.email,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      label: Text("Email Address"),
-                      prefixIcon: Icon(Icons.email),
+                      label: Text(
+                        "Email Address",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
                     ),
-                    // validator: (String? value) {
-                    //   if (value!.isEmpty) {
-                    //     return 'Please enter your E-mail';
-                    //   } else if (EmailValidator.validate(obj.email.text) ==
-                    //       false) {
-                    //     return 'Please Enter Correct E-mail';
-                    //   }
-                    //   return null;
-                    // },
+
                     keyboardType: TextInputType.emailAddress,
                   ),
                 ),
@@ -99,25 +99,18 @@ class _AdminSignInState extends State<AdminSignIn> {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
-                    // obscureText: obj.passToggle ? true : false,
-                    // controller: obj.password,
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
-                      label: const Text("Enter Password"),
-                      prefixIcon: const Icon(Icons.lock),
-                      // suffixIcon: InkWell(
-                      //   onTap: () {
-                      //     if (obj.passToggle == true) {
-                      //       obj.passToggle = false;
-                      //     } else {
-                      //       obj.passToggle = true;
-                      //     }
-                      //     obj.update();
-                      //   },
-                      //   child: obj.passToggle
-                      //       ? Icon(CupertinoIcons.eye_slash_fill)
-                      //       : Icon(CupertinoIcons.eye_fill),
-                      // ),
+                      label: Text(
+                        "Enter Password",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
                     ),
                     obscuringCharacter: "*",
                     validator: (String? value) {
