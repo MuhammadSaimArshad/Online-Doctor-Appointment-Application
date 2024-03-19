@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/Admin_Add_Doc_Pati_Controller.dart';
+import 'package:doc_bookr/controller/Admin/Admin_Add_Doc_Pati_Controller.dart';
 
 import 'package:doc_bookr/customwidgets.dart';
 

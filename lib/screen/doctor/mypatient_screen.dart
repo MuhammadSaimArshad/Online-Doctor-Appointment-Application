@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/Doctor_Home_Controller.dart';
+import 'package:doc_bookr/controller/Doctor/Doctor_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
 import 'package:flutter/material.dart';

@@ -125,8 +125,8 @@ class _AddreportState extends State<Addreport> {
                                               )),
                                         ),
                                         Container(
-                                            height: 100,
-                                            width: 100,
+                                            height: height * 0.1,
+                                            width: width * 0.9,
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: NetworkImage(

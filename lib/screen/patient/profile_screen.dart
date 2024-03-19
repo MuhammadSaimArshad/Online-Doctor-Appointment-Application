@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:doc_bookr/controller/Patient_Profile_Controller.dart';
+import 'package:doc_bookr/controller/Patient/Patient_Profile_Controller.dart';
 import 'package:doc_bookr/model/Patient_Model.dart';
 
 import 'package:doc_bookr/staticdata.dart';

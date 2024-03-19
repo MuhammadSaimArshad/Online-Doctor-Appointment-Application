@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/Patient_Home_Controller.dart';
+import 'package:doc_bookr/controller/Patient/Patient_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';

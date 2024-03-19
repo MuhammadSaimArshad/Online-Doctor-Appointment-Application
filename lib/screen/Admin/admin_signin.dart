@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/Admin_Signin_Controller.dart';
+import 'package:doc_bookr/controller/Admin/Admin_Signin_Controller.dart';
 
 import 'package:doc_bookr/screen/Admin/admin_signup.dart';
 import 'package:flutter/material.dart';
@@ -29,16 +29,17 @@ class _AdminSignInState extends State<AdminSignIn> {
             child: Container(
               height: height,
               width: width,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Color(0xff0EBE4f),
-                    Color(0xff0EBE7F),
-                  ],
-                ),
-              ),
+              color: Colors.white,
+              // decoration: const BoxDecoration(
+              //   gradient: LinearGradient(
+              //     begin: Alignment.topRight,
+              //     end: Alignment.bottomLeft,
+              //     colors: [
+              //       Color(0xff0EBE4f),
+              //       Color(0xff0EBE7F),
+              //     ],
+              //   ),
+              // ),
               child: Column(
                 children: [
                   // SizedBox(
@@ -76,7 +77,13 @@ class _AdminSignInState extends State<AdminSignIn> {
                   //     ],
                   //   ),
                   // ),
-
+                  Container(
+                    height: height * 0.1,
+                    width: width * 0.6,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("images/Appicon.png"))),
+                  ),
                   SizedBox(
                     height: height * 0.3,
                   ),

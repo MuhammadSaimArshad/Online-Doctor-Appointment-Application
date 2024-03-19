@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:doc_bookr/controller/Doctor_Profile_Controller.dart';
+import 'package:doc_bookr/controller/Doctor/Doctor_Profile_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/Doctor_Model.dart';
 import 'package:doc_bookr/signup_screen.dart';

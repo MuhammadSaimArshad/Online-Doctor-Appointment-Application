@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/Admin_Signup_controller.dart';
+import 'package:doc_bookr/controller/Admin/Admin_Signup_controller.dart';
 
 import 'package:doc_bookr/screen/Admin/admin_signin.dart';
 
