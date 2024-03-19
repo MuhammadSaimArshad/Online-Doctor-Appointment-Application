@@ -29,7 +29,7 @@ class AdminSignupController extends GetxController {
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.white,
       textColor: Colors.white,
       fontSize: 16.0,
     );

@@ -1,3 +1,4 @@
+import 'package:doc_bookr/screen/Admin/Admin_Add_doc_pati.dart';
 import 'package:doc_bookr/screen/Admin/Admin_Total_doctor.dart';
 import 'package:doc_bookr/screen/Admin/Admin_total_patient.dart';
 import 'package:doc_bookr/screen/Admin/admin_home.dart';
@@ -13,7 +14,12 @@ class AdminHomeNavbarScreen extends StatefulWidget {
 
 class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
   int _selectedIndex = 0;
-  final _screen = [AdminHomeScreen(), TotalDoctor(), TotalPatient()];
+  final _screen = [
+    AdminHomeScreen(),
+    TotalDoctor(),
+    TotalPatient(),
+    AdminAddDocPati()
+  ];
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
                 _selectedIndex = index;
               });
             },
-            items: const [
+            items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled),
                 label: "Home",
@@ -51,10 +57,11 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
                 icon: Icon(CupertinoIcons.person_3),
                 label: "Total Patinet",
               ),
-              // BottomNavigationBarItem(
-              //   icon: Icon(Icons.file_copy_outlined),
-              //   label: "Add Report",
-              // ),
+              BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.person_3),
+                label: "Add Doc&Pati",
+              ),
+
               // BottomNavigationBarItem(
               //   icon: Icon(Icons.account_circle_outlined),
               //   label: "Profile",

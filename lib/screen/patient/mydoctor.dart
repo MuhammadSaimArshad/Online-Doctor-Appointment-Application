@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/controller/patient_home_controller.dart';
+import 'package:doc_bookr/controller/Patient_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
-import 'package:doc_bookr/staticdata.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,6 @@ class _MyDoctorState extends State<MyDoctor> {
   @override
   void initState() {
     Get.put(PatientHomeController());
-    StaticData.updatepatientprofile();
     super.initState();
   }
 

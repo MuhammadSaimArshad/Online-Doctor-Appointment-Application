@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/patient_home_controller.dart';
+import 'package:doc_bookr/controller/Patient_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
@@ -456,8 +456,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           Text(
                                             "${(obj.list[index].totalrating / obj.list[index].ratingperson).isNaN ? "0" : (obj.list[index].totalrating / obj.list[index].ratingperson)}",
                                             style: TextStyle(
-                                              color: Colors.black45,
-                                            ),
+                                                color: Colors.black45,
+                                                fontSize: width * 0.04),
                                           ),
                                         ],
                                       ),
@@ -542,8 +542,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           Text(
                                             "${(obj.fuilterlist[index].totalrating / obj.fuilterlist[index].ratingperson).isNaN ? "0" : (obj.fuilterlist[index].totalrating / obj.fuilterlist[index].ratingperson)}",
                                             style: TextStyle(
-                                              color: Colors.black45,
-                                            ),
+                                                color: Colors.black45,
+                                                fontSize: width * 0.04),
                                           ),
                                         ],
                                       ),

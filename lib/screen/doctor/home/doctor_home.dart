@@ -1,4 +1,4 @@
-import 'package:doc_bookr/controller/doctorhomescreencontroller.dart';
+import 'package:doc_bookr/controller/Doctor_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';

@@ -1,7 +1,5 @@
-import 'package:doc_bookr/controller/doctorhomescreencontroller.dart';
+import 'package:doc_bookr/controller/Doctor_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
-
-import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,8 +16,6 @@ class _MYPATIENTState extends State<MYPATIENT> {
   @override
   void initState() {
     Get.put(DoctorHomeController());
-    StaticData.updatedoctorprofile();
-    DoctorHomeController.to.getSchedule();
     DoctorHomeController.to.getPatient();
 
     super.initState();

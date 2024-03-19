@@ -3,9 +3,10 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
-import 'package:doc_bookr/model/doctorSlots.dart';
-import 'package:doc_bookr/model/patientModel.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor_Slots.dart';
+
+import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

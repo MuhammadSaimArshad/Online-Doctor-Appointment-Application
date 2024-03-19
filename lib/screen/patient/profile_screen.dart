@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:doc_bookr/controller/Patientprofilecontroller.dart';
-import 'package:doc_bookr/model/patientModel.dart';
+import 'package:doc_bookr/controller/Patient_Profile_Controller.dart';
+import 'package:doc_bookr/model/Patient_Model.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';

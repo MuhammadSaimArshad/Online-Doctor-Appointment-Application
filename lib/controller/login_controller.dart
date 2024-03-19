@@ -1,8 +1,8 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
-import 'package:doc_bookr/model/patientModel.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
 import 'package:doc_bookr/staticdata.dart';

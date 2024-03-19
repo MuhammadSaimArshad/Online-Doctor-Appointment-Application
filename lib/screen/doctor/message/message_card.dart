@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 
 import 'package:custom_clippers/custom_clippers.dart';
-import 'package:doc_bookr/controller/chat_controller.dart';
+import 'package:doc_bookr/controller/Chat_Controller.dart';
 import 'package:doc_bookr/model/message.dart';
 import 'package:doc_bookr/screen/doctor/message/m_date_util.dart';
 import 'package:flutter/material.dart';

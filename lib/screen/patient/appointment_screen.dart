@@ -2,9 +2,10 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
-import 'package:doc_bookr/model/appointmentmodel.dart';
-import 'package:doc_bookr/model/patientModel.dart';
+
+import 'package:doc_bookr/model/Appointment_Model.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/screen/doctor/message/chatscreen.dart';
 import 'package:doc_bookr/screen/patient/book_appointment.dart';
 import 'package:doc_bookr/staticdata.dart';

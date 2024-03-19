@@ -7,14 +7,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class AdminAddDocPati extends StatefulWidget {
+  const AdminAddDocPati({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<AdminAddDocPati> createState() => _AdminAddDocPatiState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _AdminAddDocPatiState extends State<AdminAddDocPati> {
   var height, width;
   List<String> list = [
     "Select Category",
@@ -55,33 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
               SizedBox(
                 height: height * 0.03,
               ),
-              Container(
-                height: height * 0.15,
-                width: width,
-                color: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Create A Account",
-                      style: TextStyle(
-                        fontSize: width * 0.07,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Easy Appointments And Chat with Doctor \n       Personal and Solve Confuseon.",
-                      style: TextStyle(
-                        fontSize: width * 0.04,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: height * 0.03,
-              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

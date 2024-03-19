@@ -1,4 +1,4 @@
-import 'package:doc_bookr/model/patientModel.dart';
+import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -96,7 +96,7 @@ class DoctorProfileController extends GetxController {
               .collection("doctor")
               .doc(StaticData.doctorModel!.id.toString())
               .update({
-            "fullname": name.text,
+            "name": name.text,
             "email": email.text,
             "phonenumber": phonenumber.text,
             "address": address.text,
@@ -116,7 +116,7 @@ class DoctorProfileController extends GetxController {
             initalizedata();
             Fluttertoast.showToast(
               msg: "Profile update sucessfully",
-              backgroundColor: Colors.red,
+              backgroundColor: Color(0xff0EBE7F),
               textColor: Colors.white,
               gravity: ToastGravity.BOTTOM,
               fontSize: 17,
@@ -132,7 +132,7 @@ class DoctorProfileController extends GetxController {
             .collection("doctor")
             .doc(StaticData.doctorModel!.id.toString())
             .update({
-          "fullname": name.text,
+          "name": name.text,
           "email": email.text,
           "phonenumber": phonenumber.text,
           "address": address.text,
@@ -152,7 +152,7 @@ class DoctorProfileController extends GetxController {
           initalizedata();
           Fluttertoast.showToast(
             msg: "Profile update sucessfully",
-            backgroundColor: Colors.red,
+            backgroundColor: Color(0xff0EBE7F),
             textColor: Colors.white,
             gravity: ToastGravity.BOTTOM,
             fontSize: 17,

@@ -2,9 +2,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/model/DoctorModel.dart';
-import 'package:doc_bookr/model/appointmentmodel.dart';
-import 'package:doc_bookr/model/doctorSlots.dart';
+
+import 'package:doc_bookr/model/Appointment_Model.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor_Slots.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/material.dart';

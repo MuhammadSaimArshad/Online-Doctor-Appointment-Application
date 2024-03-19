@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
-import 'package:doc_bookr/model/appointmentmodel.dart';
+import 'package:doc_bookr/model/Appointment_Model.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/material.dart';
@@ -63,7 +63,7 @@ class _RatingScreenState extends State<RatingScreen> {
               ),
               SizedBox(
                 width: width,
-                height: height * 0.7,
+                height: height * 0.82,
                 child: StreamBuilder(
                   stream: StaticData.firebase
                       .collection('appointment')

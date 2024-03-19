@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:doc_bookr/controller/doctor_chat_controller.dart';
+import 'package:doc_bookr/controller/Doctor_Chat_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/message.dart';
 import 'package:doc_bookr/screen/doctor/message/chatscreen.dart';

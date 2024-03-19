@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:doc_bookr/controller/doctor_schedule.dart';
-import 'package:doc_bookr/model/appointmentmodel.dart';
+import 'package:doc_bookr/controller/Doctor_Schedule_Controller.dart';
+import 'package:doc_bookr/model/Appointment_Model.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

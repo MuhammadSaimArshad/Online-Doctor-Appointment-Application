@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:doc_bookr/controller/doctorprofilecontroller.dart';
+import 'package:doc_bookr/controller/Doctor_Profile_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/signup_screen.dart';
 import 'package:doc_bookr/staticdata.dart';

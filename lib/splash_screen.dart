@@ -1,6 +1,8 @@
 import 'dart:async';
-import 'package:doc_bookr/model/DoctorModel.dart';
-import 'package:doc_bookr/model/patientModel.dart';
+
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Patient_Model.dart';
+
 import 'package:doc_bookr/onborading_screen1.dart';
 import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
