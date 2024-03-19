@@ -1,18 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
-import 'package:doc_bookr/controller/Doctor_Profile_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/signup_screen.dart';
-import 'package:doc_bookr/staticdata.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'package:doc_bookr/controller/Doctor_Profile_Controller.dart';
+import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/signup_screen.dart';
+import 'package:doc_bookr/staticdata.dart';
+
 class DoctorProfileScreen extends StatefulWidget {
-  const DoctorProfileScreen({super.key});
+  DoctorModel? doctorModel;
+  DoctorProfileScreen({
+    Key? key,
+    this.doctorModel,
+  }) : super(key: key);
 
   @override
   State<DoctorProfileScreen> createState() => _DoctorProfileScreenState();
@@ -41,7 +47,13 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
   @override
   void initState() {
     Get.put(DoctorProfileController());
-    DoctorProfileController.to.initalizedata();
+    print("docot data    ${widget.doctorModel}");
+    widget.doctorModel == null
+        ? DoctorProfileController.to.initalizedata(StaticData.doctorModel!)
+        : DoctorProfileController.to.initalizedata(widget.doctorModel!);
+    DoctorProfileController.to.clearprofile();
+
+    print("2354565867897909808    ${widget.doctorModel}");
     super.initState();
   }
 
@@ -92,7 +104,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
-                              builder: (BuildContext context) {
+                              builder: (BuildContext context1) {
                                 return Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -148,7 +160,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                       Align(
                           alignment: Alignment.bottomCenter,
                           child: Text(
-                            StaticData.doctorModel!.name,
+                            obj.name.text,
                             style: TextStyle(
                                 fontSize: width * 0.05,
                                 fontWeight: FontWeight.bold),
@@ -534,7 +546,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                               crossAxisSpacing: 18.0,
                               mainAxisSpacing: 18.0,
                               childAspectRatio: 3),
-                      itemBuilder: (context, i) {
+                      itemBuilder: (context1, i) {
                         return InkWell(
                           onTap: () {
                             obj.updateduration(i);
@@ -564,7 +576,9 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    obj.updateprofile();
+                    widget.doctorModel == null
+                        ? obj.updateprofile()
+                        : obj.adminUpdateprofile(context);
                   },
                   child: Container(
                     height: height * 0.07,

@@ -42,16 +42,20 @@ class PatientHomeController extends GetxController {
 
   Future getdoctor() async {
     list = [];
-    for (var e in StaticData.patientmodel!.doctorList!) {
-      DocumentSnapshot documentSnapshot =
-          await StaticData.firebase.collection('doctor').doc(e).get();
+    try {
+      await StaticData.firebase.collection('doctor').get().then((value) {
+        print("asdfgh${value.docs.length}");
+        value.docs.forEach((element) {
+          DoctorModel doctorModel = DoctorModel.fromMap(element.data());
+          list.add(doctorModel);
+        });
+      });
 
-      DoctorModel doctorModel =
-          DoctorModel.fromMap(documentSnapshot.data() as Map<String, dynamic>);
-      list.add(doctorModel);
       update();
+    } catch (e) {
+      print("dgfhiergfh    error ${e.toString()}");
     }
-    print("obje");
+
     update();
   }
 }

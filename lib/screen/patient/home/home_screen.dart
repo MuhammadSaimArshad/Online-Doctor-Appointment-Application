@@ -412,7 +412,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       height: height * 0.37,
                                       margin: EdgeInsets.all(8),
                                       padding: const EdgeInsets.symmetric(
-                                          vertical: 6),
+                                          vertical: 4),
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),

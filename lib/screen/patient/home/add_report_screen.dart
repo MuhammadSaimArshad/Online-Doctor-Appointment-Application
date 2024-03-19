@@ -63,7 +63,7 @@ class _AddreportState extends State<Addreport> {
                       .collection('appointment')
                       .where("patientid",
                           isEqualTo: StaticData.patientmodel!.id)
-                      .where("status", isEqualTo: 2)
+                      .where("status", isEqualTo: 3)
                       .snapshots(),
                   builder: (BuildContext context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -124,6 +124,13 @@ class _AddreportState extends State<Addreport> {
                                                 model!.image,
                                               )),
                                         ),
+                                        Container(
+                                            height: 100,
+                                            width: 100,
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                        model!.receiptimage!))))
                                       ],
                                     ),
                                   ),

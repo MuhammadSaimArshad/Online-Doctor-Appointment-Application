@@ -1,3 +1,4 @@
+import 'package:doc_bookr/model/Doctor_Model.dart';
 import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class DoctorProfileController extends GetxController {
+  String? id;
   static DoctorProfileController get to => Get.find();
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -41,22 +43,91 @@ class DoctorProfileController extends GetxController {
     update();
   }
 
-  initalizedata() {
-    name.text = StaticData.doctorModel!.name;
-    email.text = StaticData.doctorModel!.email;
-    password.text = StaticData.doctorModel!.password;
-    image = StaticData.doctorModel!.image;
-    phonenumber.text = StaticData.doctorModel!.phonenumber;
-    address.text = StaticData.doctorModel!.address;
-    specilest.text = StaticData.doctorModel!.specialty;
-    bio.text = StaticData.doctorModel!.bio;
-    about.text = StaticData.doctorModel!.about;
-    startTime = StaticData.doctorModel!.starttime;
-    endTime = StaticData.doctorModel!.endtime;
-    fee.text = StaticData.doctorModel!.fee.toString();
-    dropdown = StaticData.doctorModel!.category;
-    maxAppointmentDuration = StaticData.doctorModel!.maxAppointmentDuration;
+  initalizedata(DoctorModel doctorModel) {
+    id = doctorModel.id;
+    hpickedFile = null;
+    name.text = doctorModel.name;
+    email.text = doctorModel.email;
+    password.text = doctorModel.password;
+    image = doctorModel.image;
+    phonenumber.text = doctorModel.phonenumber;
+    address.text = doctorModel.address;
+    specilest.text = doctorModel.specialty;
+    bio.text = doctorModel.bio;
+    about.text = doctorModel.about;
+    startTime = doctorModel.starttime;
+    endTime = doctorModel.endtime;
+    fee.text = doctorModel.fee.toString();
+    dropdown = doctorModel.category;
+    maxAppointmentDuration = doctorModel.maxAppointmentDuration;
     update();
+  }
+
+  Future<void> adminUpdateprofile(context) async {
+    print("isdgfeyregh");
+    if (hpickedFile != null) {
+      await uploadImage(id.toString()).then((value) {
+        changeEmailAndPassword(email.text, password.text).then((value1) {
+          StaticData.firebase.collection("doctor").doc(id.toString()).update({
+            "name": name.text,
+            "email": email.text,
+            "phonenumber": phonenumber.text,
+            "address": address.text,
+            "specialty": specilest.text,
+            "bio": bio.text,
+            "category": dropdown,
+            "fee": double.tryParse(fee.text) ?? 0.0,
+            "about": about.text,
+            "starttime": startTime,
+            "endtime": endTime,
+            "maxAppointmentDuration": maxAppointmentDuration,
+            "password": password.text,
+            "image": value
+          });
+        }).then((value) {
+          Navigator.pop(context);
+          Fluttertoast.showToast(
+            msg: "Profile update sucessfully",
+            backgroundColor: Color(0xff0EBE7F),
+            textColor: Colors.white,
+            gravity: ToastGravity.BOTTOM,
+            fontSize: 17,
+            timeInSecForIosWeb: 1,
+            toastLength: Toast.LENGTH_LONG,
+          );
+        });
+      });
+    } else {
+      changeEmailAndPassword(email.text, password.text).then((value1) {
+        StaticData.firebase.collection("doctor").doc(id.toString()).update({
+          "name": name.text,
+          "email": email.text,
+          "phonenumber": phonenumber.text,
+          "address": address.text,
+          "specialty": specilest.text,
+          "bio": bio.text,
+          "category": dropdown,
+          "about": about.text,
+          "starttime": startTime,
+          "fee": double.tryParse(fee.text) ?? 0.0,
+          "endtime": endTime,
+          "maxAppointmentDuration": maxAppointmentDuration,
+          "password": password.text,
+        });
+        print("update data");
+      }).then((value) {
+        Navigator.pop(context);
+        Fluttertoast.showToast(
+          msg: "Profile update sucessfully",
+          backgroundColor: Color(0xff0EBE7F),
+          textColor: Colors.white,
+          gravity: ToastGravity.BOTTOM,
+          fontSize: 17,
+          timeInSecForIosWeb: 1,
+          toastLength: Toast.LENGTH_LONG,
+        );
+      });
+    }
   }
 
   bool passToggle = false;
@@ -90,12 +161,9 @@ class DoctorProfileController extends GetxController {
 
   Future<void> updateprofile() async {
     if (hpickedFile != null) {
-      await uploadImage(StaticData.doctorModel!.id.toString()).then((value) {
+      await uploadImage(id.toString()).then((value) {
         changeEmailAndPassword(email.text, password.text).then((value1) {
-          StaticData.firebase
-              .collection("doctor")
-              .doc(StaticData.doctorModel!.id.toString())
-              .update({
+          StaticData.firebase.collection("doctor").doc(id.toString()).update({
             "name": name.text,
             "email": email.text,
             "phonenumber": phonenumber.text,
@@ -113,7 +181,7 @@ class DoctorProfileController extends GetxController {
           });
         }).then((value) {
           StaticData.updatedoctorprofile().then((value) {
-            initalizedata();
+            initalizedata(StaticData.doctorModel!);
             Fluttertoast.showToast(
               msg: "Profile update sucessfully",
               backgroundColor: Color(0xff0EBE7F),
@@ -128,10 +196,7 @@ class DoctorProfileController extends GetxController {
       });
     } else {
       changeEmailAndPassword(email.text, password.text).then((value1) {
-        StaticData.firebase
-            .collection("doctor")
-            .doc(StaticData.doctorModel!.id.toString())
-            .update({
+        StaticData.firebase.collection("doctor").doc(id.toString()).update({
           "name": name.text,
           "email": email.text,
           "phonenumber": phonenumber.text,
@@ -149,7 +214,7 @@ class DoctorProfileController extends GetxController {
         print("update data");
       }).then((value) {
         StaticData.updatedoctorprofile().then((value) {
-          initalizedata();
+          initalizedata(StaticData.doctorModel!);
           Fluttertoast.showToast(
             msg: "Profile update sucessfully",
             backgroundColor: Color(0xff0EBE7F),

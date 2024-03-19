@@ -307,7 +307,26 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                     ),
                                                   ),
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      doctor = DoctorModel
+                                                          .fromMap(snapshot
+                                                                  .data!
+                                                                  .docs[index]
+                                                                  .data()
+                                                              as Map<String,
+                                                                  dynamic>);
+                                                      print(
+                                                          "doctor dataaa${doctor}");
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                DoctorProfileScreen(
+                                                              doctorModel:
+                                                                  doctor,
+                                                            ),
+                                                          ));
+                                                    },
                                                     child: Container(
                                                       height: height * 0.066,
                                                       width: width * 0.35,
@@ -479,11 +498,22 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
+                                                    doctor =
+                                                        DoctorModel.fromMap(
+                                                            snapshot.data!
+                                                                    .docs[index]
+                                                                    .data()
+                                                                as Map<String,
+                                                                    dynamic>);
+                                                    print(
+                                                        "doctor dataaa${doctor}");
                                                     Navigator.push(
                                                         context,
                                                         MaterialPageRoute(
                                                           builder: (context) =>
-                                                              DoctorProfileScreen(),
+                                                              DoctorProfileScreen(
+                                                            doctorModel: doctor,
+                                                          ),
                                                         ));
                                                   },
                                                   child: Container(

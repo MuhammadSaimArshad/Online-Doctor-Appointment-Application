@@ -395,13 +395,7 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SigninScreen(),
-                    ),
-                    (route) => true,
-                  );
+                  StaticData.logout(context);
                 },
                 leading: Container(
                   padding: EdgeInsets.all(10),
