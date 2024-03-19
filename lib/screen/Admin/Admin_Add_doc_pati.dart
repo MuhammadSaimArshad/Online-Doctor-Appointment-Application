@@ -1,7 +1,7 @@
-import 'package:doc_bookr/controller/Signup_Controller.dart';
+import 'package:doc_bookr/controller/Admin_Add_Doc_Pati_Controller.dart';
+
 import 'package:doc_bookr/customwidgets.dart';
 
-import 'package:doc_bookr/signin_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,9 +35,9 @@ class _AdminAddDocPatiState extends State<AdminAddDocPati> {
   ];
   @override
   void initState() {
-    Get.put(SignupController());
-    SignupController.to.dropdown = "Select Category";
-    SignupController.to.update();
+    Get.put(AdminaddController());
+    AdminaddController.to.dropdown = "Select Category";
+    AdminaddController.to.update();
     super.initState();
   }
 
@@ -45,7 +45,7 @@ class _AdminAddDocPatiState extends State<AdminAddDocPati> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: GetBuilder<SignupController>(builder: (obj) {
+      body: GetBuilder<AdminaddController>(builder: (obj) {
         return Container(
           height: height,
           width: width,
@@ -53,7 +53,7 @@ class _AdminAddDocPatiState extends State<AdminAddDocPati> {
           child: ListView(
             children: [
               SizedBox(
-                height: height * 0.03,
+                height: height * 0.08,
               ),
 
               Row(
@@ -534,7 +534,7 @@ class _AdminAddDocPatiState extends State<AdminAddDocPati> {
                     ),
                     child: Center(
                       child: Text(
-                        "Sign Up",
+                        "Add",
                         style: TextStyle(
                             fontSize: width * 0.04,
                             fontWeight: FontWeight.bold,
@@ -547,36 +547,6 @@ class _AdminAddDocPatiState extends State<AdminAddDocPati> {
               // SizedBox(
               //   height: height * 0.0001,
               // ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Already have account ?",
-                    style: TextStyle(
-                      fontSize: width * 0.04,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SigninScreen(),
-                          ));
-                    },
-                    child: Text(
-                      "Sign In",
-                      style: TextStyle(
-                        fontSize: width * 0.04,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff0EBE7F),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         );

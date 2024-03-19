@@ -3,7 +3,7 @@ import 'package:doc_bookr/screen/patient/mydoctor.dart';
 import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
-import 'package:doc_bookr/screen/patient/feedback.dart';
+import 'package:doc_bookr/screen/patient/Rating.dart';
 import 'package:doc_bookr/signin_screen.dart';
 
 import 'package:doc_bookr/staticdata.dart';

@@ -1,4 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/model/Appointment_Model.dart';
+import 'package:doc_bookr/staticdata.dart';
+
 import 'package:flutter/material.dart';
 
 class Addreport extends StatefulWidget {
@@ -10,131 +13,128 @@ class Addreport extends StatefulWidget {
 
 class _AddreportState extends State<Addreport> {
   var height, width;
+
   @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Container(
-        height: height,
-        width: width,
-        child: Column(
-          children: [
-            SizedBox(
-              height: height * 0.03,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: width * 0.02,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_back_ios_new,
-                    size: width * 0.05,
-                  ),
-                ),
-                SizedBox(
-                  width: width * 0.03,
-                ),
-                Text(
-                  "Medical Records",
-                  style: TextStyle(
-                      fontSize: width * 0.05, fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            SizedBox(
-              height: height * 0.13,
-            ),
-            Image.asset("images/illustration.png"),
-            SizedBox(
-              height: height * 0.06,
-            ),
-            Text(
-              " Add A Medical Record.",
-              style: TextStyle(
-                  fontSize: width * 0.05, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: height * 0.01,
-            ),
-            Text(
-              "A detailed health history helps a \n   doctor diagonse you better.",
-              style: TextStyle(
-                fontSize: width * 0.04,
+    return SafeArea(
+      child: Scaffold(
+        body: SizedBox(
+          height: height,
+          width: width,
+          child: Column(
+            children: [
+              SizedBox(
+                height: height * 0.03,
               ),
-            ),
-            SizedBox(
-              height: height * 0.01,
-            ),
-            InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const ListTile(
-                          title: Text("Profile photo"),
-                        ),
-                        ListTile(
-                          leading: CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Colors.grey[300],
-                            child: Icon(
-                              Icons.add_a_photo,
-                              color: Color(0xff0EBE7F),
-                              size: width * 0.05,
-                            ),
-                          ),
-                          title: Text("Camera"),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                        ListTile(
-                          leading: CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Colors.grey.shade300,
-                            child: Icon(
-                              Icons.photo,
-                              color: Color(0xff0EBE7F),
-                              size: width * 0.05,
-                            ),
-                          ),
-                          title: Text("Gallery"),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-              child: Container(
-                height: height * 0.07,
-                width: width * 0.6,
-                decoration: BoxDecoration(
-                    color: Color(0xff0EBE7F),
-                    borderRadius: BorderRadius.circular(width * 0.03)),
-                child: Center(
-                  child: Text(
-                    "Add a Record",
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: width * 0.05,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
+                  Text(
+                    "Receipt",
                     style: TextStyle(
-                        fontSize: width * 0.05,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
+                        fontSize: width * 0.05, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              SizedBox(
+                width: width * 0.03,
+              ),
+              SizedBox(
+                width: width,
+                height: height * 0.82,
+                child: StreamBuilder(
+                  stream: StaticData.firebase
+                      .collection('appointment')
+                      .where("patientid",
+                          isEqualTo: StaticData.patientmodel!.id)
+                      .where("status", isEqualTo: 2)
+                      .snapshots(),
+                  builder: (BuildContext context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    if (snapshot.hasError) {
+                      print("Error: /${snapshot.error}");
+                      return Text('Error: /${snapshot.error}');
+                    }
+
+                    AppointmentModel? model;
+                    if (snapshot.data!.docs.length != 0) {
+                      print(
+                          'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                    }
+                    return snapshot.data!.docs.length == 0 &&
+                            snapshot.data!.docs.isEmpty
+                        ? Center(
+                            child: CustomWidget.largeText('Data not found !'),
+                          )
+                        : ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              model = AppointmentModel.fromMap(
+                                  snapshot.data!.docs[index].data());
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 3),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black12,
+                                        blurRadius: width * 0.02,
+                                        spreadRadius: width * 0.001,
+                                      ),
+                                    ],
+                                  ),
+                                  child: SizedBox(
+                                    height: height * 0.2,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Text(
+                                            "Dr.${model!.doctername}",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.04),
+                                          ),
+                                          subtitle: Text(model!.bio),
+                                          trailing: CircleAvatar(
+                                              radius: 25,
+                                              backgroundImage: NetworkImage(
+                                                model!.image,
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            });
+                  },
                 ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
