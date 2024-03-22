@@ -397,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         childAspectRatio: 1.2),
                                 itemCount: obj.list.length,
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
@@ -410,7 +410,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: Container(
                                       height: height * 0.37,
-                                      margin: EdgeInsets.all(8),
+                                      margin: const EdgeInsets.all(8),
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 4),
                                       decoration: BoxDecoration(
@@ -496,7 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                     child: Container(
                                       height: height * 0.37,
-                                      margin: EdgeInsets.all(8),
+                                      margin: const EdgeInsets.all(8),
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 6),
                                       decoration: BoxDecoration(

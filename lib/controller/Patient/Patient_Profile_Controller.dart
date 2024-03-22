@@ -51,6 +51,58 @@ class ProfileController extends GetxController {
     update();
   }
 
+  Future<void> adminupdatepatientprofile(context) async {
+    try {
+      if (hpickedFile != null) {
+        await uploadImage(id.toString()).then((value) {
+          changeEmailAndPassword(email.text, password.text).then((value1) {
+            StaticData.firebase
+                .collection("patient")
+                .doc(id.toString())
+                .update({
+              "name": name.text,
+              "email": email.text,
+              "password": password.text,
+              "image": value
+            });
+          }).then((value) {
+            Navigator.pop(context);
+            Fluttertoast.showToast(
+              msg: "Profile update sucessfully",
+              backgroundColor: Color(0xff0EBE7F),
+              textColor: Colors.white,
+              gravity: ToastGravity.BOTTOM,
+              fontSize: 17,
+              timeInSecForIosWeb: 1,
+              toastLength: Toast.LENGTH_LONG,
+            );
+          });
+        });
+      } else {
+        changeEmailAndPassword(email.text, password.text).then((value1) {
+          StaticData.firebase.collection("patient").doc(id.toString()).update({
+            "name": name.text,
+            "email": email.text,
+            "password": password.text,
+          });
+        }).then((value) {
+          Navigator.pop(context);
+          Fluttertoast.showToast(
+            msg: "Profile update sucessfully",
+            backgroundColor: Color(0xff0EBE7F),
+            textColor: Colors.white,
+            gravity: ToastGravity.BOTTOM,
+            fontSize: 17,
+            timeInSecForIosWeb: 1,
+            toastLength: Toast.LENGTH_LONG,
+          );
+        });
+      }
+    } catch (e) {
+      print("errrrrroorrrrrr     ${e.toString()}");
+    }
+  }
+
   Future<void> updateprofile() async {
     if (hpickedFile != null) {
       await uploadImage(StaticData.patientmodel!.id.toString()).then((value) {
@@ -118,65 +170,6 @@ class ProfileController extends GetxController {
     }
     print("xfileimage$hpickedFile");
     return hpickedFile;
-  }
-
-  Future<void> adminupdatepatientprofile(context) async {
-    try {
-      if (hpickedFile != null) {
-        await uploadImage(StaticData.patientmodel!.id.toString()).then((value) {
-          changeEmailAndPassword(email.text, password.text).then((value1) {
-            StaticData.firebase
-                .collection("patient")
-                .doc(StaticData.patientmodel!.id.toString())
-                .update({
-              "name": name.text,
-              "email": email.text,
-              "password": password.text,
-              "image": value
-            });
-          }).then((value) {
-            StaticData.updatepatientprofile().then((value) {
-              initalizedata(StaticData.patientmodel!);
-              Fluttertoast.showToast(
-                msg: "Profile update sucessfully",
-                backgroundColor: Color(0xff0EBE7F),
-                textColor: Colors.white,
-                gravity: ToastGravity.BOTTOM,
-                fontSize: 17,
-                timeInSecForIosWeb: 1,
-                toastLength: Toast.LENGTH_LONG,
-              );
-            });
-          });
-        });
-      } else {
-        changeEmailAndPassword(email.text, password.text).then((value1) {
-          StaticData.firebase
-              .collection("patient")
-              .doc(StaticData.patientmodel!.id.toString())
-              .update({
-            "name": name.text,
-            "email": email.text,
-            "password": password.text,
-          });
-        }).then((value) {
-          StaticData.updatepatientprofile().then((value) {
-            initalizedata(StaticData.patientmodel!);
-            Fluttertoast.showToast(
-              msg: "Profile update sucessfully",
-              backgroundColor: Color(0xff0EBE7F),
-              textColor: Colors.white,
-              gravity: ToastGravity.BOTTOM,
-              fontSize: 17,
-              timeInSecForIosWeb: 1,
-              toastLength: Toast.LENGTH_LONG,
-            );
-          });
-        });
-      }
-    } catch (e) {
-      print("errrrrroorrrrrr     ${e.toString()}");
-    }
   }
 
   Future<String> uploadImage(String id) async {

@@ -23,6 +23,7 @@ class _AdminSignupState extends State<AdminSignup> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
@@ -191,7 +192,7 @@ class _AdminSignupState extends State<AdminSignup> {
                       border:
                           Border.all(width: width * 0.004, color: Colors.white),
                       borderRadius: BorderRadius.circular(width * 0.02),
-                      color: Color(0xff0EBE7F),
+                      color: const Color(0xff0EBE7F),
                     ),
                     child: Center(
                       child: Text(
@@ -223,7 +224,7 @@ class _AdminSignupState extends State<AdminSignup> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AdminSignIn(),
+                              builder: (context) => const AdminSignIn(),
                             ));
                       },
                       child: Text(

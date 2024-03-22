@@ -255,7 +255,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                           return Container(
                                             width: width * 0.7,
                                             height: height * 0.2,
-                                            margin: EdgeInsets.all(10),
+                                            margin: const EdgeInsets.all(10),
                                             padding: EdgeInsets.symmetric(
                                                 vertical: height * 0.01),
                                             decoration: BoxDecoration(
@@ -392,7 +392,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     ),
                   ),
                   Text(
-                    "${"${widget.model.fee}"}",
+                    "${widget.model.fee}",
                     style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,

@@ -24,7 +24,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
       height: height * 0.65,
       width: width,
       child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: StreamBuilder(
               stream: StaticData.firebase
                   .collection('appointment')
@@ -33,7 +33,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                   .snapshots(),
               builder: (BuildContext context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 if (snapshot.hasError) {
@@ -42,9 +42,10 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                 }
 
                 AppointmentModel? model;
-                if (snapshot.data!.docs.length != 0)
+                if (snapshot.data!.docs.length != 0) {
                   print(
                       'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                }
                 return snapshot.data!.docs.length == 0 &&
                         snapshot.data!.docs.isEmpty
                     ? Center(
@@ -78,17 +79,17 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                   children: [
                                     ListTile(
                                       title: Text(
-                                        "${model!.patientname}",
+                                        model!.patientname,
                                         style: TextStyle(
                                           fontSize: width * 0.03,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      subtitle: Text("${model!.bio}"),
+                                      subtitle: Text(model!.phonenumber),
                                       trailing: CircleAvatar(
                                         radius: width * 0.04,
                                         backgroundImage:
-                                            NetworkImage("${model!.image}"),
+                                            NetworkImage(model!.image),
                                       ),
                                     ),
                                     Padding(
@@ -114,7 +115,9 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                               width: width * 0.02,
                                             ),
                                             Text(
-                                              "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
+                                              StaticData
+                                                  .formatMicrosecondsSinceEpoch(
+                                                      model!.createdtime),
                                               style: TextStyle(
                                                   color: Colors.black54,
                                                   fontSize: width * 0.02),
@@ -133,7 +136,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                               width: width * 0.02,
                                             ),
                                             Text(
-                                              "${model!.time}",
+                                              model!.time,
                                               style: TextStyle(
                                                   color: Colors.black54,
                                                   fontSize: width * 0.03),
@@ -143,7 +146,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                         Row(
                                           children: [
                                             Container(
-                                              padding: EdgeInsets.all(5),
+                                              padding: const EdgeInsets.all(5),
                                               decoration: const BoxDecoration(
                                                   color: Colors.red,
                                                   shape: BoxShape.circle),

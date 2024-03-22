@@ -88,7 +88,7 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                         height: height * 0.05,
                         width: width * 0.4,
                         decoration: BoxDecoration(
-                          color: Color(0xff0EBE7F),
+                          color: const Color(0xff0EBE7F),
                           borderRadius: BorderRadius.circular(width * 0.02),
                           boxShadow: [
                             BoxShadow(

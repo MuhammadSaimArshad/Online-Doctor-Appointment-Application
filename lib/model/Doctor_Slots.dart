@@ -7,7 +7,6 @@ class DoctorSlot {
   int? patientid;
   String doctorname;
   String doctorid;
-
   String startTime;
   String endTime;
   String? patientName;

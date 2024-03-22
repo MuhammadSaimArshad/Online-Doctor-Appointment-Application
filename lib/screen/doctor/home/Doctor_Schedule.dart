@@ -65,7 +65,7 @@ class _DocSloDateState extends State<DocSloDate> {
                       width: width * 0.03,
                     ),
                     Text(
-                      "Appointment",
+                      "Slots",
                       style: TextStyle(
                         fontSize: width * 0.04,
                       ),
@@ -117,7 +117,7 @@ class _DocSloDateState extends State<DocSloDate> {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "DocSloDate",
+                      "Slots",
                       style: TextStyle(
                           fontSize: width * 0.04, fontWeight: FontWeight.w500),
                     ),
@@ -127,7 +127,7 @@ class _DocSloDateState extends State<DocSloDate> {
                   height: height * 0.016,
                 ),
                 SizedBox(
-                    height: height * 0.25,
+                    height: height * 0.48,
                     width: width,
                     child: date.day.toString() +
                                 date.month.toString() +
@@ -137,7 +137,7 @@ class _DocSloDateState extends State<DocSloDate> {
                                 DateTime.now().year.toString()
                         ? Center(
                             child: Text(
-                              "No DocSloDate",
+                              "No Slots",
                               style: TextStyle(
                                   fontSize: width * 0.04,
                                   fontWeight: FontWeight.w500),
@@ -185,17 +185,17 @@ class _DocSloDateState extends State<DocSloDate> {
                                                     .data());
                                             return InkWell(
                                               onTap: () {
-                                                setState(() {
-                                                  DocSloDate =
-                                                      DoctorSlot.fromMap(
-                                                          snapshot.data!.docs[i]
-                                                              .data());
-                                                  index = i;
-                                                });
+                                                // setState(() {
+                                                //   DocSloDate =
+                                                //       DoctorSlot.fromMap(
+                                                //           snapshot.data!.docs[i]
+                                                //               .data());
+                                                //   index = i;
+                                                // });
                                               },
                                               child: Container(
                                                 decoration: BoxDecoration(
-                                                    color: doctorSlot!
+                                                    color: doctorSlot
                                                                 .isAvailable ==
                                                             false
                                                         ? Colors.red
@@ -207,13 +207,14 @@ class _DocSloDateState extends State<DocSloDate> {
                                                         BorderRadius.circular(
                                                             21)),
                                                 child: Center(
-                                                    child: Text(
-                                                  doctorSlot.startTime,
-                                                  style: TextStyle(
-                                                      color: index == i
-                                                          ? Colors.white
-                                                          : Apptheme.primary),
-                                                )),
+                                                  child: Text(
+                                                    doctorSlot.startTime,
+                                                    style: TextStyle(
+                                                        color: index == i
+                                                            ? Colors.white
+                                                            : Apptheme.primary),
+                                                  ),
+                                                ),
                                               ),
                                             );
                                           },

@@ -21,7 +21,7 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
       height: height * 0.65,
       width: width,
       child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: StreamBuilder(
             stream: StaticData.firebase
                 .collection('appointment')
@@ -39,9 +39,10 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
               }
 
               AppointmentModel? model;
-              if (snapshot.data!.docs.length != 0)
+              if (snapshot.data!.docs.length != 0) {
                 print(
                     'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+              }
               return snapshot.data!.docs.length == 0 &&
                       snapshot.data!.docs.isEmpty
                   ? Center(
@@ -79,11 +80,11 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                           fontWeight: FontWeight.bold,
                                           fontSize: width * 0.04),
                                     ),
-                                    subtitle: Text(model!.bio),
+                                    subtitle: Text(model!.phonenumber),
                                     trailing: CircleAvatar(
                                       radius: width * 0.04,
                                       backgroundImage:
-                                          NetworkImage("${model!.image}"),
+                                          NetworkImage(model!.image),
                                     ),
                                   ),
                                   Padding(
@@ -109,7 +110,9 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                             width: width * 0.03,
                                           ),
                                           Text(
-                                            "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
+                                            StaticData
+                                                .formatMicrosecondsSinceEpoch(
+                                                    model!.createdtime),
                                             style: TextStyle(
                                                 color: Colors.black54,
                                                 fontSize: width * 0.03),
@@ -140,7 +143,7 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                       Row(
                                         children: [
                                           Container(
-                                            padding: EdgeInsets.all(5),
+                                            padding: const EdgeInsets.all(5),
                                             decoration: const BoxDecoration(
                                                 color: Color(0xff0EBE7F),
                                                 shape: BoxShape.circle),

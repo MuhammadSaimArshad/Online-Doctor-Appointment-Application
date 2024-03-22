@@ -14,8 +14,8 @@ import 'package:doc_bookr/signup_screen.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 class DoctorProfileScreen extends StatefulWidget {
-  DoctorModel? doctorModel;
-  DoctorProfileScreen({
+  final DoctorModel? doctorModel;
+  const DoctorProfileScreen({
     Key? key,
     this.doctorModel,
   }) : super(key: key);
@@ -584,7 +584,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                     height: height * 0.07,
                     width: width * 0.9,
                     decoration: BoxDecoration(
-                        color: Color(0xff0EBE7F),
+                        color: const Color(0xff0EBE7F),
                         borderRadius: BorderRadius.circular(width * 0.03)),
                     child: Center(
                       child: Text(

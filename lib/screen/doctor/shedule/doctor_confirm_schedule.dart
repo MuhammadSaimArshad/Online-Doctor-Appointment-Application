@@ -80,11 +80,11 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                           fontWeight: FontWeight.bold,
                                           fontSize: width * 0.04),
                                     ),
-                                    subtitle: Text(model!.bio),
+                                    subtitle: Text(model!.phonenumber),
                                     trailing: CircleAvatar(
                                       radius: width * 0.04,
                                       backgroundImage:
-                                          NetworkImage("${model!.image}"),
+                                          NetworkImage(model!.image),
                                     ),
                                   ),
                                   Padding(
@@ -110,7 +110,9 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                             width: width * 0.03,
                                           ),
                                           Text(
-                                            "${StaticData.formatMicrosecondsSinceEpoch(model!.createdtime)}",
+                                            StaticData
+                                                .formatMicrosecondsSinceEpoch(
+                                                    model!.createdtime),
                                             style: TextStyle(
                                                 color: Colors.black54,
                                                 fontSize: width * 0.03),
@@ -141,7 +143,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                       Row(
                                         children: [
                                           Container(
-                                            padding: EdgeInsets.all(5),
+                                            padding: const EdgeInsets.all(5),
                                             decoration: const BoxDecoration(
                                                 color: Color(0xff0EBE7F),
                                                 shape: BoxShape.circle),
@@ -195,7 +197,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                           height: height * 0.06,
                                           width: width * 0.35,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF4F6FA),
+                                            color: const Color(0xFFF4F6FA),
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
@@ -243,7 +245,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                             height: height * 0.06,
                                             width: width * 0.35,
                                             decoration: BoxDecoration(
-                                              color: Color(0xff0EBE7F),
+                                              color: const Color(0xff0EBE7F),
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),

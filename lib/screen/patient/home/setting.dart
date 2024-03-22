@@ -151,7 +151,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.blue.shade100,
                     shape: BoxShape.circle,
@@ -240,7 +240,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.deepPurple.shade100,
                     shape: BoxShape.circle,
@@ -324,11 +324,11 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RatingScreen(),
+                        builder: (context) => const RatingScreen(),
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.indigo.shade100,
                     shape: BoxShape.circle,
@@ -351,7 +351,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => RatingScreen(),
+                          builder: (context) => const RatingScreen(),
                         ));
                   },
                   child: Icon(
@@ -372,7 +372,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.orange.shade100,
                     shape: BoxShape.circle,
@@ -403,7 +403,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   StaticData.logout(context);
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.redAccent.shade100,
                     shape: BoxShape.circle,

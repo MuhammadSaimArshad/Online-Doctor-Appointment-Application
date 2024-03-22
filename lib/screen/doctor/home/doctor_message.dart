@@ -76,7 +76,8 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                           builder: (BuildContext context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return Center(child: CircularProgressIndicator());
+                              return const Center(
+                                  child: CircularProgressIndicator());
                             }
 
                             if (snapshot.hasError) {
@@ -97,9 +98,10 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                     StaticData.doctorModel!.id)
                                 .toList();
 
-                            if (snapshot.data!.docs.length != 0)
+                            if (snapshot.data!.docs.length != 0) {
                               print(
                                   'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                            }
                             return snapshot.data!.docs.length == 0 &&
                                     snapshot.data!.docs.isEmpty &&
                                     message == null
@@ -185,7 +187,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                       leading: CircleAvatar(
                                         radius: 30,
                                         backgroundImage: NetworkImage(
-                                            "${obj.patientList[index].image}"),
+                                            obj.patientList[index].image),
                                       ),
                                       title: Row(
                                         mainAxisAlignment:
@@ -194,7 +196,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                           SizedBox(
                                             width: width * 0.5,
                                             child: Text(
-                                              "${obj.patientList[index].name}",
+                                              obj.patientList[index].name,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: width * 0.03,
@@ -206,7 +208,9 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                           SizedBox(
                                             width: width * 0.15,
                                             child: Text(
-                                              "${MyDateUtil.getMessageTime(context: context, time: message!.sent!)}",
+                                              MyDateUtil.getMessageTime(
+                                                  context: context,
+                                                  time: message!.sent!),
                                               style: TextStyle(
                                                 fontSize: width * 0.04,
                                                 overflow: TextOverflow.ellipsis,

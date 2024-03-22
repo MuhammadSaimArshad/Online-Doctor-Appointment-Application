@@ -5,15 +5,13 @@ import 'package:doc_bookr/model/Doctor_Model.dart';
 
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class MyDoctor extends StatefulWidget {
-  String? category = "";
-
-  MyDoctor({super.key, this.category});
+  const MyDoctor({
+    super.key,
+  });
 
   @override
   State<MyDoctor> createState() => _MyDoctorState();
@@ -271,8 +269,8 @@ class _MyDoctorState extends State<MyDoctor> {
                                                       height: height * 0.066,
                                                       width: width * 0.35,
                                                       decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xff0EBE7F),
+                                                        color: const Color(
+                                                            0xff0EBE7F),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(

@@ -17,8 +17,8 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
   int _selectedIndex = 0;
   final _screen = [
     const HomeScreen(),
-    MessagesScreen(),
-    ScheduleScreen(),
+    const MessagesScreen(),
+    const ScheduleScreen(),
     const Addreport(),
     const SettingScreen(),
   ];
@@ -34,7 +34,7 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xff0EBE7F),
+          selectedItemColor: const Color(0xff0EBE7F),
           unselectedItemColor: Colors.black26,
           selectedLabelStyle:
               TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.03),

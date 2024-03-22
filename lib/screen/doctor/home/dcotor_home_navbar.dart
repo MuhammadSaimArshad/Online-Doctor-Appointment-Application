@@ -1,5 +1,3 @@
-import 'package:doc_bookr/model/Appointment_Model.dart';
-import 'package:doc_bookr/model/Doctor_Model.dart';
 import 'package:doc_bookr/screen/doctor/home/Doctor_Schedule.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_message.dart';
@@ -22,11 +20,11 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
   final _screen = [
     const DoctorHomeScreen(),
     const DoctorMessagesScreen(),
-    DoctorScheduleScreen(),
-    const DoctorSettingScreen(),
+    const DoctorScheduleScreen(),
     DocSloDate(
       model: StaticData.doctorModel!,
-    )
+    ),
+    const DoctorSettingScreen(),
   ];
   var height, width;
   @override
@@ -66,12 +64,12 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
                 label: "Schedule",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined),
-                label: "Profile",
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.schedule),
                 label: "Solts",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle_outlined),
+                label: "Profile",
               ),
             ],
           ),

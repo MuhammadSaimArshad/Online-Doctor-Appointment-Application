@@ -15,10 +15,10 @@ class AdminHomeNavbarScreen extends StatefulWidget {
 class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
   int _selectedIndex = 0;
   final _screen = [
-    AdminHomeScreen(),
-    TotalDoctor(),
-    TotalPatient(),
-    AdminAddDocPati()
+    const AdminHomeScreen(),
+    const TotalDoctor(),
+    const TotalPatient(),
+    const AdminAddDocPati()
   ];
   var height, width;
   @override
@@ -34,7 +34,7 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Color(0xff0EBE7F),
+            selectedItemColor: const Color(0xff0EBE7F),
             unselectedItemColor: Colors.black26,
             selectedLabelStyle:
                 TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.04),
@@ -44,7 +44,7 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
                 _selectedIndex = index;
               });
             },
-            items: [
+            items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled),
                 label: "Home",

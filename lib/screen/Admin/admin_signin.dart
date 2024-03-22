@@ -91,7 +91,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                     child: TextFormField(
                       controller: obj.email,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         label: Text(
                           "Email Address",
                           style: TextStyle(
@@ -159,7 +159,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                         border: Border.all(
                             width: width * 0.004, color: Colors.white),
                         borderRadius: BorderRadius.circular(width * 0.02),
-                        color: Color(0xff0EBE7F),
+                        color: const Color(0xff0EBE7F),
                       ),
                       child: Center(
                         child: Text(

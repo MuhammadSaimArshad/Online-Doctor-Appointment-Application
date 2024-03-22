@@ -29,7 +29,7 @@ class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: GetBuilder<DoctorSchedule>(builder: (obj) {
-        return Container(
+        return SizedBox(
           height: height,
           width: width,
           child: obj.hpickedFile == null
@@ -120,11 +120,11 @@ class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
                                     backgroundColor: Colors.grey.shade300,
                                     child: Icon(
                                       Icons.photo,
-                                      color: Color(0xff0EBE7F),
+                                      color: const Color(0xff0EBE7F),
                                       size: width * 0.05,
                                     ),
                                   ),
-                                  title: Text("Gallery"),
+                                  title: const Text("Gallery"),
                                   onTap: () {
                                     obj.pickImage(ImageSource.gallery, context);
                                     // Navigator.pop(context);
@@ -189,7 +189,7 @@ class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
                         height: height * 0.07,
                         width: width * 0.6,
                         decoration: BoxDecoration(
-                            color: Color(0xff0EBE7F),
+                            color: const Color(0xff0EBE7F),
                             borderRadius: BorderRadius.circular(width * 0.03)),
                         child: Center(
                           child: Text(

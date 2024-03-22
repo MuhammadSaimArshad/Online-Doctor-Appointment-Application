@@ -1,7 +1,6 @@
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
 import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/doctor/mypatient_screen.dart';
-import 'package:doc_bookr/signin_screen.dart';
 
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,7 +38,7 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                       child: CircleAvatar(
                         radius: width * 0.15,
                         backgroundImage:
-                            NetworkImage("${StaticData.doctorModel!.image}"),
+                            NetworkImage(StaticData.doctorModel!.image),
                       ),
                     ),
                     Padding(
@@ -62,11 +61,11 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                                       backgroundColor: Colors.grey[300],
                                       child: Icon(
                                         Icons.add_a_photo,
-                                        color: Color(0xff0EBE7F),
+                                        color: const Color(0xff0EBE7F),
                                         size: width * 0.05,
                                       ),
                                     ),
-                                    title: Text("Camera"),
+                                    title: const Text("Camera"),
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
@@ -77,11 +76,11 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                                       backgroundColor: Colors.grey.shade300,
                                       child: Icon(
                                         Icons.photo,
-                                        color: Color(0xff0EBE7F),
+                                        color: const Color(0xff0EBE7F),
                                         size: width * 0.05,
                                       ),
                                     ),
-                                    title: Text("Gallery"),
+                                    title: const Text("Gallery"),
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
@@ -147,7 +146,7 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.blue.shade100,
                     shape: BoxShape.circle,
@@ -186,11 +185,11 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MYPATIENT(),
+                        builder: (context) => const MYPATIENT(),
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.green[200],
                     shape: BoxShape.circle,
@@ -259,11 +258,11 @@ class _DoctorSettingScreenState extends State<DoctorSettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DoctorHomeNavbar(),
+                        builder: (context) => const DoctorHomeNavbar(),
                       ));
                 },
                 leading: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.red[200],
                     shape: BoxShape.circle,

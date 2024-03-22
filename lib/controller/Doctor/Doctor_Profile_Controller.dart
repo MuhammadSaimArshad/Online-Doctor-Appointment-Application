@@ -87,8 +87,8 @@ class DoctorProfileController extends GetxController {
         }).then((value) {
           Navigator.pop(context);
           Fluttertoast.showToast(
-            msg: "Profile update sucessfully",
-            backgroundColor: Color(0xff0EBE7F),
+            msg: "Profile Update Sucessfully",
+            backgroundColor: const Color(0xff0EBE7F),
             textColor: Colors.white,
             gravity: ToastGravity.BOTTOM,
             fontSize: 17,
@@ -118,8 +118,8 @@ class DoctorProfileController extends GetxController {
       }).then((value) {
         Navigator.pop(context);
         Fluttertoast.showToast(
-          msg: "Profile update sucessfully",
-          backgroundColor: Color(0xff0EBE7F),
+          msg: "Profile update Sucessfully",
+          backgroundColor: const Color(0xff0EBE7F),
           textColor: Colors.white,
           gravity: ToastGravity.BOTTOM,
           fontSize: 17,
@@ -183,8 +183,8 @@ class DoctorProfileController extends GetxController {
           StaticData.updatedoctorprofile().then((value) {
             initalizedata(StaticData.doctorModel!);
             Fluttertoast.showToast(
-              msg: "Profile update sucessfully",
-              backgroundColor: Color(0xff0EBE7F),
+              msg: "Profile Update Sucessfully",
+              backgroundColor: const Color(0xff0EBE7F),
               textColor: Colors.white,
               gravity: ToastGravity.BOTTOM,
               fontSize: 17,
@@ -216,7 +216,7 @@ class DoctorProfileController extends GetxController {
         StaticData.updatedoctorprofile().then((value) {
           initalizedata(StaticData.doctorModel!);
           Fluttertoast.showToast(
-            msg: "Profile update sucessfully",
+            msg: "Profile Update Sucessfully",
             backgroundColor: Color(0xff0EBE7F),
             textColor: Colors.white,
             gravity: ToastGravity.BOTTOM,
@@ -255,7 +255,7 @@ class DoctorProfileController extends GetxController {
         link = url;
       } else {
         Fluttertoast.showToast(
-          msg: "Image upload failed!",
+          msg: "Image Upload Failed!",
           backgroundColor: Colors.red,
           textColor: Colors.white,
           gravity: ToastGravity.BOTTOM,

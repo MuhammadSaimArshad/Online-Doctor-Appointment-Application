@@ -81,7 +81,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        subtitle: Text(model!.bio),
+                                        subtitle: Text(model!.phonenumber),
                                         trailing: CircleAvatar(
                                           radius: width * 0.04,
                                           backgroundImage:
@@ -132,7 +132,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                 width: width * 0.02,
                                               ),
                                               Text(
-                                                "${model!.time}",
+                                                model!.time,
                                                 style: const TextStyle(
                                                   color: Colors.black54,
                                                 ),
@@ -142,7 +142,8 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                           Row(
                                             children: [
                                               Container(
-                                                padding: EdgeInsets.all(5),
+                                                padding:
+                                                    const EdgeInsets.all(5),
                                                 decoration: const BoxDecoration(
                                                     color: Colors.green,
                                                     shape: BoxShape.circle),

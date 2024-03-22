@@ -6,6 +6,7 @@ import 'package:doc_bookr/model/Doctor_Model.dart';
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -18,10 +19,12 @@ class TotalDoctor extends StatefulWidget {
 
 class _TotalDoctorState extends State<TotalDoctor> {
   var height, width;
+
   @override
   void initState() {
     // TODO: implement initState
     Get.put(AdminTotalDocController());
+
     super.initState();
   }
 
@@ -85,7 +88,7 @@ class _TotalDoctorState extends State<TotalDoctor> {
                       SizedBox(
                         width: width * 0.03,
                       ),
-                      Icon(Icons.search),
+                      const Icon(Icons.search),
                       SizedBox(
                         width: width * 0.03,
                       ),
@@ -162,8 +165,7 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                 itemCount: snapshot.data!.docs.length,
                                 itemBuilder: (context, index) {
                                   doctor = DoctorModel.fromMap(
-                                      snapshot.data!.docs[index].data()
-                                          as Map<String, dynamic>);
+                                      snapshot.data!.docs[index].data());
                                   if (obj.search.text.isNotEmpty) {
                                     if (doctor!.name
                                         .toString()
@@ -278,7 +280,12 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                         .spaceEvenly,
                                                 children: [
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      obj.deleteDoctor(snapshot
+                                                          .data!
+                                                          .docs[index]
+                                                          .id);
+                                                    },
                                                     child: Container(
                                                       height: height * 0.066,
                                                       width: width * 0.35,
@@ -470,12 +477,16 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 InkWell(
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    obj.deleteDoctor(snapshot
+                                                        .data!.docs[index].id);
+                                                  },
                                                   child: Container(
                                                     height: height * 0.066,
                                                     width: width * 0.35,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xff0EBE7F),
+                                                      color: const Color(
+                                                          0xff0EBE7F),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               width * 0.02),
@@ -499,10 +510,8 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                     doctor =
                                                         DoctorModel.fromMap(
                                                             snapshot.data!
-                                                                    .docs[index]
-                                                                    .data()
-                                                                as Map<String,
-                                                                    dynamic>);
+                                                                .docs[index]
+                                                                .data());
                                                     print(
                                                         "doctor dataaa${doctor}");
                                                     Navigator.push(
@@ -518,7 +527,8 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                     height: height * 0.066,
                                                     width: width * 0.35,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xff0EBE7F),
+                                                      color: const Color(
+                                                          0xff0EBE7F),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               width * 0.02),

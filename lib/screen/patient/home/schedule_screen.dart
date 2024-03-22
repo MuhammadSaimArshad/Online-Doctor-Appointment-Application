@@ -25,7 +25,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,8 +61,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 height: height * 0.05,
               ),
               Container(
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF4F6FA),
                   borderRadius: BorderRadius.circular(10),
@@ -77,11 +77,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 0
-                              ? Color(0xff0EBE7F)
+                              ? const Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -104,11 +104,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 1
-                              ? Color(0xff0EBE7F)
+                              ? const Color(0xff0EBE7F)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -131,8 +131,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                         });
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 18),
                         decoration: BoxDecoration(
                           color: _buttonIndex == 2
                               ? Colors.red

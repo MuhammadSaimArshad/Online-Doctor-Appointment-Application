@@ -6,8 +6,8 @@ import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class TotalPatient extends StatefulWidget {
   const TotalPatient({super.key});
@@ -18,9 +18,11 @@ class TotalPatient extends StatefulWidget {
 
 class _TotalPatientState extends State<TotalPatient> {
   var height, width;
+
   @override
   void initState() {
     Get.put(AdminTotalPatiController());
+
     // TODO: implement initState
     super.initState();
   }
@@ -153,8 +155,7 @@ class _TotalPatientState extends State<TotalPatient> {
                                 itemCount: snapshot.data!.docs.length,
                                 itemBuilder: (context, index) {
                                   patient = PatientModel.fromMap(
-                                      snapshot.data!.docs[index].data()
-                                          as Map<String, dynamic>);
+                                      snapshot.data!.docs[index].data());
                                   if (obj.search.text.isNotEmpty) {
                                     if (patient!.name
                                         .toString()
@@ -233,13 +234,18 @@ class _TotalPatientState extends State<TotalPatient> {
                                                         .spaceEvenly,
                                                 children: [
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      obj.deletePatient(snapshot
+                                                          .data!
+                                                          .docs[index]
+                                                          .id);
+                                                    },
                                                     child: Container(
                                                       height: height * 0.066,
                                                       width: width * 0.35,
                                                       decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xff0EBE7F),
+                                                        color: const Color(
+                                                            0xff0EBE7F),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(
@@ -284,8 +290,8 @@ class _TotalPatientState extends State<TotalPatient> {
                                                       height: height * 0.066,
                                                       width: width * 0.35,
                                                       decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xff0EBE7F),
+                                                        color: const Color(
+                                                            0xff0EBE7F),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(
@@ -388,7 +394,10 @@ class _TotalPatientState extends State<TotalPatient> {
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 InkWell(
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    obj.deletePatient(snapshot
+                                                        .data!.docs[index].id);
+                                                  },
                                                   child: Container(
                                                     height: height * 0.066,
                                                     width: width * 0.35,

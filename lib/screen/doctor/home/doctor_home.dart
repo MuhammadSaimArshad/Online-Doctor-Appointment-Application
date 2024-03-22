@@ -1,11 +1,9 @@
 import 'package:doc_bookr/controller/Doctor/Doctor_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
-import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class DoctorHomeScreen extends StatefulWidget {
   const DoctorHomeScreen({super.key});
@@ -27,6 +25,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
@@ -48,7 +47,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                         height: height * 0.25,
                         width: width,
                         decoration: BoxDecoration(
-                            color: Color(0xff0EBE7F),
+                            color: const Color(0xff0EBE7F),
                             borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(width * 0.05),
                                 bottomRight: Radius.circular(width * 0.05))),
@@ -58,7 +57,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                             ListTile(
                               title: Text(
                                 " ${StaticData.doctorModel!.name}",
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                               subtitle: Text(
                                 "Find the Patient",
@@ -297,12 +296,12 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                         childAspectRatio: 1.2),
                                 itemCount: obj.fuilterlist.length,
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {},
                                     child: Container(
-                                      margin: EdgeInsets.all(8),
+                                      margin: const EdgeInsets.all(8),
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 10),
                                       decoration: BoxDecoration(

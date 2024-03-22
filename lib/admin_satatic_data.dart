@@ -7,21 +7,21 @@ class StaticData {
   static AdminModel? user;
   static String? id;
 
-  // static logout(BuildContext context) async {
-  //   SharedPreferences a = await SharedPreferences.getInstance();
-  //   a.getKeys();
-  //   a.clear();
-  //   // ignore: use_build_context_synchronously
-  //   Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (context) => const SigninScreen(),
-  //       ));
-  // }
+  static logout(BuildContext context) async {
+    SharedPreferences a = await SharedPreferences.getInstance();
+    a.getKeys();
+    a.clear();
+    // ignore: use_build_context_synchronously
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SigninScreen(),
+        ));
+  }
 
-  // static Future cleardata(BuildContext context) async {
-  //   SharedPreferences a = await SharedPreferences.getInstance();
-  //   a.getKeys();
-  //   a.clear();
-  // }
+  static Future cleardata(BuildContext context) async {
+    SharedPreferences a = await SharedPreferences.getInstance();
+    a.getKeys();
+    a.clear();
+  }
 }

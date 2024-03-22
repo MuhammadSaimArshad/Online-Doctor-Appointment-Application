@@ -62,10 +62,10 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                 height: height * 0.05,
               ),
               Container(
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF4F6FA),
+                  color: const Color(0xFFF4F6FA),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(

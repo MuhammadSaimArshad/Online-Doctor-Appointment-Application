@@ -13,8 +13,8 @@ import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 class Profilescreen extends StatefulWidget {
-  PatientModel? patientModel;
-  Profilescreen({
+  final PatientModel? patientModel;
+  const Profilescreen({
     Key? key,
     this.patientModel,
   }) : super(key: key);
