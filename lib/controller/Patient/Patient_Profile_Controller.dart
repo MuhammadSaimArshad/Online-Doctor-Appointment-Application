@@ -1,7 +1,6 @@
 import 'dart:io';
 
-import 'package:doc_bookr/model/Patient_Model.dart';
-
+import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';

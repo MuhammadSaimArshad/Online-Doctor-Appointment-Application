@@ -1,5 +1,6 @@
+import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
-import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
+
 import 'package:doc_bookr/screen/doctor/mypatient_screen.dart';
 
 import 'package:doc_bookr/staticdata.dart';

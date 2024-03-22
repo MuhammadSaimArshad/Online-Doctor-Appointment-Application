@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/admin_model.dart';
-import 'package:doc_bookr/screen/Admin/admin_signin.dart';
+import 'package:doc_bookr/model/Admin/Admin_Model.dart';
+
+import 'package:doc_bookr/screen/Admin/Admin_Signup_Login/admin_signin.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
+
 import 'package:uuid/uuid.dart';
 
 class AdminSignupController extends GetxController {

@@ -1,15 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
+import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:image_picker/image_picker.dart';
 
 import 'package:doc_bookr/controller/Patient/Patient_Profile_Controller.dart';
-import 'package:doc_bookr/model/Patient_Model.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 
 class Profilescreen extends StatefulWidget {

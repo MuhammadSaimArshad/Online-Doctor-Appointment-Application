@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/admin_satatic_data.dart';
-import 'package:doc_bookr/model/admin_model.dart';
+import 'package:doc_bookr/model/Admin/Admin_Model.dart';
+
 import 'package:doc_bookr/screen/Admin/Admin_home_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

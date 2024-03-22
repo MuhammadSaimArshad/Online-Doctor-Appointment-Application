@@ -3,10 +3,9 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/Doctor_Model.dart';
-import 'package:doc_bookr/model/Doctor_Slots.dart';
-
-import 'package:doc_bookr/model/Patient_Model.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
+import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -170,7 +169,7 @@ class AdminaddController extends GetxController {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
-          backgroundColor: Color(0xff0EBE7F),
+          backgroundColor: const Color(0xff0EBE7F),
           textColor: Colors.white,
           fontSize: 16.0,
         );
@@ -234,7 +233,7 @@ class AdminaddController extends GetxController {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
-        backgroundColor: Color(0xff0EBE7F),
+        backgroundColor: const Color(0xff0EBE7F),
         textColor: Colors.white,
         fontSize: 16.0,
       );
@@ -382,7 +381,7 @@ class AdminaddController extends GetxController {
         dateTime = dateTime.add(Duration(minutes: minutes));
         return DateFormat("h:mm a").format(dateTime);
       } else {
-        throw FormatException('Invalid time format');
+        throw const FormatException('Invalid time format');
       }
     } catch (e) {
       print('Error parsing time: $e');
@@ -400,7 +399,7 @@ class AdminaddController extends GetxController {
       return format.parse(time);
     } catch (e) {
       print('Error parsing time: $e');
-      throw e;
+      rethrow;
     }
   }
 }

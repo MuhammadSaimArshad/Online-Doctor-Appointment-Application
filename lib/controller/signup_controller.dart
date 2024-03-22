@@ -3,10 +3,10 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/Doctor_Model.dart';
-import 'package:doc_bookr/model/Doctor_Slots.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
+import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
-import 'package:doc_bookr/model/Patient_Model.dart';
 import 'package:doc_bookr/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -170,7 +170,7 @@ class SignupController extends GetxController {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
-          backgroundColor: Color(0xff0EBE7F),
+          backgroundColor: const Color(0xff0EBE7F),
           textColor: Colors.white,
           fontSize: 16.0,
         );
@@ -240,7 +240,7 @@ class SignupController extends GetxController {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
-        backgroundColor: Color(0xff0EBE7F),
+        backgroundColor: const Color(0xff0EBE7F),
         textColor: Colors.white,
         fontSize: 16.0,
       );
@@ -248,7 +248,7 @@ class SignupController extends GetxController {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => SigninScreen(),
+            builder: (context) => const SigninScreen(),
           ));
     } catch (e) {
       print("eror${e.toString()}");

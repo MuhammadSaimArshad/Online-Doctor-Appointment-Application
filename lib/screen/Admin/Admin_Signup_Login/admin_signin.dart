@@ -1,6 +1,6 @@
 import 'package:doc_bookr/controller/Admin/Admin_Signin_Controller.dart';
 
-import 'package:doc_bookr/screen/Admin/admin_signup.dart';
+import 'package:doc_bookr/screen/Admin/Admin_Signup_Login/admin_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

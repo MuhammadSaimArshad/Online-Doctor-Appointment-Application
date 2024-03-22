@@ -1,9 +1,10 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/model/Doctor_Model.dart';
-import 'package:doc_bookr/model/Patient_Model.dart';
-import 'package:doc_bookr/screen/doctor/home/dcotor_home_navbar.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
+import 'package:doc_bookr/model/Patient/Patient_Model.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
+
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
 import 'package:doc_bookr/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -121,7 +122,7 @@ class LoginController extends GetxController {
             toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 1,
-            backgroundColor: Color(0xff0EBE7F),
+            backgroundColor: const Color(0xff0EBE7F),
             textColor: Colors.white,
             fontSize: 16.0);
         String id = user.uid;

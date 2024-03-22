@@ -1,6 +1,7 @@
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/Appointment_Model.dart';
-import 'package:doc_bookr/screen/doctor/home/doctor_add_report.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_add_report.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
 

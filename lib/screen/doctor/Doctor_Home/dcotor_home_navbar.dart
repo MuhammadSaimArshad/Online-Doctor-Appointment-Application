@@ -1,8 +1,8 @@
-import 'package:doc_bookr/screen/doctor/home/Doctor_Schedule.dart';
-import 'package:doc_bookr/screen/doctor/home/doctor_home.dart';
-import 'package:doc_bookr/screen/doctor/home/doctor_message.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/Doctor_Schedule.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_home.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_message.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';
-import 'package:doc_bookr/screen/doctor/home/doctor_setting.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_setting.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/cupertino.dart';
