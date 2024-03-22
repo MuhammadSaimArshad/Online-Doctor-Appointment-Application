@@ -1,4 +1,4 @@
-import 'package:doc_bookr/model/admin_model.dart';
+import 'package:doc_bookr/model/Admin/Admin_Model.dart';
 import 'package:doc_bookr/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
