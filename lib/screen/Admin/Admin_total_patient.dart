@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/controller/Admin/Admin_Total_Pati_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
 import 'package:doc_bookr/model/Patient_Model.dart';
+import 'package:doc_bookr/screen/patient/profile_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -261,7 +262,24 @@ class _TotalPatientState extends State<TotalPatient> {
                                                     ),
                                                   ),
                                                   InkWell(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      patient =
+                                                          PatientModel.fromMap(
+                                                              snapshot.data!
+                                                                  .docs[index]
+                                                                  .data());
+                                                      print(
+                                                          "doctor dataaa$patient");
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                Profilescreen(
+                                                              patientModel:
+                                                                  patient,
+                                                            ),
+                                                          ));
+                                                    },
                                                     child: Container(
                                                       height: height * 0.066,
                                                       width: width * 0.35,
@@ -395,7 +413,24 @@ class _TotalPatientState extends State<TotalPatient> {
                                                   ),
                                                 ),
                                                 InkWell(
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    patient =
+                                                        PatientModel.fromMap(
+                                                            snapshot.data!
+                                                                .docs[index]
+                                                                .data());
+                                                    print(
+                                                        "doctor dataaa$patient");
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Profilescreen(
+                                                            patientModel:
+                                                                patient,
+                                                          ),
+                                                        ));
+                                                  },
                                                   child: Container(
                                                     height: height * 0.066,
                                                     width: width * 0.35,

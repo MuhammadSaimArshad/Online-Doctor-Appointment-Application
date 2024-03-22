@@ -59,7 +59,7 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.file_copy_outlined),
-              label: "Add Report",
+              label: "Receipt",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle_outlined),

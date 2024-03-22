@@ -1,7 +1,12 @@
+import 'package:doc_bookr/model/Appointment_Model.dart';
+import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/screen/doctor/home/Doctor_Schedule.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_message.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';
 import 'package:doc_bookr/screen/doctor/home/doctor_setting.dart';
+import 'package:doc_bookr/staticdata.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +23,10 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
     const DoctorHomeScreen(),
     const DoctorMessagesScreen(),
     DoctorScheduleScreen(),
-    const DoctorSettingScreen()
+    const DoctorSettingScreen(),
+    DocSloDate(
+      model: StaticData.doctorModel!,
+    )
   ];
   var height, width;
   @override
@@ -60,6 +68,10 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle_outlined),
                 label: "Profile",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.schedule),
+                label: "Solts",
               ),
             ],
           ),

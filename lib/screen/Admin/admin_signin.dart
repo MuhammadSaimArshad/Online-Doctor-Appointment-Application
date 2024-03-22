@@ -29,17 +29,16 @@ class _AdminSignInState extends State<AdminSignIn> {
             child: Container(
               height: height,
               width: width,
-              color: Colors.white,
-              // decoration: const BoxDecoration(
-              //   gradient: LinearGradient(
-              //     begin: Alignment.topRight,
-              //     end: Alignment.bottomLeft,
-              //     colors: [
-              //       Color(0xff0EBE4f),
-              //       Color(0xff0EBE7F),
-              //     ],
-              //   ),
-              // ),
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Color(0xff0EBE4f),
+                    Color(0xff0EBE7F),
+                  ],
+                ),
+              ),
               child: Column(
                 children: [
                   // SizedBox(
@@ -77,13 +76,13 @@ class _AdminSignInState extends State<AdminSignIn> {
                   //     ],
                   //   ),
                   // ),
-                  Container(
-                    height: height * 0.1,
-                    width: width * 0.6,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("images/Appicon.png"))),
-                  ),
+                  // Container(
+                  //   height: height * 0.2,
+                  //   width: width * 0.6,
+                  //   decoration: BoxDecoration(
+                  //       image: DecorationImage(
+                  //           image: AssetImage("images/Appicon.png"))),
+                  // ),
                   SizedBox(
                     height: height * 0.3,
                   ),

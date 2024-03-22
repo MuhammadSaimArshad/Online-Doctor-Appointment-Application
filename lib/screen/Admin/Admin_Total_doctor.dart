@@ -134,7 +134,7 @@ class _TotalDoctorState extends State<TotalDoctor> {
                       stream: FirebaseFirestore.instance
                           .collection('doctor')
                           .snapshots(),
-                      builder: (BuildContext context, snapshot) {
+                      builder: (BuildContext context1, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return const Center(
@@ -308,15 +308,13 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                   ),
                                                   InkWell(
                                                     onTap: () {
-                                                      doctor = DoctorModel
-                                                          .fromMap(snapshot
-                                                                  .data!
+                                                      doctor =
+                                                          DoctorModel.fromMap(
+                                                              snapshot.data!
                                                                   .docs[index]
-                                                                  .data()
-                                                              as Map<String,
-                                                                  dynamic>);
+                                                                  .data());
                                                       print(
-                                                          "doctor dataaa${doctor}");
+                                                          "doctor dataaa$doctor");
                                                       Navigator.push(
                                                           context,
                                                           MaterialPageRoute(

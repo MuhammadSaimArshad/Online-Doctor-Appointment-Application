@@ -1,9 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
-import 'package:doc_bookr/controller/Patient/Patient_Profile_Controller.dart';
-import 'package:doc_bookr/model/Patient_Model.dart';
-
-import 'package:doc_bookr/staticdata.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +8,16 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'package:doc_bookr/controller/Patient/Patient_Profile_Controller.dart';
+import 'package:doc_bookr/model/Patient_Model.dart';
+import 'package:doc_bookr/staticdata.dart';
+
 class Profilescreen extends StatefulWidget {
-  const Profilescreen({super.key, required PatientModel model});
+  PatientModel? patientModel;
+  Profilescreen({
+    Key? key,
+    this.patientModel,
+  }) : super(key: key);
 
   @override
   State<Profilescreen> createState() => _ProfilescreenState();
@@ -22,7 +27,13 @@ class _ProfilescreenState extends State<Profilescreen> {
   @override
   void initState() {
     Get.put(ProfileController());
-    ProfileController.to.initalizedata();
+    print("docot data    ${widget.patientModel}");
+    widget.patientModel == null
+        ? ProfileController.to.initalizedata(StaticData.patientmodel!)
+        : ProfileController.to.initalizedata(widget.patientModel!);
+    ProfileController.to.clearprofile();
+
+    print("2354565867897909808    ${widget.patientModel}");
     super.initState();
   }
 
@@ -130,7 +141,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          StaticData.patientmodel!.name,
+                          obj.name.text,
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold),
@@ -255,7 +266,9 @@ class _ProfilescreenState extends State<Profilescreen> {
               ),
               InkWell(
                 onTap: () {
-                  obj.updateprofile();
+                  widget.patientModel == null
+                      ? obj.updateprofile()
+                      : obj.adminupdatepatientprofile(context);
                 },
                 child: Container(
                   height: height * 0.07,

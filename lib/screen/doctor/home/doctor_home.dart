@@ -236,14 +236,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                 physics: NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
                                   return InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Profilescreen(
-                                                model: obj.list[index]),
-                                          ));
-                                    },
+                                    onTap: () {},
                                     child: Container(
                                       margin: EdgeInsets.all(8),
                                       padding: const EdgeInsets.symmetric(
@@ -307,14 +300,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                                 physics: NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
                                   return InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Profilescreen(
-                                                model: obj.fuilterlist[index]),
-                                          ));
-                                    },
+                                    onTap: () {},
                                     child: Container(
                                       margin: EdgeInsets.all(8),
                                       padding: const EdgeInsets.symmetric(

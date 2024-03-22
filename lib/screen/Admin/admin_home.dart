@@ -1,3 +1,4 @@
+import 'package:doc_bookr/admin_satatic_data.dart';
 import 'package:flutter/material.dart';
 
 class AdminHomeScreen extends StatefulWidget {
@@ -42,10 +43,15 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                               "MUhammad Saim Arshad",
                               style: TextStyle(color: Colors.white),
                             ),
-                            trailing: SizedBox(
-                                height: height * 0.12,
-                                width: width * 0.15,
-                                child: CircleAvatar()),
+                            trailing: InkWell(
+                              onTap: () {
+                                // StaticData.logout(context);
+                              },
+                              child: SizedBox(
+                                  height: height * 0.12,
+                                  width: width * 0.15,
+                                  child: CircleAvatar()),
+                            ),
                           )
                         ],
                       ),

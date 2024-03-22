@@ -1,10 +1,9 @@
-import 'package:doc_bookr/screen/patient/home/home_screen.dart';
+import 'package:doc_bookr/screen/patient/Patient_About.dart';
 import 'package:doc_bookr/screen/patient/mydoctor.dart';
 import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/screen/patient/Rating.dart';
-import 'package:doc_bookr/signin_screen.dart';
 
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/cupertino.dart';
@@ -147,8 +146,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => Profilescreen(
-                          model: StaticData.patientmodel!,
-                        ),
+                            // patientModel: StaticData.patientmodel!,
+                            ),
                       ));
                 },
                 leading: Container(
@@ -176,8 +175,8 @@ class _SettingScreenState extends State<SettingScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Profilescreen(
-                              model: StaticData.patientmodel!,
-                            ),
+                                // patientModel: StaticData.patientmodel!,
+                                ),
                           ));
                     },
                     child: Icon(
@@ -365,7 +364,13 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: height * 0.01,
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Recepit(),
+                      ));
+                },
                 leading: Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(

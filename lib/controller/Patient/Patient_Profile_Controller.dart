@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:doc_bookr/model/Patient_Model.dart';
+
 import 'package:doc_bookr/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,33 +13,42 @@ import 'package:image_picker/image_picker.dart';
 
 class ProfileController extends GetxController {
   static ProfileController get to => Get.find();
-
+  String? id;
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  String patientimage = '';
+  TextEditingController patientname = TextEditingController();
+  TextEditingController patientemail = TextEditingController();
+  TextEditingController patientphonenumber = TextEditingController();
   bool passToggle = false;
   String? image;
   File? file;
   String link = "";
-  initalizedata() {
-    name.text = StaticData.patientmodel!.name;
-    email.text = StaticData.patientmodel!.email;
-    password.text = StaticData.patientmodel!.password;
-    image = StaticData.patientmodel!.image;
+  patientDprofile(PatientModel patientmodel) {
+    patientimage = patientmodel.image;
+    patientname.text = patientmodel.name;
+    patientemail.text = patientmodel.email;
+    patientphonenumber.text = patientmodel.phonenumber;
     update();
   }
 
-  XFile? hpickedFile;
-
-  pickImage(ImageSource source) async {
-    var pickedImage = await ImagePicker().pickImage(source: source);
+  clearprofile() {
+    patientemail.clear();
+    patientname.clear();
+    patientphonenumber.clear();
+    patientimage = "";
     update();
-    if (pickedImage != null) {
-      hpickedFile = pickedImage;
-      update();
-    }
-    print("xfileimage$hpickedFile");
-    return hpickedFile;
+  }
+
+  initalizedata(PatientModel patientmodel) {
+    id = patientmodel.id;
+    hpickedFile = null;
+    name.text = patientmodel.name;
+    email.text = patientmodel.email;
+    password.text = patientmodel.password;
+    image = patientmodel.image;
+    update();
   }
 
   Future<void> updateprofile() async {
@@ -55,7 +66,7 @@ class ProfileController extends GetxController {
           });
         }).then((value) {
           StaticData.updatepatientprofile().then((value) {
-            initalizedata();
+            initalizedata(StaticData.patientmodel!);
             Fluttertoast.showToast(
               msg: "Profile update sucessfully",
               backgroundColor: Color(0xff0EBE7F),
@@ -81,7 +92,7 @@ class ProfileController extends GetxController {
         print("update data");
       }).then((value) {
         StaticData.updatepatientprofile().then((value) {
-          initalizedata();
+          initalizedata(StaticData.patientmodel!);
           Fluttertoast.showToast(
             msg: "Profile update sucessfully",
             backgroundColor: Color(0xff0EBE7F),
@@ -93,6 +104,78 @@ class ProfileController extends GetxController {
           );
         });
       });
+    }
+  }
+
+  XFile? hpickedFile;
+
+  pickImage(ImageSource source) async {
+    var pickedImage = await ImagePicker().pickImage(source: source);
+    update();
+    if (pickedImage != null) {
+      hpickedFile = pickedImage;
+      update();
+    }
+    print("xfileimage$hpickedFile");
+    return hpickedFile;
+  }
+
+  Future<void> adminupdatepatientprofile(context) async {
+    try {
+      if (hpickedFile != null) {
+        await uploadImage(StaticData.patientmodel!.id.toString()).then((value) {
+          changeEmailAndPassword(email.text, password.text).then((value1) {
+            StaticData.firebase
+                .collection("patient")
+                .doc(StaticData.patientmodel!.id.toString())
+                .update({
+              "name": name.text,
+              "email": email.text,
+              "password": password.text,
+              "image": value
+            });
+          }).then((value) {
+            StaticData.updatepatientprofile().then((value) {
+              initalizedata(StaticData.patientmodel!);
+              Fluttertoast.showToast(
+                msg: "Profile update sucessfully",
+                backgroundColor: Color(0xff0EBE7F),
+                textColor: Colors.white,
+                gravity: ToastGravity.BOTTOM,
+                fontSize: 17,
+                timeInSecForIosWeb: 1,
+                toastLength: Toast.LENGTH_LONG,
+              );
+            });
+          });
+        });
+      } else {
+        changeEmailAndPassword(email.text, password.text).then((value1) {
+          StaticData.firebase
+              .collection("patient")
+              .doc(StaticData.patientmodel!.id.toString())
+              .update({
+            "name": name.text,
+            "email": email.text,
+            "password": password.text,
+          });
+        }).then((value) {
+          StaticData.updatepatientprofile().then((value) {
+            initalizedata(StaticData.patientmodel!);
+            Fluttertoast.showToast(
+              msg: "Profile update sucessfully",
+              backgroundColor: Color(0xff0EBE7F),
+              textColor: Colors.white,
+              gravity: ToastGravity.BOTTOM,
+              fontSize: 17,
+              timeInSecForIosWeb: 1,
+              toastLength: Toast.LENGTH_LONG,
+            );
+          });
+        });
+      }
+    } catch (e) {
+      print("errrrrroorrrrrr     ${e.toString()}");
     }
   }
 
