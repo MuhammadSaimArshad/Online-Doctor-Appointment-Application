@@ -4,8 +4,8 @@ import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:doc_bookr/customwidgets.dart';
 
 import 'package:doc_bookr/model/Appointment_Model.dart';
-import 'package:doc_bookr/model/Doctor_Model.dart';
-import 'package:doc_bookr/model/Doctor_Slots.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
 import 'package:doc_bookr/staticdata.dart';
 
 import 'package:flutter/material.dart';

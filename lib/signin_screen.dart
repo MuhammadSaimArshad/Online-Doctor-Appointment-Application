@@ -1,5 +1,5 @@
 import 'package:doc_bookr/controller/Login_Controller.dart';
-import 'package:doc_bookr/screen/Admin/admin_signin.dart';
+import 'package:doc_bookr/screen/Admin/Admin_Signup_Login/admin_signin.dart';
 
 import 'package:doc_bookr/signup_screen.dart';
 import 'package:email_validator/email_validator.dart';

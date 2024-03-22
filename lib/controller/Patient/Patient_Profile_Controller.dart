@@ -120,7 +120,7 @@ class ProfileController extends GetxController {
             initalizedata(StaticData.patientmodel!);
             Fluttertoast.showToast(
               msg: "Profile update sucessfully",
-              backgroundColor: Color(0xff0EBE7F),
+              backgroundColor: const Color(0xff0EBE7F),
               textColor: Colors.white,
               gravity: ToastGravity.BOTTOM,
               fontSize: 17,

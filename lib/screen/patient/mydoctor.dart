@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/controller/Patient/Patient_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
-import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 

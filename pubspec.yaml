@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: 
   email_validator: 
-  firebase_messaging: ^14.7.4
+  firebase_messaging: 
   get: 
   firebase_core: 
   cloud_firestore: 

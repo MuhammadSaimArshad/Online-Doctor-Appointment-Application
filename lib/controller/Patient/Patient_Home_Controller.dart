@@ -1,4 +1,4 @@
-import 'package:doc_bookr/model/Doctor_Model.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
 import 'package:doc_bookr/staticdata.dart';
 
