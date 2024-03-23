@@ -14,7 +14,6 @@ class AdminSignupController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   sinup(context) {
-    print("object");
     var firestore = FirebaseFirestore.instance;
     var uuid = Uuid();
     String userId = uuid.v4();
@@ -24,7 +23,7 @@ class AdminSignupController extends GetxController {
         email: email.text,
         password: password.text);
 
-    firestore.collection("Admin").doc(userId).set(model.toMap());
+    firestore.collection("admin").doc(userId).set(model.toMap());
     Fluttertoast.showToast(
       msg: "Signup Successful",
       toastLength: Toast.LENGTH_SHORT,
@@ -40,5 +39,12 @@ class AdminSignupController extends GetxController {
           builder: (context) => const AdminSignIn(),
         ));
     return "";
+  }
+
+  clearForm() {
+    name.clear();
+    email.clear();
+    password.clear();
+    update();
   }
 }

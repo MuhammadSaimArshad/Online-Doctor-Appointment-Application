@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomWidget {
   // static Color primary = const Color(0xff11463C);
   // static Color secondry = const Color(0xffFAC783);
-  static Color primary = Colors.white;
+  static Color primary = Color(0xff0EBE7F);
   static Color secondry = const Color(0xff11463C);
   static Widget largeText(
     String? text, {

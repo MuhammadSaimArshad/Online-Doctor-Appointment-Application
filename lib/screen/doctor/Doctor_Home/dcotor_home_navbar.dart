@@ -1,4 +1,4 @@
-import 'package:doc_bookr/screen/doctor/Doctor_Home/Doctor_Schedule.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/DocSloDate.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_message.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';

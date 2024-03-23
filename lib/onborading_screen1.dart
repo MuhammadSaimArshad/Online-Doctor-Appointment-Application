@@ -137,7 +137,7 @@ class _IntroScreenState extends State<IntroScreen> {
                             width: width * 0.005)),
                     child: Center(
                         child: Text(
-                      _currentPage == 2 ? "Sign in" : "Skip",
+                      _currentPage == 2 ? "SignIn" : "Skip",
                       style: const TextStyle(color: Color(0xff0EBE7F)),
                     )),
                   ),

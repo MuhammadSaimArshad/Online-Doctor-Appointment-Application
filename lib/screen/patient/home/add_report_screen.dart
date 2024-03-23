@@ -107,7 +107,7 @@ class _AddreportState extends State<Addreport> {
                                     ],
                                   ),
                                   child: SizedBox(
-                                    height: height * 0.2,
+                                    height: height * 0.6,
                                     child: Column(
                                       children: [
                                         ListTile(
@@ -124,13 +124,17 @@ class _AddreportState extends State<Addreport> {
                                                 model!.image,
                                               )),
                                         ),
+                                        SizedBox(
+                                          height: height * 0.03,
+                                        ),
                                         Container(
-                                            height: height * 0.1,
+                                            height: height * 0.46,
                                             width: width * 0.9,
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: NetworkImage(
-                                                        model!.receiptimage!))))
+                                                        model!.receiptimage!),
+                                                    fit: BoxFit.cover)))
                                       ],
                                     ),
                                   ),

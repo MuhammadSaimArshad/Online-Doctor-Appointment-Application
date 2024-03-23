@@ -23,7 +23,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
       height: height * 0.65,
       width: width,
       child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: StreamBuilder(
             stream: StaticData.firebase
                 .collection('appointment')
@@ -41,9 +41,10 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
               }
 
               AppointmentModel? model;
-              if (snapshot.data!.docs.length != 0)
+              if (snapshot.data!.docs.length != 0) {
                 print(
                     'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+              }
               return snapshot.data!.docs.length == 0 &&
                       snapshot.data!.docs.isEmpty
                   ? Center(

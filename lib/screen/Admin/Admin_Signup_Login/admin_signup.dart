@@ -16,6 +16,8 @@ class AdminSignup extends StatefulWidget {
 class _AdminSignupState extends State<AdminSignup> {
   var height, width;
 
+  final formkey = GlobalKey<FormState>();
+
   @override
   void initState() {
     Get.put(AdminSignupController());
@@ -87,97 +89,106 @@ class _AdminSignupState extends State<AdminSignup> {
                 SizedBox(
                   height: height * 0.02,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: TextFormField(
-                    controller: obj.name,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.white, width: width * 0.01)),
-                      label: Text(
-                        " Name",
-                        style: TextStyle(
-                            color: Colors.white, fontSize: width * 0.035),
+                Form(
+                  key: formkey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: obj.name,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                                width: width * 0.01,
+                              ),
+                            ),
+                            label: Text(
+                              " Name",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: width * 0.035),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.person_outline,
+                              color: Colors.white,
+                              size: width * 0.05,
+                            ),
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please Enter Your  Name';
+                            }
+                            return null;
+                          },
+                        ),
                       ),
-                      prefixIcon: Icon(
-                        Icons.person_outline,
-                        color: Colors.white,
-                        size: width * 0.05,
+                      SizedBox(
+                        height: height * 0.02,
                       ),
-                    ),
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please Enter Your  Name';
-                      }
-                      return null;
-                    },
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: obj.email,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.white, width: width * 0.01)),
+                            label: Text(
+                              "Email Address",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: width * 0.035),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Colors.white,
+                              size: width * 0.05,
+                            ),
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.02,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: obj.password,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            label: Text(
+                              "Enter Password",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: width * 0.035),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.lock,
+                              color: Colors.white,
+                              size: width * 0.05,
+                            ),
+                          ),
+                          obscuringCharacter: "*",
+                          validator: (String? value) {
+                            RegExp regex = RegExp(r'^(?=.*?[!@#\$&*~]).{4,}$');
+                            if (value!.isEmpty) {
+                              return 'Please enter Password';
+                            } else {
+                              if (value.length < 5) {
+                                return ("Password Must be more than 5 characters");
+                              } else if (!regex.hasMatch(value)) {
+                                return ("Password should contain Special character or number");
+                              } else {
+                                return null;
+                              }
+                            }
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  height: height * 0.02,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: TextFormField(
-                    controller: obj.email,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.white, width: width * 0.01)),
-                      label: Text(
-                        "Email Address",
-                        style: TextStyle(
-                            color: Colors.white, fontSize: width * 0.035),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: Colors.white,
-                        size: width * 0.05,
-                      ),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                ),
-                SizedBox(
-                  height: height * 0.02,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: TextFormField(
-                    controller: obj.password,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      label: Text(
-                        "Enter Password",
-                        style: TextStyle(
-                            color: Colors.white, fontSize: width * 0.035),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: Colors.white,
-                        size: width * 0.05,
-                      ),
-                    ),
-                    obscuringCharacter: "*",
-                    validator: (String? value) {
-                      RegExp regex = RegExp(r'^(?=.*?[!@#\$&*~]).{4,}$');
-                      if (value!.isEmpty) {
-                        return 'Please enter Password';
-                      } else {
-                        if (value.length < 5) {
-                          return ("Password Must be more than 5 characters");
-                        } else if (!regex.hasMatch(value)) {
-                          return ("Password should contain Special character or number");
-                        } else {
-                          return null;
-                        }
-                      }
-                    },
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                ),
-
                 SizedBox(
                   height: height * 0.03,
                 ),
@@ -228,7 +239,7 @@ class _AdminSignupState extends State<AdminSignup> {
                             ));
                       },
                       child: Text(
-                        "Sign In",
+                        "SignIn",
                         style: TextStyle(
                           fontSize: width * 0.04,
                           fontWeight: FontWeight.bold,

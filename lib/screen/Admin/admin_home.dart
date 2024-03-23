@@ -57,7 +57,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                           children: [
                             ListTile(
                               title: const Text(
-                                "MUhammad Saim Arshad",
+                                "",
                                 style: TextStyle(color: Colors.white),
                               ),
                               trailing: InkWell(

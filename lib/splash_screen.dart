@@ -328,7 +328,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
                   duration: const Duration(milliseconds: 1000),
                   opacity: _textOpacity,
                   child: const Text(
-                    "Doc Bookr",
+                    "Time To Thrive",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -357,7 +357,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
                   ),
                   child: Center(
                     child: Text(
-                      "Doc Bookr",
+                      "Time To Thrive",
                       style: TextStyle(
                           fontSize: width * 0.04,
                           fontWeight: FontWeight.bold,

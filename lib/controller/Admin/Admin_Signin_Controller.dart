@@ -13,11 +13,10 @@ class AdminLoginController extends GetxController {
   TextEditingController password = TextEditingController();
   List<AdminModel> userList = [];
   login(context) async {
-    print("object");
     var firestore = FirebaseFirestore.instance;
     try {
       QuerySnapshot data = await firestore
-          .collection("Admin")
+          .collection("admin")
           .where("email", isEqualTo: email.text)
           .where("password", isEqualTo: password.text)
           .get();
@@ -32,7 +31,7 @@ class AdminLoginController extends GetxController {
         Fluttertoast.showToast(
           msg: "Login Successful",
           toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
+          gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
           backgroundColor: const Color(0xff0EBE7F),
           textColor: Colors.white,
@@ -51,5 +50,11 @@ class AdminLoginController extends GetxController {
     } catch (e) {
       print("error${e}");
     }
+  }
+
+  clearForm() {
+    email.clear();
+    password.clear();
+    update();
   }
 }

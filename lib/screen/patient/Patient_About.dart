@@ -21,7 +21,7 @@ class _RecepitState extends State<Recepit> {
             body: Container(
                 height: height,
                 width: width,
-                color: Colors.blue,
+                color: Colors.white,
                 child: Stack(children: [
                   Container(
                     height: height * 0.3,
@@ -33,7 +33,7 @@ class _RecepitState extends State<Recepit> {
                           width: width,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                            image: AssetImage('images/perciption_back.jpg'),
+                            image: AssetImage('images/Appicon.png'),
                             fit: BoxFit.fill,
                           )),
                           child: BackdropFilter(
@@ -51,10 +51,10 @@ class _RecepitState extends State<Recepit> {
                           child: Container(
                             height: height * 0.23,
                             width: width * 0.45,
-                            child: Image(
-                              image: AssetImage('images/perciption.png'),
-                              fit: BoxFit.fill,
-                            ),
+                            // child: Image(
+                            //   image: AssetImage('images/perciption.png'),
+                            //   fit: BoxFit.fill,
+                            // ),
                           ),
                         ),
                         Container(
@@ -251,9 +251,9 @@ class _RecepitState extends State<Recepit> {
                               child: Container(
                                 height: height * 0.1,
                                 width: width * 0.2,
-                                child: Image(
-                                  image: AssetImage('images/symbol_rx.png'),
-                                ),
+                                // child: Image(
+                                //   image: AssetImage('images/symbol_rx.png'),
+                                // ),
                               ),
                             ),
                           ),
