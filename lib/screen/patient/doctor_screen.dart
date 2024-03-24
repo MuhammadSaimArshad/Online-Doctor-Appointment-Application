@@ -143,7 +143,8 @@ class _DoctorlistState extends State<Doctorlist> {
                                           as Map<String, dynamic>);
                                   return Container(
                                     height: height * 0.25,
-                                    width: width * 0.95,
+                                    width: width * 0.9,
+                                    padding: EdgeInsets.all(6),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius:
@@ -253,7 +254,8 @@ class _DoctorlistState extends State<Doctorlist> {
                                                 height: height * 0.066,
                                                 width: width * 0.35,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xff0EBE7F),
+                                                  color:
+                                                      const Color(0xff0EBE7F),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           width * 0.02),

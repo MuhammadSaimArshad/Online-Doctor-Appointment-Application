@@ -394,7 +394,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
-                                        childAspectRatio: 1.2),
+                                        mainAxisSpacing: 1,
+                                        crossAxisSpacing: 1),
                                 itemCount: obj.list.length,
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
@@ -409,10 +410,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     ));
                                     },
                                     child: Container(
-                                      height: height * 0.37,
-                                      margin: const EdgeInsets.all(8),
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 4),
+                                      height: height * 0.45,
+                                      width: width * 0.5,
+                                      margin: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),
@@ -480,10 +480,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
-                                        childAspectRatio: 1.2),
+                                        mainAxisSpacing: 1,
+                                        crossAxisSpacing: 1),
                                 itemCount: obj.fuilterlist.length,
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
@@ -495,10 +496,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     ));
                                     },
                                     child: Container(
-                                      height: height * 0.37,
-                                      margin: const EdgeInsets.all(8),
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 6),
+                                      height: height * 0.4,
+                                      margin: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),

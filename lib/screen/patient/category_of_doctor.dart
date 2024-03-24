@@ -38,32 +38,46 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
           color: Colors.white,
           child: Column(
             children: [
-              SizedBox(
-                height: height * 0.02,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: width * 0.04,
+              // SizedBox(
+              //   height: height * 0.02,
+              // ),
+              Container(
+                height: height * 0.07,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: width * 0.02,
+                      spreadRadius: width * 0.001,
                     ),
-                  ),
-                  SizedBox(
-                    width: width * 0.03,
-                  ),
-                  Text(
-                    "Our Specialized Doctor Are Below",
-                    style: TextStyle(
-                        fontSize: width * 0.04, fontWeight: FontWeight.bold),
-                  ),
-                ],
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.02,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: width * 0.04,
+                      ),
+                    ),
+                    SizedBox(
+                      width: width * 0.03,
+                    ),
+                    Text(
+                      "Our Specialized Doctor Are Below",
+                      style: TextStyle(
+                          fontSize: width * 0.04, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
               //1
               SizedBox(
@@ -120,9 +134,6 @@ class _CategoryOfDoctorState extends State<CategoryOfDoctor> {
                         ),
                       ),
                       //2
-                      SizedBox(
-                        height: height * 0.03,
-                      ),
                     ],
                   );
                 },

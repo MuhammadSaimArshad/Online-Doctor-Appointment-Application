@@ -25,39 +25,53 @@ class _AddreportState extends State<Addreport> {
           width: width,
           child: Column(
             children: [
-              SizedBox(
-                height: height * 0.03,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: width * 0.04,
+              // SizedBox(
+              //   height: height * 0.03,
+              // ),
+              Container(
+                height: height * 0.07,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: width * 0.02,
+                      spreadRadius: width * 0.001,
                     ),
-                  ),
-                  SizedBox(
-                    width: width * 0.03,
-                  ),
-                  Text(
-                    "Receipt",
-                    style: TextStyle(
-                        fontSize: width * 0.05, fontWeight: FontWeight.bold),
-                  )
-                ],
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.02,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: width * 0.04,
+                      ),
+                    ),
+                    SizedBox(
+                      width: width * 0.03,
+                    ),
+                    Text(
+                      "Receipt",
+                      style: TextStyle(
+                          fontSize: width * 0.05, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
               SizedBox(
                 width: width * 0.03,
               ),
               SizedBox(
                 width: width,
-                height: height * 0.82,
+                height: height * 0.8,
                 child: StreamBuilder(
                   stream: StaticData.firebase
                       .collection('appointment')

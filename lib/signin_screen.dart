@@ -233,7 +233,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       ),
                       child: Center(
                         child: Text(
-                          "Sign In",
+                          "SignIn",
                           style: TextStyle(
                               fontSize: width * 0.04,
                               fontWeight: FontWeight.bold,

@@ -23,35 +23,49 @@ class _PatientPrivacyState extends State<PatientPrivacy> {
             SizedBox(
               height: height * 0.05,
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: width * 0.02,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_back_ios_new,
-                    size: width * 0.04,
+            Container(
+              height: height * 0.07,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: width * 0.02,
+                    spreadRadius: width * 0.001,
                   ),
-                ),
-                SizedBox(
-                  width: width * 0.03,
-                ),
-                Text(
-                  "Privacy",
-                  style: TextStyle(
-                      fontSize: width * 0.04, fontWeight: FontWeight.bold),
-                )
-              ],
+                ],
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: width * 0.04,
+                    ),
+                  ),
+                  SizedBox(
+                    width: width * 0.03,
+                  ),
+                  Text(
+                    "Privacy",
+                    style: TextStyle(
+                        fontSize: width * 0.04, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
             SizedBox(
-              height: height * 0.03,
+              height: height * 0.05,
             ),
             Container(
-              height: height * 0.6,
+              height: height * 0.5,
               width: width * 0.95,
               color: Colors.white,
               child: Center(
