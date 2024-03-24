@@ -26,7 +26,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
     width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _DoctorScheduleScreenState extends State<DoctorScheduleScreen> {
                     },
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      size: width * 0.05,
+                      size: width * 0.04,
                     ),
                   ),
                   SizedBox(

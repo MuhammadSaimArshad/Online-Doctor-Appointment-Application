@@ -1,4 +1,5 @@
 import 'package:doc_bookr/screen/patient/Patient_About.dart';
+import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
 import 'package:doc_bookr/screen/patient/mydoctor.dart';
 import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
@@ -48,51 +49,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       padding: EdgeInsets.only(
                           top: height * 0.15, left: width * 0.55),
                       child: InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const ListTile(
-                                    title: Text("Profile photo"),
-                                  ),
-                                  ListTile(
-                                    leading: CircleAvatar(
-                                      radius: 25,
-                                      backgroundColor: Colors.grey[300],
-                                      child: Icon(
-                                        Icons.add_a_photo,
-                                        color: Color(0xff0EBE7F),
-                                        size: width * 0.05,
-                                      ),
-                                    ),
-                                    title: const Text("Camera"),
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                  ListTile(
-                                    leading: CircleAvatar(
-                                      radius: 25,
-                                      backgroundColor: Colors.grey.shade300,
-                                      child: Icon(
-                                        Icons.photo,
-                                        color: Color(0xff0EBE7F),
-                                        size: width * 0.05,
-                                      ),
-                                    ),
-                                    title: const Text("Gallery"),
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
+                        onTap: () {},
                         child: const CircleAvatar(
                           backgroundColor: Color(0xff0EBE7F),
                           child: Icon(
@@ -145,9 +102,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Profilescreen(
-                            // patientModel: StaticData.patientmodel!,
-                            ),
+                        builder: (context) => const Profilescreen(),
                       ));
                 },
                 leading: Container(
@@ -174,9 +129,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Profilescreen(
-                                // patientModel: StaticData.patientmodel!,
-                                ),
+                            builder: (context) => const Profilescreen(),
                           ));
                     },
                     child: Icon(
@@ -192,7 +145,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyDoctor(),
+                        builder: (context) => const MyDoctor(),
                       ));
                 },
                 leading: Container(
@@ -219,7 +172,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MyDoctor(),
+                          builder: (context) => const MyDoctor(),
                         ));
                   },
                   child: Icon(
@@ -368,7 +321,51 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Recepit(),
+                        builder: (context) => const PatientPrivacy(),
+                      ));
+                },
+                leading: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.pink.shade200,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.privacy_tip_outlined,
+                    color: Colors.pink,
+                    size: width * 0.05,
+                  ),
+                ),
+                title: Text(
+                  "Privacy",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: width * 0.05,
+                  ),
+                ),
+                trailing: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PatientPrivacy(),
+                        ));
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: width * 0.05,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PatientAbout(),
                       ));
                 },
                 leading: Container(
@@ -390,9 +387,18 @@ class _SettingScreenState extends State<SettingScreen> {
                     fontSize: width * 0.05,
                   ),
                 ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: width * 0.05,
+                trailing: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PatientAbout(),
+                        ));
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: width * 0.05,
+                  ),
                 ),
               ),
               SizedBox(

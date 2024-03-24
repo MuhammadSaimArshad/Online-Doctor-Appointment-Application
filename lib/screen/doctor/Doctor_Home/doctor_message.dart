@@ -60,7 +60,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                     ),
                   )
                 : ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: obj.patientList.length,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
@@ -132,10 +132,10 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                       leading: CircleAvatar(
                                         radius: 30,
                                         backgroundImage: NetworkImage(
-                                            "${obj.patientList[index].image}"),
+                                            obj.patientList[index].image),
                                       ),
                                       title: Text(
-                                        "${obj.patientList[index].name}",
+                                        obj.patientList[index].name,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: width * 0.04,
@@ -147,7 +147,7 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: width * 0.05,
+                                          fontSize: width * 0.04,
                                           color: Colors.black54,
                                         ),
                                       ),

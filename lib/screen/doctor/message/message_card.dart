@@ -47,7 +47,7 @@ class _MessageCardState extends State<MessageCard> {
     return Container(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.only(right: 80),
+        padding: const EdgeInsets.only(right: 80),
         child: ClipPath(
           clipper: UpperNipMessageClipper(MessageType.receive),
           child: Container(
@@ -72,11 +72,12 @@ class _MessageCardState extends State<MessageCard> {
     return Container(
       alignment: Alignment.centerRight,
       child: Padding(
-        padding: EdgeInsets.only(left: 80, top: 20),
+        padding: const EdgeInsets.only(left: 80, top: 20),
         child: ClipPath(
           clipper: LowerNipMessageClipper(MessageType.send),
           child: Container(
-            padding: EdgeInsets.only(left: 20, top: 10, bottom: 25, right: 20),
+            padding:
+                const EdgeInsets.only(left: 20, top: 10, bottom: 25, right: 20),
             decoration: const BoxDecoration(
               color: Color(0xff0EBE7F),
             ),
@@ -113,7 +114,7 @@ class _MessageCardState extends State<MessageCard> {
               ),
               OptionItem(
                   icon: Icon(Icons.copy_all_rounded,
-                      color: Colors.black, size: 26),
+                      color: Colors.black, size: width * 0.04),
                   name: 'Copy Text',
                   onTap: () async {
                     await Clipboard.setData(ClipboardData(
@@ -130,7 +131,8 @@ class _MessageCardState extends State<MessageCard> {
                 ),
               if (isMe)
                 OptionItem(
-                    icon: Icon(Icons.delete, color: Colors.black, size: 26),
+                    icon: Icon(Icons.delete,
+                        color: Colors.black, size: width * 0.04),
                     name: 'Delete Message',
                     onTap: () async {
                       if (mounted) {

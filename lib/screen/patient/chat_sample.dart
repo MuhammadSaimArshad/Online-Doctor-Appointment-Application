@@ -46,7 +46,7 @@ class ChatSample extends StatelessWidget {
                 child: Text(
                   "Hello, Doctor are you there?",
                   style: TextStyle(
-                    fontSize: width * 0.04,
+                    fontSize: width * 0.03,
                     color: Colors.white,
                   ),
                 ),

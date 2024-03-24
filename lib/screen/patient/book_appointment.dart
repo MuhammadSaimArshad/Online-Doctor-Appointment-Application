@@ -128,7 +128,7 @@ class _CalenderState extends State<Calender> {
                   height: height * 0.016,
                 ),
                 SizedBox(
-                    height: height * 0.25,
+                    height: height * 0.4,
                     width: width,
                     child: date.day.toString() +
                                 date.month.toString() +

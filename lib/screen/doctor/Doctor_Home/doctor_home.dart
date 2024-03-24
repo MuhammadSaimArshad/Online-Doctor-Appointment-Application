@@ -1,5 +1,6 @@
 import 'package:doc_bookr/controller/Doctor/Doctor_Home_Controller.dart';
 import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/doctor/Medicine.dart';
 
 import 'package:doc_bookr/staticdata.dart';
 import 'package:flutter/material.dart';
@@ -127,7 +128,13 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MedicineHistory(),
+                              ));
+                        },
                         child: Container(
                           height: height * 0.15,
                           width: width * 0.3,

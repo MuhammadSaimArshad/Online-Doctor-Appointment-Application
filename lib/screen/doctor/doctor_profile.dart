@@ -62,15 +62,35 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
     width = MediaQuery.of(context).size.width;
     return GetBuilder<DoctorProfileController>(builder: (obj) {
       return Scaffold(
-        body: Container(
+        body: SizedBox(
           height: height,
           width: width,
           child: SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(
-                  height: height * 0.01,
+                  height: height * 0.05,
                 ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.02,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: width * 0.04,
+                      ),
+                    ),
+                    SizedBox(
+                      width: width * 0.03,
+                    ),
+                  ],
+                ),
+
                 Container(
                   height: height * 0.25,
                   width: width,

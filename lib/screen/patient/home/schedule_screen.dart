@@ -44,7 +44,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                     },
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      size: width * 0.05,
+                      size: width * 0.04,
                     ),
                   ),
                   SizedBox(
