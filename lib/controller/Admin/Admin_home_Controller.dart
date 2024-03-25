@@ -43,4 +43,20 @@ class AdminHomeController extends GetxController {
       rethrow;
     }
   }
+
+  int schedule = 0;
+
+  Future<int> getSchedule() async {
+    try {
+      QuerySnapshot snapshot = await FirebaseFirestore.instance
+          .collection("slots")
+          .where("isAvailable", isEqualTo: true)
+          .get();
+      schedule = snapshot.docs.length;
+      return schedule;
+    } catch (e) {
+      print("Error getting schedule: $e");
+      throw e;
+    }
+  }
 }
