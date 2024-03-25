@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/model/Appointment_Model.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
@@ -9,7 +9,7 @@ import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
 import 'package:doc_bookr/screen/doctor/message/chatscreen.dart';
 import 'package:doc_bookr/screen/patient/book_appointment.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

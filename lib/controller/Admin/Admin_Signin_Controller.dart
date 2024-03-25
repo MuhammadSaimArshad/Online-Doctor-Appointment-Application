@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doc_bookr/admin_satatic_data.dart';
+import 'package:doc_bookr/screen/static_data/admin_satatic_data.dart';
 import 'package:doc_bookr/model/Admin/Admin_Model.dart';
 
 import 'package:doc_bookr/screen/Admin/Admin_home_navbar.dart';

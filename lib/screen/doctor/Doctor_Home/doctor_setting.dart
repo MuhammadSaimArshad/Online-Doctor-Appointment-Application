@@ -2,10 +2,10 @@ import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
 
 import 'package:doc_bookr/screen/doctor/mypatient_screen.dart';
-import 'package:doc_bookr/screen/patient/Patient_About.dart';
+
 import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
 
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

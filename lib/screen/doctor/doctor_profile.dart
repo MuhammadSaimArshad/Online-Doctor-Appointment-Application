@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:doc_bookr/controller/Doctor/Doctor_Profile_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
-import 'package:doc_bookr/signup_screen.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/signup_login/signup_screen.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 class DoctorProfileScreen extends StatefulWidget {
   final DoctorModel? doctorModel;

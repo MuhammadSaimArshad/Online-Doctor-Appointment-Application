@@ -1,11 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:doc_bookr/controller/Doctor/Doctor_Chat_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/model/message.dart';
 import 'package:doc_bookr/screen/doctor/message/chatscreen.dart';
 import 'package:doc_bookr/screen/doctor/message/m_date_util.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

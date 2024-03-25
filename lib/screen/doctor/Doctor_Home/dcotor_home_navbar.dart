@@ -3,7 +3,7 @@ import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_message.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_setting.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

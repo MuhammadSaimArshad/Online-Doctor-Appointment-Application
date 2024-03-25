@@ -7,7 +7,7 @@ import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
-import 'package:doc_bookr/signin_screen.dart';
+import 'package:doc_bookr/screen/signup_login/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

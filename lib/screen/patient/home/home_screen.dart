@@ -1,9 +1,9 @@
 import 'package:doc_bookr/controller/Patient/Patient_Home_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:date_picker_timeline/date_picker_widget.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
 
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/material.dart';
 

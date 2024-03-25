@@ -4,11 +4,11 @@ import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
-import 'package:doc_bookr/onborading_screen1.dart';
+import 'package:doc_bookr/screen/onborading_screen/onborading_screen1.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
 
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 // import 'package:doctor_appointment_app/screens/massage/notification_service.dart';

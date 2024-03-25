@@ -1,4 +1,4 @@
-import 'package:doc_bookr/splash_screen.dart';
+import 'package:doc_bookr/screen/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,5 +1,5 @@
 import 'package:doc_bookr/controller/Doctor/Doctor_Home_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

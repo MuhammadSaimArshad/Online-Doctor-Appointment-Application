@@ -11,7 +11,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:doc_bookr/controller/Patient/Patient_Profile_Controller.dart';
 
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 class Profilescreen extends StatefulWidget {
   final PatientModel? patientModel;

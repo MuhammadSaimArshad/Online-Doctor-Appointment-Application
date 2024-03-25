@@ -1,6 +1,6 @@
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/material.dart';
 

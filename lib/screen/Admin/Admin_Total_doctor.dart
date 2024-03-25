@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/controller/Admin/Admin_Total_Doc_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';

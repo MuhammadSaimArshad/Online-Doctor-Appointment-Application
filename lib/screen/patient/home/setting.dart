@@ -6,7 +6,7 @@ import 'package:doc_bookr/screen/patient/notification_screen.dart';
 import 'package:doc_bookr/screen/patient/profile_screen.dart';
 import 'package:doc_bookr/screen/patient/Rating.dart';
 
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

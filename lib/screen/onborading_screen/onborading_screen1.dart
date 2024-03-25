@@ -1,5 +1,5 @@
-import 'package:doc_bookr/signin_screen.dart';
-import 'package:doc_bookr/signup_screen.dart';
+import 'package:doc_bookr/screen/signup_login/signin_screen.dart';
+import 'package:doc_bookr/screen/signup_login/signup_screen.dart';
 
 import 'package:flutter/material.dart';
 

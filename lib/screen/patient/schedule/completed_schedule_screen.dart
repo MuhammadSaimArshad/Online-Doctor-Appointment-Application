@@ -1,8 +1,8 @@
 // ignore_for_file: override_on_non_overriding_member
 
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/model/Appointment_Model.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/material.dart';
 

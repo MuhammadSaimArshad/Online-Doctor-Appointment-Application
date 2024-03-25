@@ -1,6 +1,6 @@
 import 'package:doc_bookr/controller/Admin/Admin_Add_Doc_Pati_Controller.dart';
 
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';

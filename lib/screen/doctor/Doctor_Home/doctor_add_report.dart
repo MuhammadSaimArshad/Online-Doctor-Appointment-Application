@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:doc_bookr/controller/Doctor/Doctor_Schedule_Controller.dart';
 import 'package:doc_bookr/model/Appointment_Model.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

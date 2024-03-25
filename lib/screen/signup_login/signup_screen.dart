@@ -1,7 +1,7 @@
 import 'package:doc_bookr/controller/Signup_Controller.dart';
-import 'package:doc_bookr/customwidgets.dart';
+import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
-import 'package:doc_bookr/signin_screen.dart';
+import 'package:doc_bookr/screen/signup_login/signin_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

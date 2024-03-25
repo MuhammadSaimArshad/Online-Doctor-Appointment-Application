@@ -6,7 +6,7 @@ import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
 
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
-import 'package:doc_bookr/staticdata.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
