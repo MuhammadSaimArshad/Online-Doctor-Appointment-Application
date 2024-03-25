@@ -13,6 +13,7 @@ class AdminSignupController extends GetxController {
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  bool passToggle = true;
   sinup(context) {
     var firestore = FirebaseFirestore.instance;
     var uuid = Uuid();

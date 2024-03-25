@@ -4,7 +4,7 @@ import 'package:doc_bookr/screen/Admin/Admin_Signup_Login/admin_signin.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:flutter/cupertino.dart';
 
 class AdminSignup extends StatefulWidget {
   const AdminSignup({super.key});
@@ -42,151 +42,137 @@ class _AdminSignupState extends State<AdminSignup> {
                 colors: [
                   Color(0xff0EBE4f),
                   Color(0xff0EBE7F),
+                  Color(0xffffffff),
                 ],
               ),
             ),
             child: Column(
               children: [
-                // SizedBox(
-                //   height: height * 0.35,
-                //   width: width,
-                //   child: Stack(
-                //     children: [
-                //       Container(
-                //         height: height * 0.35,
-                //         width: width,
-                //         decoration: BoxDecoration(
-                //             color: Color(0xff0EBE7F),
-                //             borderRadius: BorderRadius.only(
-                //                 bottomLeft: Radius.circular(width * 0.05),
-                //                 bottomRight: Radius.circular(width * 0.05))),
-                //       ),
-                //       Container(
-                //         height: height * 0.3,
-                //         width: width,
-                //         decoration: BoxDecoration(
-                //             color: Color.fromARGB(255, 59, 219, 163),
-                //             borderRadius: BorderRadius.only(
-                //                 bottomLeft: Radius.circular(width * 0.05),
-                //                 bottomRight: Radius.circular(width * 0.05))),
-                //       ),
-                //       Container(
-                //         height: height * 0.25,
-                //         width: width,
-                //         decoration: BoxDecoration(
-                //             color: Color(0xff0EBE7F),
-                //             borderRadius: BorderRadius.only(
-                //                 bottomLeft: Radius.circular(width * 0.05),
-                //                 bottomRight: Radius.circular(width * 0.05))),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-
                 SizedBox(
+                  height: height * 0.02,
+                ),
+                Container(
                   height: height * 0.3,
+                  width: width * 0.8,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              "images/play_store_512-removebg-preview.png"))),
                 ),
                 SizedBox(
                   height: height * 0.02,
                 ),
-                Form(
-                  key: formkey,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: TextFormField(
-                          controller: obj.name,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    controller: obj.name,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: width * 0.01,
+                        ),
+                      ),
+                      label: Text(
+                        " Name",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person_outline,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter Your  Name';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    controller: obj.email,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.white, width: width * 0.01)),
+                      label: Text(
+                        "Email Address",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: TextFormField(
+                    obscureText: obj.passToggle ? true : false,
+                    controller: obj.password,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      label: Text(
+                        "Enter Password",
+                        style: TextStyle(
+                            color: Colors.white, fontSize: width * 0.035),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                        size: width * 0.05,
+                      ),
+                      suffixIcon: InkWell(
+                        onTap: () {
+                          if (obj.passToggle == true) {
+                            obj.passToggle = false;
+                          } else {
+                            obj.passToggle = true;
+                          }
+                          obj.update();
+                        },
+                        child: obj.passToggle
+                            ? const Icon(
+                                CupertinoIcons.eye_slash_fill,
                                 color: Colors.white,
-                                width: width * 0.01,
+                              )
+                            : const Icon(
+                                CupertinoIcons.eye_fill,
+                                color: Colors.white,
                               ),
-                            ),
-                            label: Text(
-                              " Name",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: width * 0.035),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.person_outline,
-                              color: Colors.white,
-                              size: width * 0.05,
-                            ),
-                          ),
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please Enter Your  Name';
-                            }
-                            return null;
-                          },
-                        ),
                       ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: TextFormField(
-                          controller: obj.email,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.white, width: width * 0.01)),
-                            label: Text(
-                              "Email Address",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: width * 0.035),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: Colors.white,
-                              size: width * 0.05,
-                            ),
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                      ),
-                      SizedBox(
-                        height: height * 0.02,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: TextFormField(
-                          controller: obj.password,
-                          decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
-                            label: Text(
-                              "Enter Password",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: width * 0.035),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.lock,
-                              color: Colors.white,
-                              size: width * 0.05,
-                            ),
-                          ),
-                          obscuringCharacter: "*",
-                          validator: (String? value) {
-                            RegExp regex = RegExp(r'^(?=.*?[!@#\$&*~]).{4,}$');
-                            if (value!.isEmpty) {
-                              return 'Please enter Password';
-                            } else {
-                              if (value.length < 5) {
-                                return ("Password Must be more than 5 characters");
-                              } else if (!regex.hasMatch(value)) {
-                                return ("Password should contain Special character or number");
-                              } else {
-                                return null;
-                              }
-                            }
-                          },
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                      ),
-                    ],
+                    ),
+                    obscuringCharacter: "*",
+                    validator: (String? value) {
+                      RegExp regex = RegExp(r'^(?=.*?[!@#\$&*~]).{4,}$');
+                      if (value!.isEmpty) {
+                        return 'Please enter Password';
+                      } else {
+                        if (value.length < 5) {
+                          return ("Password Must be more than 5 characters");
+                        } else if (!regex.hasMatch(value)) {
+                          return ("Password should contain Special character or number");
+                        } else {
+                          return null;
+                        }
+                      }
+                    },
+                    keyboardType: TextInputType.emailAddress,
                   ),
                 ),
                 SizedBox(

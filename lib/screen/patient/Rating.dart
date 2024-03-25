@@ -155,23 +155,18 @@ class _RatingScreenState extends State<RatingScreen> {
                                                   fontSize: width * 0.04,
                                                   fontWeight: FontWeight.bold),
                                             ),
-
-                                            // RatingBar.builder(
-                                            //   initialRating: model?.rating ?? 0,
-                                            //   minRating: 0,
-                                            //   direction: Axis.horizontal,
-                                            //   allowHalfRating: true,
-                                            //   itemCount: 5,
-                                            //   itemSize: 30,
-                                            //   itemBuilder: (context, _) => Icon(
-                                            //     Icons.star,
-                                            //     color: Colors.amber,
-                                            //   ),
-                                            //   onRatingUpdate: (rating) {
-                                            //     print(rating);
-                                            //     // You can do something with the new rating value here
-                                            //   },
-                                            // ),
+                                            RatingBar.builder(
+                                              initialRating: model?.rating ?? 0,
+                                              direction: Axis.horizontal,
+                                              itemCount: 5,
+                                              itemSize: 30,
+                                              unratedColor: Colors.grey,
+                                              itemBuilder: (context, _) => Icon(
+                                                Icons.star,
+                                                color: Color(0xff0EBE7F),
+                                              ),
+                                              onRatingUpdate: (double value) {},
+                                            ),
                                           ],
                                         ),
                                         Padding(

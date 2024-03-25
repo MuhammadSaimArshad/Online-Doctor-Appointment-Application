@@ -11,6 +11,8 @@ class AdminLoginController extends GetxController {
   static AdminLoginController get to => Get.find();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
+  bool passToggle = true;
   List<AdminModel> userList = [];
   login(context) async {
     var firestore = FirebaseFirestore.instance;

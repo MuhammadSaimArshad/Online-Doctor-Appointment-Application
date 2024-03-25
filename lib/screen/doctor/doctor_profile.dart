@@ -77,13 +77,13 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: width * 0.02,
-                        spreadRadius: width * 0.001,
-                      ),
-                    ],
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //     color: Colors.black12,
+                    //     blurRadius: width * 0.02,
+                    //     spreadRadius: width * 0.001,
+                    //   ),
+                    // ],
                   ),
                   child: Row(
                     children: [
@@ -226,6 +226,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                         colors: [
                           Color(0xff0EBE4f),
                           Color(0xff0EBE7F),
+                          Color(0xffffffff),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(width * 0.05),

@@ -260,6 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 colors: [
                                   Color(0xff0EBE4f),
                                   Color(0xff0EBE7F),
+                                  Color(0xffffffff),
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(width * 0.05),

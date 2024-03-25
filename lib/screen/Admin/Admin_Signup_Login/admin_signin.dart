@@ -3,6 +3,7 @@ import 'package:doc_bookr/controller/Admin/Admin_Signin_Controller.dart';
 import 'package:doc_bookr/screen/Admin/Admin_Signup_Login/admin_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/cupertino.dart';
 
 class AdminSignIn extends StatefulWidget {
   const AdminSignIn({super.key});
@@ -36,55 +37,25 @@ class _AdminSignInState extends State<AdminSignIn> {
                   colors: [
                     Color(0xff0EBE4f),
                     Color(0xff0EBE7F),
+                    Color(0xffffffff),
                   ],
                 ),
               ),
               child: Column(
                 children: [
-                  // SizedBox(
-                  //   height: height * 0.35,
-                  //   width: width,
-                  //   child: Stack(
-                  //     children: [
-                  //       Container(
-                  //         height: height * 0.35,
-                  //         width: width,
-                  //         decoration: BoxDecoration(
-                  //             color: Color(0xff0EBE7F),
-                  //             borderRadius: BorderRadius.only(
-                  //                 bottomLeft: Radius.circular(width * 0.05),
-                  //                 bottomRight: Radius.circular(width * 0.05))),
-                  //       ),
-                  //       Container(
-                  //         height: height * 0.3,
-                  //         width: width,
-                  //         decoration: BoxDecoration(
-                  //             color: Color.fromARGB(255, 59, 219, 163),
-                  //             borderRadius: BorderRadius.only(
-                  //                 bottomLeft: Radius.circular(width * 0.05),
-                  //                 bottomRight: Radius.circular(width * 0.05))),
-                  //       ),
-                  //       Container(
-                  //         height: height * 0.25,
-                  //         width: width,
-                  //         decoration: BoxDecoration(
-                  //             color: Color(0xff0EBE7F),
-                  //             borderRadius: BorderRadius.only(
-                  //                 bottomLeft: Radius.circular(width * 0.05),
-                  //                 bottomRight: Radius.circular(width * 0.05))),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // Container(
-                  //   height: height * 0.2,
-                  //   width: width * 0.6,
-                  //   decoration: BoxDecoration(
-                  //       image: DecorationImage(
-                  //           image: AssetImage("images/Appicon.png"))),
-                  // ),
                   SizedBox(
+                    height: height * 0.02,
+                  ),
+                  Container(
                     height: height * 0.3,
+                    width: width * 0.8,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "images/play_store_512-removebg-preview.png"))),
+                  ),
+                  SizedBox(
+                    height: height * 0.02,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12),
@@ -112,6 +83,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                   Padding(
                     padding: const EdgeInsets.all(12),
                     child: TextFormField(
+                      obscureText: obj.passToggle ? true : false,
                       controller: obj.password,
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
@@ -124,6 +96,25 @@ class _AdminSignInState extends State<AdminSignIn> {
                           Icons.lock,
                           color: Colors.white,
                           size: width * 0.05,
+                        ),
+                        suffixIcon: InkWell(
+                          onTap: () {
+                            if (obj.passToggle == true) {
+                              obj.passToggle = false;
+                            } else {
+                              obj.passToggle = true;
+                            }
+                            obj.update();
+                          },
+                          child: obj.passToggle
+                              ? const Icon(
+                                  CupertinoIcons.eye_slash_fill,
+                                  color: Colors.white,
+                                )
+                              : const Icon(
+                                  CupertinoIcons.eye_fill,
+                                  color: Colors.white,
+                                ),
                         ),
                       ),
                       obscuringCharacter: "*",
@@ -144,7 +135,6 @@ class _AdminSignInState extends State<AdminSignIn> {
                       keyboardType: TextInputType.emailAddress,
                     ),
                   ),
-
                   SizedBox(
                     height: height * 0.03,
                   ),
