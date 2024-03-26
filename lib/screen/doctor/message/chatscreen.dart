@@ -1,5 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doc_bookr/controller/Chat_Controller.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
+import 'package:doc_bookr/model/Patient/Patient_Model.dart';
+import 'package:doc_bookr/screen/doctor/message/audio_call.dart';
 import 'package:doc_bookr/screen/doctor/message/message_card.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +18,10 @@ class ChatScreen extends StatefulWidget {
   final String currentimage;
   final String tokken;
   final String currentname;
+  DoctorModel? dmodel;
+  PatientModel? pModel;
 
-  const ChatScreen({
+  ChatScreen({
     Key? key,
     required this.image,
     required this.name,
@@ -25,6 +30,8 @@ class ChatScreen extends StatefulWidget {
     required this.currentimage,
     required this.tokken,
     required this.currentname,
+    required this.dmodel,
+    required this.pModel,
   }) : super(key: key);
 
   @override
@@ -111,29 +118,43 @@ class _ChatScreenState extends State<ChatScreen> {
                     ],
                   ),
                 ),
-                // actions: [
-                //   Icon(
-                //     Icons.call,
-                //     color: Colors.white,
-                //     size: 25,
-                //   ),
-                //   SizedBox(
-                //     width: 8,
-                //   ),
-                //   Icon(
-                //     Icons.video_call,
-                //     color: Colors.white,
-                //     size: 25,
-                //   ),
-                //   SizedBox(
-                //     width: 8,
-                //   ),
-                //   Icon(
-                //     Icons.more_vert,
-                //     color: Colors.white,
-                //     size: 25,
-                //   ),
-                // ],
+                actions: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AudioCall(
+                              roomId: '',
+                              callstatus: false,
+                              profileModel: widget.dmodel!,
+                              userModel: widget.pModel!,
+                            ),
+                          ));
+                    },
+                    child: Icon(
+                      Icons.call,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Icon(
+                    Icons.video_call,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ],
               ),
             ),
             body: SizedBox(

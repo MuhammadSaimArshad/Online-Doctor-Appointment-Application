@@ -284,7 +284,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: TextFormField(
-                    controller: obj.specilest,
+                    controller: obj.experience,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text("Experience In Year"),

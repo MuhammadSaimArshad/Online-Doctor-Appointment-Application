@@ -103,6 +103,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => ChatScreen(
+                                  pModel: StaticData.patientmodel,
+                                  dmodel: widget.model,
                                   image: widget.model.image,
                                   name: widget.model.name,
                                   id: widget.model.id,

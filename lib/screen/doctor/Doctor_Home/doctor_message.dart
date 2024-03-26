@@ -143,6 +143,8 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) => ChatScreen(
+                                                dmodel: StaticData.doctorModel,
+                                                pModel: obj.patientList[index],
                                                 image: obj
                                                     .patientList[index].image,
                                                 name:
@@ -198,6 +200,8 @@ class _DoctorMessagesScreenState extends State<DoctorMessagesScreen> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) => ChatScreen(
+                                                dmodel: StaticData.doctorModel,
+                                                pModel: obj.patientList[index],
                                                 image: obj
                                                     .patientList[index].image,
                                                 name:

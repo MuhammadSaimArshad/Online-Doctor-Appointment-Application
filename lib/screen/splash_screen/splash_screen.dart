@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
+import 'package:doc_bookr/screen/doctor/message/notification_service.dart';
 
 import 'package:doc_bookr/screen/onborading_screen/onborading_screen1.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
@@ -11,7 +12,7 @@ import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-// import 'package:doctor_appointment_app/screens/massage/notification_service.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
@@ -80,42 +81,42 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     // });
 
     super.initState();
-    // FirebaseMessaging.instance.getInitialMessage().then(
-    //   (message) {
-    //     if (message != null) {
-    //       print(message);
-    //     }
-    //   },
-    // );
-    // FirebaseMessaging.onMessage.listen(
-    //   (message) {
-    //     print("123231${message.data}");
-    //     if (message.notification != null) {
-    //       // LocalNotificationService.createAndDisplayChatNotification(message);
-    //     }
-    //   },
-    // );
-    // FirebaseMessaging.onMessageOpenedApp.listen(
-    //   (message) {
-    //     print('app open on click');
-    //     print(message.notification!.body);
-    //     print(message.notification!.title);
-    //     print(message.data);
+    FirebaseMessaging.instance.getInitialMessage().then(
+      (message) {
+        if (message != null) {
+          print(message);
+        }
+      },
+    );
+    FirebaseMessaging.onMessage.listen(
+      (message) {
+        print("123231${message.data}");
+        if (message.notification != null) {
+          LocalNotificationService.createAndDisplayChatNotification(message);
+        }
+      },
+    );
+    FirebaseMessaging.onMessageOpenedApp.listen(
+      (message) {
+        print('app open on click');
+        print(message.notification!.body);
+        print(message.notification!.title);
+        print(message.data);
 
-    //     if (message.notification != null) {}
-    //   },
-    // );
+        if (message.notification != null) {}
+      },
+    );
   }
 
   getToken() {
-    // messaging = FirebaseMessaging.instance;
-    // messaging.getToken().then((value) {
-    //   if (value != null) {
-    //     StaticData.token = value;
-    //   }
+    messaging = FirebaseMessaging.instance;
+    messaging.getToken().then((value) {
+      if (value != null) {
+        StaticData.token = value;
+      }
 
-    //   print(value);
-    // });
+      print(value);
+    });
   }
 
   Future<bool?> getDataFromSF() async {

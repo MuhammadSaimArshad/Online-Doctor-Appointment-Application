@@ -8,6 +8,7 @@ import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
 import 'package:doc_bookr/screen/signup_login/signin_screen.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -22,7 +23,7 @@ class SignupController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   String dropdown = "Select Category";
-  TextEditingController specilest = TextEditingController();
+  TextEditingController experience = TextEditingController();
   TextEditingController about = TextEditingController();
   TextEditingController address = TextEditingController();
   TextEditingController bio = TextEditingController();
@@ -76,7 +77,7 @@ class SignupController extends GetxController {
           address: address.text,
           email: email.text,
           name: name.text,
-          token: "",
+          token: StaticData.token,
           password: password.text,
           id: id,
           image: 'https://cdn-icons-png.flaticon.com/512/194/194915.png',
@@ -84,7 +85,7 @@ class SignupController extends GetxController {
           audiocallStatus: false,
           about: about.text,
           bio: bio.text,
-          specialty: specilest.text,
+          experience: experience.text,
           callStatus: false,
           roomId: '',
           type: '',
@@ -220,8 +221,7 @@ class SignupController extends GetxController {
         email: email.text,
         doctorList: [],
         name: name.text,
-        token: "",
-        // StaticData.token,
+        token: StaticData.token,
         password: password.text,
         id: id,
         image:
@@ -270,7 +270,7 @@ class SignupController extends GetxController {
     phonenumber.clear();
     email.clear();
     password.clear();
-    specilest.clear();
+    experience.clear();
     about.clear();
     address.clear();
     bio.clear();

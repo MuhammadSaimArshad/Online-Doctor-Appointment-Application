@@ -158,7 +158,7 @@ class StaticData {
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'authorization':
-          'key=AAAAWEMSdOo:APA91bH0q5ylewTPC05vGyz0EIvjh_LKjZqVKxhIMtN5GIezWv2O3Qi267p181gumdX_jBLSv-rxwOMrzNsjeXiUrQd2Zdp7X7wbgX2dnVwB0TyOMmeRoJyB63aGsvKJpmM3CIjez2Py'
+          'key=AAAAoAfTw3Q:APA91bETsrYX-hrnD0jwK_fWSPXPhWcK7RwXWX2FkT0jx_NYK3XbOzPZVtrkBYE1xLTULiGXtj2Xdj1QVVguDXBpRYQUmVXrM2UiPww7hGP-TbimiP9bHp6-jekwxigV8eCgB_f0VIBo'
     };
     response = await http.post(Uri.parse('https://fcm.googleapis.com/fcm/send'),
         headers: headers, body: jsonEncode(body));

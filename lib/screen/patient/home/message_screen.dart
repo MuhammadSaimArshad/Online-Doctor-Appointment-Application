@@ -135,6 +135,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => ChatScreen(
+                                            pModel: StaticData.patientmodel,
+                                            dmodel: obj.doctorlist[index],
                                             image: obj.doctorlist[index].image,
                                             name: obj.doctorlist[index].name,
                                             id: obj.doctorlist[index].id,
@@ -180,6 +182,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => ChatScreen(
+                                            pModel: StaticData.patientmodel,
+                                            dmodel: obj.doctorlist[index],
                                             image: obj.doctorlist[index].image,
                                             name: obj.doctorlist[index].name,
                                             id: obj.doctorlist[index].id,

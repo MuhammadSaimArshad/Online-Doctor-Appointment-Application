@@ -2,8 +2,6 @@ import 'package:doc_bookr/screen/static_data/admin_satatic_data.dart';
 import 'package:doc_bookr/controller/Admin/Admin_home_Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({super.key});

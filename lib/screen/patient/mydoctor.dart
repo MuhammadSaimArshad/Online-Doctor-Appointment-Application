@@ -216,7 +216,7 @@ class _MyDoctorState extends State<MyDoctor> {
                                                     width: width * 0.01,
                                                   ),
                                                   Text(
-                                                      "Year.${doctor!.specialty}",
+                                                      "Year.${doctor!.experience}",
                                                       style: const TextStyle(
                                                           fontWeight:
                                                               FontWeight.bold)),
@@ -373,7 +373,7 @@ class _MyDoctorState extends State<MyDoctor> {
                                                   width: width * 0.01,
                                                 ),
                                                 Text(
-                                                    "Year.${doctor!.specialty}",
+                                                    "Year.${doctor!.experience}",
                                                     style: const TextStyle(
                                                         fontWeight:
                                                             FontWeight.bold)),

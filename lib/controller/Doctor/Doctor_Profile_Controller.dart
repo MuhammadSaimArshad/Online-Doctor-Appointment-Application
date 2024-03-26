@@ -53,7 +53,7 @@ class DoctorProfileController extends GetxController {
     image = doctorModel.image;
     phonenumber.text = doctorModel.phonenumber;
     address.text = doctorModel.address;
-    specilest.text = doctorModel.specialty;
+    specilest.text = doctorModel.experience;
     bio.text = doctorModel.bio;
     about.text = doctorModel.about;
     startTime = doctorModel.starttime;

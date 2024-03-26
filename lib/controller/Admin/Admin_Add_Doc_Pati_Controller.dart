@@ -83,7 +83,7 @@ class AdminaddController extends GetxController {
           audiocallStatus: false,
           about: about.text,
           bio: bio.text,
-          specialty: specilest.text,
+          experience: specilest.text,
           callStatus: false,
           roomId: '',
           type: '',

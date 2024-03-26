@@ -205,7 +205,7 @@ class _DoctorlistState extends State<Doctorlist> {
                                             SizedBox(
                                               width: width * 0.01,
                                             ),
-                                            Text("Year.${doctor!.specialty}",
+                                            Text("Year.${doctor!.experience}",
                                                 style: const TextStyle(
                                                     fontWeight:
                                                         FontWeight.bold)),

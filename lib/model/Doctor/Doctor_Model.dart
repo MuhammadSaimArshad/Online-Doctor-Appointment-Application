@@ -17,7 +17,7 @@ class DoctorModel {
   String status;
   String roomId;
   String bio;
-  String specialty;
+  String experience;
   String starttime;
   String endtime;
   String about;
@@ -28,7 +28,6 @@ class DoctorModel {
   List<String>? patientList;
   double fee;
   String category;
-
   DoctorModel({
     required this.id,
     required this.name,
@@ -43,7 +42,7 @@ class DoctorModel {
     required this.status,
     required this.roomId,
     required this.bio,
-    required this.specialty,
+    required this.experience,
     required this.starttime,
     required this.endtime,
     required this.about,
@@ -70,7 +69,7 @@ class DoctorModel {
     String? status,
     String? roomId,
     String? bio,
-    String? specialty,
+    String? experience,
     String? starttime,
     String? endtime,
     String? about,
@@ -96,7 +95,7 @@ class DoctorModel {
       status: status ?? this.status,
       roomId: roomId ?? this.roomId,
       bio: bio ?? this.bio,
-      specialty: specialty ?? this.specialty,
+      experience: experience ?? this.experience,
       starttime: starttime ?? this.starttime,
       endtime: endtime ?? this.endtime,
       about: about ?? this.about,
@@ -126,7 +125,7 @@ class DoctorModel {
       'status': status,
       'roomId': roomId,
       'bio': bio,
-      'specialty': specialty,
+      'experience': experience,
       'starttime': starttime,
       'endtime': endtime,
       'about': about,
@@ -155,7 +154,7 @@ class DoctorModel {
       status: map['status'] as String,
       roomId: map['roomId'] as String,
       bio: map['bio'] as String,
-      specialty: map['specialty'] as String,
+      experience: map['experience'] as String,
       starttime: map['starttime'] as String,
       endtime: map['endtime'] as String,
       about: map['about'] as String,
@@ -178,7 +177,7 @@ class DoctorModel {
 
   @override
   String toString() {
-    return 'DoctorModel(id: $id, name: $name, phonenumber: $phonenumber, email: $email, password: $password, token: $token, image: $image, audiocallStatus: $audiocallStatus, callStatus: $callStatus, type: $type, status: $status, roomId: $roomId, bio: $bio, specialty: $specialty, starttime: $starttime, endtime: $endtime, about: $about, address: $address, maxAppointmentDuration: $maxAppointmentDuration, totalrating: $totalrating, ratingperson: $ratingperson, patientList: $patientList, fee: $fee, category: $category)';
+    return 'DoctorModel(id: $id, name: $name, phonenumber: $phonenumber, email: $email, password: $password, token: $token, image: $image, audiocallStatus: $audiocallStatus, callStatus: $callStatus, type: $type, status: $status, roomId: $roomId, bio: $bio, experience: $experience, starttime: $starttime, endtime: $endtime, about: $about, address: $address, maxAppointmentDuration: $maxAppointmentDuration, totalrating: $totalrating, ratingperson: $ratingperson, patientList: $patientList, fee: $fee, category: $category)';
   }
 
   @override
@@ -198,7 +197,7 @@ class DoctorModel {
         other.status == status &&
         other.roomId == roomId &&
         other.bio == bio &&
-        other.specialty == specialty &&
+        other.experience == experience &&
         other.starttime == starttime &&
         other.endtime == endtime &&
         other.about == about &&
@@ -226,7 +225,7 @@ class DoctorModel {
         status.hashCode ^
         roomId.hashCode ^
         bio.hashCode ^
-        specialty.hashCode ^
+        experience.hashCode ^
         starttime.hashCode ^
         endtime.hashCode ^
         about.hashCode ^
