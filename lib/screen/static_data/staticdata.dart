@@ -149,7 +149,7 @@ class StaticData {
         "title": title,
         "android_channel_id": "pushnotificationapp",
         "sound": true,
-        // "image_url": image,
+        // "image_url": " images/app.png,",
       },
       "data": {
         "source": "chat",

@@ -260,7 +260,3 @@ class CustomWidget {
     );
   }
 }
-
-class Apptheme {
-  static var primary = Color(0xff0EBE7F);
-}

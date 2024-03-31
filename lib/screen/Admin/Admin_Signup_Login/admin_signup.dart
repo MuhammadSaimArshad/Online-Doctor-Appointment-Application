@@ -184,7 +184,7 @@ class _AdminSignupState extends State<AdminSignup> {
                   },
                   child: Container(
                     height: height * 0.07,
-                    width: width * 0.9,
+                    width: width * 0.92,
                     decoration: BoxDecoration(
                       border:
                           Border.all(width: width * 0.004, color: Colors.white),
@@ -225,7 +225,7 @@ class _AdminSignupState extends State<AdminSignup> {
                             ));
                       },
                       child: Text(
-                        "SignIn",
+                        "Login",
                         style: TextStyle(
                           fontSize: width * 0.04,
                           fontWeight: FontWeight.bold,

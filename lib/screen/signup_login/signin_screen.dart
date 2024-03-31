@@ -224,20 +224,23 @@ class _SigninScreenState extends State<SigninScreen> {
                           ? obj.signInWithEmailAndPassword(context)
                           : obj.signInWithEmailAndPassword1(context);
                     },
-                    child: Container(
-                      height: height * 0.07,
-                      width: width * 0.9,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(width * 0.02),
-                        color: const Color(0xff0EBE7F),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "SignIn",
-                          style: TextStyle(
-                              fontSize: width * 0.04,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                    child: Padding(
+                      padding: EdgeInsets.all(6),
+                      child: Container(
+                        height: height * 0.07,
+                        width: width * 0.92,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(width * 0.02),
+                          color: const Color(0xff0EBE7F),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
                         ),
                       ),
                     ),
@@ -261,10 +264,8 @@ class _SigninScreenState extends State<SigninScreen> {
                     height: height * 0.01,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        width: width * 0.05,
-                      ),
                       Text(
                         "Don't have any account?",
                         style: TextStyle(
@@ -273,7 +274,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: width * 0.05,
+                        width: width * 0.02,
                       ),
                       InkWell(
                         onTap: () {
@@ -284,7 +285,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               ));
                         },
                         child: Text(
-                          "Create Account",
+                          "SignUp",
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold,

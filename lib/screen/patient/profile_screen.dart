@@ -321,7 +321,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                     },
                     child: Container(
                       height: height * 0.07,
-                      width: width * 0.9,
+                      width: width * 0.93,
                       decoration: BoxDecoration(
                           color: Color(0xff0EBE7F),
                           borderRadius: BorderRadius.circular(width * 0.03)),

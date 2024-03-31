@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
+import 'package:doc_bookr/screen/AppTheme/AppTheme.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -628,7 +629,7 @@ class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
                   },
                   child: Container(
                     height: height * 0.07,
-                    width: width * 0.9,
+                    width: width * 0.92,
                     decoration: BoxDecoration(
                         color: const Color(0xff0EBE7F),
                         borderRadius: BorderRadius.circular(width * 0.03)),

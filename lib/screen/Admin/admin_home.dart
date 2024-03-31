@@ -19,7 +19,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
     AdminHomeController.to.getTotalDoctors();
     AdminHomeController.to.getTotalAppointments();
     AdminHomeController.to.getTotalPatients();
-    AdminHomeController.to.getSchedule();
+    AdminHomeController.to.getTotalslot();
 
     // TODO: implement initState
     super.initState();
@@ -220,7 +220,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              "${obj.schedule}",
+                              "${obj.totalslot}",
                               style: TextStyle(
                                   fontSize: width * 0.05,
                                   fontWeight: FontWeight.bold),

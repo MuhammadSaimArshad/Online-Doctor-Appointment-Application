@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
 
 import 'package:get/get.dart';
 
@@ -7,6 +8,7 @@ class AdminHomeController extends GetxController {
   int totalDoctors = 0;
   int totalPatients = 0;
   int totalAppointments = 0;
+  int totalslot = 0;
 
   Future<int> getTotalDoctors() async {
     try {
@@ -34,9 +36,10 @@ class AdminHomeController extends GetxController {
 
   Future<int> getTotalAppointments() async {
     try {
-      QuerySnapshot snapshot =
+      QuerySnapshot<Map<String, dynamic>> snapshot =
           await FirebaseFirestore.instance.collection("appointment").get();
       totalAppointments = snapshot.docs.length;
+
       return totalAppointments;
     } catch (e) {
       print("Error getting total appointments: $e");
@@ -44,19 +47,27 @@ class AdminHomeController extends GetxController {
     }
   }
 
-  int schedule = 0;
-
-  Future<int> getSchedule() async {
+  Future<int> getTotalslot() async {
     try {
-      QuerySnapshot snapshot = await FirebaseFirestore.instance
+      QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+          .instance
           .collection("slots")
-          .where("isAvailable", isEqualTo: true)
+          .doc()
+          .collection("slots")
           .get();
-      schedule = snapshot.docs.length;
-      return schedule;
+      int totalslot = 0;
+      snapshot.docs.forEach((element) {
+        DoctorSlot model = DoctorSlot.fromMap(element.data());
+        if (model.isAvailable == true) {
+          totalslot = totalslot + 1;
+          update();
+        }
+      });
+
+      return totalslot;
     } catch (e) {
-      print("Error getting schedule: $e");
-      throw e;
+      print("Error getting total slot: $e");
+      rethrow;
     }
   }
 }

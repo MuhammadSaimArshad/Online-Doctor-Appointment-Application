@@ -1,4 +1,5 @@
 import 'package:doc_bookr/controller/Signup_Controller.dart';
+import 'package:doc_bookr/screen/AppTheme/AppTheme.dart';
 import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/screen/signup_login/signin_screen.dart';
@@ -535,9 +536,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                       ),
                     )),
-              SizedBox(
-                height: height * 0.001,
-              ),
+
               InkWell(
                 onTap: () {
                   obj.index == 0
@@ -550,7 +549,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   //     ));
                 },
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(8),
                   child: Container(
                     height: height * 0.07,
                     width: width * 0.9,
@@ -593,7 +592,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           ));
                     },
                     child: Text(
-                      "Sign In",
+                      "Login",
                       style: TextStyle(
                         fontSize: width * 0.04,
                         fontWeight: FontWeight.bold,
@@ -602,6 +601,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                 ],
+              ),
+
+              SizedBox(
+                height: height * 0.02,
               ),
             ],
           ),

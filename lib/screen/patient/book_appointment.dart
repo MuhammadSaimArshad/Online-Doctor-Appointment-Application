@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_picker_timeline/date_picker_widget.dart';
+import 'package:doc_bookr/screen/AppTheme/AppTheme.dart';
 import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/model/Appointment_Model.dart';
@@ -283,8 +284,8 @@ class _CalenderState extends State<Calender> {
                     }
                   },
                   child: Container(
-                    height: height * 0.06,
-                    width: width * 0.75,
+                    height: height * 0.07,
+                    width: width * 0.9,
                     decoration: BoxDecoration(
                         color: Apptheme.primary,
                         borderRadius: BorderRadius.circular(7)),

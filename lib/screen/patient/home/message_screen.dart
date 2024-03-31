@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:doc_bookr/controller/Patient/Patient_Chat_Controller.dart';
-import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
+import 'package:doc_bookr/screen/AppTheme/AppTheme.dart';
+
 import 'package:doc_bookr/model/message.dart';
 import 'package:doc_bookr/screen/doctor/message/chatscreen.dart';
 import 'package:doc_bookr/screen/doctor/message/m_date_util.dart';

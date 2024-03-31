@@ -1,3 +1,5 @@
+import 'package:doc_bookr/screen/AppTheme/AppTheme.dart';
+
 import 'package:doc_bookr/screen/doctor/message/notification_service.dart';
 import 'package:doc_bookr/screen/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,12 +14,8 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
   LocalNotificationService.initialize();
   runApp(const MyApp());
-  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-  //     statusBarColor: Color(0xff0EBE7F), statusBarBrightness: Brightness.dark));
-  // WidgetsFlutterBinding.ensureInitialized();
-  // FirebaseMessaging.onBackgroundMessage(backgroundHandler);
-  // LocalNotificationService.initialize();
-  // await Firebase.initializeApp();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Apptheme.primary, statusBarBrightness: Brightness.dark));
 }
 
 Future<void> backgroundHandler(RemoteMessage message) async {

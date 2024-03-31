@@ -417,8 +417,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                               )));
                 },
                 child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  height: height * 0.07,
+                  width: width * 0.9,
                   decoration: BoxDecoration(
                     color: const Color(0xff0EBE7F),
                     borderRadius: BorderRadius.circular(10),

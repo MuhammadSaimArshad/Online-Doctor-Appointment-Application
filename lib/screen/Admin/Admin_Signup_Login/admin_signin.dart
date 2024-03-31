@@ -144,7 +144,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                     },
                     child: Container(
                       height: height * 0.07,
-                      width: width * 0.9,
+                      width: width * 0.92,
                       decoration: BoxDecoration(
                         border: Border.all(
                             width: width * 0.004, color: Colors.white),
@@ -153,7 +153,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                       ),
                       child: Center(
                         child: Text(
-                          "SignIn",
+                          "Login",
                           style: TextStyle(
                               fontSize: width * 0.04,
                               fontWeight: FontWeight.bold,
@@ -166,10 +166,8 @@ class _AdminSignInState extends State<AdminSignIn> {
                     height: height * 0.01,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        width: width * 0.05,
-                      ),
                       Text(
                         "Don't have any account?",
                         style: TextStyle(
@@ -179,7 +177,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                         ),
                       ),
                       SizedBox(
-                        width: width * 0.05,
+                        width: width * 0.02,
                       ),
                       InkWell(
                         onTap: () {
@@ -190,7 +188,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                               ));
                         },
                         child: Text(
-                          "Create Account",
+                          "SignUp",
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold,
