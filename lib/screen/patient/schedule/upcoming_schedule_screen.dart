@@ -82,7 +82,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                         trailing: CircleAvatar(
                                           radius: 25,
                                           backgroundImage:
-                                              NetworkImage(model!.image),
+                                              NetworkImage(model!.imagedoc),
                                         ),
                                       ),
                                       Padding(
@@ -178,7 +178,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                                   .then((value) {
                                                 StaticData.sendNotifcation(
                                                     "Appointment cencal",
-                                                    "${model!.patientname} cencal appointment at ${model!.time}",
+                                                    "${model!.patientname} Cencal Appointment at ${model!.time}",
                                                     value);
                                               });
                                               StaticData.firebase

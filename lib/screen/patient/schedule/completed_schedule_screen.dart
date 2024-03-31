@@ -87,7 +87,7 @@ class _CompletedScheduleState extends State<CompletedSchedule> {
                                     trailing: CircleAvatar(
                                         radius: 25,
                                         backgroundImage: NetworkImage(
-                                          model!.image,
+                                          model!.imagedoc,
                                         )),
                                   ),
                                   Row(

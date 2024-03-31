@@ -13,7 +13,8 @@ class AppointmentModel {
   int status;
   String bio;
   double? rating;
-  String image;
+  String imagepati;
+  String imagedoc;
   String? receiptimage;
   String phonenumber;
   AppointmentModel({
@@ -28,7 +29,8 @@ class AppointmentModel {
     required this.status,
     required this.bio,
     this.rating,
-    required this.image,
+    required this.imagepati,
+    required this.imagedoc,
     this.receiptimage,
     required this.phonenumber,
   });
@@ -45,7 +47,8 @@ class AppointmentModel {
     int? status,
     String? bio,
     double? rating,
-    String? image,
+    String? imagepati,
+    String? imagedoc,
     String? receiptimage,
     String? phonenumber,
   }) {
@@ -61,7 +64,8 @@ class AppointmentModel {
       status: status ?? this.status,
       bio: bio ?? this.bio,
       rating: rating ?? this.rating,
-      image: image ?? this.image,
+      imagepati: imagepati ?? this.imagepati,
+      imagedoc: imagedoc ?? this.imagedoc,
       receiptimage: receiptimage ?? this.receiptimage,
       phonenumber: phonenumber ?? this.phonenumber,
     );
@@ -80,7 +84,8 @@ class AppointmentModel {
       'status': status,
       'bio': bio,
       'rating': rating,
-      'image': image,
+      'imagepati': imagepati,
+      'imagedoc': imagedoc,
       'receiptimage': receiptimage,
       'phonenumber': phonenumber,
     };
@@ -99,7 +104,8 @@ class AppointmentModel {
       status: map['status'] as int,
       bio: map['bio'] as String,
       rating: map['rating'] != null ? map['rating'] as double : null,
-      image: map['image'] as String,
+      imagepati: map['imagepati'] as String,
+      imagedoc: map['imagedoc'] as String,
       receiptimage:
           map['receiptimage'] != null ? map['receiptimage'] as String : null,
       phonenumber: map['phonenumber'] as String,
@@ -113,7 +119,7 @@ class AppointmentModel {
 
   @override
   String toString() {
-    return 'AppointmentModel(id: $id, patientid: $patientid, doctorid: $doctorid, doctername: $doctername, patientname: $patientname, slotsid: $slotsid, time: $time, createdtime: $createdtime, status: $status, bio: $bio, rating: $rating, image: $image, receiptimage: $receiptimage, phonenumber: $phonenumber)';
+    return 'AppointmentModel(id: $id, patientid: $patientid, doctorid: $doctorid, doctername: $doctername, patientname: $patientname, slotsid: $slotsid, time: $time, createdtime: $createdtime, status: $status, bio: $bio, rating: $rating, imagepati: $imagepati, imagedoc: $imagedoc, receiptimage: $receiptimage, phonenumber: $phonenumber)';
   }
 
   @override
@@ -131,7 +137,8 @@ class AppointmentModel {
         other.status == status &&
         other.bio == bio &&
         other.rating == rating &&
-        other.image == image &&
+        other.imagepati == imagepati &&
+        other.imagedoc == imagedoc &&
         other.receiptimage == receiptimage &&
         other.phonenumber == phonenumber;
   }
@@ -149,7 +156,8 @@ class AppointmentModel {
         status.hashCode ^
         bio.hashCode ^
         rating.hashCode ^
-        image.hashCode ^
+        imagepati.hashCode ^
+        imagedoc.hashCode ^
         receiptimage.hashCode ^
         phonenumber.hashCode;
   }

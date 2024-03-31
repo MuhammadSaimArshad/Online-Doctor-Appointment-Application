@@ -135,7 +135,7 @@ class _AddreportState extends State<Addreport> {
                                           trailing: CircleAvatar(
                                               radius: 25,
                                               backgroundImage: NetworkImage(
-                                                model!.image,
+                                                model!.imagedoc,
                                               )),
                                         ),
                                         SizedBox(

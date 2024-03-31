@@ -84,7 +84,8 @@ class _DoctorCompleteScheduleState extends State<DoctorCompleteSchedule> {
                                   subtitle: Text(model!.phonenumber),
                                   trailing: CircleAvatar(
                                     radius: width * 0.04,
-                                    backgroundImage: NetworkImage(model!.image),
+                                    backgroundImage:
+                                        NetworkImage(model!.imagepati),
                                   ),
                                 ),
                                 Padding(

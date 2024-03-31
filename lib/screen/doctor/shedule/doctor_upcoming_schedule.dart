@@ -85,7 +85,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                         trailing: CircleAvatar(
                                           radius: width * 0.04,
                                           backgroundImage:
-                                              NetworkImage(model!.image),
+                                              NetworkImage(model!.imagepati),
                                         ),
                                       ),
                                       Padding(
@@ -183,7 +183,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                   .then((value) {
                                                 StaticData.sendNotifcation(
                                                     "Appointment cencal",
-                                                    "${model!.doctername} cencal your appointment at ${model!.time}",
+                                                    "${model!.doctername} Cencal Your Appointment at ${model!.time}",
                                                     value);
                                               });
                                               StaticData.firebase
@@ -228,7 +228,7 @@ class _DoctorUpcomingScheduleState extends State<DoctorUpcomingSchedule> {
                                                   .then((value) {
                                                 StaticData.sendNotifcation(
                                                     "Appointment",
-                                                    "${model!.doctername} Confirm your appointment at ${model!.time}",
+                                                    "${model!.doctername} Confirm Your Appointment at ${model!.time}",
                                                     value);
                                               });
                                             },

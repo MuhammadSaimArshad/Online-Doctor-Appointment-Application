@@ -89,7 +89,7 @@ class _DoctorCanceledScheduleState extends State<DoctorCanceledSchedule> {
                                       trailing: CircleAvatar(
                                         radius: width * 0.04,
                                         backgroundImage:
-                                            NetworkImage(model!.image),
+                                            NetworkImage(model!.imagepati),
                                       ),
                                     ),
                                     Padding(

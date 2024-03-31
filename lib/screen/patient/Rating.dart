@@ -142,7 +142,7 @@ class _RatingScreenState extends State<RatingScreen> {
                                           trailing: CircleAvatar(
                                               radius: 25,
                                               backgroundImage: NetworkImage(
-                                                model!.image,
+                                                model!.imagedoc,
                                               )),
                                         ),
                                         Row(

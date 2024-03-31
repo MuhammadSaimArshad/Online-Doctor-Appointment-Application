@@ -86,7 +86,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                     trailing: CircleAvatar(
                                       radius: width * 0.04,
                                       backgroundImage:
-                                          NetworkImage(model!.image),
+                                          NetworkImage(model!.imagepati),
                                     ),
                                   ),
                                   Padding(
@@ -185,7 +185,7 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                               .then((value) {
                                             StaticData.sendNotifcation(
                                                 "Appointment cencal",
-                                                "${model!.doctername} cencal your appointment at ${model!.time}",
+                                                "${model!.doctername} Cencal Your Appointment at ${model!.time}",
                                                 value);
                                           });
                                           StaticData.firebase
@@ -230,18 +230,18 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                                   ),
                                                 ));
 
-                                            // StaticData.firebase
-                                            //     .collection("appointment")
-                                            //     .doc(model!.id)
-                                            //     .update({"status": 2});
-                                            // StaticData.getpatienttokken(
-                                            //         model!.patientid)
-                                            //     .then((value) {
-                                            //   StaticData.sendNotifcation(
-                                            //       "Appointment",
-                                            //       "${model!.doctername} accept your appointment at ${model!.time}",
-                                            //       value);
-                                            // });
+                                            StaticData.firebase
+                                                .collection("appointment")
+                                                .doc(model!.id)
+                                                .update({"status": 2});
+                                            StaticData.getpatienttokken(
+                                                    model!.patientid)
+                                                .then((value) {
+                                              StaticData.sendNotifcation(
+                                                  "Appointment",
+                                                  "${model!.doctername} Complete Your Appointment at ${model!.time}",
+                                                  value);
+                                            });
                                           },
                                           child: Container(
                                             height: height * 0.06,

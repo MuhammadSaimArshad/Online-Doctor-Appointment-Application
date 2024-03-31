@@ -81,7 +81,7 @@ class _CanceledScheduleState extends State<CanceledSchedule> {
                                       trailing: CircleAvatar(
                                         radius: width * 0.05,
                                         backgroundImage:
-                                            NetworkImage(model!.image),
+                                            NetworkImage(model!.imagedoc),
                                       ),
                                     ),
                                     Padding(
