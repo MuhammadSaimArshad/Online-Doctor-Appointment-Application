@@ -476,8 +476,7 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                     ),
                                                     RatingBar.builder(
                                                       initialRating:
-                                                          doctor!.totalrating ??
-                                                              0,
+                                                          doctor!.totalrating,
                                                       direction:
                                                           Axis.horizontal,
                                                       itemCount: 5,

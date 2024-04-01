@@ -3,7 +3,7 @@ import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -62,13 +62,7 @@ class _DoctorlistState extends State<Doctorlist> {
                 height: height * 0.04,
               ),
               InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Doctorlist(),
-                      ));
-                },
+                onTap: () {},
                 child: Container(
                   height: height * 0.06,
                   width: width * 0.85,
@@ -142,150 +136,155 @@ class _DoctorlistState extends State<Doctorlist> {
                                   doctor = DoctorModel.fromMap(
                                       snapshot.data!.docs[index].data()
                                           as Map<String, dynamic>);
-                                  return Container(
-                                    height: height * 0.25,
-                                    width: width * 0.9,
-                                    padding: EdgeInsets.all(6),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius:
-                                          BorderRadius.circular(width * 0.05),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black12,
-                                          blurRadius: width * 0.02,
-                                          spreadRadius: width * 0.01,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(
-                                          height: height * 0.01,
-                                        ),
-                                        ListTile(
-                                          title: Text(
-                                            "Dr.${doctor!.name}",
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold),
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      height: height * 0.25,
+                                      width: width * 0.9,
+                                      padding: EdgeInsets.all(6),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(width * 0.05),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            blurRadius: width * 0.02,
+                                            spreadRadius: width * 0.01,
                                           ),
-                                          subtitle: Text(doctor!.bio,
-                                              overflow: TextOverflow.ellipsis,
+                                        ],
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                            height: height * 0.01,
+                                          ),
+                                          ListTile(
+                                            title: Text(
+                                              "Dr.${doctor!.name}",
                                               style: const TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          trailing: CircleAvatar(
-                                            radius: width * 0.08,
-                                            backgroundImage:
-                                                NetworkImage(doctor!.image),
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            subtitle: Text(doctor!.bio,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            trailing: CircleAvatar(
+                                              radius: width * 0.08,
+                                              backgroundImage:
+                                                  NetworkImage(doctor!.image),
+                                            ),
                                           ),
-                                        ),
-                                        const Divider(),
-                                        Row(
-                                          children: [
-                                            SizedBox(
-                                              width: width * 0.03,
-                                            ),
-                                            const Text("Specialist",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                            SizedBox(
-                                              width: width * 0.01,
-                                            ),
-                                            Text(doctor!.category,
-                                                style: const TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                            SizedBox(
-                                              width: width * 0.01,
-                                            ),
-                                            const Text("Experinse",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                            SizedBox(
-                                              width: width * 0.01,
-                                            ),
-                                            Text("Year.${doctor!.experience}",
-                                                style: const TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                            SizedBox(
-                                              width: width * 0.01,
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
-                                                  style: TextStyle(
-                                                      color: Colors.black45,
-                                                      fontSize: width * 0.03),
-                                                ),
-                                                RatingBar.builder(
-                                                  initialRating:
-                                                      doctor!.totalrating ?? 0,
-                                                  direction: Axis.horizontal,
-                                                  itemCount: 5,
-                                                  itemSize: 25,
-                                                  unratedColor: Colors.grey,
-                                                  itemBuilder: (context, _) =>
-                                                      Icon(
-                                                    Icons.star,
-                                                    color: Color(0xff0EBE7F),
-                                                  ),
-                                                  onRatingUpdate:
-                                                      (double value) {},
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: height * 0.015,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            InkWell(
-                                              onTap: () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          AppointmentScreen(
-                                                        model: doctor!,
-                                                      ),
-                                                    ));
-                                              },
-                                              child: Container(
-                                                height: height * 0.066,
-                                                width: width * 0.35,
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      const Color(0xff0EBE7F),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          width * 0.02),
-                                                ),
-                                                child: Center(
-                                                  child: Text(
-                                                    "Book Now",
-                                                    style: TextStyle(
-                                                        fontSize: width * 0.04,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
+                                          const Divider(),
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                width: width * 0.03,
                                               ),
-                                            )
-                                          ],
-                                        )
-                                      ],
+                                              const Text("Specialist",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              Text(doctor!.category,
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              const Text("Experinse",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              Text("Year.${doctor!.experience}",
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
+                                                    style: TextStyle(
+                                                        color: Colors.black45,
+                                                        fontSize: width * 0.03),
+                                                  ),
+                                                  RatingBar.builder(
+                                                    initialRating:
+                                                        doctor!.totalrating,
+                                                    direction: Axis.horizontal,
+                                                    itemCount: 5,
+                                                    itemSize: 20,
+                                                    unratedColor: Colors.grey,
+                                                    itemBuilder: (context, _) =>
+                                                        Icon(
+                                                      Icons.star,
+                                                      color: Color(0xff0EBE7F),
+                                                    ),
+                                                    onRatingUpdate:
+                                                        (double value) {},
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: height * 0.015,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            AppointmentScreen(
+                                                          model: doctor!,
+                                                        ),
+                                                      ));
+                                                },
+                                                child: Container(
+                                                  height: height * 0.066,
+                                                  width: width * 0.35,
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        const Color(0xff0EBE7F),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            width * 0.02),
+                                                  ),
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Book Now",
+                                                      style: TextStyle(
+                                                          fontSize:
+                                                              width * 0.04,
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },

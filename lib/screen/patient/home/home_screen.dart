@@ -465,8 +465,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           RatingBar.builder(
                                             initialRating:
-                                                obj.list[index].totalrating ??
-                                                    0,
+                                                obj.list[index].totalrating,
                                             direction: Axis.horizontal,
                                             itemCount: 5,
                                             itemSize: 30,
@@ -564,9 +563,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           RatingBar.builder(
                                             initialRating: obj
-                                                    .fuilterlist[index]
-                                                    .totalrating ??
-                                                0,
+                                                .fuilterlist[index].totalrating,
                                             direction: Axis.horizontal,
                                             itemCount: 5,
                                             itemSize: 30,
