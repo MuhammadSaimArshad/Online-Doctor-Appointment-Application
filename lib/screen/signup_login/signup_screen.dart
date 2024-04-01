@@ -105,8 +105,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           children: [
                             Image(
                                 height: height * 0.11,
-                                image:
-                                    const AssetImage("images/doctor_logo.png")),
+                                image: const AssetImage("images/image5.png")),
                             const Text("Doctor")
                           ],
                         )),
@@ -130,8 +129,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           children: [
                             Image(
                                 height: height * 0.11,
-                                image: const AssetImage(
-                                    "images/patient_logo.png")),
+                                image: const AssetImage("images/image4.png")),
                             const Text("Patient")
                           ],
                         )),

@@ -6,6 +6,7 @@ import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
 
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -462,6 +463,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 color: Colors.black45,
                                                 fontSize: width * 0.04),
                                           ),
+                                          RatingBar.builder(
+                                            initialRating:
+                                                obj.list[index].totalrating ??
+                                                    0,
+                                            direction: Axis.horizontal,
+                                            itemCount: 5,
+                                            itemSize: 30,
+                                            unratedColor: Colors.grey,
+                                            itemBuilder: (context, _) => Icon(
+                                              Icons.star,
+                                              color: Color(0xff0EBE7F),
+                                            ),
+                                            onRatingUpdate: (double value) {},
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -546,6 +561,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                             style: TextStyle(
                                                 color: Colors.black45,
                                                 fontSize: width * 0.04),
+                                          ),
+                                          RatingBar.builder(
+                                            initialRating: obj
+                                                    .fuilterlist[index]
+                                                    .totalrating ??
+                                                0,
+                                            direction: Axis.horizontal,
+                                            itemCount: 5,
+                                            itemSize: 30,
+                                            unratedColor: Colors.grey,
+                                            itemBuilder: (context, _) => Icon(
+                                              Icons.star,
+                                              color: Color(0xff0EBE7F),
+                                            ),
+                                            onRatingUpdate: (double value) {},
                                           ),
                                         ],
                                       ),

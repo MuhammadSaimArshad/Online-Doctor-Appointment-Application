@@ -5,6 +5,7 @@ import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/screen/patient/appointment_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Doctorlist extends StatefulWidget {
   String? category = "";
@@ -217,16 +218,26 @@ class _DoctorlistState extends State<Doctorlist> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
-                                                Icon(
-                                                  Icons.star,
-                                                  color: Colors.amber,
-                                                  size: width * 0.04,
-                                                ),
                                                 Text(
                                                   "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
                                                   style: TextStyle(
                                                       color: Colors.black45,
                                                       fontSize: width * 0.03),
+                                                ),
+                                                RatingBar.builder(
+                                                  initialRating:
+                                                      doctor!.totalrating ?? 0,
+                                                  direction: Axis.horizontal,
+                                                  itemCount: 5,
+                                                  itemSize: 25,
+                                                  unratedColor: Colors.grey,
+                                                  itemBuilder: (context, _) =>
+                                                      Icon(
+                                                    Icons.star,
+                                                    color: Color(0xff0EBE7F),
+                                                  ),
+                                                  onRatingUpdate:
+                                                      (double value) {},
                                                 ),
                                               ],
                                             ),

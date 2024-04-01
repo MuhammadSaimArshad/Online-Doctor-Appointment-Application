@@ -3,7 +3,7 @@ import 'package:doc_bookr/screen/signup_login/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class StaticData {
+class AdminStaticData {
   static AdminModel? user;
   static String? id;
 

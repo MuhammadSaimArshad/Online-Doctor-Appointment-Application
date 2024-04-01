@@ -4,11 +4,11 @@ import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class TotalDoctor extends StatefulWidget {
   const TotalDoctor({super.key});
@@ -254,11 +254,6 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        color: Colors.amber,
-                                                        size: width * 0.04,
-                                                      ),
                                                       Text(
                                                         "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
                                                         style: TextStyle(
@@ -266,6 +261,25 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                                 Colors.black45,
                                                             fontSize:
                                                                 width * 0.03),
+                                                      ),
+                                                      RatingBar.builder(
+                                                        initialRating:
+                                                            doctor!.totalrating,
+                                                        direction:
+                                                            Axis.horizontal,
+                                                        itemCount: 5,
+                                                        itemSize: 25,
+                                                        unratedColor:
+                                                            Colors.grey,
+                                                        itemBuilder:
+                                                            (context, _) =>
+                                                                Icon(
+                                                          Icons.star,
+                                                          color:
+                                                              Color(0xff0EBE7F),
+                                                        ),
+                                                        onRatingUpdate:
+                                                            (double value) {},
                                                       ),
                                                     ],
                                                   ),
@@ -453,17 +467,30 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: Colors.amber,
-                                                      size: width * 0.04,
-                                                    ),
                                                     Text(
                                                       "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
                                                       style: TextStyle(
                                                           color: Colors.black45,
                                                           fontSize:
                                                               width * 0.03),
+                                                    ),
+                                                    RatingBar.builder(
+                                                      initialRating:
+                                                          doctor!.totalrating ??
+                                                              0,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      itemCount: 5,
+                                                      itemSize: 25,
+                                                      unratedColor: Colors.grey,
+                                                      itemBuilder:
+                                                          (context, _) => Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Color(0xff0EBE7F),
+                                                      ),
+                                                      onRatingUpdate:
+                                                          (double value) {},
                                                     ),
                                                   ],
                                                 ),

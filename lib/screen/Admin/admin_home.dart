@@ -61,7 +61,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                               ),
                               trailing: InkWell(
                                 onTap: () {
-                                  StaticData.logout(context);
+                                  AdminStaticData.logout(context);
                                 },
                                 child: SizedBox(
                                     height: height * 0.12,

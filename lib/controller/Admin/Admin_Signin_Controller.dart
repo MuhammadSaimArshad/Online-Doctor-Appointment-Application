@@ -26,10 +26,10 @@ class AdminLoginController extends GetxController {
         AdminModel model =
             AdminModel.fromMap(data.docs[0].data() as Map<String, dynamic>);
 
-        StaticData.user = model;
-        StaticData.id = model.userid;
-        print("userid store${StaticData.user!.userid.toString()}");
-        // prefs.setString('UserId', StaticData.user!.userid.toString());
+        AdminStaticData.user = model;
+        AdminStaticData.id = model.userid;
+        print("userid store${AdminStaticData.user!.userid.toString()}");
+        // prefs.setString('UserId', AdminStaticData.user!.userid.toString());
         Fluttertoast.showToast(
           msg: "Login Successful",
           toastLength: Toast.LENGTH_SHORT,
