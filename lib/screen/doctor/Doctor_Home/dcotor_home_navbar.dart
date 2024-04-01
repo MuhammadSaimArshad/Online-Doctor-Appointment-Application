@@ -2,7 +2,7 @@ import 'package:doc_bookr/screen/doctor/Doctor_Home/DocSloDate.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_home.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_message.dart';
 import 'package:doc_bookr/screen/doctor/shedule/doctor_schedule.dart';
-import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_setting.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/doctor_profile.dart';
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -24,7 +24,7 @@ class _DoctorHomeNavbarState extends State<DoctorHomeNavbar> {
     DocSloDate(
       model: StaticData.doctorModel!,
     ),
-    const DoctorSettingScreen(),
+    const DoctorProfile(),
   ];
   var height, width;
   @override

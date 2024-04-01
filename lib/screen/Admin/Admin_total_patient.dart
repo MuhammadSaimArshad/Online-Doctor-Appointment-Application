@@ -4,7 +4,7 @@ import 'package:doc_bookr/controller/Admin/Admin_Total_Pati_Controller.dart';
 import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
-import 'package:doc_bookr/screen/patient/profile_screen.dart';
+import 'package:doc_bookr/screen/patient/patient_edit_profile_.dart';
 
 import 'package:flutter/material.dart';
 
@@ -281,7 +281,7 @@ class _TotalPatientState extends State<TotalPatient> {
                                                           context,
                                                           MaterialPageRoute(
                                                             builder: (context) =>
-                                                                Profilescreen(
+                                                                PatientEditProfile(
                                                               patientModel:
                                                                   patient,
                                                             ),
@@ -435,7 +435,7 @@ class _TotalPatientState extends State<TotalPatient> {
                                                         context,
                                                         MaterialPageRoute(
                                                           builder: (context) =>
-                                                              Profilescreen(
+                                                              PatientEditProfile(
                                                             patientModel:
                                                                 patient,
                                                           ),

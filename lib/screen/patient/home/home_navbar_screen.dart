@@ -2,7 +2,7 @@ import 'package:doc_bookr/screen/patient/home/add_report_screen.dart';
 import 'package:doc_bookr/screen/patient/home/home_screen.dart';
 import 'package:doc_bookr/screen/patient/home/message_screen.dart';
 import 'package:doc_bookr/screen/patient/home/schedule_screen.dart';
-import 'package:doc_bookr/screen/patient/home/setting.dart';
+import 'package:doc_bookr/screen/patient/home/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class _HomeNavbarScreenState extends State<HomeNavbarScreen> {
     const MessagesScreen(),
     const ScheduleScreen(),
     const Addreport(),
-    const SettingScreen(),
+    const Profile(),
   ];
   var height, width;
   @override

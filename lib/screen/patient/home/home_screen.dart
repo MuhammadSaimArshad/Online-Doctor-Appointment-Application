@@ -257,6 +257,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: height * 0.2,
                           width: width * 0.9,
                           decoration: BoxDecoration(
+                              // image: DecorationImage(
+                              //     image: AssetImage(
+                              //         "images/play_store_512-removebg-preview.png"),
+                              //     alignment: Alignment.bottomRight,
+                              //     repeat: ImageRepeat.repeatY),
                               gradient: const LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -275,6 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ]),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
@@ -513,7 +519,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     ));
                                     },
                                     child: Container(
-                                      height: height * 0.4,
+                                      height: height * 0.45,
                                       margin: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                         color: Colors.white,

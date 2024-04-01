@@ -13,18 +13,18 @@ import 'package:doc_bookr/controller/Patient/Patient_Profile_Controller.dart';
 
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
-class Profilescreen extends StatefulWidget {
+class PatientEditProfile extends StatefulWidget {
   final PatientModel? patientModel;
-  const Profilescreen({
+  const PatientEditProfile({
     Key? key,
     this.patientModel,
   }) : super(key: key);
 
   @override
-  State<Profilescreen> createState() => _ProfilescreenState();
+  State<PatientEditProfile> createState() => _PatientEditProfileState();
 }
 
-class _ProfilescreenState extends State<Profilescreen> {
+class _PatientEditProfileState extends State<PatientEditProfile> {
   @override
   void initState() {
     Get.put(ProfileController());

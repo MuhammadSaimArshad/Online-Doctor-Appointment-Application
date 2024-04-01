@@ -1,23 +1,22 @@
-import 'package:doc_bookr/screen/patient/Patient_About.dart';
-import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
-import 'package:doc_bookr/screen/patient/mydoctor.dart';
-import 'package:doc_bookr/screen/patient/notification_screen.dart';
+import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
+import 'package:doc_bookr/screen/doctor/doctor_edit_profile.dart';
 
-import 'package:doc_bookr/screen/patient/profile_screen.dart';
-import 'package:doc_bookr/screen/patient/Rating.dart';
+import 'package:doc_bookr/screen/doctor/mypatient_screen.dart';
+
+import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
 
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SettingScreen extends StatefulWidget {
-  const SettingScreen({super.key});
+class DoctorProfile extends StatefulWidget {
+  const DoctorProfile({super.key});
 
   @override
-  State<SettingScreen> createState() => _SettingScreenState();
+  State<DoctorProfile> createState() => _DoctorProfileState();
 }
 
-class _SettingScreenState extends State<SettingScreen> {
+class _DoctorProfileState extends State<DoctorProfile> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -40,9 +39,9 @@ class _SettingScreenState extends State<SettingScreen> {
                     Align(
                       alignment: Alignment.center,
                       child: CircleAvatar(
-                        radius: width * 0.16,
+                        radius: width * 0.15,
                         backgroundImage:
-                            NetworkImage(StaticData.patientmodel!.image),
+                            NetworkImage(StaticData.doctorModel!.image),
                       ),
                     ),
                     Padding(
@@ -62,7 +61,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          StaticData.patientmodel!.name,
+                          StaticData.doctorModel!.name,
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold),
@@ -103,7 +102,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Profilescreen(),
+                        builder: (context) => const DoctorEditProfile(),
                       ));
                 },
                 leading: Container(
@@ -130,7 +129,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Profilescreen(),
+                            builder: (context) => const DoctorEditProfile(),
                           ));
                     },
                     child: Icon(
@@ -146,7 +145,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MyDoctor(),
+                        builder: (context) => const MYPATIENT(),
                       ));
                 },
                 leading: Container(
@@ -162,7 +161,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                 ),
                 title: Text(
-                  "My Doctor",
+                  "My Patient",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: width * 0.05,
@@ -173,7 +172,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MyDoctor(),
+                          builder: (context) => const MYPATIENT(),
                         ));
                   },
                   child: Icon(
@@ -186,13 +185,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: height * 0.01,
               ),
               ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const NotificationScreen(),
-                      ));
-                },
+                onTap: () {},
                 leading: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -212,89 +205,36 @@ class _SettingScreenState extends State<SettingScreen> {
                     fontSize: width * 0.05,
                   ),
                 ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NotificationScreen(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: width * 0.05,
                 ),
               ),
               SizedBox(
                 height: height * 0.01,
               ),
-              // ListTile(
-              //   onTap: () {
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //           builder: (context) => HomeScreen(),
-              //         ));
-              //   },
-              //   leading: Container(
-              //     padding: EdgeInsets.all(10),
-              //     decoration: BoxDecoration(
-              //       color: Colors.red[200],
-              //       shape: BoxShape.circle,
-              //     ),
-              //     child: Icon(
-              //       Icons.home,
-              //       color: Colors.redAccent,
-              //       size: width * 0.05,
-              //     ),
-              //   ),
-              //   title: Text(
-              //     "Home",
-              //     style: TextStyle(
-              //       fontWeight: FontWeight.w500,
-              //       fontSize: width * 0.05,
-              //     ),
-              //   ),
-              //   trailing: InkWell(
-              //     onTap: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => HomeScreen(),
-              //           ));
-              //     },
-              //     child: Icon(
-              //       Icons.arrow_forward_ios_rounded,
-              //       size: width * 0.05,
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: height * 0.01,
-              // ),
               ListTile(
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RatingScreen(),
+                        builder: (context) => const DoctorHomeNavbar(),
                       ));
                 },
                 leading: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.indigo.shade100,
+                    color: Colors.red[200],
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    Icons.feedback_outlined,
-                    color: Colors.indigo,
+                    Icons.home,
+                    color: Colors.redAccent,
                     size: width * 0.05,
                   ),
                 ),
                 title: Text(
-                  "FeedBack",
+                  "Home",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: width * 0.05,
@@ -305,7 +245,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RatingScreen(),
+                          builder: (context) => const DoctorHomeNavbar(),
                         ));
                   },
                   child: Icon(
@@ -328,12 +268,12 @@ class _SettingScreenState extends State<SettingScreen> {
                 leading: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.pink.shade200,
+                    color: Colors.indigo.shade100,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.privacy_tip_outlined,
-                    color: Colors.pink,
+                    color: Colors.indigo,
                     size: width * 0.05,
                   ),
                 ),
@@ -361,50 +301,35 @@ class _SettingScreenState extends State<SettingScreen> {
               SizedBox(
                 height: height * 0.01,
               ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PatientAbout(),
-                      ));
-                },
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.orange.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.info_outline_rounded,
-                    color: Colors.orange,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "About Us",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PatientAbout(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Container(
+              //     padding: EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.orange.shade100,
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.info_outline_rounded,
+              //       color: Colors.orange,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "About Us",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: Icon(
+              //     Icons.arrow_forward_ios_rounded,
+              //     size: width * 0.05,
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
               ListTile(
                 onTap: () {
                   StaticData.logout(context);

@@ -77,8 +77,9 @@ class _SigninScreenState extends State<SigninScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        //  In Your Area
                         Text(
-                          "Choose The Best Doctor \n            In Your Area.",
+                          "Choose The Best Doctor.",
                           style: TextStyle(
                             fontSize: width * 0.04,
                             fontWeight: FontWeight.w400,

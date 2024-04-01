@@ -208,7 +208,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             width: width * 0.03,
                           ),
                           Text(
-                            "Reviews",
+                            "Ago Appointment",
                             style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.w500,
@@ -216,116 +216,108 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                          height: height * 0.22,
-                          child: StreamBuilder(
-                              stream: StaticData.firebase
-                                  .collection('appointment')
-                                  .where("doctorid", isEqualTo: widget.model.id)
-                                  .snapshots(),
-                              builder: (BuildContext context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                }
+                      Container(
+                        height: height * 0.24,
+                        color: Colors.transparent,
+                        child: StreamBuilder(
+                            stream: StaticData.firebase
+                                .collection('appointment')
+                                .where("doctorid", isEqualTo: widget.model.id)
+                                .snapshots(),
+                            builder: (BuildContext context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                    child: CircularProgressIndicator());
+                              }
 
-                                if (snapshot.hasError) {
-                                  print("Error: /${snapshot.error}");
-                                  return Text('Error: /${snapshot.error}');
-                                }
+                              if (snapshot.hasError) {
+                                print("Error: /${snapshot.error}");
+                                return Text('Error: /${snapshot.error}');
+                              }
 
-                                AppointmentModel? appointmentModel;
-                                if (snapshot.data!.docs.length != 0) {
-                                  print(
-                                      'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
-                                }
-                                return snapshot.data!.docs.length == 0 &&
-                                        snapshot.data!.docs.isEmpty
-                                    ? Center(
-                                        child: CustomWidget.largeText(
-                                            'Data not found !'),
-                                      )
-                                    : ListView.builder(
-                                        itemCount: snapshot.data!.docs.length,
-                                        scrollDirection: Axis.horizontal,
-                                        itemBuilder:
-                                            (BuildContext context, int index) {
-                                          appointmentModel =
-                                              AppointmentModel.fromMap(snapshot
-                                                  .data!.docs[index]
-                                                  .data());
-                                          return Container(
+                              AppointmentModel? appointmentModel;
+                              if (snapshot.data!.docs.length != 0) {
+                                print(
+                                    'snapshot.data!.docs.length/${snapshot.data!.docs.length}');
+                              }
+                              return snapshot.data!.docs.length == 0 &&
+                                      snapshot.data!.docs.isEmpty
+                                  ? Center(
+                                      child: CustomWidget.largeText(
+                                          'Data not found !'),
+                                    )
+                                  : ListView.builder(
+                                      itemCount: snapshot.data!.docs.length,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        appointmentModel =
+                                            AppointmentModel.fromMap(snapshot
+                                                .data!.docs[index]
+                                                .data());
+                                        return Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
                                             width: width * 0.7,
-                                            height: height * 0.2,
-                                            margin: const EdgeInsets.all(10),
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: height * 0.01),
+                                            height: height * 0.15,
                                             decoration: BoxDecoration(
-                                              color: Colors.white,
+                                              color: Color(0xff0EBE7F),
                                               borderRadius:
-                                                  BorderRadius.circular(40),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Colors.black12,
-                                                  blurRadius: width * 0.2,
-                                                  spreadRadius: width * 0.02,
+                                                  BorderRadius.circular(
+                                                      width * 0.03),
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                ListTile(
+                                                  leading: CircleAvatar(
+                                                    radius: width * 0.07,
+                                                    backgroundImage:
+                                                        NetworkImage(
+                                                            widget.model.image),
+                                                  ),
+                                                  title: Text(
+                                                    appointmentModel!
+                                                        .doctername,
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: width * 0.03,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  subtitle: Text(
+                                                    GetTimeAgo.parse(
+                                                        microsecondsSinceEpochToDateTime(
+                                                      appointmentModel!
+                                                          .createdtime,
+                                                    )).toString(),
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: height * 0.01,
+                                                ),
+                                                Text(
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  appointmentModel!.bio,
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: width * 0.03,
+                                                  ),
                                                 ),
                                               ],
                                             ),
-                                            child: SizedBox(
-                                              width: width * 0.1,
-                                              height: height * 0.2,
-                                              child: Column(
-                                                children: [
-                                                  ListTile(
-                                                    leading: CircleAvatar(
-                                                      radius: 30,
-                                                      backgroundImage:
-                                                          NetworkImage(widget
-                                                              .model.image),
-                                                    ),
-                                                    title: Text(
-                                                      appointmentModel!
-                                                          .doctername,
-                                                      style: TextStyle(
-                                                        fontSize: width * 0.03,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                    subtitle: Text(GetTimeAgo.parse(
-                                                            microsecondsSinceEpochToDateTime(
-                                                                appointmentModel!
-                                                                    .createdtime))
-                                                        .toString()),
-                                                  ),
-                                                  SizedBox(
-                                                    height: height * 0.01,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal:
-                                                                height * 0.01),
-                                                    child: Text(
-                                                      maxLines: 2,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      appointmentModel!.bio,
-                                                      style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: width * 0.03,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                              })),
+                                          ),
+                                        );
+                                      },
+                                    );
+                            }),
+                      ),
                       SizedBox(
                         height: height * 0.01,
                       ),

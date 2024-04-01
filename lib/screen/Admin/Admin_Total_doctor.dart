@@ -3,7 +3,7 @@ import 'package:doc_bookr/controller/Admin/Admin_Total_Doc_Controller.dart';
 import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
-import 'package:doc_bookr/screen/doctor/doctor_profile.dart';
+import 'package:doc_bookr/screen/doctor/doctor_edit_profile.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -340,7 +340,7 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                           context,
                                                           MaterialPageRoute(
                                                             builder: (context) =>
-                                                                DoctorProfileScreen(
+                                                                DoctorEditProfile(
                                                               doctorModel:
                                                                   doctor,
                                                             ),
@@ -544,7 +544,7 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                         context,
                                                         MaterialPageRoute(
                                                           builder: (context) =>
-                                                              DoctorProfileScreen(
+                                                              DoctorEditProfile(
                                                             doctorModel: doctor,
                                                           ),
                                                         ));

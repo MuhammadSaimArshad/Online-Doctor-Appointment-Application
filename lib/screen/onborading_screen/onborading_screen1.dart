@@ -26,22 +26,22 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 
   final List<Widget> _pages = [
-    const IntroPage(
+    IntroPage(
       image: 'images/image (1).png',
       title: 'Find Trusted Doctor',
       description:
           'Find The Trust And Best Dcotor\n And Share With Friends,Relative.',
     ),
-    const IntroPage(
+    IntroPage(
       image: 'images/image (2).png',
       title: 'Choose Best Doctor',
-      description: 'Choose The Best Doctor \n In Your Area.',
+      description: 'Choose The Best Doctor.',
     ),
-    const IntroPage(
+    IntroPage(
       image: 'images/image (3).png',
       title: 'Easy Appointments',
       description:
-          'Easy Appointments And Chat with Doctor \n Personal and Solve Confuseon.',
+          'Easy Appointments And Chat with Doctor \n Personal and Family Solve Health Issue.',
     ),
   ];
 

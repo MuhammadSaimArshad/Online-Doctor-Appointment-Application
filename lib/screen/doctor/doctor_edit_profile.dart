@@ -14,18 +14,18 @@ import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/screen/signup_login/signup_screen.dart';
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
-class DoctorProfileScreen extends StatefulWidget {
+class DoctorEditProfile extends StatefulWidget {
   final DoctorModel? doctorModel;
-  const DoctorProfileScreen({
+  const DoctorEditProfile({
     Key? key,
     this.doctorModel,
   }) : super(key: key);
 
   @override
-  State<DoctorProfileScreen> createState() => _DoctorProfileScreenState();
+  State<DoctorEditProfile> createState() => _DoctorEditProfileState();
 }
 
-class _DoctorProfileScreenState extends State<DoctorProfileScreen> {
+class _DoctorEditProfileState extends State<DoctorEditProfile> {
   var height, width;
   List<String> list = [
     "Select Category",

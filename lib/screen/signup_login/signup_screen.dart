@@ -71,7 +71,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     Text(
-                      "Easy Appointments And Chat with Doctor \n       Personal and Solve Confuseon.",
+                      "Easy Appointments And Chat with Doctor \n Personal and Family Solve Health Issue.",
                       style: TextStyle(
                         fontSize: width * 0.04,
                         fontWeight: FontWeight.w400,
