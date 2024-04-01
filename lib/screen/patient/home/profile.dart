@@ -1,5 +1,6 @@
 import 'package:doc_bookr/screen/patient/Patient_About.dart';
 import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
+import 'package:doc_bookr/screen/patient/home/home_screen.dart';
 import 'package:doc_bookr/screen/patient/mydoctor.dart';
 import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
@@ -80,7 +81,7 @@ class _ProfileState extends State<Profile> {
                     image: DecorationImage(
                         image: AssetImage(
                             "images/play_store_512-removebg-preview.png"),
-                        alignment: Alignment.bottomRight),
+                        alignment: Alignment.center),
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -98,17 +99,26 @@ class _ProfileState extends State<Profile> {
                         spreadRadius: 4,
                       ),
                     ]),
-                child: Column(
-                  children: [
-                    Text(
-                      "Easy Appointments \n And Chat with Doctor \n Personal and Family \n Solve Health Issue.",
-                      style: TextStyle(
-                        fontSize: width * 0.04,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    )
-                  ],
-                ),
+                // child: Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text("Easy Appointments ",
+                //         style: TextStyle(
+                //           fontWeight: FontWeight.bold,
+                //           fontSize: width * 0.04,
+                //           color: Colors.white,
+                //         )),
+                //     Text(
+                //       "And Chat with Doctor \n Personal and Family \n Solve Health Issue.",
+                //       style: TextStyle(
+                //         fontSize: width * 0.04,
+                //         fontWeight: FontWeight.w400,
+                //         color: Colors.white,
+                //       ),
+                //     )
+                //   ],
+                // ),
               ),
               SizedBox(
                 height: height * 0.05,
@@ -244,50 +254,50 @@ class _ProfileState extends State<Profile> {
               SizedBox(
                 height: height * 0.01,
               ),
-              // ListTile(
-              //   onTap: () {
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //           builder: (context) => HomeScreen(),
-              //         ));
-              //   },
-              //   leading: Container(
-              //     padding: EdgeInsets.all(10),
-              //     decoration: BoxDecoration(
-              //       color: Colors.red[200],
-              //       shape: BoxShape.circle,
-              //     ),
-              //     child: Icon(
-              //       Icons.home,
-              //       color: Colors.redAccent,
-              //       size: width * 0.05,
-              //     ),
-              //   ),
-              //   title: Text(
-              //     "Home",
-              //     style: TextStyle(
-              //       fontWeight: FontWeight.w500,
-              //       fontSize: width * 0.05,
-              //     ),
-              //   ),
-              //   trailing: InkWell(
-              //     onTap: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => HomeScreen(),
-              //           ));
-              //     },
-              //     child: Icon(
-              //       Icons.arrow_forward_ios_rounded,
-              //       size: width * 0.05,
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: height * 0.01,
-              // ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ));
+                },
+                leading: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.red[200],
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.home,
+                    color: Colors.redAccent,
+                    size: width * 0.05,
+                  ),
+                ),
+                title: Text(
+                  "Home",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: width * 0.05,
+                  ),
+                ),
+                trailing: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: width * 0.05,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
               ListTile(
                 onTap: () {
                   Navigator.push(

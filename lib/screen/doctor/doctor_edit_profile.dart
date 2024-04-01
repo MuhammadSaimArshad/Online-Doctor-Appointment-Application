@@ -104,7 +104,7 @@ class _DoctorEditProfileState extends State<DoctorEditProfile> {
                         width: width * 0.03,
                       ),
                       Text(
-                        "Profile",
+                        "Edit Profile",
                         style: TextStyle(
                           fontSize: height * 0.03,
                         ),
