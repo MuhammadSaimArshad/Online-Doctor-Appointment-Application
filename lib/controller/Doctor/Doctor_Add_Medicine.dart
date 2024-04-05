@@ -45,7 +45,7 @@ class DoctorAddMedicine extends GetxController {
       day: day.text,
     );
 
-    firestore.collection("medicine").doc(id).set(model.toMap());
+    firestore.collection("appointmen").doc(id).set(model.toMap());
     Fluttertoast.showToast(
       msg: "Medicine Add Successful",
       toastLength: Toast.LENGTH_SHORT,

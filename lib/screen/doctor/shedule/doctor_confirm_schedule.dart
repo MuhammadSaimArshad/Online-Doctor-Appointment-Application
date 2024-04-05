@@ -230,18 +230,18 @@ class _DoctorConfirmScheduleState extends State<DoctorConfirmSchedule> {
                                                   ),
                                                 ));
 
-                                            StaticData.firebase
-                                                .collection("appointment")
-                                                .doc(model!.id)
-                                                .update({"status": 2});
-                                            StaticData.getpatienttokken(
-                                                    model!.patientid)
-                                                .then((value) {
-                                              StaticData.sendNotifcation(
-                                                  "Appointment",
-                                                  "${model!.doctername} Complete Your Appointment at ${model!.time}",
-                                                  value);
-                                            });
+                                            // StaticData.firebase
+                                            //     .collection("appointment")
+                                            //     .doc(model!.id)
+                                            //     .update({"status": 3});
+                                            // StaticData.getpatienttokken(
+                                            //         model!.patientid)
+                                            //     .then((value) {
+                                            //   StaticData.sendNotifcation(
+                                            //       "Appointment",
+                                            //       "${model!.doctername} Complete Your Appointment at ${model!.time}",
+                                            //       value);
+                                            // });
                                           },
                                           child: Container(
                                             height: height * 0.06,

@@ -52,14 +52,19 @@ class AdminHomeController extends GetxController {
       QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
           .instance
           .collection("slots")
-          .doc()
+          .doc("CPpSDtoTSoZHvKhTmK2k48H1Rtl2")
           .collection("slots")
-          .get();
+          .get()
+          .then((value) {
+        print(" slot ${value.docs.length}");
+        return value;
+      });
       int totalslot = 0;
       snapshot.docs.forEach((element) {
         DoctorSlot model = DoctorSlot.fromMap(element.data());
         if (model.isAvailable == true) {
           totalslot = totalslot + 1;
+          print(" slot $totalslot");
           update();
         }
       });
