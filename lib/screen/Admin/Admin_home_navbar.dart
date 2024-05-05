@@ -1,4 +1,5 @@
 import 'package:doc_bookr/screen/Admin/Admin_Add_doc_pati.dart';
+import 'package:doc_bookr/screen/Admin/Admin_Profile.dart';
 import 'package:doc_bookr/screen/Admin/Admin_Total_doctor.dart';
 import 'package:doc_bookr/screen/Admin/Admin_total_patient.dart';
 import 'package:doc_bookr/screen/Admin/admin_home.dart';
@@ -18,7 +19,8 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
     const AdminHomeScreen(),
     const TotalDoctor(),
     const TotalPatient(),
-    const AdminAddDocPati()
+    const AdminAddDocPati(),
+    const AdminProfile(),
   ];
   var height, width;
   @override
@@ -44,7 +46,7 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
                 _selectedIndex = index;
               });
             },
-            items: const [
+            items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled),
                 label: "Home",
@@ -61,11 +63,10 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
                 icon: Icon(CupertinoIcons.person_3),
                 label: "Add Doc&Pati",
               ),
-
-              // BottomNavigationBarItem(
-              //   icon: Icon(Icons.account_circle_outlined),
-              //   label: "Profile",
-              // ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle_outlined),
+                label: "Profile",
+              ),
             ],
           ),
         ),

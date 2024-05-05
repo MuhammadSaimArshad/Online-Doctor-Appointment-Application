@@ -1,5 +1,5 @@
-import 'package:doc_bookr/screen/static_data/admin_satatic_data.dart';
 import 'package:doc_bookr/controller/Admin/Admin_home_Controller.dart';
+import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -55,26 +55,21 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ListTile(
-                              title: const Text(
-                                "",
-                                style: TextStyle(color: Colors.white),
+                              title: Text(
+                                "${StaticData.adminModel!.name}",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: width * 0.04,
+                                    fontWeight: FontWeight.bold),
                               ),
-                              trailing: InkWell(
-                                onTap: () {
-                                  AdminStaticData.logout(context);
-                                },
-                                child: SizedBox(
-                                    height: height * 0.12,
-                                    width: width * 0.15,
-                                    child: CircleAvatar(
-                                      child: Icon(
-                                        Icons.logout,
-                                        color: Colors.redAccent,
-                                        size: width * 0.05,
-                                      ),
-                                    )),
-                              ),
-                            )
+                              trailing: SizedBox(
+                                  height: height * 0.12,
+                                  width: width * 0.15,
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "${StaticData.adminModel!.image}"),
+                                  )),
+                            ),
                           ],
                         ),
                       ),
@@ -82,79 +77,73 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.03,
+                  height: height * 0.1,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "${obj.totalPatients}",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Total Patient",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
+                    Container(
+                      height: height * 0.17,
+                      width: width * 0.35,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "${obj.totalPatients}",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Total Patient",
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
                       ),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "${obj.totalDoctors}",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Total Doctor",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
+                    Container(
+                      height: height * 0.17,
+                      width: width * 0.35,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "${obj.totalDoctors}",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Total Doctor",
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
                       ),
                     ),
                   ],
@@ -166,10 +155,9 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () {},
                       child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
+                        height: height * 0.17,
+                        width: width * 0.35,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
@@ -200,39 +188,36 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "${obj.totalslot}",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Total Schedule",
-                              style: TextStyle(
-                                  fontSize: width * 0.03,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
+                    Container(
+                      height: height * 0.17,
+                      width: width * 0.35,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: width * 0.01,
+                            spreadRadius: width * 0.01,
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "${obj.totalslot}",
+                            style: TextStyle(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Total Schedule",
+                            style: TextStyle(
+                                fontSize: width * 0.03,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
                       ),
                     ),
                   ],
@@ -240,81 +225,82 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                 SizedBox(
                   height: height * 0.03,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "10",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Cancel Schedule",
-                              style: TextStyle(
-                                  fontSize: width * 0.03,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: height * 0.15,
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width * 0.01,
-                              spreadRadius: width * 0.01,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "10",
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Total Doctor",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     InkWell(
+                //       onTap: () {},
+                //       child: Container(
+                //         height: height * 0.15,
+                //         width: width * 0.3,
+                //         decoration: BoxDecoration(
+                //           color: Colors.white,
+                //           borderRadius: BorderRadius.circular(10),
+                //           boxShadow: [
+                //             BoxShadow(
+                //               color: Colors.black12,
+                //               blurRadius: width * 0.01,
+                //               spreadRadius: width * 0.01,
+                //             ),
+                //           ],
+                //         ),
+                //         child: Column(
+                //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //           children: [
+                //             Text(
+                //               "10",
+                //               style: TextStyle(
+                //                   fontSize: width * 0.05,
+                //                   fontWeight: FontWeight.bold),
+                //             ),
+                //             Text(
+                //               "Cancel Schedule",
+                //               style: TextStyle(
+                //                   fontSize: width * 0.03,
+                //                   fontWeight: FontWeight.bold),
+                //             )
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                //     InkWell(
+                //       onTap: () {},
+                //       child: Container(
+                //         height: height * 0.15,
+                //         width: width * 0.3,
+                //         decoration: BoxDecoration(
+                //           color: Colors.white,
+                //           borderRadius: BorderRadius.circular(10),
+                //           boxShadow: [
+                //             BoxShadow(
+                //               color: Colors.black12,
+                //               blurRadius: width * 0.01,
+                //               spreadRadius: width * 0.01,
+                //             ),
+                //           ],
+                //         ),
+                //         child: Column(
+                //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //           children: [
+                //             Text(
+                //               "10",
+                //               style: TextStyle(
+                //                   fontSize: width * 0.05,
+                //                   fontWeight: FontWeight.bold),
+                //             ),
+                //             Text(
+                //               "Total Doctor",
+                //               style: TextStyle(
+                //                   fontSize: width * 0.04,
+                //                   fontWeight: FontWeight.bold),
+                //             )
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+
                 SizedBox(
                   height: height * 0.03,
                 ),

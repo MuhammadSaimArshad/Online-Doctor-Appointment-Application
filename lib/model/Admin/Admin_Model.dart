@@ -5,25 +5,33 @@ class AdminModel {
   String name;
   String password;
   String email;
-  String userid;
+  String id;
+  String token;
+  String image;
   AdminModel({
     required this.name,
     required this.password,
     required this.email,
-    required this.userid,
+    required this.id,
+    required this.token,
+    required this.image,
   });
 
   AdminModel copyWith({
     String? name,
     String? password,
     String? email,
-    String? userid,
+    String? id,
+    String? token,
+    String? image,
   }) {
     return AdminModel(
       name: name ?? this.name,
       password: password ?? this.password,
       email: email ?? this.email,
-      userid: userid ?? this.userid,
+      id: id ?? this.id,
+      token: token ?? this.token,
+      image: image ?? this.image,
     );
   }
 
@@ -32,7 +40,9 @@ class AdminModel {
       'name': name,
       'password': password,
       'email': email,
-      'userid': userid,
+      'id': id,
+      'token': token,
+      'image': image,
     };
   }
 
@@ -41,7 +51,9 @@ class AdminModel {
       name: map['name'] as String,
       password: map['password'] as String,
       email: map['email'] as String,
-      userid: map['userid'] as String,
+      id: map['id'] as String,
+      token: map['token'] as String,
+      image: map['image'] as String,
     );
   }
 
@@ -52,7 +64,7 @@ class AdminModel {
 
   @override
   String toString() {
-    return 'AdminModel(name: $name, password: $password, email: $email, userid: $userid)';
+    return 'AdminModel(name: $name, password: $password, email: $email, id: $id, token: $token, image: $image)';
   }
 
   @override
@@ -62,11 +74,18 @@ class AdminModel {
     return other.name == name &&
         other.password == password &&
         other.email == email &&
-        other.userid == userid;
+        other.id == id &&
+        other.token == token &&
+        other.image == image;
   }
 
   @override
   int get hashCode {
-    return name.hashCode ^ password.hashCode ^ email.hashCode ^ userid.hashCode;
+    return name.hashCode ^
+        password.hashCode ^
+        email.hashCode ^
+        id.hashCode ^
+        token.hashCode ^
+        image.hashCode;
   }
 }

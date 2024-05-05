@@ -30,16 +30,17 @@ class _AdminSignInState extends State<AdminSignIn> {
             child: Container(
               height: height,
               width: width,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Color(0xff0EBE4f),
-                    Color(0xff0EBE7F),
-                    Color(0xffffffff),
-                  ],
-                ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                // gradient: LinearGradient(
+                //   begin: Alignment.topRight,
+                //   end: Alignment.bottomLeft,
+                //   colors: [
+                //     Color(0xff0EBE4f),
+                //     Color(0xff0EBE7F),
+                //     Color(0xffffffff),
+                //   ],
+                // ),
               ),
               child: Column(
                 children: [
@@ -51,8 +52,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                     width: width * 0.8,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage(
-                                "images/play_store_512-removebg-preview.png"))),
+                            image: AssetImage("images/play_store_512.png"))),
                   ),
                   SizedBox(
                     height: height * 0.02,
@@ -66,11 +66,12 @@ class _AdminSignInState extends State<AdminSignIn> {
                         label: Text(
                           "Email Address",
                           style: TextStyle(
-                              color: Colors.white, fontSize: width * 0.035),
+                              color: const Color(0xff0EBE7F),
+                              fontSize: width * 0.035),
                         ),
                         prefixIcon: Icon(
                           Icons.email,
-                          color: Colors.white,
+                          color: const Color(0xff0EBE7F),
                           size: width * 0.05,
                         ),
                       ),
@@ -90,11 +91,12 @@ class _AdminSignInState extends State<AdminSignIn> {
                         label: Text(
                           "Enter Password",
                           style: TextStyle(
-                              color: Colors.white, fontSize: width * 0.035),
+                              color: const Color(0xff0EBE7F),
+                              fontSize: width * 0.035),
                         ),
                         prefixIcon: Icon(
                           Icons.lock,
-                          color: Colors.white,
+                          color: const Color(0xff0EBE7F),
                           size: width * 0.05,
                         ),
                         suffixIcon: InkWell(
@@ -109,11 +111,11 @@ class _AdminSignInState extends State<AdminSignIn> {
                           child: obj.passToggle
                               ? const Icon(
                                   CupertinoIcons.eye_slash_fill,
-                                  color: Colors.white,
+                                  color: const Color(0xff0EBE7F),
                                 )
                               : const Icon(
                                   CupertinoIcons.eye_fill,
-                                  color: Colors.white,
+                                  color: const Color(0xff0EBE7F),
                                 ),
                         ),
                       ),
@@ -140,7 +142,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                   ),
                   InkWell(
                     onTap: () {
-                      obj.login(context);
+                      obj.signInWithEmailAndPassword2(context);
                     },
                     child: Container(
                       height: height * 0.07,
@@ -171,7 +173,7 @@ class _AdminSignInState extends State<AdminSignIn> {
                       Text(
                         "Don't have any account?",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: const Color(0xff0EBE7F),
                           fontSize: width * 0.045,
                           fontWeight: FontWeight.w400,
                         ),
@@ -190,9 +192,10 @@ class _AdminSignInState extends State<AdminSignIn> {
                         child: Text(
                           "SignUp",
                           style: TextStyle(
-                              fontSize: width * 0.05,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                            fontSize: width * 0.05,
+                            fontWeight: FontWeight.bold,
+                            color: const Color(0xff0EBE7F),
+                          ),
                         ),
                       ),
                     ],

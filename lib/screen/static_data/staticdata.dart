@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doc_bookr/model/Admin/Admin_Model.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
 
@@ -20,8 +21,10 @@ import 'package:url_launcher/url_launcher.dart';
 class StaticData {
   static String patient = "";
   static String doctor = "";
+  static String admin = "";
   static DoctorModel? doctorModel;
   static PatientModel? patientmodel;
+  static AdminModel? adminModel;
   static String token = "";
   static http.Response? response;
   static FirebaseFirestore firebase = FirebaseFirestore.instance;
@@ -101,6 +104,19 @@ class StaticData {
     }
   }
 
+  static Future<String> getadmintokken(String id) async {
+    try {
+      DocumentSnapshot snapshot =
+          await firebase.collection("admin").doc(id).get();
+      AdminModel model =
+          AdminModel.fromMap(snapshot.data() as Map<String, dynamic>);
+      return model.token;
+    } catch (e) {
+      print("errrrrrrror    $e");
+      return "";
+    }
+  }
+
   static Future<void> updatedoctorprofile() async {
     try {
       DocumentSnapshot snapshot =
@@ -108,6 +124,27 @@ class StaticData {
       DoctorModel model =
           DoctorModel.fromMap(snapshot.data() as Map<String, dynamic>);
       doctorModel = model;
+    } catch (e) {
+      print("errrrrrrror    $e");
+      Fluttertoast.showToast(
+        msg: "${e.toString()} !",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        gravity: ToastGravity.BOTTOM,
+        fontSize: 17,
+        timeInSecForIosWeb: 1,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
+  }
+
+  static Future<void> updateadminprofile() async {
+    try {
+      DocumentSnapshot snapshot =
+          await firebase.collection("admin").doc(adminModel!.id).get();
+      AdminModel model =
+          AdminModel.fromMap(snapshot.data() as Map<String, dynamic>);
+      adminModel = model;
     } catch (e) {
       print("errrrrrrror    $e");
       Fluttertoast.showToast(

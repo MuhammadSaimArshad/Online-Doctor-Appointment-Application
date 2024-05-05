@@ -6,7 +6,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:timezone/browser.dart' as tz;
 import 'package:get/get.dart';
+// import 'htt';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,7 @@ void main() async {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Apptheme.primary, statusBarBrightness: Brightness.dark));
+  // await tz.initializeTimeZone();
 }
 
 Future<void> backgroundHandler(RemoteMessage message) async {

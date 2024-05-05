@@ -7,6 +7,7 @@ import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/model/Appointment_Model.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 import 'package:doc_bookr/model/Doctor/Doctor_Slots.dart';
+import 'package:doc_bookr/screen/doctor/message/notification_service.dart';
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 
 import 'package:flutter/material.dart';
@@ -239,10 +240,16 @@ class _CalenderState extends State<Calender> {
                         createdtime: DateTime.now().microsecondsSinceEpoch,
                         status: 1,
                       );
+                      // var list =
+                      //     LocalNotificationService.convertToRemainingMinutes(
+                      //         model.time);
+                      // LocalNotificationService.scheduleNotification(
+                      //     '$list${model.time}', list[0], list[1]);
                       await StaticData.firebase
                           .collection("appointment")
                           .doc(id)
                           .set(model.toMap());
+
                       await StaticData.firebase
                           .collection("slots")
                           .doc(widget.model.id)

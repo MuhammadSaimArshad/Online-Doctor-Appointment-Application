@@ -35,17 +35,17 @@ class _AdminSignupState extends State<AdminSignup> {
           child: Container(
             height: height,
             width: width,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color(0xff0EBE4f),
-                  Color(0xff0EBE7F),
-                  Color(0xffffffff),
-                ],
-              ),
-            ),
+            decoration: BoxDecoration(color: Colors.white
+                // gradient: LinearGradient(
+                //   begin: Alignment.topRight,
+                //   end: Alignment.bottomLeft,
+                //   colors: [
+                //     Color(0xff0EBE4f),
+                //     Color(0xff0EBE7F),
+                //     Color(0xffffffff),
+                //   ],
+                // ),
+                ),
             child: Column(
               children: [
                 SizedBox(
@@ -56,8 +56,7 @@ class _AdminSignupState extends State<AdminSignup> {
                   width: width * 0.8,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(
-                              "images/play_store_512-removebg-preview.png"))),
+                          image: AssetImage("images/play_store_512.png"))),
                 ),
                 SizedBox(
                   height: height * 0.02,
@@ -76,11 +75,12 @@ class _AdminSignupState extends State<AdminSignup> {
                       label: Text(
                         " Name",
                         style: TextStyle(
-                            color: Colors.white, fontSize: width * 0.035),
+                            color: const Color(0xff0EBE7F),
+                            fontSize: width * 0.035),
                       ),
                       prefixIcon: Icon(
                         Icons.person_outline,
-                        color: Colors.white,
+                        color: const Color(0xff0EBE7F),
                         size: width * 0.05,
                       ),
                     ),
@@ -102,15 +102,17 @@ class _AdminSignupState extends State<AdminSignup> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: Colors.white, width: width * 0.01)),
+                              color: const Color(0xff0EBE7F),
+                              width: width * 0.01)),
                       label: Text(
                         "Email Address",
                         style: TextStyle(
-                            color: Colors.white, fontSize: width * 0.035),
+                            color: const Color(0xff0EBE7F),
+                            fontSize: width * 0.035),
                       ),
                       prefixIcon: Icon(
                         Icons.email,
-                        color: Colors.white,
+                        color: const Color(0xff0EBE7F),
                         size: width * 0.05,
                       ),
                     ),
@@ -130,11 +132,12 @@ class _AdminSignupState extends State<AdminSignup> {
                       label: Text(
                         "Enter Password",
                         style: TextStyle(
-                            color: Colors.white, fontSize: width * 0.035),
+                            color: const Color(0xff0EBE7F),
+                            fontSize: width * 0.035),
                       ),
                       prefixIcon: Icon(
                         Icons.lock,
-                        color: Colors.white,
+                        color: const Color(0xff0EBE7F),
                         size: width * 0.05,
                       ),
                       suffixIcon: InkWell(
@@ -149,11 +152,11 @@ class _AdminSignupState extends State<AdminSignup> {
                         child: obj.passToggle
                             ? const Icon(
                                 CupertinoIcons.eye_slash_fill,
-                                color: Colors.white,
+                                color: const Color(0xff0EBE7F),
                               )
                             : const Icon(
                                 CupertinoIcons.eye_fill,
-                                color: Colors.white,
+                                color: const Color(0xff0EBE7F),
                               ),
                       ),
                     ),
@@ -180,7 +183,7 @@ class _AdminSignupState extends State<AdminSignup> {
                 ),
                 InkWell(
                   onTap: () {
-                    obj.sinup(context);
+                    obj.registeradmin(context);
                   },
                   child: Container(
                     height: height * 0.07,
@@ -213,7 +216,7 @@ class _AdminSignupState extends State<AdminSignup> {
                       style: TextStyle(
                         fontSize: width * 0.04,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: const Color(0xff0EBE7F),
                       ),
                     ),
                     TextButton(
@@ -229,7 +232,7 @@ class _AdminSignupState extends State<AdminSignup> {
                         style: TextStyle(
                           fontSize: width * 0.04,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: const Color(0xff0EBE7F),
                         ),
                       ),
                     ),

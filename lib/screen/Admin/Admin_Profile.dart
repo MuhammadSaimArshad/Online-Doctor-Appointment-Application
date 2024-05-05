@@ -1,24 +1,20 @@
-import 'package:doc_bookr/screen/patient/Patient_About.dart';
-import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
-import 'package:doc_bookr/screen/patient/home/home_screen.dart';
-import 'package:doc_bookr/screen/patient/mydoctor.dart';
-import 'package:doc_bookr/screen/patient/notification_screen.dart';
-
-import 'package:doc_bookr/screen/patient/patient_edit_profile_.dart';
-import 'package:doc_bookr/screen/patient/Rating.dart';
+import 'package:doc_bookr/screen/Admin/Admin_Edit_profile.dart';
+import 'package:doc_bookr/screen/Admin/Admin_Total_doctor.dart';
+import 'package:doc_bookr/screen/Admin/Admin_total_patient.dart';
+import 'package:doc_bookr/screen/Admin/admin_home.dart';
 
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class AdminProfile extends StatefulWidget {
+  const AdminProfile({super.key});
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<AdminProfile> createState() => _AdminProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _AdminProfileState extends State<AdminProfile> {
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -41,9 +37,9 @@ class _ProfileState extends State<Profile> {
                     Align(
                       alignment: Alignment.center,
                       child: CircleAvatar(
-                        radius: width * 0.16,
+                        radius: width * 0.15,
                         backgroundImage:
-                            NetworkImage(StaticData.patientmodel!.image),
+                            NetworkImage(StaticData.adminModel!.image),
                       ),
                     ),
                     Padding(
@@ -63,7 +59,7 @@ class _ProfileState extends State<Profile> {
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
-                          StaticData.patientmodel!.name,
+                          StaticData.adminModel!.name,
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.bold),
@@ -78,17 +74,13 @@ class _ProfileState extends State<Profile> {
                 height: height * 0.2,
                 width: width * 0.9,
                 decoration: BoxDecoration(
-                    // image: DecorationImage(
-                    //     image: AssetImage(
-                    //         "images/play_store_512-removebg-preview.png"),
-                    //     alignment: Alignment.center),
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
                         Color(0xff0EBE4f),
                         Color(0xff0EBE7F),
-                        // Color(0xffffffff),
+                        Color(0xffffffff),
                       ],
                     ),
                     borderRadius: BorderRadius.circular(width * 0.05),
@@ -99,26 +91,6 @@ class _ProfileState extends State<Profile> {
                         spreadRadius: 4,
                       ),
                     ]),
-                // child: Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text("Easy Appointments ",
-                //         style: TextStyle(
-                //           fontWeight: FontWeight.bold,
-                //           fontSize: width * 0.04,
-                //           color: Colors.white,
-                //         )),
-                //     Text(
-                //       "And Chat with Doctor \n Personal and Family \n Solve Health Issue.",
-                //       style: TextStyle(
-                //         fontSize: width * 0.04,
-                //         fontWeight: FontWeight.w400,
-                //         color: Colors.white,
-                //       ),
-                //     )
-                //   ],
-                // ),
               ),
               SizedBox(
                 height: height * 0.05,
@@ -128,7 +100,7 @@ class _ProfileState extends State<Profile> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PatientEditProfile(),
+                        builder: (context) => const AdminEditProfile(),
                       ));
                 },
                 leading: Container(
@@ -155,7 +127,7 @@ class _ProfileState extends State<Profile> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PatientEditProfile(),
+                            builder: (context) => const AdminEditProfile(),
                           ));
                     },
                     child: Icon(
@@ -171,7 +143,50 @@ class _ProfileState extends State<Profile> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MyDoctor(),
+                        builder: (context) => const TotalDoctor(),
+                      ));
+                },
+                leading: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.blue.shade100,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    CupertinoIcons.person,
+                    color: Colors.blue,
+                    size: width * 0.05,
+                  ),
+                ),
+                title: Text(
+                  "Total Doctor",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: width * 0.05,
+                  ),
+                ),
+                trailing: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const TotalDoctor(),
+                          ));
+                    },
+                    child: Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: width * 0.05,
+                    )),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TotalPatient(),
                       ));
                 },
                 leading: Container(
@@ -187,7 +202,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 title: Text(
-                  "My Doctor",
+                  "Total Patient",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: width * 0.05,
@@ -198,7 +213,7 @@ class _ProfileState extends State<Profile> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MyDoctor(),
+                          builder: (context) => const TotalPatient(),
                         ));
                   },
                   child: Icon(
@@ -207,6 +222,36 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
               ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Container(
+              //     padding: const EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.deepPurple.shade100,
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.notifications_none_outlined,
+              //       color: Colors.deepPurple,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "Notifications",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: Icon(
+              //     Icons.arrow_forward_ios_rounded,
+              //     size: width * 0.05,
+              //   ),
+              // ),
+
               SizedBox(
                 height: height * 0.01,
               ),
@@ -215,55 +260,11 @@ class _ProfileState extends State<Profile> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const NotificationScreen(),
+                        builder: (context) => const AdminHomeScreen(),
                       ));
                 },
                 leading: Container(
                   padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.notifications_none_outlined,
-                    color: Colors.deepPurple,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "Notifications",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NotificationScreen(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
-                      ));
-                },
-                leading: Container(
-                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.red[200],
                     shape: BoxShape.circle,
@@ -286,7 +287,7 @@ class _ProfileState extends State<Profile> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => const AdminHomeScreen(),
                         ));
                   },
                   child: Icon(
@@ -298,138 +299,79 @@ class _ProfileState extends State<Profile> {
               SizedBox(
                 height: height * 0.01,
               ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RatingScreen(),
-                      ));
-                },
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.indigo.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.feedback_outlined,
-                    color: Colors.indigo,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "FeedBack",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const RatingScreen(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PatientPrivacy(),
-                      ));
-                },
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.pink.shade200,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.privacy_tip_outlined,
-                    color: Colors.pink,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "Privacy",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PatientPrivacy(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PatientAbout(),
-                      ));
-                },
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.orange.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.info_outline_rounded,
-                    color: Colors.orange,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "About Us",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PatientAbout(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
+              // ListTile(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const PatientPrivacy(),
+              //         ));
+              //   },
+              //   leading: Container(
+              //     padding: const EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.indigo.shade100,
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.privacy_tip_outlined,
+              //       color: Colors.indigo,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "Privacy",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: InkWell(
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => const PatientPrivacy(),
+              //           ));
+              //     },
+              //     child: Icon(
+              //       Icons.arrow_forward_ios_rounded,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Container(
+              //     padding: EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.orange.shade100,
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.info_outline_rounded,
+              //       color: Colors.orange,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "About Us",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: Icon(
+              //     Icons.arrow_forward_ios_rounded,
+              //     size: width * 0.05,
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
               ListTile(
                 onTap: () {
                   StaticData.logout(context);

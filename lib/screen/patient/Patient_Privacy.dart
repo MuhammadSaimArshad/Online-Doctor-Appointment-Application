@@ -65,7 +65,7 @@ class _PatientPrivacyState extends State<PatientPrivacy> {
               height: height * 0.05,
             ),
             Container(
-              height: height * 0.5,
+              height: height * 0.6,
               width: width * 0.95,
               color: Colors.white,
               child: Center(
