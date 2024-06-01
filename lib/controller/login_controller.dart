@@ -18,6 +18,8 @@ class LoginController extends GetxController {
   String errorMessage = "";
   TextEditingController email = TextEditingController();
   int index = 0;
+
+  get channal => null;
   updateindex(int a) {
     index = a;
     update();

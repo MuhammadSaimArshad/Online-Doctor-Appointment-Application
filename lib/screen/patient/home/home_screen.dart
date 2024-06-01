@@ -420,9 +420,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     ));
                                     },
                                     child: Container(
-                                      height: height * 0.45,
-                                      width: width * 0.5,
-                                      margin: const EdgeInsets.all(10),
+                                      height: height * 0.6,
+                                      width: width * 0.55,
+                                      margin: EdgeInsets.all(3),
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),
@@ -474,7 +474,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 obj.list[index].totalrating,
                                             direction: Axis.horizontal,
                                             itemCount: 5,
-                                            itemSize: 30,
+                                            itemSize: 20,
                                             unratedColor: Colors.grey,
                                             itemBuilder: (context, _) => Icon(
                                               Icons.star,
@@ -519,8 +519,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       //     ));
                                     },
                                     child: Container(
-                                      height: height * 0.45,
-                                      margin: const EdgeInsets.all(10),
+                                      height: height * 0.6,
+                                      margin: EdgeInsets.all(3),
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(10),
@@ -572,7 +572,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 .fuilterlist[index].totalrating,
                                             direction: Axis.horizontal,
                                             itemCount: 5,
-                                            itemSize: 30,
+                                            itemSize: 20,
                                             unratedColor: Colors.grey,
                                             itemBuilder: (context, _) => Icon(
                                               Icons.star,

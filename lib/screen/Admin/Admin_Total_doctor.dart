@@ -467,20 +467,20 @@ class _TotalDoctorState extends State<TotalDoctor> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    Text(
-                                                      "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
-                                                      style: TextStyle(
-                                                          color: Colors.black45,
-                                                          fontSize:
-                                                              width * 0.03),
-                                                    ),
+                                                    // Text(
+                                                    //   "${(doctor!.totalrating / doctor!.ratingperson).isNaN ? "0" : (doctor!.totalrating / doctor!.ratingperson)}",
+                                                    //   style: TextStyle(
+                                                    //       color: Colors.black45,
+                                                    //       fontSize:
+                                                    //           width * 0.03),
+                                                    // ),
                                                     RatingBar.builder(
                                                       initialRating:
                                                           doctor!.totalrating,
                                                       direction:
                                                           Axis.horizontal,
                                                       itemCount: 5,
-                                                      itemSize: 25,
+                                                      itemSize: 15,
                                                       unratedColor: Colors.grey,
                                                       itemBuilder:
                                                           (context, _) => Icon(

@@ -1,9 +1,12 @@
 import 'package:doc_bookr/controller/Doctor/Doctor_Home_Controller.dart';
 import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 import 'package:doc_bookr/screen/doctor/Medicine.dart';
+import 'package:doc_bookr/screen/doctor/add.dart';
+import 'package:doc_bookr/screen/signup_login/signup_screen.dart';
 
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:get/get.dart';
 
 class DoctorHomeScreen extends StatefulWidget {
@@ -132,7 +135,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MedicineHistory(),
+                                builder: (context) => Medicineadd(),
                               ));
                         },
                         child: Container(

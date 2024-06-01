@@ -68,8 +68,7 @@ class _DocSloDateState extends State<DocSloDate> {
                     Text(
                       "Slots",
                       style: TextStyle(
-                        fontSize: width * 0.04,
-                      ),
+                          fontSize: width * 0.04, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -169,7 +168,7 @@ class _DocSloDateState extends State<DocSloDate> {
                                           snapshot.data!.docs.isEmpty
                                       ? Center(
                                           child: CustomWidget.largeText(
-                                              'DocSloDate not found !'),
+                                              ' not found !'),
                                         )
                                       : GridView.builder(
                                           itemCount: snapshot.data!.docs.length,

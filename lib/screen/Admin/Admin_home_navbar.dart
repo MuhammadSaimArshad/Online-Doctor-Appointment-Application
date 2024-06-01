@@ -32,7 +32,7 @@ class _AdminHomeNavbarScreenState extends State<AdminHomeNavbarScreen> {
         backgroundColor: Colors.white,
         body: _screen[_selectedIndex],
         bottomNavigationBar: Container(
-          height: 80,
+          height: 70,
           child: BottomNavigationBar(
             backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
