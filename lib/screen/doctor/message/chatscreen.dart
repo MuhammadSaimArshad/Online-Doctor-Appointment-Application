@@ -118,43 +118,43 @@ class _ChatScreenState extends State<ChatScreen> {
                     ],
                   ),
                 ),
-                actions: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AudioCall(
-                              roomId: '',
-                              callstatus: false,
-                              profileModel: widget.dmodel!,
-                              userModel: widget.pModel!,
-                            ),
-                          ));
-                    },
-                    child: Icon(
-                      Icons.call,
-                      color: Colors.white,
-                      size: 25,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Icon(
-                    Icons.video_call,
-                    color: Colors.white,
-                    size: 25,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Icon(
-                    Icons.more_vert,
-                    color: Colors.white,
-                    size: 25,
-                  ),
-                ],
+                // actions: [
+                //   InkWell(
+                //     onTap: () {
+                //       Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //             builder: (context) => AudioCall(
+                //               roomId: '',
+                //               callstatus: false,
+                //               profileModel: widget.dmodel!,
+                //               userModel: widget.pModel!,
+                //             ),
+                //           ));
+                //     },
+                //     child: Icon(
+                //       Icons.call,
+                //       color: Colors.white,
+                //       size: 25,
+                //     ),
+                //   ),
+                //   SizedBox(
+                //     width: 8,
+                //   ),
+                //   Icon(
+                //     Icons.video_call,
+                //     color: Colors.white,
+                //     size: 25,
+                //   ),
+                //   SizedBox(
+                //     width: 8,
+                //   ),
+                //   Icon(
+                //     Icons.more_vert,
+                //     color: Colors.white,
+                //     size: 25,
+                //   ),
+                // ],
               ),
             ),
             body: SizedBox(

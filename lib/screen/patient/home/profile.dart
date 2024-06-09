@@ -2,7 +2,6 @@ import 'package:doc_bookr/screen/patient/Patient_About.dart';
 import 'package:doc_bookr/screen/patient/Patient_Privacy.dart';
 import 'package:doc_bookr/screen/patient/home/home_screen.dart';
 import 'package:doc_bookr/screen/patient/mydoctor.dart';
-import 'package:doc_bookr/screen/patient/notification_screen.dart';
 
 import 'package:doc_bookr/screen/patient/patient_edit_profile_.dart';
 import 'package:doc_bookr/screen/patient/Rating.dart';
@@ -210,50 +209,50 @@ class _ProfileState extends State<Profile> {
               SizedBox(
                 height: height * 0.01,
               ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const NotificationScreen(),
-                      ));
-                },
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.notifications_none_outlined,
-                    color: Colors.deepPurple,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "Notifications",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NotificationScreen(),
-                        ));
-                  },
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: width * 0.05,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
+              // ListTile(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const NotificationScreen(),
+              //         ));
+              //   },
+              //   leading: Container(
+              //     padding: const EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.deepPurple.shade100,
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.notifications_none_outlined,
+              //       color: Colors.deepPurple,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "Notifications",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: InkWell(
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => const NotificationScreen(),
+              //           ));
+              //     },
+              //     child: Icon(
+              //       Icons.arrow_forward_ios_rounded,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
               ListTile(
                 onTap: () {
                   Navigator.push(
