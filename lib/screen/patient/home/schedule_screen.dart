@@ -27,9 +27,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // SizedBox(
-          //   height: height * 0.01,
-          // ),
           Container(
             height: height * 0.07,
             decoration: BoxDecoration(

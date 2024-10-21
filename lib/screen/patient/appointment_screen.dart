@@ -189,7 +189,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.005,
+                        height: height * 0.002,
                       ),
                       Text(
                         widget.model.bio,
@@ -200,7 +200,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: height * 0.005,
                       ),
                       Row(
                         children: [
@@ -217,7 +217,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                         ],
                       ),
                       Container(
-                        height: height * 0.24,
+                        height: height * 0.22,
                         color: Colors.transparent,
                         child: StreamBuilder(
                             stream: StaticData.firebase
@@ -317,9 +317,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                       },
                                     );
                             }),
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                      
                       ),
                       Row(
                         children: [

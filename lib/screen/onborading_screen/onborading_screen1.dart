@@ -19,8 +19,8 @@ class _IntroScreenState extends State<IntroScreen> {
       _pageController.animateToPage(
         nextPage,
         duration:
-            const Duration(milliseconds: 300), // You can adjust the duration
-        curve: Curves.ease, // You can choose a different curve if needed
+            const Duration(milliseconds: 300), 
+        curve: Curves.ease, 
       );
     }
   }

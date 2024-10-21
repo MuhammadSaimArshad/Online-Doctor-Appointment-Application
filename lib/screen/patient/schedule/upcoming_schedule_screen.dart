@@ -68,7 +68,7 @@ class _UpcomingScheduleState extends State<UpcomingSchedule> {
                                   ],
                                 ),
                                 child: SizedBox(
-                                  height: height * 0.26,
+                                  height: height * 0.3,
                                   child: Column(
                                     children: [
                                       ListTile(

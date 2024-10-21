@@ -15,46 +15,7 @@ class AdminLoginController extends GetxController {
   String errorMessage = "";
 
   bool passToggle = true;
-  // List<AdminModel> userList = [];
-  // login(context) async {
-  //   var firestore = FirebaseFirestore.instance;
-  //   try {
-  //     QuerySnapshot data = await firestore
-  //         .collection("admin")
-  //         .where("email", isEqualTo: email.text)
-  //         .where("password", isEqualTo: password.text)
-  //         .get();
-  //     if (data.docs.isNotEmpty) {
-  //       AdminModel model =
-  //           AdminModel.fromMap(data.docs[0].data() as Map<String, dynamic>);
 
-  //       AdminStaticData.user = model;
-  //       AdminStaticData.id = model.id;
-  //       print("userid store${AdminStaticData.user!.id.toString()}");
-  //       // prefs.setString('UserId', AdminStaticData.user!.userid.toString());
-  //       Fluttertoast.showToast(
-  //         msg: "Login Successful",
-  //         toastLength: Toast.LENGTH_SHORT,
-  //         gravity: ToastGravity.CENTER,
-  //         timeInSecForIosWeb: 1,
-  //         backgroundColor: const Color(0xff0EBE7F),
-  //         textColor: Colors.white,
-  //         fontSize: 16.0,
-  //       );
-  //       Navigator.push(
-  //           context,
-  //           MaterialPageRoute(
-  //             builder: (context) => const AdminHomeNavbarScreen(),
-  //           ));
-  //       update();
-  //       print(model);
-  //     } else {
-  //       print("Email or password is incorrect");
-  //     }
-  //   } catch (e) {
-  //     print("error${e}");
-  //   }
-  // }
   FirebaseFirestore firebase = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
   void signInWithEmailAndPassword2(BuildContext context) async {

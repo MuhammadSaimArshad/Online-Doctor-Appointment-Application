@@ -164,7 +164,8 @@ class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
                       width: width * 0.6,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: FileImage(File(obj.hpickedFile!.path)))),
+                              image: FileImage(File(obj.hpickedFile!.path)))
+                              ),
                     ),
                     SizedBox(
                       height: height * 0.01,
@@ -204,6 +205,8 @@ class _DoctorAddReportScreenState extends State<DoctorAddReportScreen> {
                     )
                   ],
                 ),
+        
+        
         );
       }),
     );

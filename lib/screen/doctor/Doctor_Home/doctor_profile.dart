@@ -184,35 +184,35 @@ class _DoctorProfileState extends State<DoctorProfile> {
               SizedBox(
                 height: height * 0.01,
               ),
-              ListTile(
-                onTap: () {},
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade100,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.notifications_none_outlined,
-                    color: Colors.deepPurple,
-                    size: width * 0.05,
-                  ),
-                ),
-                title: Text(
-                  "Notifications",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: width * 0.05,
-                  ),
-                ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: width * 0.05,
-                ),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Container(
+              //     padding: const EdgeInsets.all(10),
+              //     decoration: BoxDecoration(
+              //       color: Colors.deepPurple.shade100,
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: Icon(
+              //       Icons.notifications_none_outlined,
+              //       color: Colors.deepPurple,
+              //       size: width * 0.05,
+              //     ),
+              //   ),
+              //   title: Text(
+              //     "Notifications",
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w500,
+              //       fontSize: width * 0.05,
+              //     ),
+              //   ),
+              //   trailing: Icon(
+              //     Icons.arrow_forward_ios_rounded,
+              //     size: width * 0.05,
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: height * 0.01,
+              // ),
               ListTile(
                 onTap: () {
                   Navigator.push(
