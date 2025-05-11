@@ -1,5 +1,4 @@
 import 'package:doc_bookr/controller/Patient/Patient_Home_Controller.dart';
-import 'package:doc_bookr/controller/call_controller.dart';
 import 'package:doc_bookr/screen/custom_widgets/customwidgets.dart';
 
 import 'package:doc_bookr/screen/patient/category_of_doctor.dart';
@@ -23,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     Get.put(PatientHomeController());
-    Get.put(CallController());
     StaticData.updatepatientprofile();
     PatientHomeController.to.getdoctor();
     super.initState();
