@@ -3,14 +3,13 @@ import 'dart:async';
 import 'package:doc_bookr/model/Doctor/Doctor_Model.dart';
 
 import 'package:doc_bookr/model/Patient/Patient_Model.dart';
-import 'package:doc_bookr/screen/doctor/message/notification_service.dart';
 
 import 'package:doc_bookr/screen/onborading_screen/onborading_screen1.dart';
 import 'package:doc_bookr/screen/doctor/Doctor_Home/dcotor_home_navbar.dart';
 
 import 'package:doc_bookr/screen/patient/home/home_navbar_screen.dart';
 import 'package:doc_bookr/screen/static_data/staticdata.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,7 +44,6 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
   @override
   void initState() {
     getDataFromSF();
-    getToken();
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
@@ -81,43 +79,11 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     // });
 
     super.initState();
-    FirebaseMessaging.instance.getInitialMessage().then(
-      (message) {
-        if (message != null) {
-          print(message);
-        }
-      },
-    );
-    FirebaseMessaging.onMessage.listen(
-      (message) {
-        print("123231${message.data}");
-        if (message.notification != null) {
-          LocalNotificationService.createAndDisplayChatNotification(message);
-        }
-      },
-    );
-    FirebaseMessaging.onMessageOpenedApp.listen(
-      (message) {
-        print('app open on click');
-        print(message.notification!.body);
-        print(message.notification!.title);
-        print(message.data);
-
-        if (message.notification != null) {}
-      },
-    );
+   
+  
   }
 
-  getToken() {
-    messaging = FirebaseMessaging.instance;
-    messaging.getToken().then((value) {
-      if (value != null) {
-        StaticData.token = value;
-      }
 
-      print(value);
-    });
-  }
 
   Future<bool?> getDataFromSF() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -125,7 +91,6 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     String? v1 = prefs.getString("doctor");
     print("v:$v");
     print("v1:$v1");
-    getToken();
     StaticData.patient = v ?? "";
     StaticData.doctor = v1 ?? "";
     if (v != null && v != "") {
@@ -262,46 +227,6 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
       print('Error fetching user data: $e');
     }
   }
-
-  late FirebaseMessaging messaging;
-
-  // void initState() {
-  //   super.initState();
-
-  //   _controller =
-  //       AnimationController(vsync: this, duration: const Duration(seconds: 3));
-
-  //   animation1 = Tween<double>(begin: 40, end: 20).animate(CurvedAnimation(
-  //       parent: _controller!, curve: Curves.fastLinearToSlowEaseIn))
-  //     ..addListener(() {
-  //       setState(() {
-  //         _textOpacity = 1.0;
-  //       });
-  //     });
-
-  //   _controller!.forward();
-
-  //   Timer(const Duration(seconds: 2), () {
-  //     setState(() {
-  //       _fontSize = 1.06;
-  //     });
-  //   });
-
-  //   Timer(const Duration(seconds: 2), () {
-  //     setState(() {
-  //       _containerOpacity = 1;
-  //     });
-  //   });
-
-  //   Timer(const Duration(seconds: 4), () {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       PageTransition(
-  //         const IntroScreen(),
-  //       ),
-  //     );
-  //   });
-  // }
 
   @override
   void dispose() {
