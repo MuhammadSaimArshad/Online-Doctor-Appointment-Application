@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:custom_clippers/custom_clippers.dart';
 import 'package:flutter/material.dart';
 

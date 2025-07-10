@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doc_bookr/model/Admin/Admin_Model.dart';
 import 'package:doc_bookr/screen/Admin/Admin_home_navbar.dart';
